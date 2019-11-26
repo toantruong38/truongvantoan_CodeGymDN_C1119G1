@@ -1,0 +1,9 @@
+1) git commit : tạo snapshot của toàn bộ source code
+
+2) git branch : tạo nhánh mới tại HEAD 
+
+3) git checkout : trỏ đến nhánh hoặc commit
+
+4) git checkout -b [branchName] : tạo branch và checkout nó cùng lúc
+
+5) git merge [branchName] : merge current branch với branchName
