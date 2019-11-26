@@ -1,0 +1,13 @@
+Begin
+	Input soLuong
+	IF soLuong > 0
+		Input a[0]...a[soLuong-1]
+		i = 0				//counting
+		Max = 0
+		WHILE i<=soLuong
+			IF a[i] >= Max
+				Max = a[i]
+			ENDIF
+			i++
+	ENDIF
+End

@@ -1,0 +1,15 @@
+// Đề bài giả sử a là số lớn nhất. Nếu có trường hợp a=b=c thì a vẫn mặc định là max
+Begin
+	Input a,b,c
+	IF a >= b
+		IF b >= c
+			DISPLAY "So lon nhat la : " + a
+		ELSEIF a >= c
+			DISPLAY "So lon nhat la : " + a
+		ELSE 
+			DISPLAY "So lon nhat la : " + c
+	ELSEIF b > c
+		DISPLAY "So lon nhat la : " + b
+		ELSE 
+			DISPLAY "So lon nhat la : " + C
+End
