@@ -1,0 +1,7 @@
+1) Trỏ đến thư mục Local repo
+
+2) Mở cmd hoặc git bash
+
+3) Gõ câu lệnh "git clone https://github.com/codegym-vn/wf-hello.git"
+
+Giải thích : lệnh "clone"= nhân bản (sao chép) repo từ link trên về Local repo của mình
