@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <input type="text" id="bien1"><input type="text" id="bien2"><br>
+    <button id="congBtn" onclick="Express('cong')">Cong(+)</button>
+    <button id="truBtn" onclick="Express('tru')">Tru(-)</button>
+    <button id="nhanBtn" onclick="Express('nhan')">Nhan(X)</button>
+    <button id="chiaBtn" onclick="Express('chia')">Chia(/)</button>
+    <div id="resultDiv"></div>
+
+<script>
+    let bien1,bien2,result;
+    function Express(e)
+    {
+        bien1=parseFloat(document.getElementById("bien1").value);
+        //alert(bien1);
+        bien2=parseFloat(document.getElementById("bien2").value);
+        switch(e)
+        {
+            case 'cong':
+                result=bien1+bien2;
+                showResult(result); break;
+            case 'tru':
+                result=bien1-bien2;
+                showResult(result); break;
+            case 'nhan':
+                result=bien1*bien2;
+                showResult(result); break;
+            case 'chia':
+                if(bien2===0) {alert("Error: divide by 0"); break;}
+                result=bien1/bien2;
+                showResult(result); break;
+        }
+    }
+    function showResult(result)
+    {
+        document.getElementById("resultDiv").innerText="Result : "+result;
+    }
+</script>
+</body>
+</html>
