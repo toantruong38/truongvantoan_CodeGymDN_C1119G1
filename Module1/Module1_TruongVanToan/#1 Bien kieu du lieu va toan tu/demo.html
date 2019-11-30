@@ -6,6 +6,7 @@
 </head>
 <body>
 <script>
+    let totalPay;
     let clientName,clientID,clientBirth,clientEmail,
         clientAddr,clientKind;
     /*
@@ -25,6 +26,30 @@
     serviceDiscount=prompt("Nhap giam gia"); serviceAmount=prompt("Nhap so luong");
     serviceRentDay=prompt("Nhap so ngay thue"); serviceKind=prompt("Nhap loai dich vu");
     serviceRoomKind=prompt("Nhap loai phong");
+    let output="Khach hang: "+clientName+"\n"+"So chung minh nhan dan: "+clientID+"\n"
+                +"Ngay sinh: "+clientBirth+"\n"+"Email: "+clientEmail+"\n"
+                +"Dia chi: "+clientAddr+"\n"+"Loai KH: "+clientKind+"\n"
+                +"Giam gia: "+serviceDiscount+"\n"+"So luong: "+serviceAmount+"\n"
+                +"So ngay thue: "+serviceRentDay+"\n"+"Loai dich vu: "+serviceKind+"\n"
+                +"Loai phong: "+serviceRoomKind+"\n"+"So tien phai tra: "+TotalPay(serviceKind);
+    alert(output);
+
+    function TotalPay(e)
+    {
+        switch(e)
+        {
+            case 'Villa':
+                totalPay = villaCost * serviceRentDay * (1 - (serviceDiscount / 100));
+                break;
+            case 'House':
+                totalPay = houseCost * serviceRentDay * (1 - (serviceDiscount / 100));
+                break;
+            case 'Room':
+                totalPay = roomCost * serviceRentDay * (1 - (serviceDiscount / 100));
+                break;
+        }
+        return totalPay;
+    }
 </script>
 </body>
 </html>
