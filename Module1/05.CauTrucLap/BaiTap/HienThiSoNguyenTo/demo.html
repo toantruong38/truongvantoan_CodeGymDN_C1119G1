@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let count,soLuong,temp=1;let oke="";
+    soLuong = parseInt(prompt("Nhap so luong"));
+    for(count=0;count<soLuong;)
+    {
+        while(true)
+        {
+            temp++;
+            if(temp===2||temp===3||temp===5)
+            {
+                oke += temp + "\t";
+                count++; break;
+            }
+            
+            if(temp%2===0||temp%3===0||temp%5===0) break;
+            else
+            {
+                oke += temp + "\t";
+                count++; break;
+            }
+        }
+    }
+    document.write(oke);
+</script>
+</body>
+</html>
