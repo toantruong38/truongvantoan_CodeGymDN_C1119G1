@@ -1,0 +1,13 @@
+Begin
+	Input diem
+		IF diem>=75
+			Display A
+		ELSE IF diem<75 and diem>=60
+			Display B
+		ELSE IF diem<60 and diem>=45
+			Display C
+		ELSE IF diem<45 and diem>=35
+			Display D
+		ELSE
+			Display E
+End. 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label style=" width: 100px;display: inline-block">Good</label>
+<img src="images/off.png" id="goodOff" onclick="Express('good')"/><br>
+
+<label style="width: 100px;display: inline-block">Fast</label>
+<img src="images/off.png" id="fastOff" onclick="Express('fast')"/><br>
+
+<label style="width: 100px;display: inline-block">Cheap</label>
+<img src="images/off.png" id="cheapOff" onclick="Express('cheap')"/><br>
+<script>
+    let good,fast,cheap; good=fast=cheap=false;
+    function Express(e)
+    {
+        switch(e)
+        {
+            case 'good':
+                if(fast===true && cheap===true) {
+                    document.getElementById("goodOff").src = "images/on.png"; good=true;
+                    document.getElementById("cheapOff").src="images/off.png"; cheap=false}
+                else if(good===true) {document.getElementById("goodOff").src="images/off.png"; good=false;}
+                else {
+                    document.getElementById("goodOff").src = "images/on.png";
+                    good=true;
+                }
+                break;
+            case 'fast':
+                if(good===true && cheap===true) {
+                    document.getElementById("fastOff").src = "images/on.png"; fast=true;
+                    document.getElementById("goodOff").src="images/off.png"; good=false;}
+                else if(fast===true) {document.getElementById("fastOff").src="images/off.png"; fast=false;}
+                else {
+                    document.getElementById("fastOff").src = "images/on.png";
+                    fast=true;
+                }
+                break;
+            case 'cheap':
+                if(good===true && fast===true) {
+                    document.getElementById("cheapOff").src = "images/on.png"; cheap=true;
+                    document.getElementById("fastOff").src="images/off.png";fast=false;}
+                else if(cheap===true) {document.getElementById("cheapOff").src="images/off.png"; cheap=false;}
+                else {
+                    document.getElementById("cheapOff").src = "images/on.png";
+                    cheap=true;
+                }
+                break;
+        }
+    }
+    function Change()
+    {
+
+    }
+</script>
+</body>
+</html>

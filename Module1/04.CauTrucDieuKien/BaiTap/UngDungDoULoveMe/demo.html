@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<label>Do you love Me?</label><br>
+<button value="Yes" onclick="answerYes()" id="yes">Yes</button>
+<button value="No" onmouseover="cantTouchMe()" id="no" style="position: absolute">No</button>
+
+<script>
+    function answerYes()
+    {
+        alert("<3");
+    }
+    function cantTouchMe()
+    {
+        //alert("hi");
+        document.getElementById("no").style.top=window.innerHeight*Math.random()+"px";
+        document.getElementById("no").style.left=window.innerWidth*Math.random()+"px";
+    }
+</script>
+</body>
+</html>

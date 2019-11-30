@@ -5,9 +5,57 @@
     <title>Title</title>
 </head>
 <body>
-<form name="inputMoney" method="get">
-    So tien <input type="text" value="Nhap so tien"
-                   name="money" onclick="this.value=''"/>
+<form>
+        <input type="text" name="inputAmount" placeholder="Nhap so tien" id="inputAmount">
+        <select id="slctFrom">
+            <option value="VND">VND</option>
+            <option value="USD">USD</option>
+        </select>
+        <label>Convert to</label>
+    <select id="slctTo">
+        <option value="USD">USD</option>
+        <option value="VND">VND</option>
+    </select>
+    <input type="button" value="Convert" onclick="Express()">
+<div id="result"></div>
+
+    <script>
+        //alert(document.getElementById("slct").value);
+        let inputAmount=document.getElementById("inputAmount");
+        let slctFrom=document.getElementById("slctFrom");
+        let slctTo=document.getElementById("slctTo");
+        let result;
+        let amount;
+        //let hihi=inputAmount.value;
+        function Express()
+        {
+            amount=parseFloat(document.getElementById("inputAmount").value);
+
+           if(slctFrom.value===slctTo.value)
+           {
+               alert("Error");
+           }
+           else
+           {
+               //inputAmount*=1;
+               if(slctTo.value==="VND")
+               {
+                   result=amount*23000;
+                   //alert(amount);
+                   showResult();
+               } else
+               {
+                   result=amount/23000;
+                   showResult();
+               }
+           }
+            function showResult()
+            {
+                document.getElementById("result").innerText='';
+                document.getElementById("result").innerText='Result : '+result+' VND';
+            }
+        }
+    </script>
 </form>
 </body>
 </html>
