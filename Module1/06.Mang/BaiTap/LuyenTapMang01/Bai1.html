@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let myArray=[];let temp="";
+    for(let i=0;i<10;i++)
+    {
+        myArray.push(Math.floor(Math.random() * 100));
+    }
+    for(let e in myArray)
+    {
+        //alert('Im in'+e);
+        if(myArray[e]>=10) temp+=myArray[e]+", ";
+    }
+    document.write(myArray.toString());
+    alert("Mang ban dau : "+"\n"+myArray.toString()+"\nCac so nguyen lon hon hoac bang 10 : " + temp);
+</script>
+</body>
+</html>

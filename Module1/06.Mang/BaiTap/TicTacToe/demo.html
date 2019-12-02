@@ -8,6 +8,7 @@
 <div id="table"></div>
 <input type="button" onclick="Change()" value="Change Value">
 <script>
+    let temp1,temp2,temp3;temp1=temp2=temp3="";
     let myArray = [];
     let temp = "";
     let positionCot;let positionDong;
@@ -30,22 +31,31 @@
     }
 
     function Change() {
-        positionCot = parseFloat(prompt("Nhap vi tri cot"));
-        positionDong = parseFloat(prompt("Nhap vi tri dong"));
+        positionCot = prompt("Nhap vi tri cot")-1;
+        positionDong = prompt("Nhap vi tri dong")-1;
         temp="";
         myArray[positionDong][positionCot] = prompt("Nhap X hoac 0");
         //
         //document.getElementById("table").innerHTML="";
 
         Refresh();
-        for (let i = 0; i < myArray.length; i++) {
-            for (let j = 0; j < myArray.length; j++) {
-                if (myArray[i][j] === myArray[i][j - 1]) {
-                    alert('Ok');
+        Defeat();
+        //alert(myArray[positionDong][positionCot - 1]);
+
+    }
+    function Defeat()
+    {
+
+        for(let i=0;i<myArray.length;i++)
+        {
+            for(let j=0;j<myArray.length;j++)
+            {
+                if(myArray[j][i]===myArray[j+1][i]===myArray[j+2][i])
+                {
+                    alert('OK');
                 }
             }
         }
-        //alert(myArray[positionDong][positionCot - 1]);
 
     }
 </script>

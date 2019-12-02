@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let myArray=[];let myNewArray=[];
+    for(let i=0;i<10;i++)
+    {
+        myArray.push(Math.floor(Math.random() * 100));
+    }
+    let userInput = prompt("Ban co muon nhap them phan tu khong?\n" +
+        "1.Co thi nhap so\n" +
+        "2.Khong thi nhap 'ko'");
+    if(userInput==='ko'){} else
+    {
+        myArray.push(parseFloat(userInput));
+    }
+    alert("Mang ban dau: \n" + myArray.toString());
+    let temp=myArray.length;
+    document.write(myArray.toString());
+    for(let i=0;i<temp;i++)
+    {
+        myNewArray.unshift(myArray.shift());
+    }
+
+    alert("Mang sau khi dao nguoc : \n"+myNewArray.toString());
+</script>
+</body>
+</html>
