@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Caro Game</title>
+</head>
+<body>
+<div id="table"></div>
+<input type="button" onclick="Change()" value="Change Value">
+<script>
+    let ngang = [];
+    let temp = "";
+    for (let i = 0; i < 5; i++) {
+        ngang[i] = [0, 0, 0, 0, 0];
+    }
+    Refresh();
+
+    function Refresh() {
+
+        for (let i = 0; i < ngang.length; i++) {
+            for (let j = 0; j < ngang.length; j++) {
+                temp += ngang[i][j] + "\t";
+            }
+            temp += "<br/>";
+        }
+
+        document.getElementById("table").innerHTML = temp;
+    }
+
+    function Change() {
+        let positionCot = parseFloat(prompt("Nhap vi tri cot"));
+        let positionDong = parseFloat(prompt("Nhap vi tri dong"));
+        temp="";
+        ngang[positionDong][positionCot] = "X";
+        //document.getElementById("table").innerHTML="";
+
+        Refresh();
+    }
+</script>
+</body>
+</html>

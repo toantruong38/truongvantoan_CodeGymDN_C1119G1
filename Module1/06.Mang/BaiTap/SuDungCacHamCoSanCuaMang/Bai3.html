@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let myArray=[];
+    let userInput = prompt("Nhap bat cu thu gi");
+    for (let i=0;i<userInput.length;i++) {
+        if (userInput[i] === userInput[i].toUpperCase()) {
+            myArray.push(userInput[i].toLowerCase());
+        }
+        else myArray.push(userInput[i].toUpperCase());
+    }
+    alert(myArray.join(""));
+</script>
+</body>
+</html>

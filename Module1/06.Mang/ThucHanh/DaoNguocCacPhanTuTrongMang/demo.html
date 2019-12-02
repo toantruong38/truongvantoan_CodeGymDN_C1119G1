@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let userInput;let temp;
+    let myOrginalArray=[],myNewArray=[];
+    while(userInput!=="Stop")
+    {
+        userInput = prompt("Nhap cac phan tu cho mang/ Nhap 'stop' de dung");
+        if(userInput!=="Stop")
+        {
+            myOrginalArray.push(userInput);
+        }
+    }
+    for(let i=myOrginalArray.length;i>0;i--)
+    {
+        myNewArray.push(myOrginalArray.pop());
+    }
+    alert(myNewArray);
+</script>
+</body>
+</html>
