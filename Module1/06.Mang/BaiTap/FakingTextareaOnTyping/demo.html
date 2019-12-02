@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Type anything slowly</label><br/>
+<form name="myForm">
+    <textarea id="txtArea" cols="50" rows="10" onkeydown="" onkeyup="Change()"></textarea>
+</form>
+<script>
+
+    let temp;let temp2;let i=0;let n="";
+    let myString="We wish you a merrychrismast, and a happy new year";let myArray=[];
+
+
+
+    for (let i = 0; i < myString.length; i++) {
+        //alert(myString[i]);
+        myArray.push(myString[i]);
+
+    }
+
+    function Change()
+    {
+
+        temp=document.getElementById("txtArea");
+        temp2=temp.value;
+        n+=myArray[i];
+        temp.value=n;i++;
+        if(i===(myArray.length))
+        {
+            n="";i=0;
+        }
+    }
+</script>
+</body>
+</html>
