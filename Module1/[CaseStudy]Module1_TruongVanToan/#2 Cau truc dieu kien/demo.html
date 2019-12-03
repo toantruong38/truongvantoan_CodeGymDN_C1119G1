@@ -115,11 +115,11 @@
     function Discount()
     {
         let discountOnAddr,bill;
+        let age=new Date().getFullYear() - clientBirth.getFullYear();
         if (discountOnAddr === "Da Nang")
         {
             bill-=20;
-            let age=new Date().getFullYear() - clientBirth.getFullYear();
-
+            if(age>=30) bill-=2; if(age<30&&age>=20) bill-=1;
         }
         if(discountOnAddr==="Hue") bill-=10;
         if(discountOnAddr==="Quang Nam") bill-=5;

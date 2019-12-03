@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input_arg1 = parseFloat(prompt("Nhap tham so 1"));
+    let input_arg2 = parseFloat(prompt("Nhap tham so 2"));
+    let result_of_Express=Express(input_arg1,input_arg2);
+    if(result_of_Express) alert(result_of_Express);
+    function Express(arg1,arg2)
+    {
+        if(arguments[0]>arguments[1])
+        {
+            alert("Tham so 1 lon hon tham so 2"); return false;
+        }
+        else return arg1+arg2;
+    }
+</script>
+</body>
+</html>
