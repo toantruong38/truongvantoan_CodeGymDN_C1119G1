@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr1 = [3, 5, 1, 8, -3, 7, 8];
+    let arr2 = [7, 12, 6, 9, 20, 56, 89];
+    let arr3 = [];
+    let arr4 = [0, 0, 0, 0, 0, 0];
+    function FindMin(e)
+    {
+        let min = 0;
+        if(e.length>0)
+        {
+            min = e[0];
+            for(let i in e)
+            {
+                if(min>e[i]) min=e[i];
+            }
+            return min;
+        }else return 'Mang rong';
+    }
+
+    alert("So nho nhat trong mang:\n"+FindMin(arr1));
+    alert("So nho nhat trong mang:\n"+FindMin(arr2));
+    alert("So nho nhat trong mang:\n"+FindMin(arr3));
+    alert("So nho nhat trong mang:\n"+FindMin(arr4));
+</script>
+</body>
+</html>
