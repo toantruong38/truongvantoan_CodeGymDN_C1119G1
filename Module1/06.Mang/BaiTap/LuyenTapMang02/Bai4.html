@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    1. Tao chuoi, tao gia tri cho chuoi
+    2. Dem so tu trong chuoi
+     */
+    let my_string = prompt("Nhap chuoi bat ky");let count=0;let count_blank=0;
+    for(let i=0;i<my_string.length;i++)
+    {
+        if(my_string[i]===' ')
+        {
+            count++;
+            if(count===1) count=2;
+        }
+    }if(count===0) count=1;
+    alert("Chuoi co " + count + " tu");
+</script>
+</body>
+</html>

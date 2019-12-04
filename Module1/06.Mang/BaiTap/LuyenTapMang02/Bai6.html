@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let my_string = prompt("Nhap chuoi");let my_array=[];
+    for(let i=0;i<my_string.length;i++)
+    {
+        if(my_string[i]==='-') my_array.push('_');
+        else my_array.push(my_string[i]);
+    }alert(my_array.join(""));
+</script>
+</body>
+</html>
