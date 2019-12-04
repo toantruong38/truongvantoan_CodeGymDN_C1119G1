@@ -6,6 +6,38 @@
 </head>
 <body>
 <script>
+    let myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];let myNewArray=[];
+    alert("Mang ban dau\n" + myArray);
+    let v = parseFloat(prompt("Nhap phan tu V"));
+    function calculate_the_element_remain_from_myArray(v)
+    {
+        return myArray.length-myArray.indexOf(v)-1;
+    }
+    function modify_array(myArray)
+    {
+        let temp=calculate_the_element_remain_from_myArray(v);
+        let count=0;
+        while(true)
+        {
+            if(count===temp) break;
+            else
+            {
+                myNewArray.unshift(myArray.pop());
+                count++;
+            }
+        }
+        myArray.pop();
+        let myArrayLength=myArray.length;
+
+        for(let i=0;i<myArrayLength;i++)
+        {
+            myNewArray.unshift(myArray.pop());
+        }
+        myNewArray.push(0);
+    }
+
+    modify_array(myArray);
+    alert(myNewArray);
 
 </script>
 </body>

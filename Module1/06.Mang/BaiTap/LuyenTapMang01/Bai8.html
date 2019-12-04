@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1. Khoi tao mang 10 so nguyen
+    //2. Hien thi mang ban dau
+    //3. Sap xep mang giam dan
+    //4. Hien thi ket qua
+    let myArray=[],myNewArray=[];
+
+    for(let i=0;i<10;i++) //1,2
+    {
+        myArray.push(Math.floor(Math.random() * 10));
+    }alert("Mang ban dau\n"+myArray);
+
+    myArray.sort(function(a,b) //3
+    {
+        if(a-b>0) return -1;
+        else return 1;
+    });
+
+    alert("Mang sau khi sap xep giam dan\n"+myArray); //4
+</script>
+</body>
+</html>

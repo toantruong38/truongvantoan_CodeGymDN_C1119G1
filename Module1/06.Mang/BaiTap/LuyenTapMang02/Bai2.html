@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    1. Tao mang voi moi phan tu la cac ki tu. Du lieu co san
+    2. Dao nguoc mang va xuat ket qua
+     */
+    let myArray=[],myNewArray=[],temp="Happy new year"; //1.
+    for(let i=0;i<temp.length;i++)                      //1.
+    {
+        myArray.unshift(temp[i]);
+    }alert("Mang ban dau\n"+myArray);
+    for(let i=myArray.length-1;i>=0;i--)
+    {
+        myNewArray.push(myArray[i]);
+    }alert("Mang sau khi dao nguoc\n"+myNewArray);
+</script>
+</body>
+</html>
