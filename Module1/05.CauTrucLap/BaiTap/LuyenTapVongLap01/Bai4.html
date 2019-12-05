@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //0 1 1 2 3 5
+    let oke="";let post=0;let fix=1;let temp=0;
+    while(true)
+    {
+        oke+=fix+"\n";
+        temp=fix;
+        fix+=post;
+        post=temp;
+        if(fix%5===0)
+        {
+            alert(fix);break;
+        }
+        //break;
+    }alert(oke);
+</script>
+</body>
+</html>
