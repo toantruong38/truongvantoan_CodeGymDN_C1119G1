@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="print"></div>
+<script>
+    function Temperature()
+    {
+        this.tempC=-273;
+        this.getTemp=function()
+        {
+            return this.tempC;
+        };
+        this.setTemp=function(input_temp)
+        {
+            this.tempC=input_temp;
+        };
+        this.convertToFahrenheit=function()
+        {
+            return this.tempC*1.8+32;
+        };
+        this.convertToKelvin=function(input_temp)
+        {
+            return this.tempC+273.15;
+        };
+    }
+    var new_temp=new Temperature();
+    var to_div=document.getElementById("print");
+    //var myResult=to_div.innerText;
+    new_temp.setTemp(25);
+    //myResult="Oke";
+    to_div.innerText="Fahrenheit: "+new_temp.convertToFahrenheit()+" Kelvin : "+new_temp.convertToKelvin();
+</script>
+</body>
+</html>
