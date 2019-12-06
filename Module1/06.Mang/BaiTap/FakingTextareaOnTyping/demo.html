@@ -7,7 +7,7 @@
 <body>
 <label>Type anything slowly</label><br/>
 <form name="myForm">
-    <textarea id="txtArea" cols="50" rows="10" onkeydown="" onkeyup="Change()"></textarea>
+    <textarea id="txtArea" cols="50" rows="10" onkeydown="Change(event)" ></textarea>
 </form>
 <script>
 
@@ -22,9 +22,9 @@
 
     }
 
-    function Change()
+    function Change(event)
     {
-
+        event.preventDefault();
         temp=document.getElementById("txtArea");
         temp2=temp.value;
         n+=myArray[i];

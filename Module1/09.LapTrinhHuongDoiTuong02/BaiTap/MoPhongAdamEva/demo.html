@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Apple()
+    {
+        this.weight=10;
+        this.decrease=function()
+        {
+            this.weight--;
+        };
+        this.isEmpty=function()
+        {
+            return this.weight === 0;
+        };
+        this.getWeight=function()
+        {
+            return this.weight;
+        }
+    }
+    function Human()
+    {
+        this.setName=function(name)
+        {
+            this.name=name;
+        };
+        this.getName=function()
+        {
+            return this.name;
+        };
+        this.setGender=function(gender)
+        {
+            this.gender=gender;
+        };
+        this.isMale=function()
+        {
+            return this.gender;
+        };
+        this.checkApple=function(apple)
+        {
+            return apple.isEmpty();
+        };
+        this.eat=function(apple)
+        {
+            this.weight++;
+            apple.weight--;
+        };
+        this.say=function(String)
+        {
+            console.log(String);
+        };
+        this.getWeight=function()
+        {
+            return this.weight;
+        };
+        this.setWeight=function(weight)
+        {
+            this.weight=weight;
+        };
+    }
+    var apple=new Apple();
+    console.log(apple.getWeight());
+    var human=new Human();
+    human.setName("Adam");
+    console.log(human.getName());
+    human.setGender(true);
+    console.log(human.isMale());
+    human.setWeight(40);
+    console.log(human.getWeight());
+    human.say("Hi i'm "+human.getName());
+    if(apple.isEmpty())
+    {
+        human.say("I dont have any apple");
+    }else
+    {
+        human.say("Eating apple");
+        human.eat(apple);
+        console.log(human.getWeight());
+        console.log(apple.getWeight());
+    }
+</script>
+</body>
+</html>
