@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var phi_thue_bao = 25000;
+    var phut_su_dung;
+    var tien_cuoc=0;
+    phut_su_dung = parseFloat(prompt("Nhap so phut su dung"));
+    if (phut_su_dung <= 50) tien_cuoc+=600*phut_su_dung;
+    else if(phut_su_dung>=150) tien_cuoc+=400*phut_su_dung;
+    else tien_cuoc+=200*phut_su_dung;
+    tien_cuoc+=phi_thue_bao;
+    alert("Tong tien cuoc " + tien_cuoc);
+</script>
+</body>
+</html>
