@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Oke</title>
+    </head>
+    <body>
+        <script>
+            var regexp=/^[a-zA-Z0-9]+@[a-z]+(\.[a-z]+)$/;
+            function validateEmail(email)
+            {
+                if(regexp.test(email))
+                {
+                    return true;
+                }return false;
+            }
+            console.log(validateEmail("oke123@gmail.com"));    
+        </script>
+    </body>
+</html>
