@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var totalPay;
+    var clientName;
+    var clientID;
+    var clientBirth;
+    var clientEmail;
+    var clientAddr;
+    var clientKind;
+    /*
+    clientID : so cmnd, clientKind : loai KH(Diamond,Platinum,Gold,Silver,Member)
+     */
+    var serviceDiscount;
+    var serviceAmount;
+    var serviceRentDay;
+    var serviceKind;
+    var serviceRoomKind;
+    /*
+    serviceAmount : so luong, serviceKind : loai dich vu(Villa,House,Room)
+     */
+    const villaCost=500;
+    const houseCost=300;
+    const roomCost=100; //per day
+
+    clientName=prompt("Moi nhap ten"); 
+    clientID=prompt("Moi nhap so CMND");
+    clientBirth=prompt("Moi nhap ngay thang nam sinh"); 
+    clientEmail=prompt("Moi nhap email");
+    clientAddr=prompt("Moi nhap dia chi"); 
+    clientKind=prompt("Moi nhap loai khach hang");
+
+    serviceDiscount=prompt("Nhap giam gia"); 
+    serviceAmount=prompt("Nhap so luong");
+    serviceRentDay=prompt("Nhap so ngay thue"); 
+    serviceKind=prompt("Nhap loai dich vu");
+    serviceRoomKind=prompt("Nhap loai phong");
+    var output="Khach hang: "+clientName+"\n"
+                +"So chung minh nhan dan: "+clientID+"\n"
+                +"Ngay sinh: "+clientBirth+"\n"
+                +"Email: "+clientEmail+"\n"
+                +"Dia chi: "+clientAddr+"\n"
+                +"Loai KH: "+clientKind+"\n"
+                +"Giam gia: "+serviceDiscount+"\n"
+                +"So luong: "+serviceAmount+"\n"
+                +"So ngay thue: "+serviceRentDay+"\n"
+                +"Loai dich vu: "+serviceKind+"\n"
+                +"Loai phong: "+serviceRoomKind+"\n"
+                +"So tien phai tra: "
+                +calTotalPay(serviceKind);
+    alert(output);
+
+    function calTotalPay(serviceKind)
+    {
+        switch(serviceKind)
+        {
+            case 'Villa':
+                totalPay = villaCost * serviceRentDay * (1 - (serviceDiscount / 100));
+                break;
+            case 'House':
+                totalPay = houseCost * serviceRentDay * (1 - (serviceDiscount / 100));
+                break;
+            case 'Room':
+                totalPay = roomCost * serviceRentDay * (1 - (serviceDiscount / 100));
+                break;
+        }
+        return totalPay;
+    }
+</script>
+</body>
+</html>
