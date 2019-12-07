@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    var totalPay;
+    var totalPay=0;
     var clientName;
     var clientID;
     var clientBirth;
@@ -80,11 +80,12 @@
         {
             case '1':
                 //alert("Hi");
-                showInformation();
+                alert(showInformation());
+                showMainPage();
                 break;
             case '2':
                 //alert("Hi");
-                var user_edit_option = prompt(output);
+                var user_edit_option = prompt(showInformation());
                 edit(user_edit_option);
                 break;
             case '3':
@@ -130,70 +131,71 @@
         {
             totalPay = roomCost * serviceRentDay * (1 - (serviceDiscount / 100));
         }
+        discount();
         //MainPage();
         return totalPay;
     }
     function discount()
     {
         var discountOnAddr;
-        var bill;
+        
         discountOnAddr=clientAddr;
-        var age=new Date().getFullYear() - clientBirth.getFullYear();
+        var age=new Date().getFullYear() - new Date(clientBirth).getFullYear();
         if (discountOnAddr === "Da Nang")
         {
-            bill-=20;
-            if(age >= 30)
+            totalPay-=20;
+            if(age > 30)
             {
-                bill -= 2;
+                totalPay -= 2;
             }
-            if(age < 30 && age >= 20) 
+            else if(age >= 20) 
             {
-                bill -= 1;
+                totalPay -= 1;
             }
         }
-        if(discountOnAddr === "Hue") 
+        else if(discountOnAddr === "Hue") 
         {
-            bill-=10;
+            totalPay-=10;
         }
-        if(discountOnAddr === "Quang Nam") 
+        else if(discountOnAddr === "Quang Nam") 
         {
-            bill-=5;
+            totalPay-=5;
         }
-        var dayStayCount;
-        if(dayStayCount > 7)
+        
+        if(serviceRentDay > 7)
         {
-            bill-=30;
+            totalPay-=30;
         }
-        if(dayStayCount >= 5 && dayStayCount <= 7)
+        else if(serviceRentDay >= 5)
         {
-            bill -=20;
+            totalPay -=20;
         }
-        if(dayStayCount >= 2 && dayStayCount <= 4)
+        else if(serviceRentDay >= 2)
         {
-            bill -=10;
+            totalPay -=10;
         }
 
         if(clientKind==="Diamond") 
         {
-            bill-=15;
+            totalPay-=15;
         }
-        if(clientKind==="Platium") 
+        else if(clientKind==="Platium") 
         {
-            bill-=10;
+            totalPay-=10;
         }
-        if(clientKind==="Gold") 
+        else if(clientKind==="Gold") 
         {
-            bill-=5;
+            totalPay-=5;
         }
-        if(clientKind==="Silver") 
+        else if(clientKind==="Silver") 
         {
-            bill-=2;
+            totalPay-=2;
         }
 
     }
     function showInformation()
     {
-        alert("1.Khach hang: " + clientName + "\n" 
+        output= "1.Khach hang: " + clientName + "\n" 
             + "2.So chung minh nhan dan: " + clientID + "\n"
             + "3.Ngay sinh: " + clientBirth + "\n" 
             + "4.Email: " + clientEmail + "\n"
@@ -204,8 +206,9 @@
             + "9.So ngay thue: " + serviceRentDay + "\n" 
             + "10.Loai dich vu: " + serviceKind + "\n"
             + "11.Loai phong: " + serviceRoomKind + "\n" 
-            + "12.So tien phai tra: " + calTotalPay(serviceKind));
-        showMainPage();
+            + "12.So tien phai tra: " + calTotalPay(serviceKind);
+        return output;
+        //showMainPage();
     }
 </script>
 </body>
