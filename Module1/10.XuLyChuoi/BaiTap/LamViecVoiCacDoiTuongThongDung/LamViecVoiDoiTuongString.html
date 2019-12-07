@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Oke</title>
+    </head>
+    <body>
+        <script>
+            var myString="Tôi yêu ngôn ngữ lập trình Javascript";
+            var count_character_a=0;
+            for(var i=0;i<myString.length;i++)
+            {
+                if(myString[i]==="a")
+                {
+                    count_character_a++;
+                }
+            }
+            console.log(count_character_a);
+            var newString=myString.split(" ");
+            var newArray=[];
+            for(var i=0;i<newString.length;i++)
+            {
+                newArray.push(newString[i]);
+            }
+            console.log(newArray);
+            console.log("Chuoi co "+newString.length+" tu")
+            console.log(myString.replace(/javascript/i,"Typescript"));
+        </script>
+    </body>
+</html>
