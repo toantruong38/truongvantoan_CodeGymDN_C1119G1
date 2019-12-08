@@ -28,33 +28,232 @@
     const houseCost=300;
     const roomCost=100; //per day
 
-    clientName=prompt("Moi nhap ten"); 
-    clientID=prompt("Moi nhap so CMND");
-    clientBirth=prompt("Moi nhap ngay thang nam sinh"); 
-    clientEmail=prompt("Moi nhap email");
-    clientAddr=prompt("Moi nhap dia chi"); 
-    clientKind=prompt("Moi nhap loai khach hang");
+    var output;
+    addInformation();
+    function addInformation()
+    {
+        // check input : email,cmnd,birth,discount,rentday,amount
+        //built-in function : isNaN,isInt
+        clientName = prompt("Moi nhap ten");
+        var validateID=true;
+        while(validateID)
+        {
+            clientID = prompt("Moi nhap so CMND");
+            if(clientID.length!==9)
+            {
+                continue;
+            }
+            else
+            {
+                for(let i=0;i<clientID.length;i++)
+                {
+                    if(Number.isNaN(parseInt(clientID[i])))
+                    {
+                        validateID=true;
+                        break;
+                    }
+                    else
+                    {
+                        validateID=false;
+                    }
+                }
+            }
+        }
+        var validateBirth=true;
+        while(validateBirth)
+        {
+            //21/04/2001
+            clientBirth = prompt("Moi nhap ngay thang nam sinh");
+            var dd=parseInt(clientBirth.substr(0,2));
+            var mm=parseInt(clientBirth.substr(3,2));
+            var yyyy=parseInt(clientBirth.substr(6,4));
+            // var check_dd=!Number.isNaN(dd) && dd>0 && dd<=31;
+            // var check_mm=!Number.isNaN(mm) && mm>0 && mm<=12;
+            // var check_yyyy=!Number.isNaN(yyyy) && yyyy>1800;
+            // if(!(check_dd && check_mm && check_yyyy))
+            // {
+            //     continue;
+            // }else break;
+            if(clientBirth.length!==10)
+            {
+                continue;
+            }
+            else
+            {
+                for(let i=0;i<clientBirth.length;i++)
+                {
+                    if(Number.isNaN(parseInt(clientBirth[i])) && clientBirth[i]!=="/")
+                    {
+                        validateBirth=true;
+                        break;
+                    }
+                    else if(dd>31 || mm>12 || yyyy <1800)
+                    {
+                        validateBirth=true;
+                        break;
+                    }
+                    else
+                    {
+                        validateBirth=false;
+                    }
+                }
+            }
+        }
+        
+        var validateEmail=true;
+        var count_a=0,count_dot=0;
+        while(validateEmail)
+        {
+            clientEmail = prompt("Moi nhap email");
+            if(clientEmail.length<=0 || count_dot>1 || count_a>1)
+            {
+                continue;
+            }
+            else
+            {
+                for(let i=0;i<clientEmail.length;i++)
+                {
+                    if(clientEmail[i]==="@" && clientEmail[i+1]!==".")
+                    {
+                        count_a++;
+                    }
+                    else if(clientEmail[i]==="." && clientEmail[i+1]!=="@")
+                    {
+                        count_dot++;
+                    }
+                    else if(Number.isInteger(parseInt(clientEmail[i])))
+                    {
+                        validateEmail=true;
+                        break;
+                    }
+                    else if(count_a===0 && count_dot===0)
+                    {
+                        validateEmail=true;
+                        //break;
+                    }
+                    else
+                    {
+                        validateEmail=false;
 
-    serviceDiscount=prompt("Nhap giam gia"); 
-    serviceAmount=prompt("Nhap so luong");
-    serviceRentDay=prompt("Nhap so ngay thue"); 
-    serviceKind=prompt("Nhap loai dich vu");
-    serviceRoomKind=prompt("Nhap loai phong");
-    var output="Khach hang: "+clientName+"\n"
-                +"So chung minh nhan dan: "+clientID+"\n"
-                +"Ngay sinh: "+clientBirth+"\n"
-                +"Email: "+clientEmail+"\n"
-                +"Dia chi: "+clientAddr+"\n"
-                +"Loai KH: "+clientKind+"\n"
-                +"Giam gia: "+serviceDiscount+"\n"
-                +"So luong: "+serviceAmount+"\n"
-                +"So ngay thue: "+serviceRentDay+"\n"
-                +"Loai dich vu: "+serviceKind+"\n"
-                +"Loai phong: "+serviceRoomKind+"\n"
-                +"So tien phai tra: "
-                +calTotalPay(serviceKind);
-    alert(output);
+                    }
+                    
+                }
+                //var a_location=clientEmail.indexOf("@");
+                // var dot_location=clientEmail.indexOf(".");
+                // if(clientEmail[a_location+1]===".")
+                // {
+                //     validateEmail=true;
+                // }
+            }
+        }
+        clientAddr = prompt("Moi nhap dia chi");
+        clientKind = prompt("Moi nhap loai khach hang");
 
+        var validateDiscount=true;
+        while(validateDiscount)
+        {
+            serviceDiscount = prompt("Nhap giam gia");
+            for(let i=0;i<serviceDiscount.length;i++)
+            {
+                if(Number.isInteger(parseInt(serviceDiscount[i])))
+                {
+                    validateDiscount=false;
+                }
+                else
+                {
+                    validateDiscount=true;
+                    break;
+                }
+            }
+            if(parseInt(serviceDiscount)<0)
+            {
+                validateDiscount=true;
+            }
+            else
+            {
+                serviceDiscount=parseInt(serviceDiscount);
+            }
+        }
+
+        var validateAmount=true;
+        while(validateAmount)
+        {
+            serviceAmount = prompt("Nhap so luong");
+            for(let i=0;i<serviceAmount.length;i++)
+            {
+                if(Number.isInteger(parseInt(serviceAmount[i])))
+                {
+                    validateAmount=false;
+                }
+                else
+                {
+                    validateAmount=true;
+                    break;
+                }
+            }
+            if(parseInt(serviceAmount)<0)
+            {
+                validateAmount=true;
+            }
+            else
+            {
+                serviceAmount=parseInt(serviceAmount);
+            }
+        }
+        
+        
+        var validateRentDay=true;
+        while(validateRentDay)
+        {
+            serviceRentDay = prompt("Nhap so ngay thue");
+            for(let i=0;i<serviceRentDay.length;i++)
+            {
+                if(Number.isInteger(parseInt(serviceRentDay[i])))
+                {
+                    validateRentDay=false;
+                }
+                else
+                {
+                    validateRentDay=true;
+                    break;
+                }
+            }
+            if(parseInt(serviceRentDay)<0)
+            {
+                validateRentDay=true;
+            }
+            else
+            {
+                serviceRentDay=parseInt(serviceRentDay);
+            }
+        }
+        
+        serviceKind = prompt("Nhap loai dich vu");
+        serviceRoomKind = prompt("Nhap loai phong");
+        output = "Khach hang: " + clientName + "\n"
+            + "So chung minh nhan dan: " + clientID + "\n"
+            + "Ngay sinh: " + clientBirth + "\n"
+            + "Email: " + clientEmail + "\n"
+            + "Dia chi: " + clientAddr + "\n"
+            + "Loai KH: " + clientKind + "\n"
+            + "Giam gia: " + serviceDiscount + "\n"
+            + "So luong: " + serviceAmount + "\n"
+            + "So ngay thue: " + serviceRentDay + "\n"
+            + "Loai dich vu: " + serviceKind + "\n"
+            + "Loai phong: " + serviceRoomKind + "\n"
+            + "So tien phai tra: "
+            + calTotalPay(serviceKind);
+    }
+    //alert(output);
+    
+    function removeBlank(clientName,clientAddr,clientKind)
+    {
+        var tempName=clientName.trim().split(" ");
+        for(let i=0;i<tempName.length;i++)
+        {
+            
+        }
+    }
     function calTotalPay(serviceKind)
     {
         switch(serviceKind)
