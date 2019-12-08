@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <title>Oke</title>
+</head>
+<body>
+    <script>
+        var add_client=[];
+        var listed_client=["Hung","Nhan","Viet","Thanh","Hieu","Phuong","Thuy","Huy","Thinh","Tun"];
+        var user_selection=prompt("1. Them khach hang\n"
+                                   + "2. Xoa khach hang");
+        switch(user_selection)
+        {
+            case '1':
+                var output="";
+                var amount=parseInt(prompt("Nhap so luong"));
+                if(amount>0)
+                {
+                    for(let i=0;i<amount;i++)
+                    {
+                        add_client.push(prompt("Nhap ten khach hang so "+(i+1)));
+                    }
+                }
+                for(let i=0;i<add_client.length;i++)
+                {
+                    output+=i+1+". "+add_client[i]+"\n";
+                }
+                alert(output);
+                add_client.sort();
+                output="";
+                for(let i=0;i<add_client.length;i++)
+                {
+                    output+=i+1+". "+add_client[i]+"\n";
+                }
+                alert(output);
+                break;
+            case '2':
+               output="";
+               for(let i=0;i<listed_client.length;i++) 
+               {
+                   output+=i+1+" ."+listed_client[i]+"\n";
+               }
+               var user_delete_selection=prompt(output);
+               listed_client.splice([parseInt(user_delete_selection)]-1,1);
+               output="";
+               for(let i=0;i<listed_client.length;i++) 
+               {
+                   output+=i+1+" ."+listed_client[i]+"\n";
+               }
+               alert(output);
+        }
+    </script>
+</body>
