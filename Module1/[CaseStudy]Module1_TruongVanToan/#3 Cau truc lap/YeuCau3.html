@@ -30,6 +30,27 @@
 
     var output;
     addInformation();
+    
+    
+    removeBlank(clientName,clientAddr,clientKind);
+    upadateInformation();
+    alert(output);
+    function upadateInformation()
+    {
+        output = "Khach hang: " + clientName + "\n"
+            + "So chung minh nhan dan: " + clientID + "\n"
+            + "Ngay sinh: " + clientBirth + "\n"
+            + "Email: " + clientEmail + "\n"
+            + "Dia chi: " + clientAddr + "\n"
+            + "Loai KH: " + clientKind + "\n"
+            + "Giam gia: " + serviceDiscount + "\n"
+            + "So luong: " + serviceAmount + "\n"
+            + "So ngay thue: " + serviceRentDay + "\n"
+            + "Loai dich vu: " + serviceKind + "\n"
+            + "Loai phong: " + serviceRoomKind + "\n"
+            + "So tien phai tra: "
+            + calTotalPay(serviceKind);
+    }
     function addInformation()
     {
         // check input : email,cmnd,birth,discount,rentday,amount
@@ -67,13 +88,7 @@
             var dd=parseInt(clientBirth.substr(0,2));
             var mm=parseInt(clientBirth.substr(3,2));
             var yyyy=parseInt(clientBirth.substr(6,4));
-            // var check_dd=!Number.isNaN(dd) && dd>0 && dd<=31;
-            // var check_mm=!Number.isNaN(mm) && mm>0 && mm<=12;
-            // var check_yyyy=!Number.isNaN(yyyy) && yyyy>1800;
-            // if(!(check_dd && check_mm && check_yyyy))
-            // {
-            //     continue;
-            // }else break;
+            
             if(clientBirth.length!==10)
             {
                 continue;
@@ -101,9 +116,11 @@
         }
         
         var validateEmail=true;
-        var count_a=0,count_dot=0;
+        var count_a,count_dot;
         while(validateEmail)
         {
+            count_a=0;
+            count_dot=0;
             clientEmail = prompt("Moi nhap email");
             if(clientEmail.length<=0 || count_dot>1 || count_a>1)
             {
@@ -113,37 +130,21 @@
             {
                 for(let i=0;i<clientEmail.length;i++)
                 {
-                    if(clientEmail[i]==="@" && clientEmail[i+1]!==".")
-                    {
-                        count_a++;
-                    }
-                    else if(clientEmail[i]==="." && clientEmail[i+1]!=="@")
-                    {
-                        count_dot++;
-                    }
-                    else if(Number.isInteger(parseInt(clientEmail[i])))
+                    if(Number.isInteger(parseInt(clientEmail[i])))
                     {
                         validateEmail=true;
                         break;
                     }
-                    else if(count_a===0 && count_dot===0)
+                    else if(clientEmail[i]==="@" && clientEmail[i+1]===".")
                     {
                         validateEmail=true;
-                        //break;
+                        break;
                     }
                     else
                     {
                         validateEmail=false;
-
                     }
-                    
                 }
-                //var a_location=clientEmail.indexOf("@");
-                // var dot_location=clientEmail.indexOf(".");
-                // if(clientEmail[a_location+1]===".")
-                // {
-                //     validateEmail=true;
-                // }
             }
         }
         clientAddr = prompt("Moi nhap dia chi");
@@ -230,28 +231,83 @@
         
         serviceKind = prompt("Nhap loai dich vu");
         serviceRoomKind = prompt("Nhap loai phong");
-        output = "Khach hang: " + clientName + "\n"
-            + "So chung minh nhan dan: " + clientID + "\n"
-            + "Ngay sinh: " + clientBirth + "\n"
-            + "Email: " + clientEmail + "\n"
-            + "Dia chi: " + clientAddr + "\n"
-            + "Loai KH: " + clientKind + "\n"
-            + "Giam gia: " + serviceDiscount + "\n"
-            + "So luong: " + serviceAmount + "\n"
-            + "So ngay thue: " + serviceRentDay + "\n"
-            + "Loai dich vu: " + serviceKind + "\n"
-            + "Loai phong: " + serviceRoomKind + "\n"
-            + "So tien phai tra: "
-            + calTotalPay(serviceKind);
+        
     }
-    //alert(output);
-    
-    function removeBlank(clientName,clientAddr,clientKind)
+    function removeBlank(name,address,client_kind)
     {
-        var tempName=clientName.trim().split(" ");
+        clientName="";
+        var tempName=name.trim().split(" ");
+        var newTempName="";
         for(let i=0;i<tempName.length;i++)
         {
-            
+            if(tempName[i]!=="")
+            {
+                newTempName+=tempName[i]+" ";
+            }
+        }
+        tempName=newTempName.trim();
+        clientName+=tempName[0].toUpperCase();
+        for(let i=1;i<tempName.length;i++)
+        {
+            if(tempName[i]===" ")
+            {
+                clientName+=tempName[i]+tempName[i+1].toUpperCase();
+                i++;
+            }
+            else
+            {
+                clientName+=tempName[i];
+            }
+        }
+
+        clientAddr="";
+        var tempAddr=address.trim().split(" ");
+        var newtempAddr="";
+        for(let i=0;i<tempAddr.length;i++)
+        {
+            if(tempAddr[i]!=="")
+            {
+                newtempAddr+=tempAddr[i]+" ";
+            }
+        }
+        tempAddr=newtempAddr.trim();
+        clientAddr+=tempAddr[0].toUpperCase();
+        for(let i=1;i<tempAddr.length;i++)
+        {
+            if(tempAddr[i]===" ")
+            {
+                clientAddr+=tempAddr[i]+tempAddr[i+1].toUpperCase();
+                i++;
+            }
+            else
+            {
+                clientAddr+=tempAddr[i];
+            }
+        }
+
+        clientKind="";
+        var tempKind=client_kind.trim().split(" ");
+        var newtempKind="";
+        for(let i=0;i<tempKind.length;i++)
+        {
+            if(tempKind[i]!=="")
+            {
+                newtempKind+=tempKind[i]+" ";
+            }
+        }
+        tempKind=newtempKind.trim();
+        clientKind+=tempKind[0].toUpperCase();
+        for(let i=1;i<tempKind.length;i++)
+        {
+            if(tempKind[i]===" ")
+            {
+                clientKind+=tempKind[i]+tempKind[i+1].toUpperCase();
+                i++;
+            }
+            else
+            {
+                clientKind+=tempKind[i];
+            }
         }
     }
     function calTotalPay(serviceKind)
