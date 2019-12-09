@@ -140,7 +140,7 @@
         var discountOnAddr;
         
         discountOnAddr=clientAddr;
-        var age=new Date().getFullYear() - new Date(clientBirth).getFullYear();
+        var age=new Date().getFullYear() - parseInt(clientBirth.substr(clientBirth.lastIndexOf("/")+1,4));
         if (discountOnAddr === "Da Nang")
         {
             totalPay-=20;
