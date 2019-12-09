@@ -117,10 +117,11 @@
         
         var validateEmail=true;
         var count_a,count_dot;
+        count_a=0;
+        count_dot=0;
         while(validateEmail)
         {
-            count_a=0;
-            count_dot=0;
+            
             clientEmail = prompt("Moi nhap email");
             if(clientEmail.length<=0 || count_dot>1 || count_a>1)
             {
@@ -140,15 +141,33 @@
                         validateEmail=true;
                         break;
                     }
+                    else if(clientEmail[i]==="@")
+                    {
+                        count_a++;
+                    }
+                    else if((clientEmail[i]==="@" && clientEmail[i+1]==="@")||(clientEmail[i]==="." && clientEmail[i+1]==="."))
+                    {
+                        validateEmail=true;
+                        break;
+                    }
                     else if(clientEmail[i]==="." && typeof clientEmail[i+1]==="undefined")
                     {
                         validateEmail=true;
                         break;
                     }
+                    else if(clientEmail[i]===".")
+                    {
+                        count_dot++;
+                    }
                     else
                     {
                         validateEmail=false;
                     }
+                }
+                if(count_a===0||count_dot===0)
+                {
+                    validateEmail=true;
+                    continue;
                 }
             }
         }
