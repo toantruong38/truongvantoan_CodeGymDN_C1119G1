@@ -140,6 +140,11 @@
                         validateEmail=true;
                         break;
                     }
+                    else if(clientEmail[i]==="." && typeof clientEmail[i+1]==="undefined")
+                    {
+                        validateEmail=true;
+                        break;
+                    }
                     else
                     {
                         validateEmail=false;
