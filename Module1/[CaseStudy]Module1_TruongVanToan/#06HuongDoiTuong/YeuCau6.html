@@ -165,7 +165,27 @@
                 count_user=i+1;
             }
             output+=temp+".Back";
-            var user_selection=parseInt(prompt(output));
+            var user_selection=prompt(output);
+            if((function()
+            {
+                for(let i=0;i<user_selection.length;i++)
+                {
+                    if(Number.isNaN(parseInt(user_selection[i])))
+                    {
+                        return false;
+                    }
+                }
+                return parseInt(user_selection);
+            })()
+            )
+            {
+                user_selection=parseInt(user_selection);
+            }
+            else
+            {
+                alert("Fail");
+                return displayMainMenu();
+            }
             if(user_selection===temp)
             {
                 return displayMainMenu(); 
@@ -173,16 +193,17 @@
             else if(user_selection<=count_user && user_selection>0)
             {
                 var result="1.Khach hang: "+listCustomers[user_selection-1].getCustomerName()+
-                            "\n2.Ngay sinh: "+listCustomers[user_selection-1].getCustomerBirth()+
-                            "\n3.Email: "+listCustomers[user_selection-1].getCustomerEmail()+
-                            "\n4.Dia chi: "+listCustomers[user_selection-1].getCustomerAddr()+
-                            "\n5.Loai KH: "+listCustomers[user_selection-1].getCustomerType()+
-                            "\n6.Giam gia: "+listCustomers[user_selection-1].getCustomerDiscount()+
-                            "\n7.So luong: "+listCustomers[user_selection-1].getCustomerAmount()+
-                            "\n8.So ngay thue: "+listCustomers[user_selection-1].getCustomerRentDay()+
-                            "\n9.Loai dich vu: "+listCustomers[user_selection-1].getCustomerServiceType()+
-                            "\n10.Loai phong: "+listCustomers[user_selection-1].getCustomerRoomType()+
-                            "\n11.So tien phai tra: "+displayTotalPayOfCustomer(listCustomers[user_selection-1]);
+                            "\n2.Id: "+listCustomers[user_selection-1].getCustomerId()+
+                            "\n3.Ngay sinh: "+listCustomers[user_selection-1].getCustomerBirth()+
+                            "\n4.Email: "+listCustomers[user_selection-1].getCustomerEmail()+
+                            "\n5.Dia chi: "+listCustomers[user_selection-1].getCustomerAddr()+
+                            "\n6.Loai KH: "+listCustomers[user_selection-1].getCustomerType()+
+                            "\n7.Giam gia: "+listCustomers[user_selection-1].getCustomerDiscount()+
+                            "\n8.So luong: "+listCustomers[user_selection-1].getCustomerAmount()+
+                            "\n9.So ngay thue: "+listCustomers[user_selection-1].getCustomerRentDay()+
+                            "\n10.Loai dich vu: "+listCustomers[user_selection-1].getCustomerServiceType()+
+                            "\n11.Loai phong: "+listCustomers[user_selection-1].getCustomerRoomType()+
+                            "\n12.So tien phai tra: "+displayTotalPayOfCustomer(listCustomers[user_selection-1]);
                 if(user_edit_selection)
                 {
                     var select=prompt("Chon thong tin muon sua\n"+result);
@@ -233,6 +254,9 @@
                         case 11:
                             listCustomers[user_selection-1].setCustomerRoomType(prompt("Moi nhap loai phong"));
                             break;
+                        case 12:
+                            alert("Khong the sua so tien");
+                            return displayMainMenu();
                         default:
                             alert("Fail");
                             return displayMainMenu();
@@ -270,6 +294,11 @@
                         "\nLoai phong: "+listCustomers[user_selection-1].getCustomerRoomType()+
                         "\nSo tien phai tra: "+displayTotalPayOfCustomer(listCustomers[user_selection-1]);
                 alert(result);
+                return displayMainMenu();
+            }
+            else
+            {
+                alert("Fail");
                 return displayMainMenu();
             }
         }
