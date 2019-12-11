@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style id="myStyle">
+        .image {
+            position: absolute;
+            top: 15%;
+            left: 33%;
+        }
+
+    </style>
+</head>
+<body>
+<div style="top: 15px;height: 15px;font-size: xx-large">LEADER BOARD</div><br/>
+<div style="font-size: x-large" id="startPoint">item1</div><br/>
+
+<img class="image" src="imgs/Capture.PNG" alt="" width="489" height="486" onclick="clickMe()">
+<script>
+    var customize_style=document.getElementById("myStyle");
+    //customize_style.innerHTML="";
+
+    var oke=true;
+    function clickMe()
+    {
+        var random_num=Math.floor(Math.random()*360);
+        oke = !oke;
+        if(oke)
+        {
+            customize_style.innerHTML=".image {\n" +
+                "\t\t\tposition: absolute;\n" +
+                "            top: 15%;\n" +
+                "            left: 33%;\n" +
+                "            -webkit-transform:rotate("+random_num+"deg);\n" +
+                "            -moz-transform: rotate("+random_num+"deg);\n" +
+                "            -ms-transform: rotate("+random_num+"deg);\n" +
+                "            -o-transform: rotate("+random_num+"deg);\n" +
+                "            transform: rotate("+random_num+"deg);\n" +
+                "        }";
+        }
+        else
+        {
+            customize_style.innerHTML=".image {\n" +
+                "            position: absolute;\n" +
+                "            top: 15%;\n" +
+                "            left: 33%;\n" +
+                "            /*width: 120px;*/\n" +
+                "            /*height: 120px;*/\n" +
+
+                "            -webkit-animation:spin 50ms linear infinite;\n" +
+                "            -moz-animation:spin 50ms linear infinite;\n" +
+                "            animation:spin 50ms linear infinite;\n" +
+                "        }\n" +
+                "        @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }\n" +
+                "        @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }\n" +
+                "        @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }";
+        }
+    }
+</script>
+</body>
+</html>
