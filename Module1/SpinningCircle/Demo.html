@@ -11,12 +11,22 @@
         }
 
     </style>
+    <style>
+        .arrow
+        {
+            position: absolute;
+            top: 59%;
+            left: 71%;
+        }
+    </style>
 </head>
 <body>
+
 <div style="top: 15px;height: 15px;font-size: xx-large">LEADER BOARD</div><br/>
 <div style="font-size: x-large" id="startPoint">item1</div><br/>
 
-<img class="image" src="imgs/Capture.PNG" alt="" width="489" height="486" onclick="clickMe()">
+<img class="image" src="imgs/rotate.png" alt="" width="489" height="486" onclick="clickMe()">
+<img src="imgs/arrow_2.PNG" class="arrow">
 <script>
     var customize_style=document.getElementById("myStyle");
     //customize_style.innerHTML="";
@@ -32,11 +42,11 @@
                 "\t\t\tposition: absolute;\n" +
                 "            top: 15%;\n" +
                 "            left: 33%;\n" +
-                "            -webkit-transform:rotate("+random_num+"deg);\n" +
-                "            -moz-transform: rotate("+random_num+"deg);\n" +
-                "            -ms-transform: rotate("+random_num+"deg);\n" +
-                "            -o-transform: rotate("+random_num+"deg);\n" +
-                "            transform: rotate("+random_num+"deg);\n" +
+                "            -webkit-transform:rotate("+135+"deg);\n" +
+                "            -moz-transform: rotate("+135+"deg);\n" +
+                "            -ms-transform: rotate("+135+"deg);\n" +
+                "            -o-transform: rotate("+135+"deg);\n" +
+                "            transform: rotate("+135+"deg);\n" +
                 "        }";
         }
         else

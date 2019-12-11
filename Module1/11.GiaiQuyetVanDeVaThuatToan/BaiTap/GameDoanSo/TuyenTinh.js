@@ -12,7 +12,7 @@ function timKiemTuyenTinh(nums,search_value)
             alert("Too hight!");
             return startTheGame();
         }
-        else
+        else if(nums[i]===search_value)
         {
             return alert("Correct");
         }

@@ -38,9 +38,8 @@
                     
                     break;
                 case '5':
-                    alert("Bye!");
-                    //return null;
-                    break;
+                    return alert("Bye!");
+
                 default:
                     alert("Fail");
                     return displayMainMenu();
@@ -65,7 +64,7 @@
         {
             var temp=0;
             var output="";
-            var result="";
+
             var user_selection;
             
             
@@ -75,7 +74,16 @@
                     temp=i+2;
                 }
                 output+=temp+".Back";
-                user_selection=parseInt(prompt(output));
+                user_selection=prompt(output);
+                for(let i=0;i<user_selection.length;i++)
+                {
+                    if(Number.isNaN(parseInt(user_selection[i])))
+                    {
+                        alert("Fail");
+                        return displayMainMenu();
+                    }
+                }
+                user_selection=parseInt(user_selection);
                 if(user_selection===temp)
                 {
 
@@ -85,12 +93,14 @@
                 {
                     return displayCustomers();
                 }
-                else
+                else if(user_selection>0&&user_selection<temp)
                 {
                     displayInformationCustomer((user_selection-1)*11);
                 }
-            
-            
+                else
+                {
+                    alert("Fail");
+                }
         }
         function displayInformationCustomer(name_index)
         {
@@ -102,7 +112,8 @@
             if(edit_customer_selection)
             {
                 var user_edit_selection=prompt("Chon thong tin muon sua\n"+output);
-                arrListCustomers[parseInt(user_edit_selection)-1+name_index]=prompt("Moi nhap "+title[(parseInt(user_edit_selection)-1)]);
+                arrListCustomers[parseInt(user_edit_selection)-1+name_index]=
+                    prompt("Moi nhap "+title[(parseInt(user_edit_selection)-1)]);
                 
                 edit_customer_selection=false;
                 return displayInformationCustomer(name_index);
