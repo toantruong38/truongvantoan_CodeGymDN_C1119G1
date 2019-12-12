@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/01.NgonNguLapTrinhJava/BaiTap/BaiTap.iml" filepath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/BaiTap/BaiTap.iml" />
       <module fileurl="file://$PROJECT_DIR$/Module2.iml" filepath="$PROJECT_DIR$/Module2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/TimGiaTriTrongMang/TimGiaTriTrongMang.iml" filepath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/TimGiaTriTrongMang/TimGiaTriTrongMang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/ThucHanh.iml" filepath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/ThucHanh.iml" />
     </modules>
   </component>
 </project>
