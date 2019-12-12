@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<head>
+    <title>Oke</title>
+</head>
+<body>
+    <script>
+        var listEmployees=[];
+        var user_edit_selection=false;
+        var user_delete_selection=false;
+        var user_total_pay_selection=false;
+        var user_tinh_luong_selection=false;
+        displayMainMenu();
+        function Employee()
+        {
+            //#region set
+            this.setLuong=function(luong)
+            {
+                this.luong=luong;
+            };
+            this.setEmployeeName=function(name)
+            {
+                this.name=name;
+            };
+            this.setEmployeeId=function(id)
+            {
+                this.id=id;
+            };
+            this.setEmployeeBirth=function(birth)
+            {
+                this.birth=birth;
+            };
+            this.setEmployeeEmail=function(email)
+            {
+                this.email=email;
+            };
+            this.setEmployeeAddr=function(address)
+            {
+                this.address=address;
+            };
+            this.setEmployeeType=function(type)
+            {
+                this.type=type;
+            };
+            this.setEmployeeDiscount=function(discount)
+            {
+                this.discount=discount;
+            };
+            this.setEmployeeAmount=function(amount)
+            {
+                this.amount=amount;
+            };
+            this.setEmployeeRentDay=function(rentDay)
+            {
+                this.rentDay=rentDay;
+            };
+            this.setEmployeeServiceType=function(serviceType)
+            {
+                this.serviceType=serviceType;
+            };
+            this.setEmployeeRoomType=function(roomType)
+            {
+                this.roomType=roomType;
+            };
+            //#endregion set
+
+            //#region get
+            this.getLuong=function()
+            {
+                return this.luong;
+            };
+            this.getEmployeeName=function()
+            {
+                return this.name;
+            };
+            this.getEmployeeId=function()
+            {
+                return this.id;
+            };
+            this.getEmployeeBirth=function()
+            {
+                return this.birth;
+            };
+            this.getEmployeeEmail=function()
+            {
+                return this.email;
+            };
+            this.getEmployeeAddr=function()
+            {
+                return this.address;
+            };
+            this.getEmployeeType=function()
+            {
+                return this.type;
+            };
+            this.getEmployeeDiscount=function()
+            {
+                return this.discount;
+            };
+            this.getEmployeeAmount=function()
+            {
+                return this.amount;
+            };
+            this.getEmployeeRentDay=function()
+            {
+                return this.rentDay;
+            };
+            this.getEmployeeServiceType=function()
+            {
+                return this.serviceType;
+            };
+            this.getEmployeeRoomType=function()
+            {
+                return this.roomType;
+            };
+            //#endregion get
+            this.calTotalPay=function(employee)
+            {
+                switch(employee.getEmployeeServiceType())
+                {
+                    case "Villa":
+                        return 500*employee.getEmployeeRentDay()*(1-employee.getEmployeeDiscount()/100);
+                        //break;
+                    case "House":
+                        return 300*employee.getEmployeeRentDay()*(1-employee.getEmployeeDiscount()/100);
+                        //break;
+                    case "Room":
+                        return 100*employee.getEmployeeRentDay()*(1-employee.getEmployeeDiscount()/100);
+                        //break;
+                    default:
+                        return "Du lieu nhap vao bi loi";
+                }
+            };
+            this.tinhLuong=function(employee)
+            {
+                  switch(employee.getEmployeeRoomType())
+                  {
+                      case "Manager":
+                          return 500+employee.getLuong();
+                      case "Sale":
+                          return 300+employee.getLuong();
+                      case "Marketing":
+                          return 200+employee.getLuong();
+                      default:
+                          return "Loi du lieu";
+                  }
+            };
+        }
+        function addEmployee()
+        {
+            var newEmployee=new Employee();
+            newEmployee.setEmployeeName(prompt("Moi nhap ten"));
+            newEmployee.setEmployeeId(prompt("Moi nhap Id"));
+            var regexp_birth=/^([0-2][0-9]|[3][0-1])\/([0][1-9]|[1][0-2])\/([1][9][5-9][0-9]|[2][0]([0-1][0-9]|[2][0]))$/;
+            var temp_birth=prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
+            while(!regexp_birth.test(temp_birth))
+            {
+                temp_birth=prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
+            }
+            newEmployee.setEmployeeBirth(temp_birth);
+            var regexp_email=/^[a-z]{3,7}@[a-z]{4,10}\.[a-z]{2,4}$/;
+            var temp_email=prompt("Moi nhap email");
+            while(!regexp_email.test(temp_email))
+            {
+                temp_email=prompt("Moi nhap email");
+            }
+            newEmployee.setEmployeeEmail(temp_email);
+            newEmployee.setEmployeeAddr(prompt("Moi nhap dia chi"));
+            newEmployee.setEmployeeType(prompt("Moi nhap vi tri"));
+            newEmployee.setEmployeeDiscount(prompt("Moi nhap giam gia"));
+            newEmployee.setEmployeeAmount(prompt("Moi nhap so luong"));
+            newEmployee.setEmployeeRentDay(prompt("Moi nhap so ngay thue"));
+            newEmployee.setEmployeeServiceType(prompt("Moi nhap loai dich vu"));
+            newEmployee.setEmployeeRoomType(prompt("Moi nhap loai phong"));
+            listEmployees.push(newEmployee);
+            return displayMainMenu();
+        }
+        function displayInformationEmployee()
+        {
+            var temp =0;
+            var output="";
+            var count_user=0;
+            
+            for(let i=0,j=1;i<listEmployees.length;i++,j++)
+            {
+                output+=i+1+".Name: "+listEmployees[i].getEmployeeName()+" "
+                            +".Id: "+listEmployees[i].getEmployeeId()+"\n";
+                temp=i+2;
+                count_user=i+1;
+            }
+            output+=temp+".Back";
+            var user_selection=prompt(output);
+            if((function()
+            {
+                for(let i=0;i<user_selection.length;i++)
+                {
+                    if(Number.isNaN(parseInt(user_selection[i])))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            })()
+            )
+            {
+                user_selection=parseInt(user_selection);
+            }
+            else
+            {
+                alert("Fail");
+                return displayMainMenu();
+            }
+            if(user_selection===temp)
+            {
+                return displayMainMenu(); 
+            }
+            else if(user_selection<=count_user && user_selection>0)
+            {
+                var result="1.Nhan vien: "+listEmployees[user_selection-1].getEmployeeName()+
+                            "\n2.Id: "+listEmployees[user_selection-1].getEmployeeId()+
+                            "\n3.Ngay sinh: "+listEmployees[user_selection-1].getEmployeeBirth()+
+                            "\n4.Email: "+listEmployees[user_selection-1].getEmployeeEmail()+
+                            "\n5.Dia chi: "+listEmployees[user_selection-1].getEmployeeAddr()+
+                            "\n6.Vi tri: "+listEmployees[user_selection-1].getEmployeeType()+
+                            "\n7.Giam gia: "+listEmployees[user_selection-1].getEmployeeDiscount()+
+                            "\n8.So luong: "+listEmployees[user_selection-1].getEmployeeAmount()+
+                            "\n9.So ngay thue: "+listEmployees[user_selection-1].getEmployeeRentDay()+
+                            "\n10.Loai dich vu: "+listEmployees[user_selection-1].getEmployeeServiceType()+
+                            "\n11.Loai phong: "+listEmployees[user_selection-1].getEmployeeRoomType()+
+                            "\n12.So tien phai tra: "+displayTotalPayOfEmployee(listEmployees[user_selection-1]);
+                if(user_edit_selection)
+                {
+                    var select=prompt("Chon thong tin muon sua\n"+result);
+                    switch(parseInt(select))
+                    {
+                        case 1:
+                            listEmployees[user_selection-1].setEmployeeName(prompt("Moi nhap ten"));
+                            break;
+                        case 2:
+                            listEmployees[user_selection-1].setEmployeeId(prompt("Moi nhap Id"));
+                            break;
+                        case 3:
+                            var regexp_birth=/^([0-2][0-9]|[3][0-1])\/([0][1-9]|[1][0-2])\/([1][9][5-9][0-9]|[2][0]([0-1][0-9]|[2][0]))$/;
+                            var temp_birth=prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
+                            while(!regexp_birth.test(temp_birth))
+                            {
+                                temp_birth=prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
+                            }
+                            listEmployees[user_selection-1].setEmployeeBirth(temp_birth);
+                            break;
+                        case 4:
+                            var regexp_email=/^[a-z]{3,7}@[a-z]{4,10}\.[a-z]{2,4}$/;
+                            var temp_email=prompt("Moi nhap email");
+                            while(!regexp_email.test(temp_email))
+                            {
+                                temp_email=prompt("Moi nhap email");
+                            }
+                            listEmployees[user_selection-1].setEmployeeEmail(temp_email);
+                            break;
+                        case 5:
+                            listEmployees[user_selection-1].setEmployeeAddr(prompt("Moi nhap dia chi"));
+                            break;
+                        case 6:
+                            listEmployees[user_selection-1].setEmployeeType(prompt("Moi nhap vi tri"));
+                            break;
+                        case 7:
+                            listEmployees[user_selection-1].setEmployeeDiscount(prompt("Moi nhap giam gia"));
+                            break;
+                        case 8:
+                            listEmployees[user_selection-1].setEmployeeAmount(prompt("Moi nhap so luong"));
+                            break;
+                        case 9:
+                            listEmployees[user_selection-1].setEmployeeRentDay(prompt("Moi nhap so ngay thue"));
+                            break;
+                        case 10:
+                            listEmployees[user_selection-1].setEmployeeServiceType(prompt("Moi nhap loai dich vu"));
+                            break;
+                        case 11:
+                            listEmployees[user_selection-1].setEmployeeRoomType(prompt("Moi nhap loai phong"));
+                            break;
+                        case 12:
+                            alert("Khong the sua so tien");
+                            return displayMainMenu();
+                        default:
+                            alert("Fail");
+                            return displayMainMenu();
+                    }
+                    
+                }
+                else if(user_delete_selection)
+                {
+                    var confirm=prompt("Ban co thuc su muon xoa?\n1.Yes\n2.No");
+                    if(parseInt(confirm)===1)
+                    {
+                        listEmployees.splice(listEmployees[user_selection-1],1);
+                        alert("Xoa thanh cong!");
+                        return displayMainMenu();
+                    }
+                    else
+                    {
+                        return displayMainMenu();
+                    }
+                }
+                else if(user_total_pay_selection)
+                {
+                    alert(displayTotalPayOfEmployee(listEmployees[user_selection-1]));
+                    return displayMainMenu();
+                }
+                else if(user_tinh_luong_selection)
+                {
+                    alert(tinhLuong(listEmployees[user_selection-1]));
+                    return displayMainMenu();
+                }
+                result="Nhan vien: "+listEmployees[user_selection-1].getEmployeeName()+
+                        "\nNgay sinh: "+listEmployees[user_selection-1].getEmployeeBirth()+
+                        "\nEmail: "+listEmployees[user_selection-1].getEmployeeEmail()+
+                        "\nDia chi: "+listEmployees[user_selection-1].getEmployeeAddr()+
+                        "\nVi tri: "+listEmployees[user_selection-1].getEmployeeType()+
+                        "\nGiam gia: "+listEmployees[user_selection-1].getEmployeeDiscount()+
+                        "\nSo luong: "+listEmployees[user_selection-1].getEmployeeAmount()+
+                        "\nSo ngay thue: "+listEmployees[user_selection-1].getEmployeeRentDay()+
+                        "\nLoai dich vu: "+listEmployees[user_selection-1].getEmployeeServiceType()+
+                        "\nLoai phong: "+listEmployees[user_selection-1].getEmployeeRoomType()+
+                        "\nSo tien phai tra: "+displayTotalPayOfEmployee(listEmployees[user_selection-1]);
+                alert(result);
+                return displayMainMenu();
+            }
+            else
+            {
+                alert("Fail");
+                return displayMainMenu();
+            }
+        }
+        function displayTotalPayOfEmployee(employee)
+        {
+            //user_total_pay_selection=true;
+            //listEmployees[0].calTotalPay();
+            return employee.calTotalPay(employee);
+        }
+        function editEmployee()
+        {
+            user_edit_selection=true;
+            displayInformationEmployee();
+        }
+        function deleteEmployee()
+        {
+            user_delete_selection=true;
+            displayInformationEmployee();
+        }
+        function tinhLuong(employee)
+        {
+            return employee.tinhLuong(employee);
+        }
+        function displayMainMenu()
+        {
+            user_delete_selection=user_edit_selection=user_total_pay_selection=user_tinh_luong_selection=false;
+            var main_menu_selection=
+            "1.Add new employee\n2.Display information employee"+
+            "\n3.Display total pay of employee"+
+            "\n4.Edit information employee"+
+            "\n5.Delete employee"+
+            "\n6.Tinh luong nhan vien"+
+            "\n7.Exit";
+
+            switch(prompt(main_menu_selection))
+            {
+                case '1':
+                    addEmployee();
+                    break;
+                case '2':
+                    displayInformationEmployee();
+                    break;
+                case '3':
+                    user_total_pay_selection=true;
+                    displayInformationEmployee();
+                    break;
+                case '4':
+                    editEmployee();
+                    break;
+                case '5':
+                    deleteEmployee();
+                    break;
+                case '6':
+                    user_tinh_luong_selection=true;
+                    displayInformationEmployee();
+                case '7':
+                    alert("Bye");
+                    break;
+                default:
+                    alert("Fail");
+            }
+        }
+    </script>
+</body>
