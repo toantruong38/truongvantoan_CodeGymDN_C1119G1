@@ -120,17 +120,17 @@
       <recent name="C:\Users\Admin\Downloads\Documents\CodeGym\truongvantoan_CodeGymDN_C1119G1\Module2\01.NgonNguLapTrinhJava\ThucHanh\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SoThanhChu">
-    <configuration name="ArrayAddE" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ArrayAddE" />
+  <component name="RunManager" selected="Application.MangHaiChieu (1)">
+    <configuration name="ArrayMerge" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ArrayMerge" />
       <module name="BaiTap" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArrayMerge" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ArrayMerge" />
-      <module name="BaiTap" />
+    <configuration name="MangHaiChieu (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MangHaiChieu" />
+      <module name="02.Mang_PhuongThucJava" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -158,11 +158,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MangHaiChieu (1)" />
         <item itemvalue="Application.SoThanhChu" />
         <item itemvalue="Application.ArrayMerge" />
         <item itemvalue="Application.Students" />
         <item itemvalue="Application.MangHaiChieu" />
-        <item itemvalue="Application.ArrayAddE" />
       </list>
     </recent_temporary>
   </component>
@@ -252,30 +252,30 @@
       <screen x="0" y="0" width="1304" height="768" />
     </state>
     <state x="332" y="114" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1304.768@0.0.1304.768" timestamp="1576163111895" />
-    <state x="23" y="0" key="CommitChangelistDialog2" timestamp="1576217283427">
+    <state x="23" y="0" key="CommitChangelistDialog2" timestamp="1576217645841">
       <screen x="0" y="0" width="1304" height="768" />
     </state>
-    <state x="23" y="0" key="CommitChangelistDialog2/0.0.1304.768@0.0.1304.768" timestamp="1576217283427" />
+    <state x="23" y="0" key="CommitChangelistDialog2/0.0.1304.768@0.0.1304.768" timestamp="1576217645841" />
     <state x="432" y="141" key="FileChooserDialogImpl" timestamp="1576217078697">
       <screen x="0" y="0" width="1304" height="768" />
     </state>
     <state x="432" y="141" key="FileChooserDialogImpl/0.0.1304.768@0.0.1304.768" timestamp="1576217078697" />
-    <state width="1261" height="256" key="GridCell.Tab.0.bottom" timestamp="1576217402919">
+    <state width="1261" height="256" key="GridCell.Tab.0.bottom" timestamp="1576217679960">
       <screen x="0" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="256" key="GridCell.Tab.0.bottom/0.0.1304.768@0.0.1304.768" timestamp="1576217402919" />
-    <state width="1261" height="256" key="GridCell.Tab.0.center" timestamp="1576217402918">
+    <state width="1261" height="256" key="GridCell.Tab.0.bottom/0.0.1304.768@0.0.1304.768" timestamp="1576217679960" />
+    <state width="1261" height="256" key="GridCell.Tab.0.center" timestamp="1576217679960">
       <screen x="0" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="256" key="GridCell.Tab.0.center/0.0.1304.768@0.0.1304.768" timestamp="1576217402918" />
-    <state width="1261" height="256" key="GridCell.Tab.0.left" timestamp="1576217402918">
+    <state width="1261" height="256" key="GridCell.Tab.0.center/0.0.1304.768@0.0.1304.768" timestamp="1576217679960" />
+    <state width="1261" height="256" key="GridCell.Tab.0.left" timestamp="1576217679960">
       <screen x="0" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="256" key="GridCell.Tab.0.left/0.0.1304.768@0.0.1304.768" timestamp="1576217402918" />
-    <state width="1261" height="256" key="GridCell.Tab.0.right" timestamp="1576217402918">
+    <state width="1261" height="256" key="GridCell.Tab.0.left/0.0.1304.768@0.0.1304.768" timestamp="1576217679960" />
+    <state width="1261" height="256" key="GridCell.Tab.0.right" timestamp="1576217679960">
       <screen x="0" y="0" width="1304" height="768" />
     </state>
-    <state width="1261" height="256" key="GridCell.Tab.0.right/0.0.1304.768@0.0.1304.768" timestamp="1576217402918" />
+    <state width="1261" height="256" key="GridCell.Tab.0.right/0.0.1304.768@0.0.1304.768" timestamp="1576217679960" />
     <state width="1261" height="257" key="GridCell.Tab.1.bottom" timestamp="1576216399923">
       <screen x="0" y="0" width="1304" height="768" />
     </state>
