@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/01.NgonNguLapTrinhJava/BaiTap/BaiTap.iml" filepath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/BaiTap/BaiTap.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Module2.iml" filepath="$PROJECT_DIR$/Module2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/ThucHanh.iml" filepath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/ThucHanh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01.NgonNguLapTrinhJava/01.NgonNguLapTrinhJava.iml" filepath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/01.NgonNguLapTrinhJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02.Mang_PhuongThucJava/02.Mang_PhuongThucJava.iml" filepath="$PROJECT_DIR$/02.Mang_PhuongThucJava/02.Mang_PhuongThucJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02.Mang_PhuongThucJava/BaiTap/BaiTap.iml" filepath="$PROJECT_DIR$/02.Mang_PhuongThucJava/BaiTap/BaiTap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Module2.iml" filepath="$PROJECT_DIR$/.idea/Module2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02.Mang_PhuongThucJava/ThucHanh/ThucHanh.iml" filepath="$PROJECT_DIR$/02.Mang_PhuongThucJava/ThucHanh/ThucHanh.iml" />
     </modules>
   </component>
 </project>
