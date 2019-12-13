@@ -1,76 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8a175c7-c794-44c9-939b-dbbcd7cfc638" name="Default Changelist" comment="LeahGottie">
-      <change afterPath="$PROJECT_DIR$/.idea/Module2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/BaiTap/ArrayAddE.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/BaiTap/ArrayMerge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/BaiTap/MangHaiChieu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/ArrayReverse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/MaxInArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/MinInArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/NhietDo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/Students.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/01.NgonNguLapTrinhJava/BaiTap/src/LoiChao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/01.NgonNguLapTrinhJava/ThucHanh/src/DaysInMonth.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/01.NgonNguLapTrinhJava/ThucHanh/src/Menu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/01.NgonNguLapTrinhJava/ThucHanh/src/NamNhuan.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/01.NgonNguLapTrinhJava/ThucHanh/src/Operators.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/01.NgonNguLapTrinhJava/ThucHanh/src/PhuongTrinhBacNhat.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/01.NgonNguLapTrinhJava/ThucHanh/src/SoNguyenTo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/01.NgonNguLapTrinhJava/ThucHanh/src/SystemTime.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/01.NgonNguLapTrinhJava/ThucHanh/src/TimGiaTriTrongMang.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/01.NgonNguLapTrinhJava/ThucHanh/src/UocChungMax.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/01.NgonNguLapTrinhJava/ThucHanh/src/Variable.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/02.Mang_PhuongThucJava/ArrayAddE.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/02.Mang_PhuongThucJava/ArrayMerge.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/02.Mang_PhuongThucJava/ArrayReverse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/02.Mang_PhuongThucJava/MangHaiChieu.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/02.Mang_PhuongThucJava/MaxInArray.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/02.Mang_PhuongThucJava/MinInArray.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/02.Mang_PhuongThucJava/NhietDo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/02.Mang_PhuongThucJava/Students.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/ThucHanh/META-INF/ThucHanh.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="f8a175c7-c794-44c9-939b-dbbcd7cfc638" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/BaiTap/BaiTap.iml" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/01.NgonNguLapTrinhJava.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/BaiTap/src/ArrayAddE.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/BaiTap/src/LoiChao.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/BaiTap/LoiChao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/BaiTap/src/SoThanhChu.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/BaiTap/SoThanhChu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/ThucHanh.iml" beforeDir="false" afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/02.Mang_PhuongThucJava.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/ArrayReverse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/DaysInMonth.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/DaysInMonth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/MaxInArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/MinInArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/NamNhuan.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/NamNhuan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/NhietDo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/Operators.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/Operators.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/PhuongTrinhBacNhat.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/PhuongTrinhBacNhat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/SoNguyenTo.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/SoNguyenTo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/SystemTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/SystemTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/TimGiaTriTrongMang.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/TimGiaTriTrongMang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/UocChungMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/UocChungMax.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/ThucHanh/src/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/Variable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BaiTap/ArrayAddE.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BaiTap/LoiChao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BaiTap/SoThanhChu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/ArrayReverse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/DaysInMonth.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/MaxInArray.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/Menu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/MinInArray.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/NamNhuan.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/NhietDo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/Operators.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/PhuongTrinhBacNhat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/SoNguyenTo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/SystemTime.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/TimGiaTriTrongMang.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/UocChungMax.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ThucHanh/Variable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/BaiTap/LoiChao.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/BaiTap/LoiChao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/BaiTap/SoThanhChu.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/BaiTap/SoThanhChu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/DaysInMonth.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/DaysInMonth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/NamNhuan.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/NamNhuan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/Operators.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/Operators.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/PhuongTrinhBacNhat.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/PhuongTrinhBacNhat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/SoNguyenTo.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/SoNguyenTo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/SystemTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/SystemTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/TimGiaTriTrongMang.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/TimGiaTriTrongMang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/UocChungMax.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/UocChungMax.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/01.NgonNguLapTrinhJava/src/ThucHanh/Variable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/BaiTap/ArrayAddE.java" beforeDir="false" afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/BaiTap/ArrayAddE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/BaiTap/ArrayMerge.java" beforeDir="false" afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/BaiTap/ArrayMerge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/BaiTap/MangHaiChieu.java" beforeDir="false" afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/BaiTap/MangHaiChieu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/ArrayReverse.java" beforeDir="false" afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/ArrayReverse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/MaxInArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/MaxInArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/MinInArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/MinInArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/NhietDo.java" beforeDir="false" afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/NhietDo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/Students.java" beforeDir="false" afterPath="$PROJECT_DIR$/02.Mang_PhuongThucJava/src/ThucHanh/Students.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +154,7 @@
       <workItem from="1576163701329" duration="1915000" />
       <workItem from="1576199097496" duration="264000" />
       <workItem from="1576199411125" duration="8387000" />
-      <workItem from="1576216428949" duration="1181000" />
+      <workItem from="1576216428949" duration="1902000" />
     </task>
     <task id="LOCAL-00001" summary="LeahGottie">
       <created>1576122868804</created>
@@ -225,7 +177,21 @@
       <option name="project" value="LOCAL" />
       <updated>1576136376578</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="LeahGottie">
+      <created>1576217647938</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1576217647938</updated>
+    </task>
+    <task id="LOCAL-00005" summary="LeahGottie">
+      <created>1576217753096</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1576217753096</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -244,6 +210,7 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="LeahGottie" />
     <option name="LAST_COMMIT_MESSAGE" value="LeahGottie" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -252,10 +219,10 @@
       <screen x="0" y="0" width="1304" height="768" />
     </state>
     <state x="332" y="114" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1304.768@0.0.1304.768" timestamp="1576163111895" />
-    <state x="23" y="0" key="CommitChangelistDialog2" timestamp="1576217645841">
+    <state x="23" y="0" key="CommitChangelistDialog2" timestamp="1576218371210">
       <screen x="0" y="0" width="1304" height="768" />
     </state>
-    <state x="23" y="0" key="CommitChangelistDialog2/0.0.1304.768@0.0.1304.768" timestamp="1576217645841" />
+    <state x="23" y="0" key="CommitChangelistDialog2/0.0.1304.768@0.0.1304.768" timestamp="1576218371210" />
     <state x="432" y="141" key="FileChooserDialogImpl" timestamp="1576217078697">
       <screen x="0" y="0" width="1304" height="768" />
     </state>
@@ -300,6 +267,14 @@
       <screen x="0" y="0" width="1304" height="768" />
     </state>
     <state x="152" y="0" key="SettingsEditor/0.0.1304.768@0.0.1304.768" timestamp="1576199363869" />
+    <state x="244" y="119" key="Vcs.Push.Dialog.v2" timestamp="1576217798533">
+      <screen x="0" y="0" width="1304" height="768" />
+    </state>
+    <state x="244" y="119" key="Vcs.Push.Dialog.v2/0.0.1304.768@0.0.1304.768" timestamp="1576217798533" />
+    <state x="468" y="164" key="chooseDestDirectoryDialog" timestamp="1576218061255">
+      <screen x="0" y="0" width="1304" height="768" />
+    </state>
+    <state x="468" y="164" key="chooseDestDirectoryDialog/0.0.1304.768@0.0.1304.768" timestamp="1576218061255" />
     <state x="347" y="205" key="com.intellij.ide.util.TipDialog" timestamp="1576199419822">
       <screen x="0" y="0" width="1304" height="768" />
     </state>

@@ -1,3 +1,4 @@
+package ThucHanh;
 public class MinInArray {
     public static void main(String[] args) {
         int[] int_arr = new int[10];

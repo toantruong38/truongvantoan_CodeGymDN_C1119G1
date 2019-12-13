@@ -1,3 +1,4 @@
+package ThucHanh;
 import java.util.Date;
 
 public class SystemTime {

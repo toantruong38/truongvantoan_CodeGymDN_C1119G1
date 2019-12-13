@@ -1,3 +1,4 @@
+package ThucHanh;
 import java.util.Scanner;
 
 public class Students {

@@ -1,3 +1,4 @@
+package BaiTap;
 import java.util.Scanner;
 
 public class ArrayMerge {

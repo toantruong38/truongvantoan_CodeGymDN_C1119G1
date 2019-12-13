@@ -1,4 +1,4 @@
-package BaiTap.src;
+package BaiTap;
 
 import java.util.Scanner;
 
