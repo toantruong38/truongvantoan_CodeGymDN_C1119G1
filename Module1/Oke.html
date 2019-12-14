@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+ triangle1:
+                *
+              * *
+            * * *
+          * * * *
+        * * * * *
+ triangle2:
+*
+* *
+* * *
+* * * *
+* * * * *
+ triangle3:
+* * * * *
+* * * *
+* * *
+* *
+*
+triangle4:
+* * * * *
+  * * * *
+    * * *
+      * *
+        *
+ -->
+<script>
+    triangle1();
+    function triangle1()
+    {
+        for(let i=4;i>=0;i--)
+        {
+            for(let k=i;k>=0;k--)
+            {
+                document.write('&nbsp&nbsp&nbsp');
+            }
+            for(let j=5-i;j>0;j--)
+            {
+                document.write("*&nbsp");
+            }
+            document.write('<br>');
+        }
+    }
+    document.write('<br>');
+    document.write('<br>');
+    triangle2();
+    function triangle2()
+    {
+        for(let i=1;i<=5;i++)
+        {
+            for(let j=i;j>0;j--)
+            {
+                document.write("*&nbsp");
+            }
+            document.write('<br>');
+        }
+    }
+    document.write('<br>');
+    document.write('<br>');
+    triangle3()
+    function triangle3()
+    {
+        for(let i=5;i>0;i--)
+        {
+            for(let j=i;j>0;j--)
+            {
+                document.write("*&nbsp");
+            }
+            document.write('<br>');
+        }
+    }
+    document.write('<br>');
+    document.write('<br>');
+    triangle4();
+    function triangle4()
+    {
+        for(let i=5;i>0;i--)
+        {
+            for(let k=5-i;k>0;k--)
+            {
+                document.write("&nbsp&nbsp&nbsp");
+            }
+            for(let j=i;j>0;j--)
+            {
+                document.write("*&nbsp");
+            }
+
+            document.write('<br>');
+        }
+    }
+</script>
+</body>
+</html>
