@@ -7,14 +7,14 @@
 <body>
 <script>
     // 0 1 1 2 3 5 8
-    let post=1,fix=1,fibo_limit=0,temp,oke="";
+    let post = 1, fix = 1, fibo_limit = 0, temp, oke = "";
     fibo_limit = parseFloat(prompt("Nhap gioi han cho day Fibonaci"));
-    while(fibo_limit!==0)
+    while (fibo_limit !== 0)
     {
-        oke+=fix+"<br/>";
-        temp=fix;
-        fix+=post;
-        post=temp;
+        oke += fix + "<br/>";
+        temp = fix;
+        fix += post;
+        post = temp;
         fibo_limit--;
     }
     document.write(oke);

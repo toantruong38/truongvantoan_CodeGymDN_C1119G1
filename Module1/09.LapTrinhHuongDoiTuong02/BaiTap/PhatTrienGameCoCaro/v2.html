@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+
+    </style>
+</head>
+<body>
+
+<script>
+    var top = 0;
+    var left = 0;
+    var temp = '<div>';
+    for (var i = 0; i < 20; i++)
+    {
+        for (var j = 0; j < 20; j++)
+        {
+            temp += '<div style="position: absolute; width: 50px;height: 50px; left: ' + left + 'px; top: ' + top + 'px;' +
+                'background-color: yellow;border-style: outset;border-color: black" id="' + i + '_' + j + '" onclick="clickMe(' +
+                i + ',' + j + ')"></div>';
+            left += 50;
+        }
+        left = 0;
+        top += 50;
+    }
+    temp += '</div>';
+    document.write(temp);
+
+    function clickMe(i, j)
+    {
+
+    }
+
+</script>
+</body>
+</html>

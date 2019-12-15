@@ -5,35 +5,38 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="input">
-<select name="slct" id="slct">
+<input id="input" type="text">
+<select id="slct" name="slct">
     <option id="optionMeter" value="Meter">Meter</option>
     <option id="optionFoot" value="Foot">Foot</option>
 </select>
 <button onclick="Convert(value_of_selectBox.value)">Convert</button>
 <script>
-    let value_of_selectBox=document.getElementById("slct");
+    let value_of_selectBox = document.getElementById("slct");
+
     function Convert(value_of_selectBox)
     {
-        let temp=document.getElementById("input");
-        if(value_of_selectBox==="Meter")
+        let temp = document.getElementById("input");
+        if (value_of_selectBox === "Meter")
         {
-            temp.value=convert_meter_to_foot(temp.value);
-            let switch_option=document.getElementById("slct");
-            switch_option.value="Foot";
-        }else
+            temp.value = convert_meter_to_foot(temp.value);
+            let switch_option = document.getElementById("slct");
+            switch_option.value = "Foot";
+        } else
         {
-            temp.value=convert_foot_to_meter(temp.value);
-            let switch_option=document.getElementById("slct");
-            switch_option.value="Meter";
+            temp.value = convert_foot_to_meter(temp.value);
+            let switch_option = document.getElementById("slct");
+            switch_option.value = "Meter";
         }
+
         function convert_meter_to_foot(meter)
         {
-            return 3.279*meter;
+            return 3.279 * meter;
         }
+
         function convert_foot_to_meter(foot)
         {
-            return 0.305*foot;
+            return 0.305 * foot;
         }
     }
 </script>

@@ -8,17 +8,18 @@
 <label>Temperature Converter</label>
 <br><label>Type a value in the Fahrenheit field to convert the value to Celsius:</label>
 <br><label>Fahrenheit </label>
-<input type="number" id="input" oninput="Convert(this.value)" onchange="Convert(this.value)">
+<input id="input" onchange="Convert(this.value)" oninput="Convert(this.value)" type="number">
 <div id="output"></div>
 <script>
     //C = (F - 32)/1.8
     let result;
+
     function Convert(e)
     {
         let output;
-        result= (parseFloat(e)-32)/1.8;
-        output=document.getElementById("output");
-        output.innerHTML=result;
+        result = (parseFloat(e) - 32) / 1.8;
+        output = document.getElementById("output");
+        output.innerHTML = result;
     }
 
     // let output = document.getElementById("output").innerHTML;

@@ -6,29 +6,31 @@
 </head>
 <body>
 <script>
-    let temp="";
-    let count=1;
-    while(count!==101)
+    let temp = "";
+    let count = 1;
+    while (count !== 101)
     {
-        if(count%3===0)
+        if (count % 3 === 0)
         {
-            if(count%5===0)
+            if (count % 5 === 0)
             {
-                temp+="FizzBuzz"+"<br/>";
-                count++; continue;
-            }
-            else
+                temp += "FizzBuzz" + "<br/>";
+                count++;
+                continue;
+            } else
             {
-                temp+="Fizz"+"<br/>";
-                count++; continue;
+                temp += "Fizz" + "<br/>";
+                count++;
+                continue;
             }
         }
-        if(count%5===0)
+        if (count % 5 === 0)
         {
-            temp+="Buzz"+"<br/>";
-            count++; continue;
+            temp += "Buzz" + "<br/>";
+            count++;
+            continue;
         }
-        temp+=count+"<br/>";
+        temp += count + "<br/>";
         count++;
     }
     document.write(temp);

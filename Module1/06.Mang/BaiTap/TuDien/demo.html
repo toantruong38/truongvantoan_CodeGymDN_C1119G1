@@ -5,23 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="inputText">
-<input type="button" id="searchBtn" value="Search" onclick="Search()">
-<input type="button" id="addBtn" value="Add" onclick="Add()">
+<input id="inputText" type="text">
+<input id="searchBtn" onclick="Search()" type="button" value="Search">
+<input id="addBtn" onclick="Add()" type="button" value="Add">
 <script>
-    let myEndArr=[];let myVieArr=[];
+    let myEndArr = [];
+    let myVieArr = [];
+
     function Add()
     {
         myEndArr.push(document.getElementById("inputText").value);
         myVieArr.push(prompt("Nhap nghia TV"));
     }
+
     function Search()
     {
-        for (let i = 0; i < myEndArr.length; i++) {
-            if (myEndArr[i] === document.getElementById("inputText").value) {
+        for (let i = 0; i < myEndArr.length; i++)
+        {
+            if (myEndArr[i] === document.getElementById("inputText").value)
+            {
                 alert("Found : " + myVieArr[i]);
-            }
-            else
+            } else
                 alert("Khong tim thay");
         }
     }

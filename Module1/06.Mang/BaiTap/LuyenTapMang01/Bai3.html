@@ -6,19 +6,21 @@
 </head>
 <body>
 <script>
-    let myArray=[];let temp=0;let max=0;
-    for(let i=0;i<10;i++)
+    let myArray = [];
+    let temp = 0;
+    let max = 0;
+    for (let i = 0; i < 10; i++)
     {
         myArray.push(Math.floor(Math.random() * 100));
     }
-    for(let e in myArray)
+    for (let e in myArray)
     {
-        if(myArray[e]>max) max=myArray[e];
-        temp+=myArray[e];
+        if (myArray[e] > max) max = myArray[e];
+        temp += myArray[e];
     }
     document.write(myArray.toString());
     //alert("Mang ban dau : "+"\n"+myArray.toString()+"\nCac so nguyen lon hon hoac bang 10 : " + temp);
-    alert("Mang ban dau : "+"\n"+myArray.toString()+"\nSo lon nhat : " +max + "\nTrung binh cong : " + temp / myArray.length);
+    alert("Mang ban dau : " + "\n" + myArray.toString() + "\nSo lon nhat : " + max + "\nTrung binh cong : " + temp / myArray.length);
 </script>
 </body>
 </html>

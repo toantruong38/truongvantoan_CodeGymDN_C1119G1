@@ -8,16 +8,21 @@
 <script>
     let mang_ngoi_sao = new Array("Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus");
     let mang_chom_sao = new Array("Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo");
+
     function Express(star_toFind)
     {
         //alert('Im in');
-        let checked=false;
-        for(let e in mang_ngoi_sao)
+        let checked = false;
+        for (let e in mang_ngoi_sao)
         {
-            if(star_toFind===mang_ngoi_sao[e]) {alert( mang_chom_sao[e]); checked=true;}
+            if (star_toFind === mang_ngoi_sao[e])
+            {
+                alert(mang_chom_sao[e]);
+                checked = true;
+            }
             //else checked=false;
         }
-        if(checked===false) alert("Khong tim thay");
+        if (checked === false) alert("Khong tim thay");
     }
 </script>
 </body>

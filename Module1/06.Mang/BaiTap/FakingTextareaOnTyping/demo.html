@@ -7,16 +7,20 @@
 <body>
 <label>Type anything slowly</label><br/>
 <form name="myForm">
-    <textarea id="txtArea" cols="50" rows="10" onkeydown="Change(event)" ></textarea>
+    <textarea cols="50" id="txtArea" onkeydown="Change(event)" rows="10"></textarea>
 </form>
 <script>
 
-    let temp;let temp2;let i=0;let n="";
-    let myString="We wish you a merrychrismast, and a happy new year";let myArray=[];
+    let temp;
+    let temp2;
+    let i = 0;
+    let n = "";
+    let myString = "We wish you a merrychrismast, and a happy new year";
+    let myArray = [];
 
 
-
-    for (let i = 0; i < myString.length; i++) {
+    for (let i = 0; i < myString.length; i++)
+    {
         //alert(myString[i]);
         myArray.push(myString[i]);
 
@@ -25,13 +29,15 @@
     function Change(event)
     {
         event.preventDefault();
-        temp=document.getElementById("txtArea");
-        temp2=temp.value;
-        n+=myArray[i];
-        temp.value=n;i++;
-        if(i===(myArray.length))
+        temp = document.getElementById("txtArea");
+        temp2 = temp.value;
+        n += myArray[i];
+        temp.value = n;
+        i++;
+        if (i === (myArray.length))
         {
-            n="";i=0;
+            n = "";
+            i = 0;
         }
     }
 </script>

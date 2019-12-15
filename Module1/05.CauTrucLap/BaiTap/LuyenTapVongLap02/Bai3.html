@@ -6,43 +6,44 @@
 </head>
 <body>
 <script>
-    let my_result="",my_result_2="",my_result_3="";
-    for(let i=1;i<=5;i++)
+    let my_result = "", my_result_2 = "", my_result_3 = "";
+    for (let i = 1; i <= 5; i++)
     {
-        let j=i;
-        while(j!==0)
+        let j = i;
+        while (j !== 0)
         {
             my_result += "*";
             j--;
         }
-        my_result+="<br/>";
+        my_result += "<br/>";
     }
     document.write(my_result);
     //my_result+="<br/>";
 
-    for(let i=0;i<5;i++)
+    for (let i = 0; i < 5; i++)
     {
-        let j=i;
-        while(j!==5)
+        let j = i;
+        while (j !== 5)
         {
             my_result_2 += "*";
             j++;
         }
-        my_result_2+="<br/>";
+        my_result_2 += "<br/>";
     }
     document.write(my_result_2);
-    my_result_2+="<br/>";
+    my_result_2 += "<br/>";
 
-    for(let i=0;i<5;i++)
+    for (let i = 0; i < 5; i++)
     {
-        let j=5;
-        while(j===j-i)
+        let j = 5;
+        while (j === j - i)
         {
-            my_result_3+="*";
+            my_result_3 += "*";
             j++;
         }
-        my_result_3+="<br/>";
-    }document.write(my_result_3);
+        my_result_3 += "<br/>";
+    }
+    document.write(my_result_3);
 </script>
 </body>
 </html>

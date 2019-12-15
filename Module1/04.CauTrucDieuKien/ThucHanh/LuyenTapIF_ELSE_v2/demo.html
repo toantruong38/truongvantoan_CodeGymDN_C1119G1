@@ -6,16 +6,15 @@
 </head>
 <body>
 <script>
-    let usr,psw;
-    usr=prompt('Nhap tai khoan'); //psw=prompt('Nhap mat khau');
-    if(usr==='Admin')
+    let usr, psw;
+    usr = prompt('Nhap tai khoan'); //psw=prompt('Nhap mat khau');
+    if (usr === 'Admin')
     {
-        psw=prompt('Nhap mat khau');
-        if(psw==='TheMaster') alert('Welcome');
-        else if(psw==='null') alert('Canceled');
+        psw = prompt('Nhap mat khau');
+        if (psw === 'TheMaster') alert('Welcome');
+        else if (psw === 'null') alert('Canceled');
         else alert('Wrong password');
-    }
-    else if(usr==='null') alert('Canceled');
+    } else if (usr === 'null') alert('Canceled');
     else alert('I dont know u');
 </script>
 </body>

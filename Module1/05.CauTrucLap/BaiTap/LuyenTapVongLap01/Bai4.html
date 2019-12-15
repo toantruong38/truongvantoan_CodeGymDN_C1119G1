@@ -7,19 +7,24 @@
 <body>
 <script>
     //0 1 1 2 3 5
-    let oke="";let post=0;let fix=1;let temp=0;
-    while(true)
+    let oke = "";
+    let post = 0;
+    let fix = 1;
+    let temp = 0;
+    while (true)
     {
-        oke+=fix+"\n";
-        temp=fix;
-        fix+=post;
-        post=temp;
-        if(fix%5===0)
+        oke += fix + "\n";
+        temp = fix;
+        fix += post;
+        post = temp;
+        if (fix % 5 === 0)
         {
-            alert(fix);break;
+            alert(fix);
+            break;
         }
         //break;
-    }alert(oke);
+    }
+    alert(oke);
 </script>
 </body>
 </html>

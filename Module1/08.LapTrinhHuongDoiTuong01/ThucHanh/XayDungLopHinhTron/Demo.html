@@ -6,24 +6,26 @@
 </head>
 <body>
 <script>
-    function Circle(radius,color)
+    function Circle(radius, color)
     {
-        let Circle=function(radius){this.radius=radius;};
-        this.radius=radius; this.color=color;
-        this.getRadius=function()
+        let Circle = function (radius) {this.radius = radius;};
+        this.radius = radius;
+        this.color = color;
+        this.getRadius = function ()
         {
             return this.radius;
         };
-        this.getArea=function(){return Math.PI*radius*radius;};
+        this.getArea = function () {return Math.PI * radius * radius;};
     }
-    let circle=new Circle(2);
-    let radius=circle.getRadius();
-    let area=circle.getArea();
-    alert("radius: "+radius+"; area: "+area);
-    let circle_2=new Circle(10);
-    radius=circle_2.getRadius();
-    area=circle_2.getArea();
-    alert("radius: "+radius+"; area: "+area);
+
+    let circle = new Circle(2);
+    let radius = circle.getRadius();
+    let area = circle.getArea();
+    alert("radius: " + radius + "; area: " + area);
+    let circle_2 = new Circle(10);
+    radius = circle_2.getRadius();
+    area = circle_2.getArea();
+    alert("radius: " + radius + "; area: " + area);
 </script>
 </body>
 </html>

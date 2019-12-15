@@ -6,23 +6,29 @@
 </head>
 <body>
 <div id="table"></div>
-<input type="button" onclick="Change()" value="Change Value">
+<input onclick="Change()" type="button" value="Change Value">
 <script>
-    let temp1,temp2,temp3;temp1=temp2=temp3="";
+    let temp1, temp2, temp3;
+    temp1 = temp2 = temp3 = "";
     let myArray = [];
     let temp = "";
-    let positionCot;let positionDong;
-    for (let i = 0; i < 5; i++) {
+    let positionCot;
+    let positionDong;
+    for (let i = 0; i < 5; i++)
+    {
         myArray[i] = [".", ".", ".", ".", "."];
     }
     Refresh();
 
-    function Refresh() {
+    function Refresh()
+    {
 
-        for (let i = 0; i < myArray.length; i++) {
-            for (let j = 0; j < myArray.length; j++) {
+        for (let i = 0; i < myArray.length; i++)
+        {
+            for (let j = 0; j < myArray.length; j++)
+            {
                 temp += myArray[i][j] + "\t";
-                
+
             }
             temp += "<br/>";
         }
@@ -30,10 +36,11 @@
         document.getElementById("table").innerHTML = temp;
     }
 
-    function Change() {
-        positionCot = prompt("Nhap vi tri cot")-1;
-        positionDong = prompt("Nhap vi tri dong")-1;
-        temp="";
+    function Change()
+    {
+        positionCot = prompt("Nhap vi tri cot") - 1;
+        positionDong = prompt("Nhap vi tri dong") - 1;
+        temp = "";
         myArray[positionDong][positionCot] = prompt("Nhap X hoac 0");
         //
         //document.getElementById("table").innerHTML="";
@@ -43,14 +50,15 @@
         //alert(myArray[positionDong][positionCot - 1]);
 
     }
+
     function Defeat()
     {
 
-        for(let i=0;i<myArray.length;i++)
+        for (let i = 0; i < myArray.length; i++)
         {
-            for(let j=0;j<myArray.length;j++)
+            for (let j = 0; j < myArray.length; j++)
             {
-                if(myArray[j][i]===myArray[j+1][i]===myArray[j+2][i])
+                if (myArray[j][i] === myArray[j + 1][i] === myArray[j + 2][i])
                 {
                     alert('OK');
                 }

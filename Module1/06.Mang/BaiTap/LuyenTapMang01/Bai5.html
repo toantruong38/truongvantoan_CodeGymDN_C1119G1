@@ -7,13 +7,15 @@
 <body>
 <script>
     alert("Chuong trinh dem so am sau khi nhap mot chuoi");
-    let userInput = prompt("Nhap chuoi");let count=0;
-    for(let i=0;i<userInput.length;i++)
+    let userInput = prompt("Nhap chuoi");
+    let count = 0;
+    for (let i = 0; i < userInput.length; i++)
     {
         if (userInput[i] === '-')
         {
-            let temp;temp=userInput[i+1]*1;
-            if(typeof temp==="number") count++;
+            let temp;
+            temp = userInput[i + 1] * 1;
+            if (typeof temp === "number") count++;
         }
     }
     alert("Co : " + count + " so am");

@@ -10,16 +10,17 @@
     1. Khai bao mang, du lieu co san
     2. Dem so ky tu so trong mang
      */
-    let myArray=['M',3,'r','r','y',' ','C','h','r',1,'s','s','m',4,'s','t'],example_string="M3rry Chr1ssm4st";//1
+    let myArray = ['M', 3, 'r', 'r', 'y', ' ', 'C', 'h', 'r', 1, 's', 's', 'm', 4, 's', 't'],
+        example_string = "M3rry Chr1ssm4st";//1
     // for(let i=0;i<example_string.length;i++) //1
     // {
     //     myArray.push(example_string[i]);
     // }
     alert(myArray.toString());
-    let count=0;
-    for(let e=0;e<myArray.length;e++)
+    let count = 0;
+    for (let e = 0; e < myArray.length; e++)
     {
-        if(typeof (myArray[e])=="number") count++;
+        if (typeof (myArray[e]) == "number") count++;
     }
     alert("Trong mang co " + count + " ky tu so!");
 </script>

@@ -9,27 +9,26 @@
 <script>
     function Main()
     {
-        let time_played=0;let begin_range,end_range;
-        while(time_played!==3)
+        let time_played = 0;
+        let begin_range, end_range;
+        while (time_played !== 3)
         {
-            begin_range=parseFloat(prompt("Ban muon doan trong khoang tu : "));
-            end_range=parseFloat(prompt("Den : "));
-            let random_number_from_given_range=pick_user_a_number(begin_range,end_range);
-            let userNumber=parseFloat(prompt("Nhap gia tri ban muon doan"));
-            if(random_number_from_given_range===userNumber)
+            begin_range = parseFloat(prompt("Ban muon doan trong khoang tu : "));
+            end_range = parseFloat(prompt("Den : "));
+            let random_number_from_given_range = pick_user_a_number(begin_range, end_range);
+            let userNumber = parseFloat(prompt("Nhap gia tri ban muon doan"));
+            if (random_number_from_given_range === userNumber)
             {
                 alert("Chuc mung");
-                time_played=0;
+                time_played = 0;
                 break;
-            }
-           else
+            } else
             {
-                if(userNumber>random_number_from_given_range)
+                if (userNumber > random_number_from_given_range)
                 {
                     alert("So ban nhap lon hon so dung");
                     time_played++;
-                }
-                else
+                } else
                 {
                     alert("So ban nhap nho hon so dung");
                     time_played++;
@@ -37,9 +36,10 @@
             }
         }
     }
-    function pick_user_a_number(begin,end)
+
+    function pick_user_a_number(begin, end)
     {
-        return Math.floor(Math.random()*(end-begin)+begin);
+        return Math.floor(Math.random() * (end - begin) + begin);
     }
 </script>
 </body>

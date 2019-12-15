@@ -7,16 +7,23 @@
 <body>
 <script>
     //0 1 1 2 3 5
-    let count=0;let oke="";let post=0;let fix=1;let temp=0;let sum=0;
-    while(count!==20)
+    let count = 0;
+    let oke = "";
+    let post = 0;
+    let fix = 1;
+    let temp = 0;
+    let sum = 0;
+    while (count !== 20)
     {
-        oke+=fix+"\n";
-        temp=fix;
-        fix+=post;
-        post=temp;
-        sum+=fix;
+        oke += fix + "\n";
+        temp = fix;
+        fix += post;
+        post = temp;
+        sum += fix;
         count++;
-    }alert(oke);alert("Tong "+sum);
+    }
+    alert(oke);
+    alert("Tong " + sum);
 </script>
 </body>
 </html>

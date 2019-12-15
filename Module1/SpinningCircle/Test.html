@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style id="myStyle">
-        .image {
+        .image
+        {
             position: absolute;
             top: 15%;
             left: 33%;
@@ -13,32 +14,32 @@
     </style>
 </head>
 <body>
-<img class="image" src="imgs/Circle-Reverse-Front.png" alt="" width="489" height="486" onclick="clickMe()">
+<img alt="" class="image" height="486" onclick="clickMe()" src="imgs/Circle-Reverse-Front.png" width="489">
 <script>
-    var customize_style=document.getElementById("myStyle");
+    var customize_style = document.getElementById("myStyle");
     //customize_style.innerHTML="";
 
-    var oke=true;
+    var oke = true;
+
     function clickMe()
     {
-        var random_num=Math.floor(Math.random()*360);
+        var random_num = Math.floor(Math.random() * 360);
         oke = !oke;
-        if(oke)
+        if (oke)
         {
-            customize_style.innerHTML=".image {\n" +
+            customize_style.innerHTML = ".image {\n" +
                 "\t\t\tposition: absolute;\n" +
                 "            top: 15%;\n" +
                 "            left: 33%;\n" +
-                "            -webkit-transform:rotate("+random_num+"deg);\n" +
-                "            -moz-transform: rotate("+random_num+"deg);\n" +
-                "            -ms-transform: rotate("+random_num+"deg);\n" +
-                "            -o-transform: rotate("+random_num+"deg);\n" +
-                "            transform: rotate("+random_num+"deg);\n" +
+                "            -webkit-transform:rotate(" + random_num + "deg);\n" +
+                "            -moz-transform: rotate(" + random_num + "deg);\n" +
+                "            -ms-transform: rotate(" + random_num + "deg);\n" +
+                "            -o-transform: rotate(" + random_num + "deg);\n" +
+                "            transform: rotate(" + random_num + "deg);\n" +
                 "        }";
-        }
-        else
+        } else
         {
-            customize_style.innerHTML=".image {\n" +
+            customize_style.innerHTML = ".image {\n" +
                 "            position: absolute;\n" +
                 "            top: 15%;\n" +
                 "            left: 33%;\n" +

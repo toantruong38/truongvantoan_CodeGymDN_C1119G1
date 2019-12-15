@@ -5,25 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="inputTxtBox">
-<input type="button" id="addBtn" value="Add" onclick="Add()">
-<input type="button" id="displayBtn" value="Display" onclick="Display()"><br>
+<input id="inputTxtBox" type="text">
+<input id="addBtn" onclick="Add()" type="button" value="Add">
+<input id="displayBtn" onclick="Display()" type="button" value="Display"><br>
 <div id="displayHolder"></div>
 <script>
-    let myArray=[];
+    let myArray = [];
+
     function Add()
     {
         myArray.push(document.getElementById("inputTxtBox").value);
-        document.getElementById("inputTxtBox").value="";
+        document.getElementById("inputTxtBox").value = "";
     }
+
     function Display()
     {
-        let temp="<hr/>";
+        let temp = "<hr/>";
         for (let e = 0; e < myArray.length; e++)
         {
-            temp+="Element "+e+" = "+myArray[e]+"<br/>";
+            temp += "Element " + e + " = " + myArray[e] + "<br/>";
         }
-        document.getElementById("displayHolder").innerHTML=temp;
+        document.getElementById("displayHolder").innerHTML = temp;
     }
 </script>
 </body>

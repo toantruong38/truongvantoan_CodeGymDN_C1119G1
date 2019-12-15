@@ -3,355 +3,356 @@
     <title>Oke</title>
 </head>
 <body>
-    <script>
-        var listCustomers=[];
-        var user_edit_selection=false;
-        var user_delete_selection=false;
-        var user_total_pay_selection=false;
-        displayMainMenu();
-        function Customer()
-        {
-            //#region set
-            this.setCustomerName=function(name)
-            {
-                this.name=name;
-            };
-            this.setCustomerId=function(id)
-            {
-                this.id=id;
-            };
-            this.setCustomerBirth=function(birth)
-            {
-                this.birth=birth;
-            };
-            this.setCustomerEmail=function(email)
-            {
-                this.email=email;
-            };
-            this.setCustomerAddr=function(address)
-            {
-                this.address=address;
-            };
-            this.setCustomerType=function(type)
-            {
-                this.type=type;
-            };
-            this.setCustomerDiscount=function(discount)
-            {
-                this.discount=discount;
-            };
-            this.setCustomerAmount=function(amount)
-            {
-                this.amount=amount;
-            };
-            this.setCustomerRentDay=function(rentDay)
-            {
-                this.rentDay=rentDay;
-            };
-            this.setCustomerServiceType=function(serviceType)
-            {
-                this.serviceType=serviceType;
-            };
-            this.setCustomerRoomType=function(roomType)
-            {
-                this.roomType=roomType;
-            };
-            //#endregion set
+<script>
+    var listCustomers = [];
+    var user_edit_selection = false;
+    var user_delete_selection = false;
+    var user_total_pay_selection = false;
+    displayMainMenu();
 
-            //#region get
-            this.getCustomerName=function()
-            {
-                return this.name;
-            };
-            this.getCustomerId=function()
-            {
-                return this.id;
-            };
-            this.getCustomerBirth=function()
-            {
-                return this.birth;
-            };
-            this.getCustomerEmail=function()
-            {
-                return this.email;
-            };
-            this.getCustomerAddr=function()
-            {
-                return this.address;
-            };
-            this.getCustomerType=function()
-            {
-                return this.type;
-            };
-            this.getCustomerDiscount=function()
-            {
-                return this.discount;
-            };
-            this.getCustomerAmount=function()
-            {
-                return this.amount;
-            };
-            this.getCustomerRentDay=function()
-            {
-                return this.rentDay;
-            };
-            this.getCustomerServiceType=function()
-            {
-                return this.serviceType;
-            };
-            this.getCustomerRoomType=function()
-            {
-                return this.roomType;
-            };
-            //#endregion get
-            this.calTotalPay=function(customer)
-            {
-                switch(customer.getCustomerServiceType())
-                {
-                    case "Villa":
-                        return 500*customer.getCustomerRentDay()*(1-customer.getCustomerDiscount()/100);
-                        //break;
-                    case "House":
-                        return 300*customer.getCustomerRentDay()*(1-customer.getCustomerDiscount()/100);
-                        //break;
-                    case "Room":
-                        return 100*customer.getCustomerRentDay()*(1-customer.getCustomerDiscount()/100);
-                        //break;
-                    default:
-                        return "Du lieu nhap vao bi loi";
-                }
-            };
-        }
-        function addCustomer()
+    function Customer()
+    {
+        //#region set
+        this.setCustomerName = function (name)
         {
-            var newCustomer=new Customer();
-            newCustomer.setCustomerName(prompt("Moi nhap ten"));
-            newCustomer.setCustomerId(prompt("Moi nhap Id"));
-            var regexp_birth=/^([0-2][0-9]|[3][0-1])\/([0][1-9]|[1][0-2])\/([1][9][5-9][0-9]|[2][0]([0-1][0-9]|[2][0]))$/;
-            var temp_birth=prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
-            while(!regexp_birth.test(temp_birth))
+            this.name = name;
+        };
+        this.setCustomerId = function (id)
+        {
+            this.id = id;
+        };
+        this.setCustomerBirth = function (birth)
+        {
+            this.birth = birth;
+        };
+        this.setCustomerEmail = function (email)
+        {
+            this.email = email;
+        };
+        this.setCustomerAddr = function (address)
+        {
+            this.address = address;
+        };
+        this.setCustomerType = function (type)
+        {
+            this.type = type;
+        };
+        this.setCustomerDiscount = function (discount)
+        {
+            this.discount = discount;
+        };
+        this.setCustomerAmount = function (amount)
+        {
+            this.amount = amount;
+        };
+        this.setCustomerRentDay = function (rentDay)
+        {
+            this.rentDay = rentDay;
+        };
+        this.setCustomerServiceType = function (serviceType)
+        {
+            this.serviceType = serviceType;
+        };
+        this.setCustomerRoomType = function (roomType)
+        {
+            this.roomType = roomType;
+        };
+        //#endregion set
+
+        //#region get
+        this.getCustomerName = function ()
+        {
+            return this.name;
+        };
+        this.getCustomerId = function ()
+        {
+            return this.id;
+        };
+        this.getCustomerBirth = function ()
+        {
+            return this.birth;
+        };
+        this.getCustomerEmail = function ()
+        {
+            return this.email;
+        };
+        this.getCustomerAddr = function ()
+        {
+            return this.address;
+        };
+        this.getCustomerType = function ()
+        {
+            return this.type;
+        };
+        this.getCustomerDiscount = function ()
+        {
+            return this.discount;
+        };
+        this.getCustomerAmount = function ()
+        {
+            return this.amount;
+        };
+        this.getCustomerRentDay = function ()
+        {
+            return this.rentDay;
+        };
+        this.getCustomerServiceType = function ()
+        {
+            return this.serviceType;
+        };
+        this.getCustomerRoomType = function ()
+        {
+            return this.roomType;
+        };
+        //#endregion get
+        this.calTotalPay = function (customer)
+        {
+            switch (customer.getCustomerServiceType())
             {
-                temp_birth=prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
+                case "Villa":
+                    return 500 * customer.getCustomerRentDay() * (1 - customer.getCustomerDiscount() / 100);
+                //break;
+                case "House":
+                    return 300 * customer.getCustomerRentDay() * (1 - customer.getCustomerDiscount() / 100);
+                //break;
+                case "Room":
+                    return 100 * customer.getCustomerRentDay() * (1 - customer.getCustomerDiscount() / 100);
+                //break;
+                default:
+                    return "Du lieu nhap vao bi loi";
             }
-            newCustomer.setCustomerBirth(temp_birth);
-            var regexp_email=/^[a-z]{3,7}@[a-z]{4,10}\.[a-z]{2,4}$/;
-            var temp_email=prompt("Moi nhap email");
-            while(!regexp_email.test(temp_email))
+        };
+    }
+
+    function addCustomer()
+    {
+        var newCustomer = new Customer();
+        newCustomer.setCustomerName(prompt("Moi nhap ten"));
+        newCustomer.setCustomerId(prompt("Moi nhap Id"));
+        var regexp_birth = /^([0-2][0-9]|[3][0-1])\/([0][1-9]|[1][0-2])\/([1][9][5-9][0-9]|[2][0]([0-1][0-9]|[2][0]))$/;
+        var temp_birth = prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
+        while (!regexp_birth.test(temp_birth))
+        {
+            temp_birth = prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
+        }
+        newCustomer.setCustomerBirth(temp_birth);
+        var regexp_email = /^[a-z]{3,7}@[a-z]{4,10}\.[a-z]{2,4}$/;
+        var temp_email = prompt("Moi nhap email");
+        while (!regexp_email.test(temp_email))
+        {
+            temp_email = prompt("Moi nhap email");
+        }
+        newCustomer.setCustomerEmail(temp_email);
+        newCustomer.setCustomerAddr(prompt("Moi nhap dia chi"));
+        newCustomer.setCustomerType(prompt("Moi nhap loai khach hang"));
+        newCustomer.setCustomerDiscount(prompt("Moi nhap giam gia"));
+        newCustomer.setCustomerAmount(prompt("Moi nhap so luong"));
+        newCustomer.setCustomerRentDay(prompt("Moi nhap so ngay thue"));
+        newCustomer.setCustomerServiceType(prompt("Moi nhap loai dich vu"));
+        newCustomer.setCustomerRoomType(prompt("Moi nhap loai phong"));
+        listCustomers.push(newCustomer);
+        return displayMainMenu();
+    }
+
+    function displayInformationCustomer()
+    {
+        var temp = 0;
+        var output = "";
+        var count_user = 0;
+
+        for (let i = 0, j = 1; i < listCustomers.length; i++, j++)
+        {
+            output += i + 1 + ".Name: " + listCustomers[i].getCustomerName() + " "
+                + ".Id: " + listCustomers[i].getCustomerId() + "\n";
+            temp = i + 2;
+            count_user = i + 1;
+        }
+        output += temp + ".Back";
+        var user_selection = prompt(output);
+        if ((function ()
+        {
+            for (let i = 0; i < user_selection.length; i++)
             {
-                temp_email=prompt("Moi nhap email");
+                if (Number.isNaN(parseInt(user_selection[i])))
+                {
+                    return false;
+                }
             }
-            newCustomer.setCustomerEmail(temp_email);
-            newCustomer.setCustomerAddr(prompt("Moi nhap dia chi"));
-            newCustomer.setCustomerType(prompt("Moi nhap loai khach hang"));
-            newCustomer.setCustomerDiscount(prompt("Moi nhap giam gia"));
-            newCustomer.setCustomerAmount(prompt("Moi nhap so luong"));
-            newCustomer.setCustomerRentDay(prompt("Moi nhap so ngay thue"));
-            newCustomer.setCustomerServiceType(prompt("Moi nhap loai dich vu"));
-            newCustomer.setCustomerRoomType(prompt("Moi nhap loai phong"));
-            listCustomers.push(newCustomer);
+            return true;
+        })()
+        )
+        {
+            user_selection = parseInt(user_selection);
+        } else
+        {
+            alert("Fail");
             return displayMainMenu();
         }
-        function displayInformationCustomer()
+        if (user_selection === temp)
         {
-            var temp =0;
-            var output="";
-            var count_user=0;
-            
-            for(let i=0,j=1;i<listCustomers.length;i++,j++)
+            return displayMainMenu();
+        } else if (user_selection <= count_user && user_selection > 0)
+        {
+            var result = "1.Khach hang: " + listCustomers[user_selection - 1].getCustomerName() +
+                "\n2.Id: " + listCustomers[user_selection - 1].getCustomerId() +
+                "\n3.Ngay sinh: " + listCustomers[user_selection - 1].getCustomerBirth() +
+                "\n4.Email: " + listCustomers[user_selection - 1].getCustomerEmail() +
+                "\n5.Dia chi: " + listCustomers[user_selection - 1].getCustomerAddr() +
+                "\n6.Loai KH: " + listCustomers[user_selection - 1].getCustomerType() +
+                "\n7.Giam gia: " + listCustomers[user_selection - 1].getCustomerDiscount() +
+                "\n8.So luong: " + listCustomers[user_selection - 1].getCustomerAmount() +
+                "\n9.So ngay thue: " + listCustomers[user_selection - 1].getCustomerRentDay() +
+                "\n10.Loai dich vu: " + listCustomers[user_selection - 1].getCustomerServiceType() +
+                "\n11.Loai phong: " + listCustomers[user_selection - 1].getCustomerRoomType() +
+                "\n12.So tien phai tra: " + displayTotalPayOfCustomer(listCustomers[user_selection - 1]);
+            if (user_edit_selection)
             {
-                output+=i+1+".Name: "+listCustomers[i].getCustomerName()+" "
-                            +".Id: "+listCustomers[i].getCustomerId()+"\n";
-                temp=i+2;
-                count_user=i+1;
-            }
-            output+=temp+".Back";
-            var user_selection=prompt(output);
-            if((function()
-            {
-                for(let i=0;i<user_selection.length;i++)
+                var select = prompt("Chon thong tin muon sua\n" + result);
+                switch (parseInt(select))
                 {
-                    if(Number.isNaN(parseInt(user_selection[i])))
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            })()
-            )
-            {
-                user_selection=parseInt(user_selection);
-            }
-            else
-            {
-                alert("Fail");
-                return displayMainMenu();
-            }
-            if(user_selection===temp)
-            {
-                return displayMainMenu(); 
-            }
-            else if(user_selection<=count_user && user_selection>0)
-            {
-                var result="1.Khach hang: "+listCustomers[user_selection-1].getCustomerName()+
-                            "\n2.Id: "+listCustomers[user_selection-1].getCustomerId()+
-                            "\n3.Ngay sinh: "+listCustomers[user_selection-1].getCustomerBirth()+
-                            "\n4.Email: "+listCustomers[user_selection-1].getCustomerEmail()+
-                            "\n5.Dia chi: "+listCustomers[user_selection-1].getCustomerAddr()+
-                            "\n6.Loai KH: "+listCustomers[user_selection-1].getCustomerType()+
-                            "\n7.Giam gia: "+listCustomers[user_selection-1].getCustomerDiscount()+
-                            "\n8.So luong: "+listCustomers[user_selection-1].getCustomerAmount()+
-                            "\n9.So ngay thue: "+listCustomers[user_selection-1].getCustomerRentDay()+
-                            "\n10.Loai dich vu: "+listCustomers[user_selection-1].getCustomerServiceType()+
-                            "\n11.Loai phong: "+listCustomers[user_selection-1].getCustomerRoomType()+
-                            "\n12.So tien phai tra: "+displayTotalPayOfCustomer(listCustomers[user_selection-1]);
-                if(user_edit_selection)
-                {
-                    var select=prompt("Chon thong tin muon sua\n"+result);
-                    switch(parseInt(select))
-                    {
-                        case 1:
-                            listCustomers[user_selection-1].setCustomerName(prompt("Moi nhap ten"));
-                            break;
-                        case 2:
-                            listCustomers[user_selection-1].setCustomerId(prompt("Moi nhap Id"));
-                            break;
-                        case 3:
-                            var regexp_birth=/^([0-2][0-9]|[3][0-1])\/([0][1-9]|[1][0-2])\/([1][9][5-9][0-9]|[2][0]([0-1][0-9]|[2][0]))$/;
-                            var temp_birth=prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
-                            while(!regexp_birth.test(temp_birth))
-                            {
-                                temp_birth=prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
-                            }
-                            listCustomers[user_selection-1].setCustomerBirth(temp_birth);
-                            break;
-                        case 4:
-                            var regexp_email=/^[a-z]{3,7}@[a-z]{4,10}\.[a-z]{2,4}$/;
-                            var temp_email=prompt("Moi nhap email");
-                            while(!regexp_email.test(temp_email))
-                            {
-                                temp_email=prompt("Moi nhap email");
-                            }
-                            listCustomers[user_selection-1].setCustomerEmail(temp_email);
-                            break;
-                        case 5:
-                            listCustomers[user_selection-1].setCustomerAddr(prompt("Moi nhap dia chi"));
-                            break;
-                        case 6:
-                            listCustomers[user_selection-1].setCustomerType(prompt("Moi nhap loai khach hang"));
-                            break;
-                        case 7:
-                            listCustomers[user_selection-1].setCustomerDiscount(prompt("Moi nhap giam gia"));
-                            break;
-                        case 8:
-                            listCustomers[user_selection-1].setCustomerAmount(prompt("Moi nhap so luong"));
-                            break;
-                        case 9:
-                            listCustomers[user_selection-1].setCustomerRentDay(prompt("Moi nhap so ngay thue"));
-                            break;
-                        case 10:
-                            listCustomers[user_selection-1].setCustomerServiceType(prompt("Moi nhap loai dich vu"));
-                            break;
-                        case 11:
-                            listCustomers[user_selection-1].setCustomerRoomType(prompt("Moi nhap loai phong"));
-                            break;
-                        case 12:
-                            alert("Khong the sua so tien");
-                            return displayMainMenu();
-                        default:
-                            alert("Fail");
-                            return displayMainMenu();
-                    }
-                    
-                }
-                else if(user_delete_selection)
-                {
-                    var confirm=prompt("Ban co thuc su muon xoa?\n1.Yes\n2.No");
-                    if(parseInt(confirm)===1)
-                    {
-                        listCustomers.splice(listCustomers[user_selection-1],1);
-                        alert("Xoa thanh cong!");
+                    case 1:
+                        listCustomers[user_selection - 1].setCustomerName(prompt("Moi nhap ten"));
+                        break;
+                    case 2:
+                        listCustomers[user_selection - 1].setCustomerId(prompt("Moi nhap Id"));
+                        break;
+                    case 3:
+                        var regexp_birth = /^([0-2][0-9]|[3][0-1])\/([0][1-9]|[1][0-2])\/([1][9][5-9][0-9]|[2][0]([0-1][0-9]|[2][0]))$/;
+                        var temp_birth = prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
+                        while (!regexp_birth.test(temp_birth))
+                        {
+                            temp_birth = prompt("Moi nhap ngay thang nam sinh \(dd/mm/yyyy\)");
+                        }
+                        listCustomers[user_selection - 1].setCustomerBirth(temp_birth);
+                        break;
+                    case 4:
+                        var regexp_email = /^[a-z]{3,7}@[a-z]{4,10}\.[a-z]{2,4}$/;
+                        var temp_email = prompt("Moi nhap email");
+                        while (!regexp_email.test(temp_email))
+                        {
+                            temp_email = prompt("Moi nhap email");
+                        }
+                        listCustomers[user_selection - 1].setCustomerEmail(temp_email);
+                        break;
+                    case 5:
+                        listCustomers[user_selection - 1].setCustomerAddr(prompt("Moi nhap dia chi"));
+                        break;
+                    case 6:
+                        listCustomers[user_selection - 1].setCustomerType(prompt("Moi nhap loai khach hang"));
+                        break;
+                    case 7:
+                        listCustomers[user_selection - 1].setCustomerDiscount(prompt("Moi nhap giam gia"));
+                        break;
+                    case 8:
+                        listCustomers[user_selection - 1].setCustomerAmount(prompt("Moi nhap so luong"));
+                        break;
+                    case 9:
+                        listCustomers[user_selection - 1].setCustomerRentDay(prompt("Moi nhap so ngay thue"));
+                        break;
+                    case 10:
+                        listCustomers[user_selection - 1].setCustomerServiceType(prompt("Moi nhap loai dich vu"));
+                        break;
+                    case 11:
+                        listCustomers[user_selection - 1].setCustomerRoomType(prompt("Moi nhap loai phong"));
+                        break;
+                    case 12:
+                        alert("Khong the sua so tien");
                         return displayMainMenu();
-                    }
-                    else
-                    {
+                    default:
+                        alert("Fail");
                         return displayMainMenu();
-                    }
                 }
-                else if(user_total_pay_selection)
+
+            } else if (user_delete_selection)
+            {
+                var confirm = prompt("Ban co thuc su muon xoa?\n1.Yes\n2.No");
+                if (parseInt(confirm) === 1)
                 {
-                    alert(displayTotalPayOfCustomer(listCustomers[user_selection-1]));
+                    listCustomers.splice(listCustomers[user_selection - 1], 1);
+                    alert("Xoa thanh cong!");
+                    return displayMainMenu();
+                } else
+                {
                     return displayMainMenu();
                 }
-                result="Khach hang: "+listCustomers[user_selection-1].getCustomerName()+
-                        "\nNgay sinh: "+listCustomers[user_selection-1].getCustomerBirth()+
-                        "\nEmail: "+listCustomers[user_selection-1].getCustomerEmail()+
-                        "\nDia chi: "+listCustomers[user_selection-1].getCustomerAddr()+
-                        "\nLoai KH: "+listCustomers[user_selection-1].getCustomerType()+
-                        "\nGiam gia: "+listCustomers[user_selection-1].getCustomerDiscount()+
-                        "\nSo luong: "+listCustomers[user_selection-1].getCustomerAmount()+
-                        "\nSo ngay thue: "+listCustomers[user_selection-1].getCustomerRentDay()+
-                        "\nLoai dich vu: "+listCustomers[user_selection-1].getCustomerServiceType()+
-                        "\nLoai phong: "+listCustomers[user_selection-1].getCustomerRoomType()+
-                        "\nSo tien phai tra: "+displayTotalPayOfCustomer(listCustomers[user_selection-1]);
-                alert(result);
-                return displayMainMenu();
-            }
-            else
+            } else if (user_total_pay_selection)
             {
-                alert("Fail");
+                alert(displayTotalPayOfCustomer(listCustomers[user_selection - 1]));
                 return displayMainMenu();
             }
-        }
-        function displayTotalPayOfCustomer(customer)
+            result = "Khach hang: " + listCustomers[user_selection - 1].getCustomerName() +
+                "\nNgay sinh: " + listCustomers[user_selection - 1].getCustomerBirth() +
+                "\nEmail: " + listCustomers[user_selection - 1].getCustomerEmail() +
+                "\nDia chi: " + listCustomers[user_selection - 1].getCustomerAddr() +
+                "\nLoai KH: " + listCustomers[user_selection - 1].getCustomerType() +
+                "\nGiam gia: " + listCustomers[user_selection - 1].getCustomerDiscount() +
+                "\nSo luong: " + listCustomers[user_selection - 1].getCustomerAmount() +
+                "\nSo ngay thue: " + listCustomers[user_selection - 1].getCustomerRentDay() +
+                "\nLoai dich vu: " + listCustomers[user_selection - 1].getCustomerServiceType() +
+                "\nLoai phong: " + listCustomers[user_selection - 1].getCustomerRoomType() +
+                "\nSo tien phai tra: " + displayTotalPayOfCustomer(listCustomers[user_selection - 1]);
+            alert(result);
+            return displayMainMenu();
+        } else
         {
-            //user_total_pay_selection=true;
-            //listCustomers[0].calTotalPay();
-            return customer.calTotalPay(customer);
+            alert("Fail");
+            return displayMainMenu();
         }
-        function editCustomer()
-        {
-            user_edit_selection=true;
-            displayInformationCustomer();
-        }
-        function deleteCustomer()
-        {
-            user_delete_selection=true;
-            displayInformationCustomer();
-        }
-        function displayMainMenu()
-        {
-            user_delete_selection=user_edit_selection=user_total_pay_selection=false;
-            var main_menu_selection=
-            "1.Add new customer\n2.Display information customer"+
-            "\n3.Display total pay of customer"+
-            "\n4.Edit information customer"+
-            "\n5.Delete customer"+
+    }
+
+    function displayTotalPayOfCustomer(customer)
+    {
+        //user_total_pay_selection=true;
+        //listCustomers[0].calTotalPay();
+        return customer.calTotalPay(customer);
+    }
+
+    function editCustomer()
+    {
+        user_edit_selection = true;
+        displayInformationCustomer();
+    }
+
+    function deleteCustomer()
+    {
+        user_delete_selection = true;
+        displayInformationCustomer();
+    }
+
+    function displayMainMenu()
+    {
+        user_delete_selection = user_edit_selection = user_total_pay_selection = false;
+        var main_menu_selection =
+            "1.Add new customer\n2.Display information customer" +
+            "\n3.Display total pay of customer" +
+            "\n4.Edit information customer" +
+            "\n5.Delete customer" +
             "\n6.Exit";
 
-            switch(prompt(main_menu_selection))
-            {
-                case '1':
-                    addCustomer();
-                    break;
-                case '2':
-                    displayInformationCustomer();
-                    break;
-                case '3':
-                    user_total_pay_selection=true;
-                    displayInformationCustomer();
-                    break;
-                case '4':
-                    editCustomer();
-                    break;
-                case '5':
-                    deleteCustomer();
-                    break;
-                case '6':
-                    alert("Bye");
-                    break;
-                default:
-                    alert("Fail");
-            }
+        switch (prompt(main_menu_selection))
+        {
+            case '1':
+                addCustomer();
+                break;
+            case '2':
+                displayInformationCustomer();
+                break;
+            case '3':
+                user_total_pay_selection = true;
+                displayInformationCustomer();
+                break;
+            case '4':
+                editCustomer();
+                break;
+            case '5':
+                deleteCustomer();
+                break;
+            case '6':
+                alert("Bye");
+                break;
+            default:
+                alert("Fail");
         }
-    </script>
+    }
+</script>
 </body>

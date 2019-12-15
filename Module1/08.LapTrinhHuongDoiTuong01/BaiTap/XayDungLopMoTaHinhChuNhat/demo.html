@@ -5,53 +5,57 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id="myCanvas" ></canvas>
+<canvas id="myCanvas"></canvas>
 <div id="print"></div>
 <button onclick="changeRec()">Thay doi thong so hinh chu nhat</button>
 <script>
-    function Rectangle(chieuDai,chieuRong)
+    function Rectangle(chieuDai, chieuRong)
     {
 
-        this.chieuDai=chieuDai;
-        this.chieuRong=chieuRong;
-        this.tinhDienTich=function()
+        this.chieuDai = chieuDai;
+        this.chieuRong = chieuRong;
+        this.tinhDienTich = function ()
         {
-            return this.chieuDai*this.chieuRong;
+            return this.chieuDai * this.chieuRong;
         };
-        this.tinhChuVi=function()
+        this.tinhChuVi = function ()
         {
-            return (this.chieuDai+this.chieuRong)*2;
+            return (this.chieuDai + this.chieuRong) * 2;
         };
-        this.veHinhChuNhat=function()
+        this.veHinhChuNhat = function ()
         {
-              let canvas =document.getElementById("myCanvas");
-              let context =canvas.getContext("2d");
-              //let hinhChuNhat=new Rectangle(this.chieuDai,this.chieuRong);
+            let canvas = document.getElementById("myCanvas");
+            let context = canvas.getContext("2d");
+            //let hinhChuNhat=new Rectangle(this.chieuDai,this.chieuRong);
             context.fillStyle = "red";
-            context.fillRect(0,0,this.chieuDai,this.chieuRong);
+            context.fillRect(0, 0, this.chieuDai, this.chieuRong);
 
         };
     }
-    let myRec=new Rectangle(40,30);
+
+    let myRec = new Rectangle(40, 30);
     myRec.veHinhChuNhat();
     let printScreen;
-    let to_div=document.getElementById("print");
-    printScreen="Dien tich hcn : "+myRec.tinhDienTich()+"\nChu vi hinh chu nhat : "+myRec.tinhChuVi();
-    to_div.innerText+=printScreen;
+    let to_div = document.getElementById("print");
+    printScreen = "Dien tich hcn : " + myRec.tinhDienTich() + "\nChu vi hinh chu nhat : " + myRec.tinhChuVi();
+    to_div.innerText += printScreen;
+
     function clearCanvas()
     {
-        myRec.chieuDai=0;myRec.chieuRong=0;
+        myRec.chieuDai = 0;
+        myRec.chieuRong = 0;
         myRec.veHinhChuNhat();
     }
+
     function changeRec()
     {
-        let chieuDai=parseFloat(prompt("Nhap chieu dai hinh chu nhat"));
-        let chieuRong=parseFloat(prompt("Nhap chieu rong hinh chu nhat"));
-        myRec.chieuDai=chieuDai;
-        myRec.chieuRong=chieuRong;
-        printScreen="Dien tich hcn : "+myRec.tinhDienTich()+"\nChu vi hinh chu nhat : "+myRec.tinhChuVi();
+        let chieuDai = parseFloat(prompt("Nhap chieu dai hinh chu nhat"));
+        let chieuRong = parseFloat(prompt("Nhap chieu rong hinh chu nhat"));
+        myRec.chieuDai = chieuDai;
+        myRec.chieuRong = chieuRong;
+        printScreen = "Dien tich hcn : " + myRec.tinhDienTich() + "\nChu vi hinh chu nhat : " + myRec.tinhChuVi();
         myRec.veHinhChuNhat();
-        to_div.innerText=printScreen;
+        to_div.innerText = printScreen;
     }
 
 </script>

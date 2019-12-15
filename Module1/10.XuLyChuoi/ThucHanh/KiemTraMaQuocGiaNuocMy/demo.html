@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>MyJS</title>
-    </head>
-    <body>
-        <script>
-            //var regexp;
-            var regexp2=/^[0-9]{5}(\s*)-(\s*)[0-9]{4}$/;
-            function is_usZipCode(str)
-            {
-                //regexp=/^[0-9]{5}(?:-[0-9]{4})?$/;
-                if(regexp2.test(str))
-                {
-                    return true;
-                }
-                return false;
-            }
-            var zipcode="03201-2150";
-            console.log(is_usZipCode(zipcode));
-            zipcode="7892";
-            console.log(is_usZipCode(zipcode));
-            zipcode="12345- 5678";
-            console.log(is_usZipCode(zipcode));
-        </script>
-    </body>
+<head>
+    <title>MyJS</title>
+</head>
+<body>
+<script>
+    //var regexp;
+    var regexp2 = /^[0-9]{5}(\s*)-(\s*)[0-9]{4}$/;
+
+    function is_usZipCode(str)
+    {
+        //regexp=/^[0-9]{5}(?:-[0-9]{4})?$/;
+        if (regexp2.test(str))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    var zipcode = "03201-2150";
+    console.log(is_usZipCode(zipcode));
+    zipcode = "7892";
+    console.log(is_usZipCode(zipcode));
+    zipcode = "12345- 5678";
+    console.log(is_usZipCode(zipcode));
+</script>
+</body>
 </html>

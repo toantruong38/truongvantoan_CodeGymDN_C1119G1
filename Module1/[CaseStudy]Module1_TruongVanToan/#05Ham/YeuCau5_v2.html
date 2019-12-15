@@ -3,151 +3,152 @@
     <title>Oke</title>
 </head>
 <body>
-    <script>
-        var arrListCustomers=[];
-        var edit_customer_selection=false;
-        var delete_customer_selection=false;
-        var title=["Ten","Id","Birth","Email","Address","Loai khach khang","Giam gia",
-                    "So luong","So ngay thue","Loai dich vu","Loai phong"];
-        displayMainMenu();
-        function displayMainMenu()
-        {
-            edit_customer_selection=false;
-            delete_customer_selection=false;
-            var mainMenu="1. Add New Customer\n"+
-                            "2. Display Information Customer\n"+
-                            "3. Edit Information Customer\n"+
-                            "4. Delete Customer\n"+
-                            "5. Exit";
-            var main_menu_selection=prompt(mainMenu);
-            switch(main_menu_selection)
-            {
-                case '1':
-                    addNewCustomer();
-                    
-                    break;
-                case '2':
-                    displayCustomers();
-                    break;
-                case '3':
-                    editCustomer();
-                
-                    break;
-                case '4':
-                    deleteCustomer();
-                    
-                    break;
-                case '5':
-                    return alert("Bye!");
+<script>
+    var arrListCustomers = [];
+    var edit_customer_selection = false;
+    var delete_customer_selection = false;
+    var title = ["Ten", "Id", "Birth", "Email", "Address", "Loai khach khang", "Giam gia",
+        "So luong", "So ngay thue", "Loai dich vu", "Loai phong"];
+    displayMainMenu();
 
-                default:
-                    alert("Fail");
-                    return displayMainMenu();
-            }
-        }
-        function addNewCustomer()
+    function displayMainMenu()
+    {
+        edit_customer_selection = false;
+        delete_customer_selection = false;
+        var mainMenu = "1. Add New Customer\n" +
+            "2. Display Information Customer\n" +
+            "3. Edit Information Customer\n" +
+            "4. Delete Customer\n" +
+            "5. Exit";
+        var main_menu_selection = prompt(mainMenu);
+        switch (main_menu_selection)
         {
-            arrListCustomers.push(prompt("Moi nhap ten"));
-            arrListCustomers.push(prompt("Moi nhap id"));
-            arrListCustomers.push(prompt("Moi nhap ngay thang nam sinh(dd/mm/yyyy)"));
-            arrListCustomers.push(prompt("Moi nhap email"));
-            arrListCustomers.push(prompt("Moi nhap dia chi"));
-            arrListCustomers.push(prompt("Moi nhap loai khach hang"));
-            arrListCustomers.push(prompt("Moi nhap giam gia"));
-            arrListCustomers.push(prompt("Moi nhap so luong"));
-            arrListCustomers.push(prompt("Moi nhap so ngay thue"));
-            arrListCustomers.push(prompt("Moi nhap loai dich vu"));
-            arrListCustomers.push(prompt("Moi nhap loai phong"));
-            return displayMainMenu();
-        }
-        function displayCustomers()
-        {
-            var temp=0;
-            var output="";
+            case '1':
+                addNewCustomer();
 
-            var user_selection;
-            
-            
-                for(let i=0;i<(arrListCustomers.length/11);i++)
-                {
-                    output+=i+1+".Name: "+arrListCustomers[i*11]+" Id: "+arrListCustomers[i*11+1]+"\n";
-                    temp=i+2;
-                }
-                output+=temp+".Back";
-                user_selection=prompt(output);
-                for(let i=0;i<user_selection.length;i++)
-                {
-                    if(Number.isNaN(parseInt(user_selection[i])))
-                    {
-                        alert("Fail");
-                        return displayMainMenu();
-                    }
-                }
-                user_selection=parseInt(user_selection);
-                if(user_selection===temp)
-                {
+                break;
+            case '2':
+                displayCustomers();
+                break;
+            case '3':
+                editCustomer();
 
-                    return displayMainMenu();
-                }
-                else if(Number.isNaN(user_selection))
-                {
-                    return displayCustomers();
-                }
-                else if(user_selection>0&&user_selection<temp)
-                {
-                    displayInformationCustomer((user_selection-1)*11);
-                }
-                else
-                {
-                    alert("Fail");
-                }
-        }
-        function displayInformationCustomer(name_index)
-        {
-            var output="";
-            for(let i=name_index,j=1,k=0;i<(name_index+11);i++,j++,k++)
-            {
-                output+=j+"."+title[k]+": "+arrListCustomers[i]+"\n";
-            }
-            if(edit_customer_selection)
-            {
-                var user_edit_selection=prompt("Chon thong tin muon sua\n"+output);
-                arrListCustomers[parseInt(user_edit_selection)-1+name_index]=
-                    prompt("Moi nhap "+title[(parseInt(user_edit_selection)-1)]);
-                
-                edit_customer_selection=false;
-                return displayInformationCustomer(name_index);
-            }
-            else if(delete_customer_selection)
-            {
-                var delete_confirm=prompt("Ban co thuc su muon xoa?\n1.Yes\n2.No");
-                if(delete_confirm==="1")   
-                {
-                    for (let i = name_index; i < (name_index + 11); i++) 
-                    {
-                        arrListCustomers.splice(name_index,11);
-                    }
-                }
-                delete_customer_selection=false;
+                break;
+            case '4':
+                deleteCustomer();
+
+                break;
+            case '5':
+                return alert("Bye!");
+
+            default:
+                alert("Fail");
                 return displayMainMenu();
-            }
-            else
+        }
+    }
+
+    function addNewCustomer()
+    {
+        arrListCustomers.push(prompt("Moi nhap ten"));
+        arrListCustomers.push(prompt("Moi nhap id"));
+        arrListCustomers.push(prompt("Moi nhap ngay thang nam sinh(dd/mm/yyyy)"));
+        arrListCustomers.push(prompt("Moi nhap email"));
+        arrListCustomers.push(prompt("Moi nhap dia chi"));
+        arrListCustomers.push(prompt("Moi nhap loai khach hang"));
+        arrListCustomers.push(prompt("Moi nhap giam gia"));
+        arrListCustomers.push(prompt("Moi nhap so luong"));
+        arrListCustomers.push(prompt("Moi nhap so ngay thue"));
+        arrListCustomers.push(prompt("Moi nhap loai dich vu"));
+        arrListCustomers.push(prompt("Moi nhap loai phong"));
+        return displayMainMenu();
+    }
+
+    function displayCustomers()
+    {
+        var temp = 0;
+        var output = "";
+
+        var user_selection;
+
+
+        for (let i = 0; i < (arrListCustomers.length / 11); i++)
+        {
+            output += i + 1 + ".Name: " + arrListCustomers[i * 11] + " Id: " + arrListCustomers[i * 11 + 1] + "\n";
+            temp = i + 2;
+        }
+        output += temp + ".Back";
+        user_selection = prompt(output);
+        for (let i = 0; i < user_selection.length; i++)
+        {
+            if (Number.isNaN(parseInt(user_selection[i])))
             {
-                alert(output);
+                alert("Fail");
                 return displayMainMenu();
             }
         }
-        function editCustomer()
+        user_selection = parseInt(user_selection);
+        if (user_selection === temp)
         {
-            edit_customer_selection=true;
-            displayCustomers();
+
+            return displayMainMenu();
+        } else if (Number.isNaN(user_selection))
+        {
+            return displayCustomers();
+        } else if (user_selection > 0 && user_selection < temp)
+        {
+            displayInformationCustomer((user_selection - 1) * 11);
+        } else
+        {
+            alert("Fail");
+        }
+    }
+
+    function displayInformationCustomer(name_index)
+    {
+        var output = "";
+        for (let i = name_index, j = 1, k = 0; i < (name_index + 11); i++, j++, k++)
+        {
+            output += j + "." + title[k] + ": " + arrListCustomers[i] + "\n";
+        }
+        if (edit_customer_selection)
+        {
+            var user_edit_selection = prompt("Chon thong tin muon sua\n" + output);
+            arrListCustomers[parseInt(user_edit_selection) - 1 + name_index] =
+                prompt("Moi nhap " + title[(parseInt(user_edit_selection) - 1)]);
+
+            edit_customer_selection = false;
+            return displayInformationCustomer(name_index);
+        } else if (delete_customer_selection)
+        {
+            var delete_confirm = prompt("Ban co thuc su muon xoa?\n1.Yes\n2.No");
+            if (delete_confirm === "1")
+            {
+                for (let i = name_index; i < (name_index + 11); i++)
+                {
+                    arrListCustomers.splice(name_index, 11);
+                }
+            }
+            delete_customer_selection = false;
+            return displayMainMenu();
+        } else
+        {
+            alert(output);
             return displayMainMenu();
         }
-        function deleteCustomer()
-        {
-            delete_customer_selection=true;
-            displayCustomers();
-            return displayMainMenu();
-        }
-    </script>
+    }
+
+    function editCustomer()
+    {
+        edit_customer_selection = true;
+        displayCustomers();
+        return displayMainMenu();
+    }
+
+    function deleteCustomer()
+    {
+        delete_customer_selection = true;
+        displayCustomers();
+        return displayMainMenu();
+    }
+</script>
 </body>

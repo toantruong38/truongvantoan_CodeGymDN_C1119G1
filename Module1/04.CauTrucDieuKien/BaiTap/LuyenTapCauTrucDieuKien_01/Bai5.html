@@ -6,15 +6,15 @@
 </head>
 <body>
 <script>
-    var diemGiuaKi,diemBaiKt,diemCuoiKi,ketQua;
+    var diemGiuaKi, diemBaiKt, diemCuoiKi, ketQua;
     diemBaiKt = parseFloat(prompt("Nhap diem bai kiem tra"));
     diemGiuaKi = parseFloat(prompt("Nhap diem giua ki"));
     diemCuoiKi = parseFloat(prompt("Nhap diem cuoi ki"));
-    var diemTb=(diemBaiKt+diemGiuaKi+diemCuoiKi)/3;
-    if(diemTb>=9) ketQua="A";
-    else if(diemTb>=7 && diemTb<9) ketQua="B";
-    else if(diemTb>=5 && diemTb<7) ketQua="C";
-    else ketQua="F";
+    var diemTb = (diemBaiKt + diemGiuaKi + diemCuoiKi) / 3;
+    if (diemTb >= 9) ketQua = "A";
+    else if (diemTb >= 7 && diemTb < 9) ketQua = "B";
+    else if (diemTb >= 5 && diemTb < 7) ketQua = "C";
+    else ketQua = "F";
     alert(ketQua);
 </script>
 </body>

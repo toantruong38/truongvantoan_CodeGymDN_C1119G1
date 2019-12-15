@@ -7,21 +7,23 @@
 <body>
 <div id="output"></div>
 <script>
-    let temp=document.getElementById("output");
+    let temp = document.getElementById("output");
     let userInput = parseFloat(prompt("Nhap so de kiem tra"));
-    if(userInput<10000)
+    if (userInput < 10000)
     {
         if (check_a_number_isPrime_or_not(userInput)) alert(userInput + " la so nguyen to");
         else alert(userInput + " khong la so nguyen to");
 
-        function check_a_number_isPrime_or_not(e) {
+        function check_a_number_isPrime_or_not(e)
+        {
             if (e === 2 || e === 3 || e === 5) return true;
-            else {
+            else
+            {
                 if (e % 2 === 0 || e % 3 === 0 || e % 5 === 0) return false;
                 else return true;
             }
         }
-    }else alert("Nhap sai");
+    } else alert("Nhap sai");
     // for(let i=0;i<10000;i++)
     // {
     //     // temp.innerHTML+=check_a_number_isPrime_or_not(i);

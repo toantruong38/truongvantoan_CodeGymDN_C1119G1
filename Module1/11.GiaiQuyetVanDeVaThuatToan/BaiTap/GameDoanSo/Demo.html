@@ -6,88 +6,83 @@
 </head>
 <body>
 <script>
-    var nums=[];
+    var nums = [];
 
-    for(let i=0;i<100;i++)
+    for (let i = 0; i < 100; i++)
     {
-        nums.push(Math.floor(Math.random()*101));
+        nums.push(Math.floor(Math.random() * 101));
     }
     startTheGame();
+
     //alert(nums.length);
     function startTheGame()
     {
-        var input_value=parseInt(prompt("Nhap phan tu muon tim kiem"));
+        var input_value = parseInt(prompt("Nhap phan tu muon tim kiem"));
         //timKiemTuyenTinh(nums,input_value);
-        timKiemNhiPhan(nums,input_value);
+        timKiemNhiPhan(nums, input_value);
     }
-    function timKiemTuyenTinh(nums,search_value)
+
+    function timKiemTuyenTinh(nums, search_value)
     {
 
-        for(var i=0;i<nums.length;i++)
+        for (var i = 0; i < nums.length; i++)
         {
-            if(search_value<nums[i])
+            if (search_value < nums[i])
             {
                 alert("Too low!");
                 return startTheGame();
-            }
-            else if(search_value>nums[i])
+            } else if (search_value > nums[i])
             {
                 alert("Too hight!");
                 return startTheGame();
-            }
-            else if(search_value===nums[i])
+            } else if (search_value === nums[i])
             {
                 return alert("Correct");
             }
         }
     }
-    function timKiemNhiPhan(nums,search_number)
+
+    function timKiemNhiPhan(nums, search_number)
     {
         nums.sort(
-            function(a,b)
+            function (a, b)
             {
-                if(a-b>0) return 1;
-                if(a-b<0) return -1;
+                if (a - b > 0) return 1;
+                if (a - b < 0) return -1;
             }
         );
-        if(search_number===nums[Math.ceil(nums.length/2)])
+        if (search_number === nums[Math.ceil(nums.length / 2)])
         {
             return alert("Correct");
-        }
-        else if(search_number>nums[Math.ceil(nums.length/2)])
+        } else if (search_number > nums[Math.ceil(nums.length / 2)])
         {
-            for(let i=Math.ceil(nums.length/2);i<nums.length;i++)
+            for (let i = Math.ceil(nums.length / 2); i < nums.length; i++)
             {
-                if(search_number===nums[i])
+                if (search_number === nums[i])
                 {
                     return alert("Correct");
-                }
-                else if(search_number>nums[i])
+                } else if (search_number > nums[i])
                 {
                     alert("Too high");
                     return startTheGame();
-                }
-                else if(search_number<nums[i])
+                } else if (search_number < nums[i])
                 {
                     alert("Too low");
                     return startTheGame();
                 }
             }
-        }
-        else if(search_number<nums[Math.ceil(nums.length/2)])
+        } else if (search_number < nums[Math.ceil(nums.length / 2)])
         {
-            for(let i=Math.ceil(nums.length/2);i>0;i--)
+            for (let i = Math.ceil(nums.length / 2); i > 0; i--)
             {
-                if(search_number===nums[i])
+                if (search_number === nums[i])
                 {
                     return alert("Correct");
-                }
-                else if(search_number>nums[i])
+                } else if (search_number > nums[i])
                 {
                     alert("Too high");
                     return startTheGame();
-                }
-                else if(search_number<nums[i])
+                } else if (search_number < nums[i])
                 {
                     alert("Too low");
                     return startTheGame();

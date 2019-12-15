@@ -7,14 +7,16 @@
 <body>
 <script>
     let my_string_1 = prompt("Nhap chuoi 1");
-    let count=0;
-    let my_string_2 = prompt("Nhap chuoi 2");let highes_length;
-    if((my_string_1.length-my_string_2.length)>=0) highes_length=my_string_1.length;
+    let count = 0;
+    let my_string_2 = prompt("Nhap chuoi 2");
+    let highes_length;
+    if ((my_string_1.length - my_string_2.length) >= 0) highes_length = my_string_1.length;
     else alert("2 mang khong giong nhau");
-    for(let i=0;i<highes_length;i++)
+    for (let i = 0; i < highes_length; i++)
     {
-        if(my_string_1[i]===my_string_2[i]) count++;
-    }if(count===highes_length) alert("2 mang giong nhau");else alert("2 mang khong giong nhau");
+        if (my_string_1[i] === my_string_2[i]) count++;
+    }
+    if (count === highes_length) alert("2 mang giong nhau"); else alert("2 mang khong giong nhau");
 </script>
 </body>
 </html>

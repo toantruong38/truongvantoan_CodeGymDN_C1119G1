@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    var totalPay=0;
+    var totalPay = 0;
     var clientName;
     var clientID;
     var clientBirth;
@@ -28,18 +28,18 @@
     const houseCost = 300;
     const roomCost = 100; //per day
 
-    clientName="Toan";
-    clientID="201869125";
-    clientBirth="21/04/2001";
-    clientEmail="myEmail@gmail.com";
-    clientAddr="295 Nguyen Tat Thanh";
-    clientKind="Gold";
+    clientName = "Toan";
+    clientID = "201869125";
+    clientBirth = "21/04/2001";
+    clientEmail = "myEmail@gmail.com";
+    clientAddr = "295 Nguyen Tat Thanh";
+    clientKind = "Gold";
 
-    serviceDiscount=50;
-    serviceAmount=2;
-    serviceRentDay=5;
-    serviceKind="Room";
-    serviceRoomKind="Normal";
+    serviceDiscount = 50;
+    serviceAmount = 2;
+    serviceRentDay = 5;
+    serviceKind = "Room";
+    serviceRoomKind = "Normal";
 
     // clientName = prompt("Moi nhap ten");
     // clientID = prompt("Moi nhap so CMND");
@@ -53,19 +53,19 @@
     // serviceRentDay = prompt("Nhap so ngay thue");
     // serviceKind = prompt("Nhap loai dich vu");
     // serviceRoomKind = prompt("Nhap loai phong");
-    var output = 
-        "1.Khach hang: " + clientName + "\n" 
+    var output =
+        "1.Khach hang: " + clientName + "\n"
         + "2.So chung minh nhan dan: " + clientID + "\n"
-        + "3.Ngay sinh: " + clientBirth + "\n" 
+        + "3.Ngay sinh: " + clientBirth + "\n"
         + "4.Email: " + clientEmail + "\n"
-        + "5.Dia chi: " + clientAddr + "\n" 
+        + "5.Dia chi: " + clientAddr + "\n"
         + "6.Loai KH: " + clientKind + "\n"
-        + "7.Giam gia: " + serviceDiscount + "\n" 
+        + "7.Giam gia: " + serviceDiscount + "\n"
         + "8.So luong: " + serviceAmount + "\n"
-        + "9.So ngay thue: " + serviceRentDay + "\n" 
+        + "9.So ngay thue: " + serviceRentDay + "\n"
         + "10.Loai dich vu: " + serviceKind + "\n"
-        + "11.Loai phong: " + serviceRoomKind + "\n" 
-        + "12.So tien phai tra: " 
+        + "11.Loai phong: " + serviceRoomKind + "\n"
+        + "12.So tien phai tra: "
         + calTotalPay(serviceKind);
     // alert(output);
     showMainPage();
@@ -96,38 +96,60 @@
         }
         //MainPage();
     }
+
     function edit(user_edit_option)
     {
-        switch(user_edit_option)
+        switch (user_edit_option)
         {
-            case '1': clientName = prompt("Moi nhap ten"); break;
-            case '2': clientID = prompt("Moi nhap so CMND"); break;
-            case '3': clientBirth = prompt("Moi nhap ngay thang nam sinh"); break;
-            case '4': clientEmail = prompt("Moi nhap email"); break;
-            case '5': clientAddr = prompt("Moi nhap dia chi"); break;
-            case '6': clientKind = prompt("Moi nhap loai khach hang"); break;
-            case '7': serviceDiscount = prompt("Nhap giam gia"); break;
-            case '8': serviceAmount = prompt("Nhap so luong"); break;
-            case '9': serviceRentDay = prompt("Nhap so ngay thue"); break;
-            case '10': serviceKind = prompt("Nhap loai dich vu"); break;
-            case '11': serviceRoomKind = prompt("Nhap loai phong"); break;
+            case '1':
+                clientName = prompt("Moi nhap ten");
+                break;
+            case '2':
+                clientID = prompt("Moi nhap so CMND");
+                break;
+            case '3':
+                clientBirth = prompt("Moi nhap ngay thang nam sinh");
+                break;
+            case '4':
+                clientEmail = prompt("Moi nhap email");
+                break;
+            case '5':
+                clientAddr = prompt("Moi nhap dia chi");
+                break;
+            case '6':
+                clientKind = prompt("Moi nhap loai khach hang");
+                break;
+            case '7':
+                serviceDiscount = prompt("Nhap giam gia");
+                break;
+            case '8':
+                serviceAmount = prompt("Nhap so luong");
+                break;
+            case '9':
+                serviceRentDay = prompt("Nhap so ngay thue");
+                break;
+            case '10':
+                serviceKind = prompt("Nhap loai dich vu");
+                break;
+            case '11':
+                serviceRoomKind = prompt("Nhap loai phong");
+                break;
             default:
                 alert("Fail");
         }
         showMainPage();
     }
+
     function calTotalPay(serviceKind)
     {
 
-        if (serviceKind==='Villa')
+        if (serviceKind === 'Villa')
         {
             totalPay = villaCost * serviceRentDay * (1 - (serviceDiscount / 100));
-        }
-        else if (serviceKind==='House')
+        } else if (serviceKind === 'House')
         {
             totalPay = houseCost * serviceRentDay * (1 - (serviceDiscount / 100));
-        }
-        else if(serviceKind==='Room')
+        } else if (serviceKind === 'Room')
         {
             totalPay = roomCost * serviceRentDay * (1 - (serviceDiscount / 100));
         }
@@ -135,77 +157,71 @@
         //MainPage();
         return totalPay;
     }
+
     function discount()
     {
         var discountOnAddr;
-        
-        discountOnAddr=clientAddr;
-        var age=new Date().getFullYear() - parseInt(clientBirth.substr(clientBirth.lastIndexOf("/")+1,4));
+
+        discountOnAddr = clientAddr;
+        var age = new Date().getFullYear() - parseInt(clientBirth.substr(clientBirth.lastIndexOf("/") + 1, 4));
         if (discountOnAddr === "Da Nang")
         {
-            totalPay-=20;
-            if(age > 30)
+            totalPay -= 20;
+            if (age > 30)
             {
                 totalPay -= 2;
-            }
-            else if(age >= 20) 
+            } else if (age >= 20)
             {
                 totalPay -= 1;
             }
-        }
-        else if(discountOnAddr === "Hue") 
+        } else if (discountOnAddr === "Hue")
         {
-            totalPay-=10;
-        }
-        else if(discountOnAddr === "Quang Nam") 
+            totalPay -= 10;
+        } else if (discountOnAddr === "Quang Nam")
         {
-            totalPay-=5;
-        }
-        
-        if(serviceRentDay > 7)
-        {
-            totalPay-=30;
-        }
-        else if(serviceRentDay >= 5)
-        {
-            totalPay -=20;
-        }
-        else if(serviceRentDay >= 2)
-        {
-            totalPay -=10;
+            totalPay -= 5;
         }
 
-        if(clientKind==="Diamond") 
+        if (serviceRentDay > 7)
         {
-            totalPay-=15;
+            totalPay -= 30;
+        } else if (serviceRentDay >= 5)
+        {
+            totalPay -= 20;
+        } else if (serviceRentDay >= 2)
+        {
+            totalPay -= 10;
         }
-        else if(clientKind==="Platium") 
+
+        if (clientKind === "Diamond")
         {
-            totalPay-=10;
-        }
-        else if(clientKind==="Gold") 
+            totalPay -= 15;
+        } else if (clientKind === "Platium")
         {
-            totalPay-=5;
-        }
-        else if(clientKind==="Silver") 
+            totalPay -= 10;
+        } else if (clientKind === "Gold")
         {
-            totalPay-=2;
+            totalPay -= 5;
+        } else if (clientKind === "Silver")
+        {
+            totalPay -= 2;
         }
 
     }
+
     function showInformation()
     {
-        output= "1.Khach hang: " + clientName + "\n" 
+        output = "1.Khach hang: " + clientName + "\n"
             + "2.So chung minh nhan dan: " + clientID + "\n"
-            + "3.Ngay sinh: " + clientBirth + "\n" 
+            + "3.Ngay sinh: " + clientBirth + "\n"
             + "4.Email: " + clientEmail + "\n"
-            + "5.Dia chi: " + clientAddr + "\n" 
+            + "5.Dia chi: " + clientAddr + "\n"
             + "6.Loai KH: " + clientKind + "\n"
-            + "7.Giam gia: " + serviceDiscount + "\n" 
+            + "7.Giam gia: " + serviceDiscount + "\n"
             + "8.So luong: " + serviceAmount + "\n"
-            + "9.So ngay thue: " + serviceRentDay + "\n" 
+            + "9.So ngay thue: " + serviceRentDay + "\n"
             + "10.Loai dich vu: " + serviceKind + "\n"
-            + "11.Loai phong: " + serviceRoomKind + "\n" 
+            + "11.Loai phong: " + serviceRoomKind + "\n"
             + "12.So tien phai tra: " + calTotalPay(serviceKind);
         return output;
         //showMainPage();

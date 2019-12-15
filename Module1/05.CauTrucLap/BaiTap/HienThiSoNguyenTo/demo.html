@@ -6,24 +6,27 @@
 </head>
 <body>
 <script>
-    let count,soLuong,temp=1;let oke="";
+    let count, soLuong, temp = 1;
+    let oke = "";
     soLuong = parseInt(prompt("Nhap so luong"));
-    for(count=0;count<soLuong;)
+    for (count = 0; count < soLuong;)
     {
-        while(true)
+        while (true)
         {
             temp++;
-            if(temp===2||temp===3||temp===5)
+            if (temp === 2 || temp === 3 || temp === 5)
             {
                 oke += temp + "\t";
-                count++; break;
+                count++;
+                break;
             }
-            
-            if(temp%2===0||temp%3===0||temp%5===0) break;
+
+            if (temp % 2 === 0 || temp % 3 === 0 || temp % 5 === 0) break;
             else
             {
                 oke += temp + "\t";
-                count++; break;
+                count++;
+                break;
             }
         }
     }

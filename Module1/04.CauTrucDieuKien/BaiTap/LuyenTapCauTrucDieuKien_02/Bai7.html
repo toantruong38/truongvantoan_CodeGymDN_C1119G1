@@ -10,20 +10,18 @@
     var a = parseFloat(prompt("Nhap so a"));
     var b = parseFloat(prompt("Nhap so b"));
     var c = parseFloat(prompt("Nhap so c"));
-    var x1,x2;
-    var delta=b*b-4*a*c;
-    if(delta>0)
+    var x1, x2;
+    var delta = b * b - 4 * a * c;
+    if (delta > 0)
     {
-        x1=((-b-Math.sqrt(delta))/2*a);
-        x2=((-b+Math.sqrt(delta))/2*a);
-        alert("Phuong trinh co 2 nghiem : x1="+x1+"| x2="+x2);
-    }
-    else if(delta===0)
+        x1 = ((-b - Math.sqrt(delta)) / 2 * a);
+        x2 = ((-b + Math.sqrt(delta)) / 2 * a);
+        alert("Phuong trinh co 2 nghiem : x1=" + x1 + "| x2=" + x2);
+    } else if (delta === 0)
     {
-        x1=x2=(-b)/(2*a);
+        x1 = x2 = (-b) / (2 * a);
         alert("Phuong trinh co nghiem kep : x1=x2=" + x1);
-    }
-    else alert("Phuong trinh vo nghiem");
+    } else alert("Phuong trinh vo nghiem");
 </script>
 </body>
 </html>

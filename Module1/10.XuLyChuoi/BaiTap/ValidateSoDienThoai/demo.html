@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Oke</title>
-    </head>
-    <body>
-        <script>
-            var regexp=/^\(?[0-9]{2}\)?\-\(?[0][0-9]{9}\)?$/;
-            function validatePhoneNumber(phone_number)
-            {
-                if(regexp.test(phone_number))
-                {
-                    return true;
-                }return false;
-            }
-            console.log(validatePhoneNumber("(84)-(0978489648)"));
-            console.log(validatePhoneNumber("84-0978489648"));
-            console.log(validatePhoneNumber("(a8)-(22222222)"));
-        </script>
-    </body>
+<head>
+    <title>Oke</title>
+</head>
+<body>
+<script>
+    var regexp = /^\(?[0-9]{2}\)?\-\(?[0][0-9]{9}\)?$/;
+
+    function validatePhoneNumber(phone_number)
+    {
+        if (regexp.test(phone_number))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    console.log(validatePhoneNumber("(84)-(0978489648)"));
+    console.log(validatePhoneNumber("84-0978489648"));
+    console.log(validatePhoneNumber("(a8)-(22222222)"));
+</script>
+</body>
 </html>

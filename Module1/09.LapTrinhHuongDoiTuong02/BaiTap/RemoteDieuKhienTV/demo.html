@@ -8,78 +8,80 @@
 <script>
     function Remote(tivi)
     {
-        this.tivi=tivi;
-        this.setCode=function(code)
+        this.tivi = tivi;
+        this.setCode = function (code)
         {
-            this.code=code;
+            this.code = code;
         };
-        this.getCode=function()
+        this.getCode = function ()
         {
             return this.code;
         };
-        this.switchChanel=function(chanel)
+        this.switchChanel = function (chanel)
         {
             this.tivi.switchChanel(chanel);
         };
-        this.setVolumn=function(volumn)
+        this.setVolumn = function (volumn)
         {
             this.tivi.setVolumn(volumn);
         };
-        this.turnOn=function()
+        this.turnOn = function ()
         {
             this.tivi.turnOn();
         };
-        this.turnOff=function()
+        this.turnOff = function ()
         {
             this.tivi.turnOff();
         }
     }
+
     function Tivi()
     {
-        this.volumn=0;
-        this.getChanel=function()
+        this.volumn = 0;
+        this.getChanel = function ()
         {
             return this.chanel;
         };
-        this.getVolumn=function()
+        this.getVolumn = function ()
         {
             return this.volumn;
         };
-        this.getStatus=function()
+        this.getStatus = function ()
         {
             return this.status;
         };
-        this.turnOn=function()
+        this.turnOn = function ()
         {
-            this.status=true;
+            this.status = true;
             console.log("TV turned on");
         };
-        this.turnOff=function()
+        this.turnOff = function ()
         {
-            this.status=false;
+            this.status = false;
             console.log("TV turned off");
         };
-        this.switchChanel=function(chanel)
+        this.switchChanel = function (chanel)
         {
-            this.chanel=chanel;
-            console.log("Switched to chanel : "+chanel);
+            this.chanel = chanel;
+            console.log("Switched to chanel : " + chanel);
         };
-        this.increaseVolumn=function(volumn)
+        this.increaseVolumn = function (volumn)
         {
-            this.volumn+=volumn;
+            this.volumn += volumn;
         };
-        this.decreaseVolumn=function(volumn)
+        this.decreaseVolumn = function (volumn)
         {
-            this.volumn-=volumn;
+            this.volumn -= volumn;
         };
     }
-    var tivi=new Tivi();
+
+    var tivi = new Tivi();
     var remote = new Remote(tivi);
     tivi.turnOn();
     tivi.switchChanel(7);
     remote.switchChanel(3);
     tivi.increaseVolumn(2);
-    console.log("Current volumn: "+tivi.getVolumn());
+    console.log("Current volumn: " + tivi.getVolumn());
     remote.turnOff();
 </script>
 </body>

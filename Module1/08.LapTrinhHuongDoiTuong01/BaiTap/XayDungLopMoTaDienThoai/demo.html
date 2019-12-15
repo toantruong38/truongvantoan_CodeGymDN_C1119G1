@@ -9,31 +9,31 @@
     function Mobile()
     {
         //Battery
-        this.battery_percentages=100;
+        this.battery_percentages = 100;
         //Text
-        this.on_changing_messages=[];
-        this.recived_messages=[];
-        this.sent_messages=[];
+        this.on_changing_messages = [];
+        this.recived_messages = [];
+        this.sent_messages = [];
         //Status : on or off
-        this.status=true;
+        this.status = true;
         //Turn on or off
-        this.set_status_on=function()
+        this.set_status_on = function ()
         {
-            this.status=true;
+            this.status = true;
         };
-        this.set_status_off=function()
+        this.set_status_off = function ()
         {
-            this.status=false;
+            this.status = false;
         };
         //Charge
-        this.charge_phone=function()
+        this.charge_phone = function ()
         {
             alert("Charging!");
         };
         //Soan tin nhan
-        this.creat_message=function()
+        this.creat_message = function ()
         {
-            if(this.status===true)
+            if (this.status === true)
             {
                 this.battery_percentages--;
                 var input_message = prompt("Moi nhap tin nhan");
@@ -42,70 +42,69 @@
                 // {
                 //     this.send_message(prompt("Nhap ten thiet bi"));
                 // }
-            }else alert("Dien thoai chua bat!");
+            } else alert("Dien thoai chua bat!");
         };
         //Nhan tin nhan
-        this.recive_message=function (input_message)
+        this.recive_message = function (input_message)
         {
-            if(this.status===true)
+            if (this.status === true)
             {
                 this.battery_percentages--;
                 this.recived_messages.push(input_message);
-            }else alert("Dien thoai chua bat!");
+            } else alert("Dien thoai chua bat!");
         };
         //Gui tin nhan
-        this.send_message=function(target_device)
+        this.send_message = function (target_device)
         {
-            if(this.status===true)
+            if (this.status === true)
             {
                 this.battery_percentages--;
-                if(this.on_changing_messages.length===0)
+                if (this.on_changing_messages.length === 0)
                 {
                     alert("Tin nhan rong!");
-                }
-                else
+                } else
                 {
-                    var temp_message=this.on_changing_messages.pop();
+                    var temp_message = this.on_changing_messages.pop();
                     target_device.recive_message(temp_message);
                     this.sent_messages.push(temp_message);
                 }
-            }else alert("Dien thoai chua bat!");
+            } else alert("Dien thoai chua bat!");
         };
-        this.view_recived_messages=function()
+        this.view_recived_messages = function ()
         {
-            if(this.status===true)
+            if (this.status === true)
             {
                 this.battery_percentages--;
-                if(this.recived_messages.length===0)
+                if (this.recived_messages.length === 0)
                 {
                     alert("Tin nhan rong");
-                }
-                else
+                } else
                 {
-                    for(let i=0;i<this.recived_messages.length;i++)
+                    for (let i = 0; i < this.recived_messages.length; i++)
                     {
-                        return i+". "+this.recived_messages[i]+"<br/>";
+                        return i + ". " + this.recived_messages[i] + "<br/>";
                     }
                 }
-            }else alert("Dien thoai chua bat!");
+            } else alert("Dien thoai chua bat!");
         };
-        this.view_sent_messages=function()
+        this.view_sent_messages = function ()
         {
-            if(this.status===true)
+            if (this.status === true)
             {
                 this.battery_percentages--;
-                if(this.sent_messages.length===0)
+                if (this.sent_messages.length === 0)
                 {
-                    for(let i=0;i<this.sent_messages.length;i++)
+                    for (let i = 0; i < this.sent_messages.length; i++)
                     {
-                        return i+". "+this.sent_messages[i]+"<br/>";
+                        return i + ". " + this.sent_messages[i] + "<br/>";
                     }
                 }
-            }else alert("Dien thoai chua bat!");
+            } else alert("Dien thoai chua bat!");
         };
     }
-    var nokia=new Mobile();
-    var iphone=new Mobile();
+
+    var nokia = new Mobile();
+    var iphone = new Mobile();
     nokia.creat_message();
     nokia.send_message(iphone);
     alert(iphone.view_recived_messages());

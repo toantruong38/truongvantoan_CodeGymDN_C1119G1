@@ -7,12 +7,19 @@
 <body>
 <script>
     //Nhap diem sinh vien : toan hoa sinh -> display : average va sum
-   let toan,hoa,sinh;
-   toan=prompt('Nhap diem Toan');hoa=prompt('Nhap diem Hoa');sinh=prompt('Nhap diem Sinh');
-   toan=parseInt(toan);hoa=parseInt(hoa);sinh=parseInt(sinh);
-   let average,sum;sum=toan+hoa+sinh;average=sum/3;
-   document.write('Diem trung binh '+average);document.write('<br/>');
-   document.write('Diem tong '+sum);
+    let toan, hoa, sinh;
+    toan = prompt('Nhap diem Toan');
+    hoa = prompt('Nhap diem Hoa');
+    sinh = prompt('Nhap diem Sinh');
+    toan = parseInt(toan);
+    hoa = parseInt(hoa);
+    sinh = parseInt(sinh);
+    let average, sum;
+    sum = toan + hoa + sinh;
+    average = sum / 3;
+    document.write('Diem trung binh ' + average);
+    document.write('<br/>');
+    document.write('Diem tong ' + sum);
 </script>
 </body>
 </html>

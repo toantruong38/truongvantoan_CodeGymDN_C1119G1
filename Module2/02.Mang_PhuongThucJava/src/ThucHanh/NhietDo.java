@@ -1,8 +1,11 @@
 package ThucHanh;
+
 import java.util.Scanner;
 
-public class NhietDo {
-    public static void main(String[] args) {
+public class NhietDo
+{
+    public static void main(String[] args)
+    {
         String option = "1.Fahrenheit to Celsius\n" +
                 "2.Celsius to Fahrenheit\n" +
                 "0.Exit";
@@ -10,7 +13,8 @@ public class NhietDo {
         Scanner scanner = new Scanner(System.in);
         System.out.println(option);
         option_index = scanner.nextInt();
-        switch (option_index) {
+        switch (option_index)
+        {
             case 1:
                 double input_fah = 0d;
                 System.out.print("Enter Fahrenheit:");
@@ -31,11 +35,13 @@ public class NhietDo {
         }
     }
 
-    public static double convertToCelsius(double fahrenheit) {
+    public static double convertToCelsius(double fahrenheit)
+    {
         return (5.0 / 9) * (fahrenheit - 32);
     }
 
-    public static double convertToFahrenheit(double celsius) {
+    public static double convertToFahrenheit(double celsius)
+    {
         return celsius * (9 / 5.0) + 32;
     }
 }

@@ -1,8 +1,11 @@
 package BaiTap;
+
 import java.util.Scanner;
 
-public class SoThanhChu {
-    public static void main(String[] args) {
+public class SoThanhChu
+{
+    public static void main(String[] args)
+    {
         int input_number = 0;
         String result = "";
         Scanner scanner = new Scanner(System.in);
@@ -13,8 +16,10 @@ public class SoThanhChu {
         hangChuc = (input_number - hangTram * 100) / 10;
         hangDonVi = input_number % 10;
         //System.out.print(hangTram+"/"+hangChuc+"/"+hangDonVi);
-        if (hangTram > 0) {
-            switch (hangTram) {
+        if (hangTram > 0)
+        {
+            switch (hangTram)
+            {
                 case 1:
                     result += "one hundred";
                     break;
@@ -44,9 +49,11 @@ public class SoThanhChu {
                     break;
             }
         }
-        if (hangChuc > 1) {
+        if (hangChuc > 1)
+        {
             result += " and ";
-            switch (hangChuc) {
+            switch (hangChuc)
+            {
                 case 2:
                     result += "twenty";
                     break;
@@ -72,9 +79,11 @@ public class SoThanhChu {
                     result += "ninety";
                     break;
             }
-        } else if (hangChuc == 1) {
+        } else if (hangChuc == 1)
+        {
             result += " and ";
-            switch (hangDonVi) {
+            switch (hangDonVi)
+            {
                 case 0:
                     result += "ten";
                     break;
@@ -107,11 +116,14 @@ public class SoThanhChu {
                     break;
             }
         }
-        if (hangTram > 0 && hangChuc == 0 && hangDonVi > 0) {
+        if (hangTram > 0 && hangChuc == 0 && hangDonVi > 0)
+        {
             result += " and ";
         }
-        if (hangDonVi > 0 && hangChuc != 1) {
-            switch (hangDonVi) {
+        if (hangDonVi > 0 && hangChuc != 1)
+        {
+            switch (hangDonVi)
+            {
                 case 0:
                     result += "zero";
                     break;

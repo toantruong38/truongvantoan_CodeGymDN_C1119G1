@@ -3,67 +3,79 @@
     <title>Oke</title>
 </head>
 <body>
-    <script>
-        var add_client = [];
-        var listed_client = ["Hung", "Nhan", "Viet", "Thanh", "Hieu", "Phuong", "Thuy", "Huy", "Thinh", "Tun"];
-        var user_selection = prompt("1. Them khach hang\n"
-            + "2. Xoa khach hang");
+<script>
+    var add_client = [];
+    var listed_client = ["Hung", "Nhan", "Viet", "Thanh", "Hieu", "Phuong", "Thuy", "Huy", "Thinh", "Tun"];
+    var user_selection = prompt("1. Them khach hang\n"
+        + "2. Xoa khach hang");
 
-        function simple_validate(something) {
-            for (let i = 0; i < something.length; i++) {
-                if (Number.isNaN(parseInt(something[i]))) {
-                    return false;
-                }
+    function simple_validate(something)
+    {
+        for (let i = 0; i < something.length; i++)
+        {
+            if (Number.isNaN(parseInt(something[i])))
+            {
+                return false;
             }
-            return parseInt(something);
         }
+        return parseInt(something);
+    }
 
-        switch (user_selection) {
+    switch (user_selection)
+    {
 
-            case '1':
-                var output = "";
-                var amount = prompt("Nhap so luong");
+        case '1':
+            var output = "";
+            var amount = prompt("Nhap so luong");
 
-                if (amount > 0 && simple_validate(amount)) {
-                    for (let i = 0; i < amount; i++) {
-                        add_client.push(prompt("Nhap ten khach hang so " + (i + 1)));
-                    }
-                    for (let i = 0; i < add_client.length; i++) {
-                        output += i + 1 + ". " + add_client[i] + "\n";
-                    }
-                    alert(output);
-                    add_client.sort();
-                    output = "";
-                    for (let i = 0; i < add_client.length; i++) {
-                        output += i + 1 + ". " + add_client[i] + "\n";
-                    }
-                    alert(output);
-                } else
+            if (amount > 0 && simple_validate(amount))
+            {
+                for (let i = 0; i < amount; i++)
                 {
-                    alert("Fail");
+                    add_client.push(prompt("Nhap ten khach hang so " + (i + 1)));
                 }
-
-                break;
-            case '2':
+                for (let i = 0; i < add_client.length; i++)
+                {
+                    output += i + 1 + ". " + add_client[i] + "\n";
+                }
+                alert(output);
+                add_client.sort();
                 output = "";
-                for (let i = 0; i < listed_client.length; i++) {
+                for (let i = 0; i < add_client.length; i++)
+                {
+                    output += i + 1 + ". " + add_client[i] + "\n";
+                }
+                alert(output);
+            } else
+            {
+                alert("Fail");
+            }
+
+            break;
+        case '2':
+            output = "";
+            for (let i = 0; i < listed_client.length; i++)
+            {
+                output += i + 1 + " ." + listed_client[i] + "\n";
+            }
+            var user_delete_selection = prompt(output);
+            if (simple_validate(user_delete_selection) && (parseInt(user_delete_selection) > 0 &&
+                parseInt(user_delete_selection) - 1 < listed_client.length))
+            {
+                listed_client.splice([parseInt(user_delete_selection)] - 1, 1);
+                output = "";
+                for (let i = 0; i < listed_client.length; i++)
+                {
                     output += i + 1 + " ." + listed_client[i] + "\n";
                 }
-                var user_delete_selection = prompt(output);
-                if (simple_validate(user_delete_selection) && (parseInt(user_delete_selection) > 0 &&
-                    parseInt(user_delete_selection) - 1 < listed_client.length)) {
-                    listed_client.splice([parseInt(user_delete_selection)] - 1, 1);
-                    output = "";
-                    for (let i = 0; i < listed_client.length; i++) {
-                        output += i + 1 + " ." + listed_client[i] + "\n";
-                    }
-                    alert(output);
-                } else {
-                    alert("Fail");
-                }
-                break;
-            default:
+                alert(output);
+            } else
+            {
                 alert("Fail");
-        }
-    </script>
+            }
+            break;
+        default:
+            alert("Fail");
+    }
+</script>
 </body>

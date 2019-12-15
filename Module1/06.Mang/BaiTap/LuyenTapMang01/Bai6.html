@@ -6,24 +6,27 @@
 </head>
 <body>
 <script>
-    let myArray=[];let temp;
-    for(let i=0;i<10;i++)
+    let myArray = [];
+    let temp;
+    for (let i = 0; i < 10; i++)
     {
         myArray.push(Math.floor(Math.random() * 100));
     }
-    let output=myArray.toString();
+    let output = myArray.toString();
     //document.write(output);
     let userInput = prompt("Ban co muon tim kiem phan tu V khong?\n" +
         "1.Co thi nhap \n" +
         "2.Khong thi nhap 'ko'");
-    if(userInput==='ko'){} else
+    if (userInput === 'ko')
+    {} else
     {
-        for(let e in myArray)
+        for (let e in myArray)
         {
-            if(parseFloat(userInput)===myArray[e]) {temp=true;}
-            else {temp=false;}
+            if (parseFloat(userInput) === myArray[e])
+            {temp = true;} else
+            {temp = false;}
         }
-        if(temp) alert("Our array: \n"+output+"\nV is in the array"); else alert("Our array: "+output+"\nV isn't in the array");
+        if (temp) alert("Our array: \n" + output + "\nV is in the array"); else alert("Our array: " + output + "\nV isn't in the array");
     }
 </script>
 </body>

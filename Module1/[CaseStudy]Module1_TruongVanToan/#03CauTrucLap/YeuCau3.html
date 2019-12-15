@@ -24,17 +24,18 @@
     /*
     serviceAmount : so luong, serviceKind : loai dich vu(Villa,House,Room)
      */
-    const villaCost=500;
-    const houseCost=300;
-    const roomCost=100; //per day
+    const villaCost = 500;
+    const houseCost = 300;
+    const roomCost = 100; //per day
 
     var output;
     addInformation();
-    
-    
-    removeBlank(clientName,clientAddr,clientKind);
+
+
+    removeBlank(clientName, clientAddr, clientKind);
     upadateInformation();
     alert(output);
+
     function upadateInformation()
     {
         output = "Khach hang: " + clientName + "\n"
@@ -51,122 +52,111 @@
             + "So tien phai tra: "
             + calTotalPay(serviceKind);
     }
+
     function addInformation()
     {
         // check input : email,cmnd,birth,discount,rentday,amount
         //built-in function : isNaN,isInt
         clientName = prompt("Moi nhap ten");
-        var validateID=true;
-        while(validateID)
+        var validateID = true;
+        while (validateID)
         {
             clientID = prompt("Moi nhap so CMND");
-            if(clientID.length!==9)
+            if (clientID.length !== 9)
             {
                 continue;
-            }
-            else
+            } else
             {
-                for(let i=0;i<clientID.length;i++)
+                for (let i = 0; i < clientID.length; i++)
                 {
-                    if(Number.isNaN(parseInt(clientID[i])))
+                    if (Number.isNaN(parseInt(clientID[i])))
                     {
-                        validateID=true;
+                        validateID = true;
                         break;
-                    }
-                    else
+                    } else
                     {
-                        validateID=false;
+                        validateID = false;
                     }
                 }
             }
         }
-        var validateBirth=true;
-        while(validateBirth)
+        var validateBirth = true;
+        while (validateBirth)
         {
             //21/04/2001
             clientBirth = prompt("Moi nhap ngay thang nam sinh");
-            var dd=parseInt(clientBirth.substr(0,2));
-            var mm=parseInt(clientBirth.substr(3,2));
-            var yyyy=parseInt(clientBirth.substr(6,4));
-            
-            if(clientBirth.length!==10)
+            var dd = parseInt(clientBirth.substr(0, 2));
+            var mm = parseInt(clientBirth.substr(3, 2));
+            var yyyy = parseInt(clientBirth.substr(6, 4));
+
+            if (clientBirth.length !== 10)
             {
                 continue;
-            }
-            else
+            } else
             {
-                for(let i=0;i<clientBirth.length;i++)
+                for (let i = 0; i < clientBirth.length; i++)
                 {
-                    if(Number.isNaN(parseInt(clientBirth[i])) && clientBirth[i]!=="/")
+                    if (Number.isNaN(parseInt(clientBirth[i])) && clientBirth[i] !== "/")
                     {
-                        validateBirth=true;
+                        validateBirth = true;
                         break;
-                    }
-                    else if(dd>31 || mm>12 || yyyy <1800)
+                    } else if (dd > 31 || mm > 12 || yyyy < 1800)
                     {
-                        validateBirth=true;
+                        validateBirth = true;
                         break;
-                    }
-                    else
+                    } else
                     {
-                        validateBirth=false;
+                        validateBirth = false;
                     }
                 }
             }
         }
-        
-        var validateEmail=true;
-        var count_a,count_dot;
-        count_a=0;
-        count_dot=0;
-        while(validateEmail)
+
+        var validateEmail = true;
+        var count_a, count_dot;
+        count_a = 0;
+        count_dot = 0;
+        while (validateEmail)
         {
-            
+
             clientEmail = prompt("Moi nhap email");
-            if(clientEmail.length<=0 || count_dot>1 || count_a>1)
+            if (clientEmail.length <= 0 || count_dot > 1 || count_a > 1)
             {
                 continue;
-            }
-            else
+            } else
             {
-                for(let i=0;i<clientEmail.length;i++)
+                for (let i = 0; i < clientEmail.length; i++)
                 {
-                    if(Number.isInteger(parseInt(clientEmail[i])))
+                    if (Number.isInteger(parseInt(clientEmail[i])))
                     {
-                        validateEmail=true;
+                        validateEmail = true;
                         break;
-                    }
-                    else if(clientEmail[i]==="@" && clientEmail[i+1]===".")
+                    } else if (clientEmail[i] === "@" && clientEmail[i + 1] === ".")
                     {
-                        validateEmail=true;
+                        validateEmail = true;
                         break;
-                    }
-                    else if(clientEmail[i]==="@")
+                    } else if (clientEmail[i] === "@")
                     {
                         count_a++;
-                    }
-                    else if((clientEmail[i]==="@" && clientEmail[i+1]==="@")||(clientEmail[i]==="." && clientEmail[i+1]==="."))
+                    } else if ((clientEmail[i] === "@" && clientEmail[i + 1] === "@") || (clientEmail[i] === "." && clientEmail[i + 1] === "."))
                     {
-                        validateEmail=true;
+                        validateEmail = true;
                         break;
-                    }
-                    else if(clientEmail[i]==="." && typeof clientEmail[i+1]==="undefined")
+                    } else if (clientEmail[i] === "." && typeof clientEmail[i + 1] === "undefined")
                     {
-                        validateEmail=true;
+                        validateEmail = true;
                         break;
-                    }
-                    else if(clientEmail[i]===".")
+                    } else if (clientEmail[i] === ".")
                     {
                         count_dot++;
-                    }
-                    else
+                    } else
                     {
-                        validateEmail=false;
+                        validateEmail = false;
                     }
                 }
-                if(count_a===0||count_dot===0)
+                if (count_a === 0 || count_dot === 0)
                 {
-                    validateEmail=true;
+                    validateEmail = true;
                     continue;
                 }
             }
@@ -174,169 +164,162 @@
         clientAddr = prompt("Moi nhap dia chi");
         clientKind = prompt("Moi nhap loai khach hang");
 
-        var validateDiscount=true;
-        while(validateDiscount)
+        var validateDiscount = true;
+        while (validateDiscount)
         {
             serviceDiscount = prompt("Nhap giam gia");
-            for(let i=0;i<serviceDiscount.length;i++)
+            for (let i = 0; i < serviceDiscount.length; i++)
             {
-                if(Number.isInteger(parseInt(serviceDiscount[i])))
+                if (Number.isInteger(parseInt(serviceDiscount[i])))
                 {
-                    validateDiscount=false;
-                }
-                else
+                    validateDiscount = false;
+                } else
                 {
-                    validateDiscount=true;
+                    validateDiscount = true;
                     break;
                 }
             }
-            if(parseInt(serviceDiscount)<0)
+            if (parseInt(serviceDiscount) < 0)
             {
-                validateDiscount=true;
-            }
-            else
+                validateDiscount = true;
+            } else
             {
-                serviceDiscount=parseInt(serviceDiscount);
+                serviceDiscount = parseInt(serviceDiscount);
             }
         }
 
-        var validateAmount=true;
-        while(validateAmount)
+        var validateAmount = true;
+        while (validateAmount)
         {
             serviceAmount = prompt("Nhap so luong");
-            for(let i=0;i<serviceAmount.length;i++)
+            for (let i = 0; i < serviceAmount.length; i++)
             {
-                if(Number.isInteger(parseInt(serviceAmount[i])))
+                if (Number.isInteger(parseInt(serviceAmount[i])))
                 {
-                    validateAmount=false;
-                }
-                else
+                    validateAmount = false;
+                } else
                 {
-                    validateAmount=true;
+                    validateAmount = true;
                     break;
                 }
             }
-            if(parseInt(serviceAmount)<0)
+            if (parseInt(serviceAmount) < 0)
             {
-                validateAmount=true;
-            }
-            else
+                validateAmount = true;
+            } else
             {
-                serviceAmount=parseInt(serviceAmount);
+                serviceAmount = parseInt(serviceAmount);
             }
         }
-        
-        
-        var validateRentDay=true;
-        while(validateRentDay)
+
+
+        var validateRentDay = true;
+        while (validateRentDay)
         {
             serviceRentDay = prompt("Nhap so ngay thue");
-            for(let i=0;i<serviceRentDay.length;i++)
+            for (let i = 0; i < serviceRentDay.length; i++)
             {
-                if(Number.isInteger(parseInt(serviceRentDay[i])))
+                if (Number.isInteger(parseInt(serviceRentDay[i])))
                 {
-                    validateRentDay=false;
-                }
-                else
+                    validateRentDay = false;
+                } else
                 {
-                    validateRentDay=true;
+                    validateRentDay = true;
                     break;
                 }
             }
-            if(parseInt(serviceRentDay)<0)
+            if (parseInt(serviceRentDay) < 0)
             {
-                validateRentDay=true;
-            }
-            else
+                validateRentDay = true;
+            } else
             {
-                serviceRentDay=parseInt(serviceRentDay);
+                serviceRentDay = parseInt(serviceRentDay);
             }
         }
-        
+
         serviceKind = prompt("Nhap loai dich vu");
         serviceRoomKind = prompt("Nhap loai phong");
-        
+
     }
-    function removeBlank(name,address,client_kind)
+
+    function removeBlank(name, address, client_kind)
     {
-        clientName="";
-        var tempName=name.trim().split(" ");
-        var newTempName="";
-        for(let i=0;i<tempName.length;i++)
+        clientName = "";
+        var tempName = name.trim().split(" ");
+        var newTempName = "";
+        for (let i = 0; i < tempName.length; i++)
         {
-            if(tempName[i]!=="")
+            if (tempName[i] !== "")
             {
-                newTempName+=tempName[i]+" ";
+                newTempName += tempName[i] + " ";
             }
         }
-        tempName=newTempName.trim();
-        clientName+=tempName[0].toUpperCase();
-        for(let i=1;i<tempName.length;i++)
+        tempName = newTempName.trim();
+        clientName += tempName[0].toUpperCase();
+        for (let i = 1; i < tempName.length; i++)
         {
-            if(tempName[i]===" ")
+            if (tempName[i] === " ")
             {
-                clientName+=tempName[i]+tempName[i+1].toUpperCase();
+                clientName += tempName[i] + tempName[i + 1].toUpperCase();
                 i++;
-            }
-            else
+            } else
             {
-                clientName+=tempName[i];
+                clientName += tempName[i];
             }
         }
 
-        clientAddr="";
-        var tempAddr=address.trim().split(" ");
-        var newtempAddr="";
-        for(let i=0;i<tempAddr.length;i++)
+        clientAddr = "";
+        var tempAddr = address.trim().split(" ");
+        var newtempAddr = "";
+        for (let i = 0; i < tempAddr.length; i++)
         {
-            if(tempAddr[i]!=="")
+            if (tempAddr[i] !== "")
             {
-                newtempAddr+=tempAddr[i]+" ";
+                newtempAddr += tempAddr[i] + " ";
             }
         }
-        tempAddr=newtempAddr.trim();
-        clientAddr+=tempAddr[0].toUpperCase();
-        for(let i=1;i<tempAddr.length;i++)
+        tempAddr = newtempAddr.trim();
+        clientAddr += tempAddr[0].toUpperCase();
+        for (let i = 1; i < tempAddr.length; i++)
         {
-            if(tempAddr[i]===" ")
+            if (tempAddr[i] === " ")
             {
-                clientAddr+=tempAddr[i]+tempAddr[i+1].toUpperCase();
+                clientAddr += tempAddr[i] + tempAddr[i + 1].toUpperCase();
                 i++;
-            }
-            else
+            } else
             {
-                clientAddr+=tempAddr[i];
+                clientAddr += tempAddr[i];
             }
         }
 
-        clientKind="";
-        var tempKind=client_kind.trim().split(" ");
-        var newtempKind="";
-        for(let i=0;i<tempKind.length;i++)
+        clientKind = "";
+        var tempKind = client_kind.trim().split(" ");
+        var newtempKind = "";
+        for (let i = 0; i < tempKind.length; i++)
         {
-            if(tempKind[i]!=="")
+            if (tempKind[i] !== "")
             {
-                newtempKind+=tempKind[i]+" ";
+                newtempKind += tempKind[i] + " ";
             }
         }
-        tempKind=newtempKind.trim();
-        clientKind+=tempKind[0].toUpperCase();
-        for(let i=1;i<tempKind.length;i++)
+        tempKind = newtempKind.trim();
+        clientKind += tempKind[0].toUpperCase();
+        for (let i = 1; i < tempKind.length; i++)
         {
-            if(tempKind[i]===" ")
+            if (tempKind[i] === " ")
             {
-                clientKind+=tempKind[i]+tempKind[i+1].toUpperCase();
+                clientKind += tempKind[i] + tempKind[i + 1].toUpperCase();
                 i++;
-            }
-            else
+            } else
             {
-                clientKind+=tempKind[i];
+                clientKind += tempKind[i];
             }
         }
     }
+
     function calTotalPay(serviceKind)
     {
-        switch(serviceKind)
+        switch (serviceKind)
         {
             case 'Villa':
                 totalPay = villaCost * serviceRentDay * (1 - (serviceDiscount / 100));

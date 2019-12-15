@@ -6,97 +6,127 @@
 </head>
 <body>
 <script>
-    let noti= "Bài 1: Viết hàm tính bình phương của một số bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.\n" +
-        
+    let noti = "Bài 1: Viết hàm tính bình phương của một số bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.\n" +
+
         "Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được\n" +
-        
+
         "Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.\n" +
-        
+
         "Bài 4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu là ký tự số hàm trả về true, ngược " +
         "lại trả về false.\n" +
-        
+
         "Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.\n" +
-        
+
         "Bài 6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không. Nếu là nguyên dương" +
         " trả về true, ngược lại trả về false.\n" +
-        
+
         "Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.\n" +
-        
+
         "Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó.\n" +
-        
+
         "Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng " +
-        "không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1."+"\nVí dụ chọn bài 1 : nhập 'Bài 1'";
+        "không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1." + "\nVí dụ chọn bài 1 : nhập 'Bài 1'";
     let userOption = prompt(noti);
-    function Bai1(e) { return e*e;}
+
+    function Bai1(e) { return e * e;}
+
     function Bai2(radius)
     {
-        return "Ban kinh : "+radius+"\n"+"Chu vi : "+(radius*2*Math.PI)+"\n"+"Dien tich hinh tron : " +
-            Math.pow(radius,2)*Math.PI;
+        return "Ban kinh : " + radius + "\n" + "Chu vi : " + (radius * 2 * Math.PI) + "\n" + "Dien tich hinh tron : " +
+            Math.pow(radius, 2) * Math.PI;
     }
+
     function Bai3(inputNumber)
     {
-        let temp=1;
-        if(inputNumber===0||inputNumber===1) return "Gia thua cua "+inputNumber+" la 1";
+        let temp = 1;
+        if (inputNumber === 0 || inputNumber === 1) return "Gia thua cua " + inputNumber + " la 1";
         else
         {
-            for(let i=1;i<=inputNumber;i++)
+            for (let i = 1; i <= inputNumber; i++)
             {
-                temp*=i;
-            }return temp;
+                temp *= i;
+            }
+            return temp;
         }
     }
-    function Bai4(userInput){if(typeof userInput==="number") return true;else return false;}
-    function Bai5(arg1,arg2,arg3)
+
+    function Bai4(userInput) {if (typeof userInput === "number") return true; else return false;}
+
+    function Bai5(arg1, arg2, arg3)
     {
-        let min=arg1;
-        for(let i=0;i<arguments.length;i++)
+        let min = arg1;
+        for (let i = 0; i < arguments.length; i++)
         {
-            if(arguments[i]<min) min=arguments[i];
-        }return "So nho nhat "+min;
+            if (arguments[i] < min) min = arguments[i];
+        }
+        return "So nho nhat " + min;
     }
+
     function Bai6(userInput)
     {
-        if(typeof userInput!=="number") return "Loi";
+        if (typeof userInput !== "number") return "Loi";
         else
         {
-            if(parseFloat(userInput)>0) return true;else return false;
+            if (parseFloat(userInput) > 0) return true; else return false;
         }
     }
-    function Bai7(arg1,arg2) {let temp=arg1;arg1=arg2;arg2=temp;return "Ket qua : "+arg1+", "+arg2;}
+
+    function Bai7(arg1, arg2)
+    {
+        let temp = arg1;
+        arg1 = arg2;
+        arg2 = temp;
+        return "Ket qua : " + arg1 + ", " + arg2;
+    }
+
     function Bai8(array_arg)
     {
-        let temp_array=[];let temp=array_arg.length;
-        for(let i=0;i<temp;i++) {temp_array.push(array_arg.pop());}
-        return "Mang sau khi dao nguoc : "+temp_array;
+        let temp_array = [];
+        let temp = array_arg.length;
+        for (let i = 0; i < temp; i++)
+        {temp_array.push(array_arg.pop());}
+        return "Mang sau khi dao nguoc : " + temp_array;
     }
-    function Bai9(string_arg,arg)
+
+    function Bai9(string_arg, arg)
     {
-        let count=0;
-        for(let i=0;i<string_arg.length;i++)
+        let count = 0;
+        for (let i = 0; i < string_arg.length; i++)
         {
-            if(string_arg[i]===arg) count++;
-        }if(count===0) return -1; else return "So lan xuat hien "+count;
+            if (string_arg[i] === arg) count++;
+        }
+        if (count === 0) return -1; else return "So lan xuat hien " + count;
     }
+
     switch (userOption)
     {
         case 'Bài 1':
-            alert(Bai1(parseFloat(prompt('Nhap 1 so : ')))); break;
+            alert(Bai1(parseFloat(prompt('Nhap 1 so : '))));
+            break;
         case 'Bài 2':
-            alert(Bai2(parseFloat(prompt('Nhap ban kinh hinh tron')))); break;
+            alert(Bai2(parseFloat(prompt('Nhap ban kinh hinh tron'))));
+            break;
         case 'Bài 3':
-            alert(Bai3(parseFloat(prompt('Nhap 1 so : ')))); break;
+            alert(Bai3(parseFloat(prompt('Nhap 1 so : '))));
+            break;
         case 'Bài 4':
-            alert(Bai4(prompt('Nhap ky tu bat ki'))); break;
+            alert(Bai4(prompt('Nhap ky tu bat ki')));
+            break;
         case 'Bài 5':
-            alert(Bai5(parseFloat(prompt('Nhap so thu 1')), parseFloat(prompt('Nhap so thu 2')), parseFloat(prompt('Nhap so thu 3')))); break;
+            alert(Bai5(parseFloat(prompt('Nhap so thu 1')), parseFloat(prompt('Nhap so thu 2')), parseFloat(prompt('Nhap so thu 3'))));
+            break;
         case 'Bài 6':
-            alert(Bai6(parseFloat(prompt('Nhap mot so '))));break;
+            alert(Bai6(parseFloat(prompt('Nhap mot so '))));
+            break;
         case 'Bài 7':
-            alert(Bai7(parseFloat(prompt('Nhap so thu 1')), parseFloat(prompt('Nhap so thu 2'))));break;
+            alert(Bai7(parseFloat(prompt('Nhap so thu 1')), parseFloat(prompt('Nhap so thu 2'))));
+            break;
         case 'Bài 8':
-            let my_original_array=[];let temp;
-            for(let i=0;i<10;i++) { my_original_array.push(Math.floor(Math.random()*10));}
-            temp=my_original_array.toString();
+            let my_original_array = [];
+            let temp;
+            for (let i = 0; i < 10; i++)
+            { my_original_array.push(Math.floor(Math.random() * 10));}
+            temp = my_original_array.toString();
             alert("Mang ban dau : " + temp);
             alert(Bai8(my_original_array));
             break;

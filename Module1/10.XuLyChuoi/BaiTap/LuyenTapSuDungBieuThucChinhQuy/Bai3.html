@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Oke</title>
-    </head>
-    <body>
-        <script>
-            var regexp_nguyen_am=/[a|e|i|o|u|y]/;
-            var regexp_nguyen_am2=/[^a|^e|^i|^o|^u|^y]/;
-            function demNguyenAm(chuoi)
-            {
-                return chuoi.split(regexp_nguyen_am2);
-            }
-            var chuoi1="trong tieng viet co 12 nguyen am";
-            
-            console.log(demNguyenAm(chuoi1));
-        </script>
-    </body>
+<head>
+    <title>Oke</title>
+</head>
+<body>
+<script>
+    var regexp_nguyen_am = /[a|e|i|o|u|y]/;
+    var regexp_nguyen_am2 = /[^a|^e|^i|^o|^u|^y]/;
+
+    function demNguyenAm(chuoi)
+    {
+        return chuoi.split(regexp_nguyen_am2);
+    }
+
+    var chuoi1 = "trong tieng viet co 12 nguyen am";
+
+    console.log(demNguyenAm(chuoi1));
+</script>
+</body>
 </html>

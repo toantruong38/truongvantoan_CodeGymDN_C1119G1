@@ -7,16 +7,21 @@
 <body>
 <script>
     //0 1 1 2 3 5
-    let count=0;let oke="";let post=0;let fix=1;let temp=0;
-    while(count!==20)
+    let count = 0;
+    let oke = "";
+    let post = 0;
+    let fix = 1;
+    let temp = 0;
+    while (count !== 20)
     {
-        oke+=fix+"\n";
-        temp=fix;
-        fix+=post;
-        post=temp;
+        oke += fix + "\n";
+        temp = fix;
+        fix += post;
+        post = temp;
         //temp=0;
         count++;
-    }alert(oke);
+    }
+    alert(oke);
 </script>
 </body>
 </html>

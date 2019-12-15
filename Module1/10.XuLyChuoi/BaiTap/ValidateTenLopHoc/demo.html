@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Oke</title>
-    </head>
-    <body>
-        <script>
-            var regexp=/^(C|A|P)[0-9]{4}(G|H|I|K|L|M)$/;
-            function validateClass(inut_class)
-            {
-                if(regexp.test(inut_class))
-                {
-                    return true;
-                }return false;
-            }
-            console.log(validateClass("C0318G"));
-            console.log(validateClass("M0318G"));
-            console.log(validateClass("P0323A"));
-        </script>
-    </body>
+<head>
+    <title>Oke</title>
+</head>
+<body>
+<script>
+    var regexp = /^(C|A|P)[0-9]{4}(G|H|I|K|L|M)$/;
+
+    function validateClass(inut_class)
+    {
+        if (regexp.test(inut_class))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    console.log(validateClass("C0318G"));
+    console.log(validateClass("M0318G"));
+    console.log(validateClass("P0323A"));
+</script>
+</body>
 </html>

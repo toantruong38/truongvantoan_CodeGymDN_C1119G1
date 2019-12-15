@@ -8,37 +8,39 @@
 <script>
     function ElectricLamp()
     {
-        this.turnOff=function()
+        this.turnOff = function ()
         {
-            this.status=false;
+            this.status = false;
             console.log("Turn off!");
         };
-        this.turnOn=function()
+        this.turnOn = function ()
         {
-            this.status=true;
+            this.status = true;
             console.log("Turn on!");
         };
     }
+
     function SwitchButton()
     {
-        this.connectToLamp=function(electricLamp)
+        this.connectToLamp = function (electricLamp)
         {
-            this.electricLamp=electricLamp;
+            this.electricLamp = electricLamp;
             console.log("Connected");
         };
-        this.switchOff=function()
+        this.switchOff = function ()
         {
             this.electricLamp.turnOff();
             document.write("Lamp turned off!<br/>");
         };
-        this.switchOn=function()
+        this.switchOn = function ()
         {
             this.electricLamp.turnOn();
             document.write("Lamp turned on!<br/>");
         };
     }
-    var switchButton=new SwitchButton();
-    var electricLamp=new ElectricLamp();
+
+    var switchButton = new SwitchButton();
+    var electricLamp = new ElectricLamp();
     switchButton.connectToLamp(electricLamp);
     switchButton.switchOn();
     switchButton.switchOff();

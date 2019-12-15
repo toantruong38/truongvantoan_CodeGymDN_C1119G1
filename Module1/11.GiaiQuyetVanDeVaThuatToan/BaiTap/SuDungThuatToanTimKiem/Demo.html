@@ -5,32 +5,32 @@
     <title>Title</title>
 </head>
 <body>
-<button style="font-size: xx-large" onclick="findViettelPhoneNumber()">Convert</button>
-<textarea id="txtArea" style="height: 300px; width: 500px;font-size: x-large" placeholder="Test content"></textarea>
+<button onclick="findViettelPhoneNumber()" style="font-size: xx-large">Convert</button>
+<textarea id="txtArea" placeholder="Test content" style="height: 300px; width: 500px;font-size: x-large"></textarea>
 
 <script>
-    var head_phone_10=["086","096","097","098"];
-    var head_phone_11=["032","033","034","035","036","037","038","039"];
+    var head_phone_10 = ["086", "096", "097", "098"];
+    var head_phone_11 = ["032", "033", "034", "035", "036", "037", "038", "039"];
+
     function findViettelPhoneNumber()
     {
-        var txt_area=document.getElementById("txtArea");
-        var area_content=prompt();
-        var new_number=true;
-        var result_phone_num="";
-        for(let i=0;i<area_content.length;)
+        var txt_area = document.getElementById("txtArea");
+        var area_content = prompt();
+        var new_number = true;
+        var result_phone_num = "";
+        for (let i = 0; i < area_content.length;)
         {
-            if(area_content[i]==="0")
+            if (area_content[i] === "0")
             {
-                if(
-                    function()
+                if (
+                    function ()
                     {
-                        for(let j=0;j<head_phone_10.length;j++)
+                        for (let j = 0; j < head_phone_10.length; j++)
                         {
-                            if(area_content.substr(i,3)===head_phone_10[i])
+                            if (area_content.substr(i, 3) === head_phone_10[i])
                             {
                                 return true;
-                            }
-                            else if(area_content.substr(i,3)!==head_phone_10[i])
+                            } else if (area_content.substr(i, 3) !== head_phone_10[i])
                             {
                                 return false;
                             }
@@ -38,32 +38,28 @@
                     }
                 )
                 {
-                    result_phone_num+="\n"+area_content.substr(i,10);
-                    i+=10;
-                }
-                else if(
-                    function()
+                    result_phone_num += "\n" + area_content.substr(i, 10);
+                    i += 10;
+                } else if (
+                    function ()
                     {
-                        if(area_content.substr(i,3)===head_phone_11[i])
+                        if (area_content.substr(i, 3) === head_phone_11[i])
                         {
                             return true;
-                        }
-                        else if(area_content.substr(i,3)!==head_phone_11[i])
+                        } else if (area_content.substr(i, 3) !== head_phone_11[i])
                         {
                             return false;
                         }
                     }
                 )
                 {
-                    result_phone_num+="\n"+area_content.substr(i,11);
-                    i+=11;
-                }
-                else
+                    result_phone_num += "\n" + area_content.substr(i, 11);
+                    i += 11;
+                } else
                 {
-                    i+=3;
+                    i += 3;
                 }
-            }
-            else
+            } else
             {
 
                 i++;

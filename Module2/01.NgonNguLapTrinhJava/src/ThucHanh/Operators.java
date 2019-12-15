@@ -1,8 +1,11 @@
 package ThucHanh;
+
 import java.util.Scanner;
 
-public class Operators {
-    public static void main(String[] args) {
+public class Operators
+{
+    public static void main(String[] args)
+    {
         float height = 0f, weight = 0f;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap chieu cao: ");

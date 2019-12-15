@@ -16,30 +16,29 @@
      */
     let a_array = [], b_array = [], c_array = []; //1
 
-    if(confirm('Ban co muon nhap phan tu cho mang? Khong thi toi tu tao')) //2
+    if (confirm('Ban co muon nhap phan tu cho mang? Khong thi toi tu tao')) //2
     {
-        let count_a=0,count_b=0;
-        while(count_a!==10)
+        let count_a = 0, count_b = 0;
+        while (count_a !== 10)
         {
-            a_array.push(parseFloat(prompt("Nhap gia tri cho phan tu thu "+count_a+" cua mang a")));
+            a_array.push(parseFloat(prompt("Nhap gia tri cho phan tu thu " + count_a + " cua mang a")));
             count_a++;
         }
 
-        while(count_b!==10)
+        while (count_b !== 10)
         {
-            b_array.push(parseFloat(prompt("Nhap gia tri cho phan tu thu "+count_b+" cua mang b")));
+            b_array.push(parseFloat(prompt("Nhap gia tri cho phan tu thu " + count_b + " cua mang b")));
             count_b++;
         }
-        alert("Mang a:\n"+a_array+"\nMang b:\n"+b_array+"\nMang c:\n"+c_array.concat(a_array,b_array)); //3
-    }
-    else
+        alert("Mang a:\n" + a_array + "\nMang b:\n" + b_array + "\nMang c:\n" + c_array.concat(a_array, b_array)); //3
+    } else
     {
-        for(let i=0;i<10;i++) //2
+        for (let i = 0; i < 10; i++) //2
         {
             a_array.push(Math.floor(Math.random() * 10));
             b_array.push(Math.floor(Math.random() * 10));
         }
-        alert("Mang a:\n"+a_array+"\nMang b:\n"+b_array+"\nMang c:\n"+c_array.concat(a_array,b_array)); //3
+        alert("Mang a:\n" + a_array + "\nMang b:\n" + b_array + "\nMang c:\n" + c_array.concat(a_array, b_array)); //3
     }
 </script>
 </body>

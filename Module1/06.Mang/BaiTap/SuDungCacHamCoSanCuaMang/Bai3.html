@@ -6,13 +6,14 @@
 </head>
 <body>
 <script>
-    let myArray=[];
+    let myArray = [];
     let userInput = prompt("Nhap bat cu thu gi");
-    for (let i=0;i<userInput.length;i++) {
-        if (userInput[i] === userInput[i].toUpperCase()) {
+    for (let i = 0; i < userInput.length; i++)
+    {
+        if (userInput[i] === userInput[i].toUpperCase())
+        {
             myArray.push(userInput[i].toLowerCase());
-        }
-        else myArray.push(userInput[i].toUpperCase());
+        } else myArray.push(userInput[i].toUpperCase());
     }
     alert(myArray.join(""));
 </script>

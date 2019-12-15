@@ -8,117 +8,118 @@
 <script>
     function Rat()
     {
-        this.setName=function(name)
+        this.setName = function (name)
         {
-            this.name=name;
+            this.name = name;
         };
-        this.getName=function()
+        this.getName = function ()
         {
             return this.name;
         };
-        this.setWeight=function(weight)
+        this.setWeight = function (weight)
         {
-            this.weight=weight;
+            this.weight = weight;
         };
-        this.getWeight=function()
+        this.getWeight = function ()
         {
             return this.weight;
         };
-        this.setSpeed=function(speed)
+        this.setSpeed = function (speed)
         {
-            this.speed=speed;
+            this.speed = speed;
         };
-        this.getSpeed=function()
+        this.getSpeed = function ()
         {
             return this.speed;
         }
-        this.setStatus=function(status)
+        this.setStatus = function (status)
         {
-            this.status=status;
+            this.status = status;
         };
-        this.getStatus=function()
+        this.getStatus = function ()
         {
             return this.status;
         };
-        this.say=function()
+        this.say = function ()
         {
             console.log("Chit chit!");
         };
     }
+
     function Cat()
     {
-        this.setName=function(name)
+        this.setName = function (name)
         {
-            this.name=name;
+            this.name = name;
         };
-        this.getName=function()
+        this.getName = function ()
         {
             return this.name;
         };
-        this.setWeight=function(weight)
+        this.setWeight = function (weight)
         {
-            this.weight=weight;
+            this.weight = weight;
         };
-        this.getWeight=function()
+        this.getWeight = function ()
         {
             return this.weight;
         };
-        this.setMaxSpeed=function(maxSpeed)
+        this.setMaxSpeed = function (maxSpeed)
         {
-            this.maxSpeed=maxSpeed;
+            this.maxSpeed = maxSpeed;
         };
-        this.getMaxSpeed=function()
+        this.getMaxSpeed = function ()
         {
             return this.maxSpeed;
         };
-        this.say=function()
+        this.say = function ()
         {
             console.log("Meow Meow!");
         };
-        this.catchRat=function(rat)
+        this.catchRat = function (rat)
         {
-            if(this.maxSpeed>rat.speed)
+            if (this.maxSpeed > rat.speed)
             {
                 console.log("Meow, i got u, stupid rat");
-                this.rat=rat;
-            }else console.log("Damn, u so lucky!");
+                this.rat = rat;
+            } else console.log("Damn, u so lucky!");
         };
-        this.eatRat=function()
+        this.eatRat = function ()
         {
-            if(this.rat.status)
+            if (this.rat.status)
             {
                 console.log("Eating!");
-                this.weight+=this.rat.weight;
-                this.rat.status=false;
-                this.rat.weight=0;
-            }
-            else console.log("He's dead, i cant eat him");
+                this.weight += this.rat.weight;
+                this.rat.status = false;
+                this.rat.weight = 0;
+            } else console.log("He's dead, i cant eat him");
         };
     }
-    var rat=new Rat();
+
+    var rat = new Rat();
     rat.setName("Mickey");
     rat.setWeight(5);
     rat.setSpeed(10);
     rat.setStatus(true);
-    console.log("Hi, i'm "+rat.getName()
-        +" . Weight: "+rat.getWeight()
-        +" . Speed: "+rat.getSpeed()
-        +" . Status : "+rat.getStatus());
+    console.log("Hi, i'm " + rat.getName()
+        + " . Weight: " + rat.getWeight()
+        + " . Speed: " + rat.getSpeed()
+        + " . Status : " + rat.getStatus());
     rat.say();
-    var cat=new Cat();
+    var cat = new Cat();
     cat.setName("Tom");
     cat.setWeight(9);
     cat.setMaxSpeed(20);
-    console.log("Hi, i'm "+cat.getName()
-        +" . Weight: "+cat.getWeight()
-        +" . Speed: "+cat.getMaxSpeed());
+    console.log("Hi, i'm " + cat.getName()
+        + " . Weight: " + cat.getWeight()
+        + " . Speed: " + cat.getMaxSpeed());
     cat.say();
     console.log("============================ Start chasing! ============================");
     cat.catchRat(rat);
     cat.eatRat();
-    console.log("Cat weight increased to : "+cat.getWeight());
-    console.log("Rat weight decreased to : "+rat.getWeight());
-    console.log("Rat status : "+rat.getStatus());
+    console.log("Cat weight increased to : " + cat.getWeight());
+    console.log("Rat weight decreased to : " + rat.getWeight());
+    console.log("Rat status : " + rat.getStatus());
 </script>
 </body>
 </html>

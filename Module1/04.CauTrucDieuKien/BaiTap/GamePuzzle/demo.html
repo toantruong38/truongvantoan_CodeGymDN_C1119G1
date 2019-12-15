@@ -5,46 +5,46 @@
     <title>Game Puzzle</title>
 </head>
 <body>
-<img src="images/temp1.png" id="img1" onclick="Express('img1')"><br>
-<img src="images/lovely3.png" id="img2" onclick="Express('img2')"><br>
-<img src="images/meme1.png" id="img3" onclick="Express('img3')">
+<img id="img1" onclick="Express('img1')" src="images/temp1.png"><br>
+<img id="img2" onclick="Express('img2')" src="images/lovely3.png"><br>
+<img id="img3" onclick="Express('img3')" src="images/meme1.png">
 <script>
     let temp;
 
-function Express(takeID)
-{
-    temp=Math.floor(Math.random()*10);
-    switch(temp)
+    function Express(takeID)
     {
-        case 0:
-            document.getElementById(takeID).src="images/lovely1.png";
-            break;
-        case 1:
-            document.getElementById(takeID).src="images/lovely2.png";
-            break;
-        case 2:
-            document.getElementById(takeID).src="images/lovely3.png";
-            break;
-        case 3:
-            document.getElementById(takeID).src="images/meme1.png";
-            break;
-        case 4:
-            document.getElementById(takeID).src="images/meme2.png";
-            break;
-        case 5:
-            document.getElementById(takeID).src="images/meme3.png";
-            break;
-        case 6:
-            document.getElementById(takeID).src="images/temp1.png";
-            break;
-        case 7:
-            document.getElementById(takeID).src="images/temp2.png";
-            break;
-        case 8:
-            document.getElementById(takeID).src="images/temp3.png";
-            break;
+        temp = Math.floor(Math.random() * 10);
+        switch (temp)
+        {
+            case 0:
+                document.getElementById(takeID).src = "images/lovely1.png";
+                break;
+            case 1:
+                document.getElementById(takeID).src = "images/lovely2.png";
+                break;
+            case 2:
+                document.getElementById(takeID).src = "images/lovely3.png";
+                break;
+            case 3:
+                document.getElementById(takeID).src = "images/meme1.png";
+                break;
+            case 4:
+                document.getElementById(takeID).src = "images/meme2.png";
+                break;
+            case 5:
+                document.getElementById(takeID).src = "images/meme3.png";
+                break;
+            case 6:
+                document.getElementById(takeID).src = "images/temp1.png";
+                break;
+            case 7:
+                document.getElementById(takeID).src = "images/temp2.png";
+                break;
+            case 8:
+                document.getElementById(takeID).src = "images/temp3.png";
+                break;
+        }
     }
-}
 </script>
 </body>
 </html>

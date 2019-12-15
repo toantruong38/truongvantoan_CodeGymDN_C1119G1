@@ -1,13 +1,17 @@
 package ThucHanh;
+
 import java.util.Scanner;
 
-public class DaysInMonth {
-    public static void main(String[] args) {
+public class DaysInMonth
+{
+    public static void main(String[] args)
+    {
         Scanner scanner = new Scanner(System.in);
         String user_option = "";
         System.out.print("Enter a month: ");
         user_option = scanner.nextLine();
-        switch (user_option) {
+        switch (user_option)
+        {
             case "1":
             case "3":
             case "5":
