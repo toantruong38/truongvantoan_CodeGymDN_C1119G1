@@ -41,30 +41,39 @@
         positionCot = prompt("Nhap vi tri cot") - 1;
         positionDong = prompt("Nhap vi tri dong") - 1;
         temp = "";
-        myArray[positionDong][positionCot] = prompt("Nhap X hoac 0");
+        myArray[positionDong][positionCot] = prompt("Nhap X hoac 0").toUpperCase();
         //
         //document.getElementById("table").innerHTML="";
 
         Refresh();
-        Defeat();
+        Defeat(positionDong,positionCot);
         //alert(myArray[positionDong][positionCot - 1]);
 
     }
-
-    function Defeat()
+    var x_count=0;
+    var o_count=0;
+    function Defeat(dong,cot)
     {
 
-        for (let i = 0; i < myArray.length; i++)
+        for(let i=0;i<myArray.length;i++)
         {
-            for (let j = 0; j < myArray.length; j++)
+            for(let j=0;j<myArray[i].length;j++)
             {
-                if (myArray[j][i] === myArray[j + 1][i] === myArray[j + 2][i])
+                if(myArray[i][j]==="X")
                 {
-                    alert('OK');
+                    x_count++;
+                }
+                else if(myArray[i][j]==="O")
+                {
+                    o_count++;
+                }
+                if(x_count===3||o_count===3)
+                {
+                    alert("Oke");break;x_count=o_count=0;
                 }
             }
+            x_count=o_count=0;
         }
-
     }
 </script>
 </body>
