@@ -1,0 +1,3 @@
+id,serviceName,area,rentFee,maxPerson,rentType,roomStandard,convenientDescr,poolArea,floorAmount
+443a7028ba1c4eed920ea8723feb93ac,Trieu,70.0,2,1,1month,Vip,No,130.0,1
+cf713c3e1d78442da63c30306fbbd91b,toan,130.0,12,2,12days,Normal,No,13.0,2
