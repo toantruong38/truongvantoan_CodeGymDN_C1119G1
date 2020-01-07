@@ -1,5 +1,7 @@
 package BaiTap;
 
+import java.util.Comparator;
+
 class TestCircle
 {
     public static void main(String[] args)
@@ -57,7 +59,18 @@ public class Circle
                 ", my Area is: " + this.getArea() +
                 ", my perimeter is: " + this.getPerimeter();
     }
+
+    public static class CircleComparator implements Comparator<Circle>
+    {
+
+        @Override
+        public int compare(Circle o1, Circle o2)
+        {
+            return (int) (o1.getRadius() - o2.getRadius());
+        }
+    }
 }
+
 
 class Cylinder extends Circle
 {

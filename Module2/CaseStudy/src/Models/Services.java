@@ -8,7 +8,7 @@ public abstract class Services
     protected int maxPerson;
     protected String rentType;
     protected String id;
-
+    protected String accompanyService;
     public abstract String getServiceName();
 
     public abstract void setServiceName(String serviceName);
@@ -34,6 +34,10 @@ public abstract class Services
     public abstract String getId();
 
     public abstract void setId(String id);
+
+    public abstract String getAccompanyService();
+
+    public abstract void setAccompanyService(String accompanyService);
 }
 
 

@@ -2,16 +2,16 @@ package Models;
 
 public class Room extends Services
 {
-    private String accompanyService;
+    private String freeAccompanyService;
 
-    public String getAccompanyService()
+    public String getFreeAccompanyService()
     {
-        return this.accompanyService;
+        return this.freeAccompanyService;
     }
 
-    public void setAccompanyService(String accompanyService)
+    public void setFreeAccompanyService(String freeAccompanyService)
     {
-        this.accompanyService = accompanyService;
+        this.freeAccompanyService = freeAccompanyService;
     }
 
     @Override
@@ -90,5 +90,17 @@ public class Room extends Services
     public void setId(String id)
     {
         this.id = id;
+    }
+
+    @Override
+    public String getAccompanyService()
+    {
+        return this.accompanyService;
+    }
+
+    @Override
+    public void setAccompanyService(String accompanyService)
+    {
+        this.accompanyService = accompanyService;
     }
 }

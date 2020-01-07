@@ -113,4 +113,16 @@ public class House extends Services
     {
         this.id = id;
     }
+
+    @Override
+    public String getAccompanyService()
+    {
+        return this.accompanyService;
+    }
+
+    @Override
+    public void setAccompanyService(String accompanyService)
+    {
+        this.accompanyService = accompanyService;
+    }
 }
