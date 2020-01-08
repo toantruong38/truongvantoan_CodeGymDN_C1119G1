@@ -1,9 +1,6 @@
 package Controllers;
 
-import Models.House;
-import Models.Room;
-import Models.Services;
-import Models.Villa;
+import Models.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,6 +15,94 @@ public class MainController
     public static void main(String[] args)
     {
 
+    }
+
+    public static void addNewCustomer()
+    {
+        Customer customer = new Customer();
+
+        String fullNameRegexp = "^[A-Z][a-z]*($|([\\s][A-Z][a-z]*)+$)";
+        while (true)
+        {
+            System.out.print("Full name: ");
+            String temp = input.nextLine();
+            if (temp.matches(fullNameRegexp))
+            {
+                customer.setFullName(temp);
+                break;
+            } else
+            {
+                System.out.println("Please type again!");
+            }
+        }
+
+        String emailRegexp = "^[\\w]+[\\d]*\\@[\\w]+\\.[\\w]+$";
+        while (true)
+        {
+            System.out.print("Email : ");
+            String temp = input.nextLine();
+            if (temp.matches(emailRegexp))
+            {
+                customer.setEmail(temp);
+                break;
+            } else
+            {
+                System.out.println("Please type again!");
+            }
+        }
+
+        String idCarRegexp = "^[0-9]{9}$";
+        while (true)
+        {
+            System.out.print("Cmnd : ");
+            String temp = input.nextLine();
+            if (temp.matches(idCarRegexp))
+            {
+                customer.setCmnd(temp);
+                break;
+            } else
+            {
+                System.out.println("Please type again!");
+            }
+        }
+
+        String birthRegexp = "^([0][1-9]|[1-2][1-9]|[3][0-1])\\/([0][1-9]|[1][0-2])\\/([1][9][0-9]{2}|[2][0-9]{2}[0-1])$";
+        while (true)
+        {
+            System.out.print("Birth(dd/mm/yyyy) : ");
+            String temp = input.nextLine();
+            if (temp.matches(birthRegexp))
+            {
+                customer.setBirth(temp);
+                break;
+            } else
+            {
+                System.out.println("Please type again!");
+            }
+        }
+
+        while (true)
+        {
+            System.out.print("Gender: ");
+            String temp = input.nextLine();
+            temp = temp.toLowerCase();
+            if (temp.equals("male") || temp.equals("female") || temp.equals("unknown"))
+            {
+                char c = Character.toUpperCase(temp.charAt(0));
+                temp.replaceFirst("\\w", String.valueOf(c));
+                customer.setGender(temp);
+                break;
+            } else
+            {
+                System.out.println("Please type again!");
+            }
+        }
+        System.out.print("Address: ");
+        customer.setAddr(input.nextLine());
+        System.out.print("Customer type: ");
+        customer.setCustomerType(input.nextLine());
+        System.out.print("Phone number: ");
+        customer.setPhoneNum(input.nextLine());
     }
 
     public static void addNewService()

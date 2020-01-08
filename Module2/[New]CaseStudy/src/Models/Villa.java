@@ -143,7 +143,7 @@ public class Villa extends Services implements ServiceSetting, VillaSetting
                     + "," + villa.getRoomStandard() + "," + villa.getConvenientDescription()
                     + "," + villa.getPoolArea() + "," + villa.getFloorAmount()
                     + "," + villa.acpnyService.getServiceName() + "," + villa.acpnyService.getCost()
-                    + "," + villa.acpnyService.getCurrency();
+                    + "," + villa.acpnyService.getCurrency() + "\n";
         }
         FuncWriteFileCSV.writeFile(data_to_file, url);
     }
@@ -159,10 +159,10 @@ public class Villa extends Services implements ServiceSetting, VillaSetting
         villa.setAreaUsing((double) iterator.next());
         villa.setRentFee((long) iterator.next());
         villa.setMaximumPeople((short) iterator.next());
-        villa.setRentType(iterator.toString()); //^ common
+        villa.setRentType(iterator.next().toString()); //^ common
 
-        villa.setRoomStandard(iterator.toString());
-        villa.setCvntDescription(iterator.toString());
+        villa.setRoomStandard(iterator.next().toString());
+        villa.setCvntDescription(iterator.next().toString());
         villa.setPoolArea((double) iterator.next());
         villa.setFloorAmount((short) iterator.next());//^ villa only
 

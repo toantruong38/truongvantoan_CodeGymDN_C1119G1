@@ -151,13 +151,13 @@ public class Room extends Services implements ServiceSetting, RoomSetting
                     + "," + room.getRentFee() + "," + room.getMaximumPeople() + "," + room.getRentType()
                     + "," + room.getFreeService()
                     + "," + room.acpnyService.getServiceName() + "," + room.acpnyService.getCost()
-                    + "," + room.acpnyService.getCurrency();
+                    + "," + room.acpnyService.getCurrency() + "\n";
         }
         FuncWriteFileCSV.writeFile(data_to_file, url);
     }
 
     @Override
-    public Services set_all_properties(ArrayList<Object> data)
+    public Room set_all_properties(ArrayList<Object> data)
     {
         Room room = new Room();
 
@@ -167,7 +167,7 @@ public class Room extends Services implements ServiceSetting, RoomSetting
         room.setAreaUsing((double) iterator.next());
         room.setRentFee((long) iterator.next());
         room.setMaximumPeople((short) iterator.next());
-        room.setRentType(iterator.toString()); //^ common
+        room.setRentType(iterator.next().toString()); //^ common
 
         room.setFreeService(iterator.next().toString());//^ room only
 

@@ -2,6 +2,11 @@ package Models;
 
 public abstract class Person
 {
+    public final static String PERSON_URL = "C:\\Users\\Admin\\Downloads\\Documents\\CodeGym\\" +
+            "truongvantoan_CodeGymDN_C1119G1\\Module2\\[New]CaseStudy\\src\\Data\\";
+
+    public final static String PERSON_LABEL = "fullName,birth,cmnd,phoneNumber,email";
+
     protected String fullName;
 
     protected String birth;

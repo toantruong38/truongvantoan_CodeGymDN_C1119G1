@@ -176,13 +176,13 @@ public class House extends Services implements ServiceSetting, HouseSetting
                     + "," + house.getRentFee() + "," + house.getMaximumPeople() + "," + house.getRentType()
                     + "," + house.getRoomStandard() + "," + house.getFloorAmount()
                     + "," + house.acpnyService.getServiceName() + "," + house.acpnyService.getCost()
-                    + "," + house.acpnyService.getCurrency();
+                    + "," + house.acpnyService.getCurrency() + "\n";
         }
         FuncWriteFileCSV.writeFile(data_to_file, url);
     }
 
     @Override
-    public Services set_all_properties(ArrayList<Object> data)
+    public House set_all_properties(ArrayList<Object> data)
     {
         House house = new House();
 
@@ -192,10 +192,10 @@ public class House extends Services implements ServiceSetting, HouseSetting
         house.setAreaUsing((double) iterator.next());
         house.setRentFee((long) iterator.next());
         house.setMaximumPeople((short) iterator.next());
-        house.setRentType(iterator.toString()); //^ common
+        house.setRentType(iterator.next().toString()); //^ common
 
-        house.setRoomStandard(iterator.toString());
-        house.setCvntDescription(iterator.toString());
+        house.setRoomStandard(iterator.next().toString());
+        house.setCvntDescription(iterator.next().toString());
         house.setFloorAmount((short) iterator.next());//^ house only
 
         house.acpnyService.setServiceName(iterator.next().toString());

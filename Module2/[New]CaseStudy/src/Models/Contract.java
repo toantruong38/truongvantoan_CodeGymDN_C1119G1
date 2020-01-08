@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class Contract implements ShowInformation
 {
+    public final static String CONTRACT_LABEL = "contractNumber,startDay,endDay,deposit,totalPay";
+
     private String contractNumber;
 
     private String startDay;

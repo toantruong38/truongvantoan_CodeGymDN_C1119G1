@@ -2,6 +2,10 @@ package Models;
 
 public class Employee
 {
+    public final static String EMPLOYEE_LABEL = ",degree,position,salary";
+
+    public final static String EMPLOYEE_URL = "Employee.csv";
+
     private String degree;
 
     private String position;
