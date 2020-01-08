@@ -98,11 +98,11 @@ public class MainController
             }
         }
         System.out.print("Address: ");
-        customer.setAddr(input.nextLine());
+        //customer.setAddr(input.nextLine());
         System.out.print("Customer type: ");
         customer.setCustomerType(input.nextLine());
         System.out.print("Phone number: ");
-        customer.setPhoneNum(input.nextLine());
+        //customer.setPhoneNum(input.nextLine());
     }
 
     public static void addNewService()

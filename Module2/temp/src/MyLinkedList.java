@@ -9,8 +9,12 @@ public class MyLinkedList
         myLinkedList.push(30);
         myLinkedList.push(40);
         myLinkedList.push(50);
-        System.out.println(myLinkedList.insertByIndex(2, 123));
+        System.out.println(myLinkedList.insertByIndex(2, 99));
+//        System.out.println(myLinkedList.insertByIndex(0, 88));
+//        System.out.println(myLinkedList.insertByData(123, 20));
         System.out.println(myLinkedList.printList());
+        MyLinkedList llist2 = myLinkedList.slice(0, 2);
+        System.out.println(llist2.printList());
     }
 
     public int unshift(Object data)
@@ -66,13 +70,17 @@ public class MyLinkedList
         {
             Node current = head;
             Node newNode = new Node(data);
-            while (current.data != data_search)
+            if (current.data == data_search)
+            {
+                unshift(data);
+                return length();
+            }
+            while (current.next.data != data_search)
             {
                 current = current.next;
             }
-            Node tail = current.next;
+            newNode.next = current.next;
             current.next = newNode;
-            newNode.next = tail;
             return length();
         } catch (Exception e)
         {
@@ -84,21 +92,37 @@ public class MyLinkedList
     {
         Node current = head;
         Node newNode = new Node(data);
-        int current_index = 0;
-        if (head == null) {return -1;}
-        while (current != null)
+        if (index < 0 || index >= this.length()) return -1;
+        if (index == 0)
         {
-            if (current_index == index)
-            {
-                Node tail = current;
-                current = newNode;
-                newNode.next = tail;
-                return length();
-            }
-            current_index++;
-            current = current.next;
+            unshift(data);
+            return length();
         }
-        return -1;
+
+        while (index - 1 > 0)
+        {
+            current = current.next;
+            index--;
+        }
+        newNode.next = current.next;
+        current.next = newNode;
+        return length();
+
+//        int current_index = 0;
+//        if (head == null) {return -1;}
+//        while (current != null)
+//        {
+//            if (current_index == index)
+//            {
+//                Node tail = current;
+//                current = newNode;
+//                newNode.next = tail;
+//                return length();
+//            }
+//            current_index++;
+//            current = current.next;
+//        }
+//        return -1;
     }
 
     public int length()
@@ -128,6 +152,33 @@ public class MyLinkedList
         }
 
         return output;
+    }
+
+    public MyLinkedList slice(int start, int end)
+    {
+        MyLinkedList return_llist = new MyLinkedList();
+//        if(start<0||end<0||start>=this.length()||end)
+        try
+        {
+            Node current = head;
+            int i = 0;
+            while (current != null)
+            {
+                if (i >= start && i < end)
+                {
+                    return_llist.push(current.data);
+                }
+
+
+                current = current.next;
+                i++;
+            }
+
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return return_llist;
     }
 
     public class Node
