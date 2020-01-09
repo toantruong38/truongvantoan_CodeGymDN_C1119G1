@@ -14,7 +14,22 @@ public class MyLinkedList
 //        System.out.println(myLinkedList.insertByData(123, 20));
         System.out.println(myLinkedList.printList());
         MyLinkedList llist2 = myLinkedList.slice(0, 2);
+        myLinkedList.remove(40);
+        System.out.println(myLinkedList.printList());
         System.out.println(llist2.printList());
+    }
+
+    public Object remove(Object data)
+    {
+        Node current = head;
+
+        while (current.next.data != data)
+        {
+            current = current.next;
+        }
+        Object removed_object = current.next.data;
+        current.next = current.next.next;
+        return removed_object;
     }
 
     public int unshift(Object data)

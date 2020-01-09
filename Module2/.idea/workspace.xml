@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8a175c7-c794-44c9-939b-dbbcd7cfc638" name="Default Changelist" comment="">
+    <list default="true" id="f8a175c7-c794-44c9-939b-dbbcd7cfc638" name="Default Changelist" comment="LeahGottie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/[New]CaseStudy/src/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/[New]CaseStudy/src/Controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/[New]CaseStudy/Controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/[New]CaseStudy/Controllers/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/[New]CaseStudy/Models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/[New]CaseStudy/Models/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/[New]CaseStudy/Models/House.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/[New]CaseStudy/Models/House.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/[New]CaseStudy/Models/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/[New]CaseStudy/Models/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/[New]CaseStudy/Models/Villa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/[New]CaseStudy/Models/Villa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/06.CauTrucDuLieu_GiaiThuat/ThucHanh/LinkedListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/06.CauTrucDuLieu_GiaiThuat/ThucHanh/LinkedListTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/06.CauTrucDuLieu_GiaiThuat/ThucHanh/MyLinkedList$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/06.CauTrucDuLieu_GiaiThuat/ThucHanh/MyLinkedList$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/06.CauTrucDuLieu_GiaiThuat/ThucHanh/MyLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/06.CauTrucDuLieu_GiaiThuat/ThucHanh/MyLinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/temp/IteratorDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/temp/IteratorDemo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/temp/LinkedList$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/temp/LinkedList$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/temp/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/temp/LinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/temp/MyLinkedList$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/temp/MyLinkedList$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/temp/MyLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/temp/MyLinkedList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/temp/Student$SortByScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/temp/Student$SortByScore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/temp/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/temp/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/temp/StudentSortTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/temp/StudentSortTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/temp/sortCustomerDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/temp/sortCustomerDemo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/temp/src/MyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/temp/src/MyLinkedList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +38,15 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="CS">
+      <favorite_root url="file://$PROJECT_DIR$/[New]CaseStudy/src/Models/Customer.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      <favorite_root url="file://$PROJECT_DIR$/[New]CaseStudy/src/Controllers/MainController.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+    </favorites_list>
+    <favorites_list name="HR">
+      <favorite_root url="file://$PROJECT_DIR$/temp/src/Hackerrank.java" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+    </favorites_list>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -78,16 +93,10 @@
       <recent name="C:\Users\Admin\Downloads\Documents\CodeGym\truongvantoan_CodeGymDN_C1119G1\Module2\01.NgonNguLapTrinhJava\ThucHanh\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MyLinkedList">
-    <configuration name="ComparatorTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ThucHanh.ComparatorTests" />
-      <module name="05.AdvancedObjectOrientedDesign" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ThucHanh.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager" selected="Application.MyArrayListTest">
+    <configuration name="Hackerrank" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Hackerrank" />
+      <module name="temp" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -98,6 +107,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyArrayListTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ThucHanh.MyArrayListTest" />
+      <module name="06.CauTrucDuLieu_GiaiThuat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ThucHanh.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,26 +147,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ResizeableTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="BaiTap.ResizeableTest" />
-      <module name="05.AdvancedObjectOrientedDesign" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="BaiTap.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MyArrayListTest" />
+        <item itemvalue="Application.Hackerrank" />
         <item itemvalue="Application.MyLinkedList" />
         <item itemvalue="Application.MyLinkedList (1)" />
         <item itemvalue="Application.MainController" />
-        <item itemvalue="Application.ResizeableTest" />
-        <item itemvalue="Application.ComparatorTests" />
       </list>
     </recent_temporary>
   </component>
@@ -203,7 +212,8 @@
       <workItem from="1578101712666" duration="33703000" />
       <workItem from="1578273298025" duration="21875000" />
       <workItem from="1578313719621" duration="27698000" />
-      <workItem from="1578399155765" duration="14744000" />
+      <workItem from="1578399155765" duration="21891000" />
+      <workItem from="1578532096625" duration="3094000" />
     </task>
     <task id="LOCAL-00001" summary="LeahGottie">
       <created>1576122868804</created>
@@ -289,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578441832148</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="LeahGottie">
+      <created>1578452088733</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1578452088733</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,11 +366,11 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="120" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1578362077479" />
-    <state x="17" y="0" key="CommitChangelistDialog2" timestamp="1578441828511">
+    <state x="17" y="0" key="CommitChangelistDialog2" timestamp="1578452087006">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="23" y="0" key="CommitChangelistDialog2/0.0.1304.768@0.0.1304.768" timestamp="1576218424432" />
-    <state x="17" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1578441828511" />
+    <state x="17" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1578452087006" />
     <state width="414" height="455" key="DebuggerActiveHint" timestamp="1578450950902">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -367,50 +384,50 @@
     </state>
     <state x="432" y="141" key="FileChooserDialogImpl/0.0.1304.768@0.0.1304.768" timestamp="1576217078697" />
     <state x="453" y="135" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1578389652485" />
-    <state width="1323" height="107" key="GridCell.Tab.0.bottom" timestamp="1578452034784">
+    <state width="1323" height="194" key="GridCell.Tab.0.bottom" timestamp="1578535205833">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1261" height="254" key="GridCell.Tab.0.bottom/0.0.1304.768@0.0.1304.768" timestamp="1576224026662" />
-    <state width="1323" height="107" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1578452034784" />
+    <state width="1323" height="194" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1578535205833" />
     <state width="1261" height="254" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1576232425332" />
-    <state width="1323" height="107" key="GridCell.Tab.0.center" timestamp="1578452034784">
+    <state width="1323" height="194" key="GridCell.Tab.0.center" timestamp="1578535205828">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1261" height="254" key="GridCell.Tab.0.center/0.0.1304.768@0.0.1304.768" timestamp="1576224026661" />
-    <state width="1323" height="107" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1578452034784" />
+    <state width="1323" height="194" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1578535205828" />
     <state width="1261" height="254" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1576232425332" />
-    <state width="1323" height="107" key="GridCell.Tab.0.left" timestamp="1578452034784">
+    <state width="1323" height="194" key="GridCell.Tab.0.left" timestamp="1578535205828">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1261" height="254" key="GridCell.Tab.0.left/0.0.1304.768@0.0.1304.768" timestamp="1576224026661" />
-    <state width="1323" height="107" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1578452034784" />
+    <state width="1323" height="194" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1578535205828" />
     <state width="1261" height="254" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1576232425332" />
-    <state width="1323" height="107" key="GridCell.Tab.0.right" timestamp="1578452034784">
+    <state width="1323" height="194" key="GridCell.Tab.0.right" timestamp="1578535205833">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1261" height="254" key="GridCell.Tab.0.right/0.0.1304.768@0.0.1304.768" timestamp="1576224026661" />
-    <state width="1323" height="107" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1578452034784" />
+    <state width="1323" height="194" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1578535205833" />
     <state width="1261" height="254" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1576232425332" />
-    <state width="1323" height="195" key="GridCell.Tab.1.bottom" timestamp="1578451849198">
+    <state width="1323" height="194" key="GridCell.Tab.1.bottom" timestamp="1578535205833">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1261" height="257" key="GridCell.Tab.1.bottom/0.0.1304.768@0.0.1304.768" timestamp="1576216399923" />
-    <state width="1323" height="195" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1578451849198" />
-    <state width="1323" height="195" key="GridCell.Tab.1.center" timestamp="1578451849198">
+    <state width="1323" height="194" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1578535205833" />
+    <state width="1323" height="194" key="GridCell.Tab.1.center" timestamp="1578535205833">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1261" height="257" key="GridCell.Tab.1.center/0.0.1304.768@0.0.1304.768" timestamp="1576216399923" />
-    <state width="1323" height="195" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1578451849198" />
-    <state width="1323" height="195" key="GridCell.Tab.1.left" timestamp="1578451849198">
+    <state width="1323" height="194" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1578535205833" />
+    <state width="1323" height="194" key="GridCell.Tab.1.left" timestamp="1578535205833">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1261" height="257" key="GridCell.Tab.1.left/0.0.1304.768@0.0.1304.768" timestamp="1576216399923" />
-    <state width="1323" height="195" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1578451849198" />
-    <state width="1323" height="195" key="GridCell.Tab.1.right" timestamp="1578451849198">
+    <state width="1323" height="194" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1578535205833" />
+    <state width="1323" height="194" key="GridCell.Tab.1.right" timestamp="1578535205833">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="1261" height="257" key="GridCell.Tab.1.right/0.0.1304.768@0.0.1304.768" timestamp="1576216399923" />
-    <state width="1323" height="195" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1578451849198" />
+    <state width="1323" height="194" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1578535205833" />
     <state x="288" y="88" width="1016" height="591" key="NewModule_or_Project.wizard" timestamp="1576215950339">
       <screen x="0" y="0" width="1304" height="768" />
     </state>
@@ -424,21 +441,21 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="642" y="137" width="540" height="524" key="StructurePopup/0.0.1366.738@0.0.1366.738" timestamp="1576386285185" />
-    <state x="256" y="114" key="Vcs.Push.Dialog.v2" timestamp="1578441835430">
+    <state x="256" y="114" key="Vcs.Push.Dialog.v2" timestamp="1578452091192">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="244" y="119" key="Vcs.Push.Dialog.v2/0.0.1304.768@0.0.1304.768" timestamp="1576218428669" />
-    <state x="256" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1578441835430" />
+    <state x="256" y="114" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1578452091192" />
     <state x="490" y="158" key="chooseDestDirectoryDialog" timestamp="1576395940074">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="468" y="164" key="chooseDestDirectoryDialog/0.0.1304.768@0.0.1304.768" timestamp="1576218061255" />
     <state x="490" y="158" key="chooseDestDirectoryDialog/0.0.1366.738@0.0.1366.738" timestamp="1576395940074" />
-    <state x="363" y="197" key="com.intellij.ide.util.TipDialog" timestamp="1578399162514">
+    <state x="363" y="197" key="com.intellij.ide.util.TipDialog" timestamp="1578532225337">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="347" y="205" key="com.intellij.ide.util.TipDialog/0.0.1304.768@0.0.1304.768" timestamp="1576199419822" />
-    <state x="363" y="197" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1578399162514" />
+    <state x="363" y="197" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1578532225337" />
     <state x="363" y="205" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1576234709169" />
     <state x="390" y="3" width="586" height="732" key="find.popup" timestamp="1578403852393">
       <screen x="0" y="0" width="1366" height="738" />
@@ -457,10 +474,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1578276277863" />
-    <state x="680" y="26" width="672" height="676" key="search.everywhere.popup" timestamp="1578403777583">
+    <state x="680" y="26" width="672" height="676" key="search.everywhere.popup" timestamp="1578469059479">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="680" y="26" width="672" height="676" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1578403777583" />
+    <state x="680" y="26" width="672" height="676" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1578469059479" />
     <state x="405" y="286" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1577759501040">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -502,7 +519,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/06.CauTrucDuLieu_GiaiThuat/src/ThucHanh/MyLinkedList.java</url>
-          <line>66</line>
+          <line>15</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -512,7 +529,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/temp/src/MyLinkedList.java</url>
-          <line>86</line>
+          <line>105</line>
           <properties class="MyLinkedList" method="insertByIndex">
             <option name="EMULATED" value="true" />
           </properties>
