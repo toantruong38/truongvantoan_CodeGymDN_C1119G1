@@ -41,6 +41,19 @@ public class Contract implements ShowInformation
         return contract;
     }
 
+//    public ArrayList<Contract> import_from_file(String url)
+//    {
+//        String data_to_file=this.CONTRACT_LABEL;
+//
+//        ArrayList<Contract> contracts=new ArrayList<>();
+//        ArrayList<Object> formatted_data_by_line= FuncWriteFileCSV.readFile(url);
+//
+//        for(int line=1;line<formatted_data_by_line.size();line++)
+//        {
+//
+//        }
+//    }
+
     public static Contract setContractInformation(ArrayList<Object> contract_data)
     {
         Contract contract = new Contract();
@@ -49,8 +62,8 @@ public class Contract implements ShowInformation
         contract.setContractNumber(iterator.next().toString());
         contract.setStartDay(iterator.next().toString());
         contract.setEndDay(iterator.next().toString());
-        contract.setDeposit((long) iterator.next());
-        contract.setTotalPay((long) iterator.next());
+        contract.setDeposit(Long.valueOf(iterator.next().toString()));
+        contract.setTotalPay(Long.valueOf(iterator.next().toString()));
 
         return contract;
     }

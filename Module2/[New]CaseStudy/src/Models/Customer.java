@@ -17,7 +17,7 @@ public class Customer extends Person implements ShowInformation
     public final static String BOOKING_ORDER = "C:\\Users\\Admin\\Downloads\\Documents\\CodeGym\\" +
             "truongvantoan_CodeGymDN_C1119G1\\Module2\\[New]CaseStudy\\src\\Data\\BookingOrder.txt";
 
-    private ArrayList<Services> services;
+    public ArrayList<Services> services = new ArrayList<>();
 
     private String gender;
 
@@ -25,7 +25,7 @@ public class Customer extends Person implements ShowInformation
 
     private String address;
 
-    private ArrayList<Contract> contracts;
+    public ArrayList<Contract> contracts = new ArrayList<>();
     //---^ Customer only
 
     //----^ From Person abstract class
@@ -113,25 +113,31 @@ public class Customer extends Person implements ShowInformation
                 + "\n" + "Customer type: " + this.getCustomerType()
                 + "\n" + "Address: " + this.getAddress();
 
-        Iterator services = this.getServices().iterator();
-        Iterator contracts = this.getContracts().iterator();
-
-
-        while (services.hasNext())
+        try
         {
-            Object unknown_service = services.next();
-            if (unknown_service instanceof Villa)
+            Iterator services = this.getServices().iterator();
+            Iterator contracts = this.getContracts().iterator();
+
+
+            while (services.hasNext())
             {
-                output_information += "\n" + ((Villa) unknown_service).showInfor()
-                        + "\n" + ((Contract) contracts.next()).showInformation();
-            } else if (unknown_service instanceof House)
-            {
-                output_information += "\n" + ((House) unknown_service).showInfor()
-                        + "\n" + ((Contract) contracts.next()).showInformation();
-            } else if (unknown_service instanceof Room)
-            {
-                output_information += "\n" + ((Room) unknown_service).showInfor();
+                Object unknown_service = services.next();
+                if (unknown_service instanceof Villa)
+                {
+                    output_information += "\n" + ((Villa) unknown_service).showInfor()
+                            + "\n" + ((Contract) contracts.next()).showInformation();
+                } else if (unknown_service instanceof House)
+                {
+                    output_information += "\n" + ((House) unknown_service).showInfor()
+                            + "\n" + ((Contract) contracts.next()).showInformation();
+                } else if (unknown_service instanceof Room)
+                {
+                    output_information += "\n" + ((Room) unknown_service).showInfor();
+                }
             }
+        } catch (NullPointerException e)
+        {
+            System.out.println();
         }
 
 
@@ -140,70 +146,117 @@ public class Customer extends Person implements ShowInformation
 
     public void export_to_file(ArrayList<Customer> customers, String url)
     {
-        String data_to_file = "";
-        //Update old customer from file
-        customers.addAll(this.import_from_file(url));
+        String label = "";
 
+        String booking_order = "";
 
-        Iterator iter_customers = customers.iterator();
-        while (iter_customers.hasNext())
+        String data = "";
+
+        String customer_data = PERSON_LABEL + CUSTOMER_LABEL + "\n";
+
+        for (int cusI = 0; cusI < customers.size(); cusI++)
         {
-            data_to_file += PERSON_LABEL + CUSTOMER_LABEL;
+            label = PERSON_LABEL + CUSTOMER_LABEL + "\n"; //Customer label
 
-            Customer customer = (Customer) iter_customers.next();
-            data_to_file += "\n" + customer.getFullName() + "," + customer.getBirth() + "," + customer.getCmnd()
-                    + "," + customer.getPhoneNumber() + "," + customer.getEmail()
-                    + "," + customer.getGender() + "," + customer.getCustomerType() + "," + customer.getAddress() + "\n";
+            Customer currentCus = customers.get(cusI);
 
-            FuncWriteFileCSV.writeFile(data_to_file, url);
-            FuncWriteFileCSV.writeFile("User", BOOKING_ORDER);
+            String currentCusData = currentCus.getFullName() + "," + currentCus.getBirth()
+                    + "," + currentCus.getCmnd() + "," + currentCus.getPhoneNumber()
+                    + "," + currentCus.getEmail() + "," + currentCus.getGender()
+                    + "," + currentCus.getCustomerType() + "," + currentCus.getAddress();//customer data
 
-            Iterator iter_services = customer.getServices().iterator();
-            Iterator iter_contracts = customer.getContracts().iterator();
+            customer_data += currentCusData + "\n"; //for Customer.csv
+            data += label + currentCusData + "\n"; //for Booking.csv
 
-            while (iter_services.hasNext())
+
+            booking_order += "User\n";
+
+            ArrayList<Services> services = currentCus.getServices();
+            ArrayList<Contract> contracts = currentCus.getContracts();
+
+            try
             {
-                Object unknown_service = iter_services.next();
-                if (unknown_service instanceof Villa)
+                int contract_index = 0;
+                for (int serI = 0; serI < services.size(); serI++)
                 {
-                    Villa villa = (Villa) unknown_service;
-                    ArrayList<Services> services_list = new ArrayList<>();
-                    services_list.add(villa);
-                    villa.export_to_file(services_list, url);
+                    Services unknown_service = services.get(serI);
 
-                    Contract contract = (Contract) iter_contracts.next();
-                    data_to_file = Contract.CONTRACT_LABEL;
-                    data_to_file += "\n" + contract.getContractNumber() + "," + contract.getStartDay()
-                            + "," + contract.getEndDay() + "," + contract.getDeposit() + "," + contract.getDeposit() + "\n";
+                    if (unknown_service instanceof Villa)
+                    {
+                        Villa villa = (Villa) unknown_service;
 
-                    FuncWriteFileCSV.writeFile(data_to_file, url);
-                    FuncWriteFileCSV.writeFile("Villa", BOOKING_ORDER);
-                } else if (unknown_service instanceof House)
-                {
-                    House house = (House) unknown_service;
-                    ArrayList<Services> services_list = new ArrayList<>();
-                    services_list.add(house);
-                    house.export_to_file(services_list, url);
+                        label = Villa.SERVICE_LABEL + Villa.VILLA_LABEL + "\n";
+                        //Customer + villa label
 
-                    Contract contract = (Contract) iter_contracts.next();
-                    data_to_file = Contract.CONTRACT_LABEL;
-                    data_to_file += "\n" + contract.getContractNumber() + "," + contract.getStartDay()
-                            + "," + contract.getEndDay() + "," + contract.getDeposit() + "," + contract.getDeposit() + "\n";
+                        data += label + villa.getId() + "," + villa.getServiceName() + "," + villa.getAreaUsing()
+                                + "," + villa.getRentFee() + "," + villa.getMaximumPeople() + "," + villa.getRentType()
+                                + "," + villa.getRoomStandard() + "," + villa.getConvenientDescription()
+                                + "," + villa.getPoolArea() + "," + villa.getFloorAmount()
+                                + "," + villa.acpnyService.getServiceName() + "," + villa.acpnyService.getCost()
+                                + "," + villa.acpnyService.getCurrency();//villa data
 
-                    FuncWriteFileCSV.writeFile(data_to_file, url);
-                    FuncWriteFileCSV.writeFile("House", BOOKING_ORDER);
-                } else if (unknown_service instanceof Room)
-                {
-                    Room room = (Room) unknown_service;
-                    ArrayList<Services> services_list = new ArrayList<>();
-                    services_list.add(room);
-                    room.export_to_file(services_list, url);
 
-                    FuncWriteFileCSV.writeFile("Room", BOOKING_ORDER);
+                        Contract contract = contracts.get(contract_index++);
+
+                        label = "\n" + Contract.CONTRACT_LABEL + "\n"; //cus+vil+contr label
+
+                        data += label + contract.getContractNumber() + "," + contract.getStartDay()
+                                + "," + contract.getEndDay() + "," + contract.getDeposit()
+                                + "," + contract.getDeposit() + "\n"; //contract data
+
+
+                        booking_order += "Villa\n" + "VillaData\n" + "Contract\n" + "ContractData\n";
+                    } else if (unknown_service instanceof House)
+                    {
+                        House house = (House) unknown_service;
+
+
+                        label = House.SERVICE_LABEL + House.HOUSE_LABEL + "\n";//Cus+hou label
+
+                        data += label + house.getId() + "," + house.getServiceName() + "," + house.getAreaUsing()
+                                + "," + house.getRentFee() + "," + house.getMaximumPeople() + "," + house.getRentType()
+                                + "," + house.getRoomStandard() + "," + house.getCvntDescription() + "," + house.getFloorAmount()
+                                + "," + house.acpnyService.getServiceName() + "," + house.acpnyService.getCost()
+                                + "," + house.acpnyService.getCurrency(); //house data
+
+
+                        Contract contract = contracts.get(contract_index++);
+
+                        label = "\n" + Contract.CONTRACT_LABEL + "\n"; //cus+hou+con label
+
+                        data += label + contract.getContractNumber() + "," + contract.getStartDay()
+                                + "," + contract.getEndDay() + "," + contract.getDeposit()
+                                + "," + contract.getDeposit() + "\n"; //contract data
+
+
+                        booking_order += "House\nHouseData\n" + "Contract\nContractData\n";
+                    } else if (unknown_service instanceof Room)
+                    {
+
+                        Room room = (Room) unknown_service;
+
+                        label = Room.SERVICE_LABEL + Room.ROOM_LABEL + "\n";
+                        //Customer + room label
+
+                        data += label + room.getId() + "," + room.getServiceName() + "," + room.getAreaUsing()
+                                + "," + room.getRentFee() + "," + room.getMaximumPeople() + "," + room.getRentType()
+                                + "," + room.getFreeService()
+                                + "," + room.acpnyService.getServiceName() + "," + room.acpnyService.getCost()
+                                + "," + room.acpnyService.getCurrency() + "\n";//room data
+
+
+                        booking_order += "Room\nRoomData\n";
+                    }
                 }
-            }
-            FuncWriteFileCSV.writeFile("push", BOOKING_ORDER);
+            } catch (NullPointerException e) {}
+
+            booking_order += "push\n";
         }
+        FuncWriteFileCSV.writeFile(data, url); //write to Booking.csv
+
+        FuncWriteFileCSV.writeFile(customer_data, PERSON_URL + CUSTOMER_URL); //write to Customer.csv
+
+        FuncWriteFileCSV.writeFile(booking_order, BOOKING_ORDER);
     }
 
     public ArrayList<Customer> import_from_file(String url)
@@ -229,68 +282,56 @@ public class Customer extends Person implements ShowInformation
         ArrayList<Object> formatted_data_by_line = FuncWriteFileCSV.readFile(url);
         ArrayList<Object> booking_order_by_line = FuncWriteFileCSV.readFile(BOOKING_ORDER);
 
-        Iterator iterator_order = booking_order_by_line.iterator();
-        Iterator iterator_data = formatted_data_by_line.iterator();
-
-        while (iterator_order.hasNext())
+        for (int order = 0; order < booking_order_by_line.size(); order++)
         {
-            if (iterator_order.next().equals("User"))
+            String orderCommand = booking_order_by_line.get(order).toString();
+            if (orderCommand.equals("User"))
             {
-                iterator_data.next(); //Skip the customer label line
-
                 ArrayList<Object> customer_data = new ArrayList<>();
-                customer_data.addAll(Arrays.asList(iterator_data.next().toString().split(",")));
+
+                customer_data.addAll(Arrays.asList(formatted_data_by_line.get(order + 1).toString().split(",")));
 
                 customer = this.set_all_customer_properties(customer_data);
-
-            } else if (iterator_order.next().equals("Villa"))
+            } else if (orderCommand.equals("Villa"))
             {
-                iterator_data.next(); //Skip the villa label line
-
                 Villa villa = new Villa();
+
                 ArrayList<Object> villa_data = new ArrayList<>();
-                villa_data.addAll(Arrays.asList(iterator_data.next().toString().split(",")));
+                villa_data.addAll(Arrays.asList(formatted_data_by_line.get(order + 2).toString().split(",")));
 
                 villa = villa.set_all_properties(villa_data);
-                customer.setService(villa);
 
-
-            } else if (iterator_order.next().equals("House"))
+                customer.services.add(villa);
+            } else if (orderCommand.equals("House"))
             {
-                iterator_data.next(); //Skip the house label line
-
-
                 House house = new House();
+
                 ArrayList<Object> house_data = new ArrayList<>();
-                house_data.addAll(Arrays.asList(iterator_data.next().toString().split(",")));
+                house_data.addAll(Arrays.asList(formatted_data_by_line.get(order + 2).toString().split(",")));
 
                 house = house.set_all_properties(house_data);
-                customer.setService(house);
 
-
-            } else if (iterator_order.next().equals("Room"))
+                customer.services.add(house);
+            } else if (orderCommand.equals("Room"))
             {
-                iterator_data.next(); //Skip the room label line
-
                 Room room = new Room();
+
                 ArrayList<Object> room_data = new ArrayList<>();
-                room_data.addAll(Arrays.asList(iterator_data.next().toString().split(",")));
+                room_data.addAll(Arrays.asList(formatted_data_by_line.get(order + 2).toString().split(",")));
 
                 room = room.set_all_properties(room_data);
-                customer.setService(room);
-            } else if (iterator_order.next().equals("Contract"))
+
+                customer.services.add(room);
+            } else if (orderCommand.equals("Contract"))
             {
-                //The next line must be contract
-                Contract contract = new Contract();
-                iterator_data.next(); //Skip the Contract label line
-
                 ArrayList<Object> contract_data = new ArrayList<>();
-                contract_data.addAll(Arrays.asList(iterator_data.next().toString().split(",")));
+                contract_data.addAll(Arrays.asList(formatted_data_by_line.get(order + 2).toString().split(",")));
 
-                contract = customer.set_all_contract_properties(contract_data);
+                Contract contract = Contract.setContractInformation(contract_data);
 
-                customer.setContract(contract);
-            } else if (iterator_order.next().equals("push"))
+                customer.contracts.add(contract);
+
+            } else if (orderCommand.equals("push"))
             {
                 customers.add(customer);
             }
@@ -317,17 +358,6 @@ public class Customer extends Person implements ShowInformation
         return customer;
     }
 
-    public Contract set_all_contract_properties(ArrayList<Object> contract_data)
-    {
-        Contract contract = new Contract();
-        Iterator iterator = contract_data.iterator();
 
-        contract.setContractNumber(iterator.next().toString());
-        contract.setStartDay(iterator.next().toString());
-        contract.setEndDay(iterator.next().toString());
-        contract.setDeposit((long) iterator.next());
-        contract.setTotalPay((long) iterator.next());
 
-        return contract;
-    }
 }

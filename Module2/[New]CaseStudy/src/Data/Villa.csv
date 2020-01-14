@@ -1,0 +1,6 @@
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,roomStandard,cvntDescription,poolArea,floorAmount,acpnyServiceName,acpnyServiceCost,acpnyServiceCurrency
+fa81c96f544b4ee4b8038245e7ecd496,Hien Villa,31.0,12,2,Day,Normal,No,43.0,2,food,13,usd
+74ce1283ff8f4df89a30d3bb57a49910,Hieu Villa,65.0,34,1,Day,Normal,No,54.0,2,food,43,usd
+00991f94aed94fb884ca55bc6f7f585f,Phong Villa,31.0,23,2,Day,Normal,No,43.0,2,food,13,usd
+ce3bdc4f7bc54be5bde6727ffc077d87,Tuan Villa,31.0,12,2,Day,Normal,No,31.0,2,food,13,usd
+17f9adc0555a4eb3996b182d57a4671c,Toan Villa,31.0,12,2,Month,Normal,No,31.0,2,food,13,usd

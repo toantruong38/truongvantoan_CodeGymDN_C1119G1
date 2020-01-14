@@ -5,8 +5,9 @@ import Libs.FuncWriteFileCSV;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.TreeSet;
 
-public class Villa extends Services implements ServiceSetting, VillaSetting
+public class Villa extends Services implements ServiceSetting, VillaSetting, Comparable<Villa>
 {
 
     @Override
@@ -93,6 +94,8 @@ public class Villa extends Services implements ServiceSetting, VillaSetting
         this.acpnyService = accompanyService;
     }
 
+    public static TreeSet<Services> villaTreeSet = new TreeSet<>();
+
     @Override
     public String showInfor()
     {
@@ -126,19 +129,22 @@ public class Villa extends Services implements ServiceSetting, VillaSetting
             villa_list.add(set_all_properties(data));
             data.clear();
         }
+
+        villaTreeSet.addAll(villa_list);
+
         return villa_list;
     }
 
     @Override
     public void export_to_file(ArrayList<Services> services_list, String url)
     {
-        services_list.addAll(import_from_file(url));
-        String data_to_file = SERVICE_LABEL + VILLA_LABEL + ACPNY_SERVICE_LABEL;
+        //services_list.addAll(import_from_file(url));
+        String data_to_file = SERVICE_LABEL + VILLA_LABEL + ACPNY_SERVICE_LABEL + "\n";
 
         for (Services service : services_list)
         {
             Villa villa = (Villa) service;
-            data_to_file += "\n" + villa.getId() + "," + villa.getServiceName() + "," + villa.getAreaUsing()
+            data_to_file += villa.getId() + "," + villa.getServiceName() + "," + villa.getAreaUsing()
                     + "," + villa.getRentFee() + "," + villa.getMaximumPeople() + "," + villa.getRentType()
                     + "," + villa.getRoomStandard() + "," + villa.getConvenientDescription()
                     + "," + villa.getPoolArea() + "," + villa.getFloorAmount()
@@ -156,18 +162,18 @@ public class Villa extends Services implements ServiceSetting, VillaSetting
         Iterator iterator = data.iterator();
         villa.setId(iterator.next().toString());
         villa.setServiceName(iterator.next().toString());
-        villa.setAreaUsing((double) iterator.next());
-        villa.setRentFee((long) iterator.next());
-        villa.setMaximumPeople((short) iterator.next());
+        villa.setAreaUsing(Double.valueOf(iterator.next().toString()));
+        villa.setRentFee(Long.valueOf(iterator.next().toString()));
+        villa.setMaximumPeople(Short.valueOf(iterator.next().toString()));
         villa.setRentType(iterator.next().toString()); //^ common
 
         villa.setRoomStandard(iterator.next().toString());
         villa.setCvntDescription(iterator.next().toString());
-        villa.setPoolArea((double) iterator.next());
-        villa.setFloorAmount((short) iterator.next());//^ villa only
+        villa.setPoolArea(Double.valueOf(iterator.next().toString()));
+        villa.setFloorAmount(Short.valueOf(iterator.next().toString()));//^ villa only
 
         villa.acpnyService.setServiceName(iterator.next().toString());
-        villa.acpnyService.setCost((long) iterator.next());
+        villa.acpnyService.setCost(Long.valueOf(iterator.next().toString()));
         villa.acpnyService.setCurrency(iterator.next().toString()); //^ accompany service
 
         return villa;
@@ -219,5 +225,11 @@ public class Villa extends Services implements ServiceSetting, VillaSetting
     public void setFloorAmount(short floorAmount)
     {
         this.floorAmount = floorAmount;
+    }
+
+    @Override
+    public int compareTo(Villa o)
+    {
+        return this.getServiceName().compareTo(o.getServiceName());
     }
 }

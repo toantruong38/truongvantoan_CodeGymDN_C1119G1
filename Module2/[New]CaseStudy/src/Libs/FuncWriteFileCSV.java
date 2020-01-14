@@ -20,7 +20,7 @@ public class FuncWriteFileCSV
             String unformatted_data = "";
             while ((ch = bufferedReader.read()) != -1)
             {
-                unformatted_data += ch;
+                unformatted_data += (char) ch;
             }
             bufferedReader.close();
 

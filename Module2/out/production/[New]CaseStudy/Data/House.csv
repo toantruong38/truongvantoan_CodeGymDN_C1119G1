@@ -1,0 +1,3 @@
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,roomStandard,cvntDescription,floorAmount,acpnyServiceName,acpnyServiceCost,acpnyServiceCurrency
+15af4cddce0f4f60baad3c25cde58628,Ngoc House,65.0,43,10,Month,Vip,No,2,karaoke,99,usd
+6a3763d022aa46cba4866e8fedce4ac2,Toan House,31.0,12,2,Day,Vip,No,2,food,13,usd

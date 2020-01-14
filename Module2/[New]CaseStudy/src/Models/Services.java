@@ -26,7 +26,7 @@ public abstract class Services
 
     protected String freeService;
 
-    protected AccompanyService acpnyService;
+    protected AccompanyService acpnyService = new AccompanyService();
 
     public abstract String showInfor();
 

@@ -1,0 +1,44 @@
+fullName,birth,cmnd,phoneNumber,email,gender,customerType,address
+Tuan Nguyen,12/12/1998,123123123,0123123123,tuan@mail.com,female,Vip,dn
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,roomStandard,cvntDescription,poolArea,floorAmount
+17f9adc0555a4eb3996b182d57a4671c,Toan Villa,31.0,12,2,Month,Normal,No,31.0,2,food,13,usd
+contractNumber,startDay,endDay,deposit,totalPay
+5,23,26,66,66
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,freeService
+96cc51165d074e3d89f3b02d6f52aa9b,Toan Room,32.0,12,2,Day,Massage,food,23,usd
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,freeService
+915bf149fe8e48c9a6c1d56cd54206cf,Huy Room,43.0,12,2,Day,No,food,32,usd
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,roomStandard,cvntDescription,floorAmount
+6a3763d022aa46cba4866e8fedce4ac2,Toan House,31.0,12,2,Day,Vip,No,2,food,13,usd
+contractNumber,startDay,endDay,deposit,totalPay
+666,12,13,22,22
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,freeService
+96cc51165d074e3d89f3b02d6f52aa9b,Toan Room,32.0,12,2,Day,Massage,food,23,usd
+fullName,birth,cmnd,phoneNumber,email,gender,customerType,address
+Toan Truong,21/04/2001,123123123,0905440476,toan@mail.com,male,Vip,dn
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,roomStandard,cvntDescription,poolArea,floorAmount
+17f9adc0555a4eb3996b182d57a4671c,Toan Villa,31.0,12,2,Month,Normal,No,31.0,2,food,13,usd
+contractNumber,startDay,endDay,deposit,totalPay
+456,12,13,22,22
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,roomStandard,cvntDescription,floorAmount
+6a3763d022aa46cba4866e8fedce4ac2,Toan House,31.0,12,2,Day,Vip,No,2,food,13,usd
+contractNumber,startDay,endDay,deposit,totalPay
+69,12,13,99,99
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,freeService
+659ebb87aad245a58f82017b2b785a46,Phuong Room,69.0,23,1,Vip,Car,food,13,usd
+fullName,birth,cmnd,phoneNumber,email,gender,customerType,address
+Huy Go,12/12/1999,123123123,0123123123,huyGo69@PORNHUB.COM,male,Vip,dn
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,roomStandard,cvntDescription,poolArea,floorAmount
+17f9adc0555a4eb3996b182d57a4671c,Toan Villa,31.0,12,2,Month,Normal,No,31.0,2,food,13,usd
+contractNumber,startDay,endDay,deposit,totalPay
+123,12,13,22,22
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,roomStandard,cvntDescription,poolArea,floorAmount
+17f9adc0555a4eb3996b182d57a4671c,Toan Villa,31.0,12,2,Month,Normal,No,31.0,2,food,13,usd
+contractNumber,startDay,endDay,deposit,totalPay
+69,31,1,55,55
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,freeService
+659ebb87aad245a58f82017b2b785a46,Phuong Room,69.0,23,1,Vip,Car,food,13,usd
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,freeService
+915bf149fe8e48c9a6c1d56cd54206cf,Huy Room,43.0,12,2,Day,No,food,32,usd
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,freeService
+c571b4e95e2d44829ea79664c5bac435,Hieu Room,77.0,88,9,Day,Massage,food,23,usd

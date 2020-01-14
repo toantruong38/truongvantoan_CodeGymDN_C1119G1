@@ -1,0 +1,5 @@
+id,serviceName,areaUsing,rentFee,maximumPeople,rentType,freeService,acpnyServiceName,acpnyServiceCost,acpnyServiceCurrency
+659ebb87aad245a58f82017b2b785a46,Phuong Room,69.0,23,1,Vip,Car,food,13,usd
+915bf149fe8e48c9a6c1d56cd54206cf,Huy Room,43.0,12,2,Day,No,food,32,usd
+c571b4e95e2d44829ea79664c5bac435,Hieu Room,77.0,88,9,Day,Massage,food,23,usd
+96cc51165d074e3d89f3b02d6f52aa9b,Toan Room,32.0,12,2,Day,Massage,food,23,usd

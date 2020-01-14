@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Student
+public class Student implements Comparable<Student>
 {
     private String studentName;
     private int studentScore;
@@ -20,6 +20,12 @@ public class Student
     public void setStudentScore(int score)
     {
         this.studentScore = score;
+    }
+
+    @Override
+    public int compareTo(Student o)
+    {
+        return this.getStudentName().compareTo(o.getStudentName());
     }
 
     static class SortByScore implements Comparator<Student>

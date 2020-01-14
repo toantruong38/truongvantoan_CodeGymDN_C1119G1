@@ -5,8 +5,9 @@ import Libs.FuncWriteFileCSV;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.TreeSet;
 
-public class Room extends Services implements ServiceSetting, RoomSetting
+public class Room extends Services implements ServiceSetting, RoomSetting, Comparable<Room>
 {
 
     @Override
@@ -105,6 +106,8 @@ public class Room extends Services implements ServiceSetting, RoomSetting
         this.acpnyService = accompanyService;
     }
 
+    public static TreeSet<Services> roomTreeSet = new TreeSet<>();
+
     @Override
     public String showInfor()
     {
@@ -135,19 +138,22 @@ public class Room extends Services implements ServiceSetting, RoomSetting
             room_list.add(set_all_properties(data));
             data.clear();
         }
+
+        roomTreeSet.addAll(room_list);
+
         return room_list;
     }
 
     @Override
     public void export_to_file(ArrayList<Services> services_list, String url)
     {
-        services_list.addAll(import_from_file(url));
-        String data_to_file = SERVICE_LABEL + ROOM_LABEL + ACPNY_SERVICE_LABEL;
+        //services_list.addAll(import_from_file(url));
+        String data_to_file = SERVICE_LABEL + ROOM_LABEL + ACPNY_SERVICE_LABEL + "\n";
 
         for (Services service : services_list)
         {
             Room room = (Room) service;
-            data_to_file += "\n" + room.getId() + "," + room.getServiceName() + "," + room.getAreaUsing()
+            data_to_file += room.getId() + "," + room.getServiceName() + "," + room.getAreaUsing()
                     + "," + room.getRentFee() + "," + room.getMaximumPeople() + "," + room.getRentType()
                     + "," + room.getFreeService()
                     + "," + room.acpnyService.getServiceName() + "," + room.acpnyService.getCost()
@@ -164,17 +170,23 @@ public class Room extends Services implements ServiceSetting, RoomSetting
         Iterator iterator = data.iterator();
         room.setId(iterator.next().toString());
         room.setServiceName(iterator.next().toString());
-        room.setAreaUsing((double) iterator.next());
-        room.setRentFee((long) iterator.next());
-        room.setMaximumPeople((short) iterator.next());
+        room.setAreaUsing(Double.valueOf(iterator.next().toString()));
+        room.setRentFee(Long.valueOf(iterator.next().toString()));
+        room.setMaximumPeople(Short.valueOf(iterator.next().toString()));
         room.setRentType(iterator.next().toString()); //^ common
 
         room.setFreeService(iterator.next().toString());//^ room only
 
         room.acpnyService.setServiceName(iterator.next().toString());
-        room.acpnyService.setCost((long) iterator.next());
+        room.acpnyService.setCost(Long.valueOf(iterator.next().toString()));
         room.acpnyService.setCurrency(iterator.next().toString()); //^ accompany service
 
         return room;
+    }
+
+    @Override
+    public int compareTo(Room o)
+    {
+        return this.getServiceName().compareTo(o.getServiceName());
     }
 }
