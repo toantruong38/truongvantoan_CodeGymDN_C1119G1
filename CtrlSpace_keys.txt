@@ -1,0 +1,43 @@
++      | Move the current tab
+-      | Move the current tab
+/      | Enter Search Mode
+<      | Copy the selected buffer to to the previous/next tab
+=      | Change the tab name
+>      | Copy the selected buffer to to the previous/next tab
+C      | Close the current tab, then perform F, and then D
+D      | Close all empty noname buffers
+E      | Explore a directory of selected buffer
+Esc    | Close the list
+F      | Delete (close) all foreign buffers (detached from tabs)
+I      | Change CWD to a directory having the selected buffer (i) or go back (I)
+L      | Enter the Tab List (Tab [L]ist) in Search Mode
+N      | Close all buffers - make a new workspace
+O      | Enter the File List ([O]pen List) in Search Mode
+C-t    | Open selected buffer always in a new tab but stay in the plugin window
+P      | Move the selection bar to the previously opened item and open it
+Q      | Quit Vim with a prompt if unsaved changes found
+R      | Remove the selected buffer (file) entirely (from the disk too)
+S      | Open selected buffer in a new horizontal split but stay in the plugin window
+S-Tab  | Change the target window to one containing selected buffer
+Space  | Open selected buffer and stay in the plugin window
+T      | Open selected buffer in a new (or next) tab but stay in the plugin window
+Tab    | Jump to the window containing selected buffer
+V      | Open selected buffer in a new vertical split but stay in the plugin window
+W      | Enter the Workspace List in Search Mode
+X      | Leave the window containing selected buffer - close all others
+[      | Go to the previous/next tab
+]      | Go to the previous/next tab
+_      | Remove a custom tab name
+a      | Enter the All Mode
+b      | Toggle Bookmark List view
+c      | Try to close selected buffer (delete if possible, forget otherwise)
+d      | Delete the selected buffer (close it)
+e      | Edit a new file or a sibling of selected buffer
+h      | Toggle Buffer List view ([H]ome List)
+s      | Open selected buffer in a new horizontal split
+t      | Open selected buffer in a new tab
+v      | Open selected buffer in a new vertical split
+y      | Copy selected file
+z      | Toggle Zoom Mode
+{      | Move the selected buffer to to the previous/next tab
+}      | Move the selected buffer to to the previous/next tab 
