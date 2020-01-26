@@ -1,0 +1,10 @@
+In java, there are two types of exceptions:
+1.Checked: are the exceptions that are checked at compile time.
+If some code within a method throws a checked exception,then the method must 
+either handle the exception or it must specify the exception using 
+throws keyword.
+
+2.Unchecked: are the exceptions that are not checked at compiled time.It is up to
+programmers to be civilized, and specify or catch the exceptions.
+In java exceptions under Error and RuntimeException classes are unchecked 
+exceptions,everything else under throwable is checked.

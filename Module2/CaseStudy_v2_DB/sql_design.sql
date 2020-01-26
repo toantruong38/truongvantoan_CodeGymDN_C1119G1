@@ -1,4 +1,5 @@
-create database if not exists `case_study_db`;
+drop database if exists `case_study_db`;
+create database `case_study_db`;
 
 use `case_study_db`;
 
@@ -104,7 +105,9 @@ create table if not exists `nhan_vien`
 );
 insert into `nhan_vien` values(1,'Chu Van Quyenh',1,1,1,'1978-12-03','123123123',12000000,'0912312312','quyenh_DVN@email.com','Ha Noi');
 insert into `nhan_vien` values(2,'Trinh Ba Ham',2,2,2,'1950-03-02','321312312',24000000,'0812343321','baHam@mail.com','Ha Noi');
-insert into `nhan_vien` values(3,'Quang A Tun',3,3,3,'1999-02-01','456789123',9000000,'05123123123','aTun@email.com','Da Nang');
+insert into `nhan_vien` values(3,'Hoang',3,2,3,'1999-02-01','456789123',9000000,'05123123123','aTun@email.com','Da Nang');
+insert into `nhan_vien` values(4,'Tun',2,1,2,'1989-05-01','456786453',9000000,'05123123343','Tun@email.com','Da Nang');
+insert into `nhan_vien` values(5,'Kinh',1,2,1,'1979-06-01','456787893',9000000,'05123127623','duongtang@email.com','Da Nang');
 
 create table if not exists `khach_hang`
 (
@@ -121,8 +124,10 @@ create table if not exists `khach_hang`
     primary key(`id_khachhang`)
 );
 insert into `khach_hang` values(1,1,'Trinh Ba Thu','1989-05-31','456423098','051134141','bathu@mail.com','Lang Son');
-insert into `khach_hang` values(2,2,'Ton That Dam','2018-02-27','432123756','09123123','thatDam@email.com','Da Nang');
-insert into `khach_hang` values(3,3,'Trinh Ba Cao','1955-05-06','987987123','090912312','caoCA@mail.com','Lang Gieng Chua');
+insert into `khach_hang` values(2,1,'Ton That Dam','2018-02-27','432123756','09123123','thatDam@email.com','Da Nang');
+insert into `khach_hang` values(3,1,'My Tam','1975-05-06','987987123','0909123145','myvl@mail.com','Quang Tri');
+insert into `khach_hang` values(4,1,'Phan Dinh Phung','1985-05-06','987987124','090912311','phungc@mail.com','Quang Tri');
+insert into `khach_hang` values(5,1,'Cuong Nguyen','1995-05-06','987987125','090912312','cugng@mail.com','Da Nang');
 
 create table if not exists `dich_vu`
 (
@@ -163,6 +168,11 @@ create table if not exists `hop_dong`
 insert into `hop_dong` values(1,1,1,1,'2020-01-16','2021-02-16',15000000,20000000);
 insert into `hop_dong` values(2,2,2,2,'2020-02-17','2021-03-17',18000000,27000000);
 insert into `hop_dong` values(3,3,3,3,'2020-03-18','2021-04-19',18000000,27000000);
+insert into `hop_dong` values(4,4,3,3,'2020-03-18','2021-04-19',18000000,27000000);
+insert into `hop_dong` values(5,5,4,3,'2020-03-18','2021-04-19',18000000,27000000);
+insert into `hop_dong` values(6,5,4,3,'2020-03-18','2021-04-19',18000000,27000000);
+insert into `hop_dong` values(7,5,4,3,'2018-03-18','2021-04-19',18000000,27000000);
+insert into `hop_dong` values(8,5,4,3,'2020-03-18','2021-04-19',18000000,27000000);
 
 create table if not exists `hop_dong_chi_tiet`
 (
