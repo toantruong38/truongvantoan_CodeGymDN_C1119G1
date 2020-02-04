@@ -140,7 +140,7 @@ from `dich_vu_di_kem` dvdk
 join `hop_dong_chi_tiet` hdct using(id_dichvudikem)
 join `hop_dong` hd using(id_hopdong)
 join `dich_vu` dv using(id_dichvu)
-join `loai_dich_vu` ldv using(id_loaidichvu);
+join `loai_dich_vu` ldv using(id_loaidichvu)
 where 'So lan'=1;
 
 -- task 15
@@ -149,12 +149,19 @@ select nv.id_nhanvien,
         td.trinhdo,
         bp.tenbophan,
         nv.sdt,
-        nv.diachi
+        nv.diachi,
+        count(hd.id_nhanvien) as 'times'
 from `nhan_vien` nv
 join `trinh_do` td using (id_trinhdo)
-join `bo_phan` bd using(id_bophan)
+join `bo_phan` bp using(id_bophan)
 join `hop_dong` hd using (id_nhanvien)
-where count(nv.id)
+where 'times' <=3 and year(hd.ngaylamhopdong) in ('2018','2019');
+
+-- task 16
+delete
+from `hop_dong` hd
+where count(hd.id_nhanvien)=0;
+
 
 
 
