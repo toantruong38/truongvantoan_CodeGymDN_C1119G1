@@ -1,7 +1,7 @@
-drop database if exists `case_study_db`;
-create database `case_study_db`;
+drop database if exists `case_study_db_truongVanToan`;
+create database `case_study_db_truongVanToan`;
 
-use `case_study_db`;
+use `case_study_db_truongVanToan`;
 
 create table if not exists `loai_dich_vu`
 (

@@ -1,5 +1,5 @@
 
-use `case_study_db`;
+use `case_study_db_truongVanToan`;
 
 -- task2;
 SELECT 
