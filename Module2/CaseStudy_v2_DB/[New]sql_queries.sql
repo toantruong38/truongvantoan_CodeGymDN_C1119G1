@@ -178,80 +178,118 @@ SELECT
     hd.ngayketthuc,
     hd.tiendatcoc,
     COUNT(hdct.id_hopdongchitiet) AS 'So luong dich vu di kem'
-from `hop_dong` hd 
-inner join `hop_dong_chi_tiet` hdct using(id_hopdong);
+FROM
+    `hop_dong` hd
+        INNER JOIN
+    `hop_dong_chi_tiet` hdct USING (id_hopdong);
     
 -- task 11
-select dvdk.*
-from `dich_vu_di_kem` dvdk
-inner join `hop_dong_chi_tiet` hdct using(id_dichvudikem)
-inner join `hop_dong` hd using(id_hopdong)
-inner join `khach_hang` kh using(id_khachhang) 
-inner join `loai_khach` lk using(id_loaikhach)
-where lk.tenloaikhach='Vip' and (kh.diachi='Vinh' or kh.diachi='Quang Ngai');
+SELECT 
+    dvdk.*
+FROM
+    `dich_vu_di_kem` dvdk
+        INNER JOIN
+    `hop_dong_chi_tiet` hdct USING (id_dichvudikem)
+        INNER JOIN
+    `hop_dong` hd USING (id_hopdong)
+        INNER JOIN
+    `khach_hang` kh USING (id_khachhang)
+        INNER JOIN
+    `loai_khach` lk USING (id_loaikhach)
+WHERE
+    lk.tenloaikhach = 'Vip'
+        AND (kh.diachi = 'Vinh'
+        OR kh.diachi = 'Quang Ngai');
     
 -- task 12
-select hd.id_hopdong,
-nv.hoten as 'Ho ten nhan vien',
-kh.hoten as 'Ho ten khach hang',
-kh.sdt,
-dv.tendichvu,
-count(hdct.id_hopdongchitiet) as 'So luong dich vu di kem',
-hd.tiendatcoc
-from `hop_dong_chi_tiet` hdct 
-inner join `hop_dong` hd using(id_hopdong)
-inner join `dich_vu` dv using(id_dichvu)
-inner join `khach_hang` kh using(id_khachhang)
-inner join `nhan_vien` nv using(id_nhanvien)
-where exists(
-select hd.ngaylamhopdong as 'me'
-from `hop_dong` hd
-where 'me' between '2019-10-01' and '2019-12-31')
-and not exists(
-select hd.ngaylamhopdong as 'me'
-from `hop_dong` hd
-where 'me' not between '2019-10-01' and '2019-12-31');
+SELECT 
+    hd.id_hopdong,
+    nv.hoten AS 'Ho ten nhan vien',
+    kh.hoten AS 'Ho ten khach hang',
+    kh.sdt,
+    dv.tendichvu,
+    COUNT(hdct.id_hopdongchitiet) AS 'So luong dich vu di kem',
+    hd.tiendatcoc
+FROM
+    `hop_dong_chi_tiet` hdct
+        INNER JOIN
+    `hop_dong` hd USING (id_hopdong)
+        INNER JOIN
+    `dich_vu` dv USING (id_dichvu)
+        INNER JOIN
+    `khach_hang` kh USING (id_khachhang)
+        INNER JOIN
+    `nhan_vien` nv USING (id_nhanvien)
+WHERE
+    EXISTS( SELECT 
+            hd.ngaylamhopdong AS 'me'
+        FROM
+            `hop_dong` hd
+        WHERE
+            'me' BETWEEN '2019-10-01' AND '2019-12-31')
+        AND NOT EXISTS( SELECT 
+            hd.ngaylamhopdong AS 'me'
+        FROM
+            `hop_dong` hd
+        WHERE
+            'me' NOT BETWEEN '2019-10-01' AND '2019-12-31');
 
 -- task 13
-select dvdk.*,
-count(hdct.id_dichvudikem) as 'So lan su dung'
-from `dich_vu_di_kem` dvdk
-inner join `hop_dong_chi_tiet` hdct using(id_dichvudikem)
-inner join `hop_dong` hd using(id_hopdong)
-inner join `khach_hang` kh using(id_khachhang)
-group by hdct.id_dichvudikem
-order by 'So lan su dung' desc
-limit 0,1;
+SELECT 
+    dvdk.*, COUNT(hdct.id_dichvudikem) AS 'So lan su dung'
+FROM
+    `dich_vu_di_kem` dvdk
+        INNER JOIN
+    `hop_dong_chi_tiet` hdct USING (id_dichvudikem)
+        INNER JOIN
+    `hop_dong` hd USING (id_hopdong)
+        INNER JOIN
+    `khach_hang` kh USING (id_khachhang)
+GROUP BY hdct.id_dichvudikem
+ORDER BY 'So lan su dung' DESC
+LIMIT 0 , 1;
 
 -- task 14
-select hd.id_hopdong,
-ldv.tenloaidichvu,
-dvdk.tendichvudikem,
-count(hdct.id_dichvudikem) as `So lan su dung`
-from `hop_dong` hd
-inner join `dich_vu` dv using(id_dichvu)
-inner join `loai_dich_vu` ldv using(id_loaidichvu)
-inner join `hop_dong_chi_tiet` hdct using(id_hopdong)
-inner join `dich_vu_di_kem` dvdk using(id_dichvudikem)
-group by hdct.id_dichvudikem
-having `So lan su dung` =1;
+SELECT 
+    hd.id_hopdong,
+    ldv.tenloaidichvu,
+    dvdk.tendichvudikem,
+    COUNT(hdct.id_dichvudikem) AS `So lan su dung`
+FROM
+    `hop_dong` hd
+        INNER JOIN
+    `dich_vu` dv USING (id_dichvu)
+        INNER JOIN
+    `loai_dich_vu` ldv USING (id_loaidichvu)
+        INNER JOIN
+    `hop_dong_chi_tiet` hdct USING (id_hopdong)
+        INNER JOIN
+    `dich_vu_di_kem` dvdk USING (id_dichvudikem)
+GROUP BY hdct.id_dichvudikem
+HAVING `So lan su dung` = 1;
 
 -- task 15
-select nv.id_nhanvien,
-nv.hoten,
-td.trinhdo,
-bp.tenbophan,
-nv.sdt,
-nv.diachi,
-hd.ngaylamhopdong,
-count(hd.id_nhanvien) as `So lan`
-from `nhan_vien` nv
-inner join `bo_phan` bp using(id_bophan)
-inner join `trinh_do` td using(id_trinhdo)
-inner join `hop_dong` hd using(id_nhanvien)
-where year(hd.ngaylamhopdong) in ('2018','2019')
-group by hd.id_nhanvien
-having `So lan`<=3;
+SELECT 
+    nv.id_nhanvien,
+    nv.hoten,
+    td.trinhdo,
+    bp.tenbophan,
+    nv.sdt,
+    nv.diachi,
+    hd.ngaylamhopdong,
+    COUNT(hd.id_nhanvien) AS `So lan`
+FROM
+    `nhan_vien` nv
+        INNER JOIN
+    `bo_phan` bp USING (id_bophan)
+        INNER JOIN
+    `trinh_do` td USING (id_trinhdo)
+        INNER JOIN
+    `hop_dong` hd USING (id_nhanvien)
+WHERE
+    YEAR(hd.ngaylamhopdong) IN ('2018' , '2019')
+GROUP BY hd.id_nhanvien
+HAVING `So lan` <= 3;
 
 -- task 16
 delete
@@ -263,17 +301,20 @@ inner join `hop_dong` hd using(id_nhanvien)
 where year(hd.ngaylamhopdong) in ('2017','2018','2019'));
 
 -- task 17
-update `loai_khach` lk
-set lk.tenloaikhach='Vip1'
-where exists(
-select kh.id_khachhang,
-sum(hd.tongtien) as `tt`
-from `khach_hang` kh
-inner join `hop_dong` hd
-where year(hd.ngaylamhopdong) ='2019'
-group by kh.id_khachhang
-having `tt` > 10000000
-);
+UPDATE `loai_khach` lk 
+SET 
+    lk.tenloaikhach = 'Vip1'
+WHERE
+    EXISTS( SELECT 
+            kh.id_khachhang, SUM(hd.tongtien) AS `tt`
+        FROM
+            `khach_hang` kh
+                INNER JOIN
+            `hop_dong` hd
+        WHERE
+            YEAR(hd.ngaylamhopdong) = '2019'
+        GROUP BY kh.id_khachhang
+        HAVING `tt` > 10000000);
 
 -- task 18
 delete 
@@ -286,43 +327,47 @@ where year(hd.ngaylamhopdong) <2016);
 
 
 -- task 19
-update `dich_vu_di_kem` dvdk
-set dvdk.gia = dvdk.gia*2
-where exists(
-select count(hdct.id_dichvudikem) as `cc`,
-hd.ngaylamhopdong
-from `dich_vu_di_kem` dvdk 
-inner join `hop_dong_chi_tiet` hdct using(id_dichvudikem)
-inner join `hop_dong` hd using(id_hopdong)
-inner join `khach_hang` kh using(id_khachhang)
-where year(hd.ngaylamhopdong) = '2019'
-group by dvdk.id_dichvudikem
-having `cc` >10
-);
+UPDATE `dich_vu_di_kem` dvdk 
+SET 
+    dvdk.gia = dvdk.gia * 2
+WHERE
+    EXISTS( SELECT 
+            COUNT(hdct.id_dichvudikem) AS `cc`, hd.ngaylamhopdong
+        FROM
+            `dich_vu_di_kem` dvdk
+                INNER JOIN
+            `hop_dong_chi_tiet` hdct USING (id_dichvudikem)
+                INNER JOIN
+            `hop_dong` hd USING (id_hopdong)
+                INNER JOIN
+            `khach_hang` kh USING (id_khachhang)
+        WHERE
+            YEAR(hd.ngaylamhopdong) = '2019'
+        GROUP BY dvdk.id_dichvudikem
+        HAVING `cc` > 10);
 
 
 -- task 20
-select 'Nhan vien' as `Prefix`,
-nv.id_nhanvien,
-nv.hoten,
-nv.email,
-nv.sdt,
-nv.ngaysinh,
-nv.diachi
-from `nhan_vien` nv
-union
-select 'Khach hang' as `Prefix`,
-kh.id_khachhang,
-kh.hoten,
-kh.email,
-kh.sdt,
-kh.ngaysinh,
-kh.diachi
-from `khach_hang` kh 
-
-
-
--- Finally. F*ck mySQL btw!
+SELECT 
+    'Nhan vien' AS `Prefix`,
+    nv.id_nhanvien,
+    nv.hoten,
+    nv.email,
+    nv.sdt,
+    nv.ngaysinh,
+    nv.diachi
+FROM
+    `nhan_vien` nv 
+UNION SELECT 
+    'Khach hang' AS `Prefix`,
+    kh.id_khachhang,
+    kh.hoten,
+    kh.email,
+    kh.sdt,
+    kh.ngaysinh,
+    kh.diachi
+FROM
+    `khach_hang` kh
 
 
 
