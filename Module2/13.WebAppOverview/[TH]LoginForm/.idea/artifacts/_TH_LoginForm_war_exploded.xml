@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="[TH]LoginForm:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/_TH_LoginForm_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="[TH]LoginForm/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="[TH]LoginForm" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
