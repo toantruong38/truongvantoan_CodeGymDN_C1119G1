@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="notify">
+    <div th:if="${status}">
+        <span th:text="${status}"></span>
+    </div>
+</div>
+<div class="search">
+    <form th:action="@{/products/search}" method="post">
+        <input type="text" name="name" placeholder="enter product name"/>
+        <input type="submit" value="Search"/>
+    </form>
+</div>
+<table id="products">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Producer</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="prod,pStat:${products}">
+        <td>
+            <a th:href="@{/products/{id}/detail(id=${prod.getId()})}" th:text="${prod.getId()}"></a>
+        </td>
+        <td th:text="${prod.getName()}"></td>
+        <td th:text="${prod.getPrice()}"></td>
+        <td th:text="${prod.getDescription()}"></td>
+        <td th:text="${prod.getProducer()}"></td>
+        <td><a th:href="@{/products/{id}/edit(id=${prod.getId()})}">Edit</a> </td>
+        <td><a th:href="@{/products/{id}/delete(id=${prod.getId()})}">Delete</a> </td>
+    </tr>
+</table>
+<a th:href="@{/products/create}" >Create Product</a>
+</body>
+</html>
