@@ -13,36 +13,36 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 
 //@Configuration
-public class AppConfiguration implements ApplicationContextAware
-{
-    private ApplicationContext applicationContext;
-    @Bean
-    public SpringResourceTemplateResolver templateResolver(){
-        SpringResourceTemplateResolver templateResolver=
-                new SpringResourceTemplateResolver();
-        templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/WEB-INF/views/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode(TemplateMode.HTML);
-        return templateResolver;
-    }
-    @Bean
-    public TemplateEngine templateEngine(){
-        TemplateEngine templateEngine=new SpringTemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver());
-        return templateEngine;
-    }
-    @Bean
-    public ViewResolver viewResolver(){
-        ThymeleafViewResolver viewResolver=
-                new ThymeleafViewResolver();
-        //Error detect
-        viewResolver.setTemplateEngine((ISpringTemplateEngine) templateEngine());
-        return viewResolver;
-    }
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException
-    {
-        this.applicationContext=applicationContext;
-    }
-}
+//public class AppConfiguration implements ApplicationContextAware
+//{
+//    private ApplicationContext applicationContext;
+//    @Bean
+//    public SpringResourceTemplateResolver templateResolver(){
+//        SpringResourceTemplateResolver templateResolver=
+//                new SpringResourceTemplateResolver();
+//        templateResolver.setApplicationContext(applicationContext);
+//        templateResolver.setPrefix("/WEB-INF/views/");
+//        templateResolver.setSuffix(".html");
+//        templateResolver.setTemplateMode(TemplateMode.HTML);
+//        return templateResolver;
+//    }
+//    @Bean
+//    public TemplateEngine templateEngine(){
+//        TemplateEngine templateEngine=new SpringTemplateEngine();
+//        templateEngine.setTemplateResolver(templateResolver());
+//        return templateEngine;
+//    }
+//    @Bean
+//    public ViewResolver viewResolver(){
+//        ThymeleafViewResolver viewResolver=
+//                new ThymeleafViewResolver();
+//        //Error detect
+//        viewResolver.setTemplateEngine((ISpringTemplateEngine) templateEngine());
+//        return viewResolver;
+//    }
+//    @Override
+//    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException
+//    {
+//        this.applicationContext=applicationContext;
+//    }
+//}
