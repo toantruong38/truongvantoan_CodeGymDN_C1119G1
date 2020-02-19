@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="app">
+    <h2 align="center">Provinces List</h2>
+    <button  class="button" >
+        <a href="/customers">See customers list</a>
+    </button>
+    <button class="button">
+        <a href="/province-add">Add new province</a>
+    </button>
+    <p th:if="${status}" th:text="${status}"></p>
+    <div class="provinceTable">
+        <table th:object="${provinces}">
+            <tr>
+                <th>Province_ID</th>
+                <th>Province name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="p:${provinces}">
+                <td th:text="${p.getId()}"></td>
+                <td th:text="${p.getName()}"></td>
+                <td>
+                    <a th:href="@{/province-edit/{id}(id=${p.getId()})}">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{/province-remove/{id}(id=${p.getId()})}">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<div class="app">
+    <h2 align="center">Customer List</h2>
+    <button  class="button" >
+        <a href="/provinces">See provinces list</a>
+    </button>
+    <button class="button">
+        <a href="/customer-add">Add new customer</a>
+    </button>
+    <p th:if="${status}" th:text="${status}"></p>
+    <div class="customerTable">
+        <table th:object="${customers}">
+            <tr>
+                <th>Customer_ID</th>
+                <th>First name</th>
+                <th>Last Name</th>
+                <th>Province_ID</th>
+                <th>Province name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="c:${customers}">
+                <td th:text="${c.getId()}"></td>
+                <td th:text="${c.getFirstName()}"></td>
+                <td th:text="${c.getLastName()}"></td>
+                <td th:text="${c.getProvince().getId()}"></td>
+                <td th:text="${c.getProvince().getName()}"></td>
+                <td>
+                    <a th:href="@{/customer-edit/{id}(id=${c.getId()})}">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{/customer-remove/{id}(id=${c.getId()})}">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

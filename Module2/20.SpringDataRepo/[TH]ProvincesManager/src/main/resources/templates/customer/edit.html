@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<div class="app">
+    <h2>Edit Customer</h2>
+    <form action="/customer-add" method="post" th:object="${customer}">
+        <table>
+            <tr>
+                <td>
+                    <input th:field="*{id}" th:type="hidden"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>First Name: </label>
+                    <input th:field="*{firstName}" type="text"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Last Name: </label>
+                    <input th:field="*{lastName}" type="text"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select th:field="*{province}">
+                        <option th:each="p:${provinces}" th:text="${p.getName()}"
+                                th:value="${p.getId()}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Create"/> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
