@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/" method="post" th:object="${user}" >
+    <label>Name</label>
+    <input type="text" th:field="*{name}"/>
+    <p th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></p>
+    <br/>
+    <label>Age</label>
+    <input type="text" th:field="*{age}"/>
+    <p th:errors="*{age}" th:if="${#fields.hasErrors('age')}"></p>
+    <br/>
+    <input type="submit" value="Validate"/>
+</form>
+</body>
+</html>
