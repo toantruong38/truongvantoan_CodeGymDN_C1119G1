@@ -10,9 +10,9 @@ public class User
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotEmpty
+    @NotEmpty(message = "Name must not be empty")
     private String firstName;
-    @NotEmpty
+    @NotEmpty(message = "Name must not be empty")
     private String lastName;
     private String phoneNumber;
     private int age;
