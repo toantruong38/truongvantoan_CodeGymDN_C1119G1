@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="home::style"></style>
+    <style>
+        .container {
+            padding: 10px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+
+    </style>
+</head>
+<body>
+<div th:replace="home::header"></div>
+<div th:replace="home::left-sidenav"></div>
+<div class="header" th:replace="home::header"></div>
+<div class="left-sidenav" th:replace="home::left-sidenav"></div>
+<div class="right-sidenav" th:fragment="right-sidenav">
+    <a href="/customer" id="customer">Customer</a>
+    <a href="#" id="employee">Employee</a>
+    <a href="#" id="service">Service</a>
+    <a href="#" id="contract">Contract</a>
+</div>
+<div class="main">
+    <form th:action="@{/customer/edit}" style="width: 75%" th:object="${customer}" method="post">
+        <div class="container">
+            <h1>Update customer</h1>
+            <p>Please fill in this form .</p>
+            <hr>
+
+            <input type="hidden" th:field="*{id}">
+            <label><b>Full name</b></label>
+            <input type="text" th:field="*{fullName}">
+            <label ><b>Email</b></label>
+            <input type="text"  th:field="*{email}">
+            <label><b>Phone number</b></label>
+            <input type="text" th:field="*{phoneNumber}"/>
+            <label><b>CMND</b></label>
+            <input type="text" th:field="*{idNumber}">
+            <label><b>Gender</b></label>
+            <select th:field="*{gender}">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <label><b>Birth</b></label>
+            <input type="datetime-local" th:field="*{birth}"><br/>
+            <label><b>Address</b></label>
+            <input type="text" th:field="*{address}">
+            <label><b>Customer type</b></label>
+            <select th:field="*{customerType}">
+                <option th:each="cusType:${customerTypes}" th:text="${cusType.getName()}" th:value="${cusType.getId()}"></option>
+            </select>
+            <hr>
+
+            <button type="submit" class="registerbtn">Update</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

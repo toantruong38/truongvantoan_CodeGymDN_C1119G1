@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style th:replace="home::style"></style>
+</head>
+<body>
+<script>
+    const deleteTableRow=row=>{
+        if(confirm('Are you sure')){
+            const index=row.parentNode.parentNode.rowIndex;
+            document.getElementById("row-need-delete").deleteRow(index);
+        }
+    }
+</script>
+<div class="header" th:replace="home::header">
+</div>
+<div class="left-sidenav" th:replace="home::left-sidenav"></div>
+<div class="right-sidenav">
+<!--    TODO change id-->
+    <a href="/customer/new" id="customer">New customer</a>
+    <a href="/contract" id="employee">Contract</a>
+    <a href="#" id="service">Service</a>
+    <a href="#" id="contract">#function</a>
+</div>
+<div class="main">
+    <p style="color: #2196F3" th:if="${status}" th:text="${status}"></p>
+    <table class="customer-table" id="row-need-delete">
+        <tr>
+            <th>Id</th>
+            <th>Full name</th>
+            <th>Birth</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Phone number</th>
+            <th>Address</th>
+            <th>CMND</th>
+            <th>Customer Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="customer:${customers}">
+            <td th:text="${customer.getId()}"></td>
+            <td th:text="${customer.getFullName()}"></td>
+            <td th:text="${customer.getBirth()}" ></td>
+            <td th:text="${customer.getGender()}"></td>
+            <td th:text="${customer.getEmail()}"></td>
+            <td th:text="${customer.getPhoneNumber()}"></td>
+            <td th:text="${customer.getAddress()}"></td>
+            <td th:text="${customer.getIdNumber()}"></td>
+            <td th:text="${customer.getCustomerType().getName()}"></td>
+            <td><a th:href="@{/customer/edit/{id}(id=${customer.getId()})}">Edit</a></td>
+            <td ><button style="border-radius: 3px;background-color: #eb4d0f;
+                border: #dddddd;color: #dddddd;height: 30px" onclick="deleteTableRow(this)">Delete</button></td>
+        </tr>
+    </table>
+    <a th:href="@{'/customer'(page=${customers.number-1})}" th:if="${customers.hasPrevious()}">Previous</a>
+    <span th:text="${customers.number +1}"></span>
+    /<span th:text="${customers.totalPages}"></span>
+    <a th:href="@{'/customer'(page=${customers.number+1})}" th:if="${customers.hasNext()}">Next</a>
+</div>
+</body>
+</html>
