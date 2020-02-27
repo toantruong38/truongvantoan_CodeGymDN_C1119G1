@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{text.title}"></title>
+</head>
+<body>
+Language: <a href="?lang=en">English</a> | <a href="?lang=ja">Japan</a>
+
+<form action="/search">
+    <input th:placeholder="#{pl_holder.entername}" name="name"/>
+    <input type="submit" th:value="#{btn.search}"/>
+</form>
+<table >
+    <tr>
+        <th th:text="#{text.id}"></th>
+        <th th:text="#{text.name}"></th>
+    </tr>
+    <tr th:each="c:${customers}">
+        <td th:text="${c.getId()}"></td>
+        <td th:text="${c.getName()}"></td>
+    </tr>
+</table>
+<div class="paging">
+    <a th:href="@{'/'(page=${customers.number -1},size=3)}" th:if="${customers.hasPrevious()}" th:text="#{btn.pre}">
+    </a>
+    <span th:text="${customers.number +1}"></span>
+    /<span th:text="${customers.totalPages}"></span>
+    <a th:href="@{'/'(page=${customers.number +1},size=3)}" th:if="${customers.hasNext()}" th:text="#{btn.next}">
+    </a>
+</div>
+</body>
+</html>
