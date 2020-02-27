@@ -62,49 +62,76 @@
     </style>
 </head>
 <body>
-<div th:replace="home::header"></div>
-<div th:replace="home::left-sidenav"></div>
+
 <div class="header" th:replace="home::header"></div>
 <div class="left-sidenav" th:replace="home::left-sidenav"></div>
 <div class="right-sidenav" th:replace="home::right-sidenav">
 </div>
 <div class="main">
-    <form th:action="@{/customer/edit}" style="width: 75%" th:object="${customer}" method="post">
+    <form th:action="@{/service/edit}" style="width: 75%" th:object="${service}" method="post">
         <div class="container">
-            <h1>Update customer</h1>
+            <h1>Update service</h1>
             <p>Please fill in this form .</p>
             <hr>
 
             <input type="hidden" th:field="*{id}">
-            <label><b>Full name</b></label>
-            <input type="text" th:field="*{fullName}">
-            <label ><b>Email</b></label>
-            <input type="text"  th:field="*{email}">
-            <span class="error" th:if="${#fields.hasErrors('email')}"
-                  th:each="e:${#fields.errors('email')}"
-                  th:text="${e}"></span><br>
-            <label><b>Phone number</b></label>
-            <input type="text" th:field="*{phoneNumber}"/>
-            <span class="error" th:if="${#fields.hasErrors('phoneNumber')}"
-                  th:each="e:${#fields.errors('phoneNumber')}"
-                  th:text="${e}"></span><br>
-            <label><b>CMND</b></label>
-            <input type="text" th:field="*{idNumber}">
-            <span class="error" th:if="${#fields.hasErrors('idNumber')}"
-                  th:each="e:${#fields.errors('idNumber')}"
-                  th:text="${e}"></span><br>
-            <label><b>Gender</b></label>
-            <select th:field="*{gender}">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+
+            <label><b>Area</b></label>
+            <input type="text" th:field="*{area}">
+            <label>
+                <b class="error" th:if="${#fields.hasErrors('area')}"
+                   th:each="e:${#fields.errors('area')}"
+                   th:text="${e}"
+                ></b>
+            </label><br>
+
+            <label ><b>Floor amount</b></label>
+            <input type="text"  th:field="*{floorAmount}">
+            <label>
+                <b class="error" th:if="${#fields.hasErrors('floorAmount')}"
+                   th:each="e:${#fields.errors('floorAmount')}"
+                   th:text="${e}"
+                ></b>
+            </label><br>
+
+            <label><b>Free accompany service</b></label>
+            <input type="text" th:field="*{freeAccompanyService}"/>
+
+            <label><b>Maximum people</b></label>
+            <input type="text" th:field="*{maximumPeople}">
+            <label>
+                <b class="error" th:if="${#fields.hasErrors('maximumPeople')}"
+                   th:each="e:${#fields.errors('maximumPeople')}"
+                   th:text="${e}"
+                ></b>
+            </label><br>
+
+            <label><b>Other convenience description</b></label>
+            <input type="text" th:field="*{otherConvenienceDescription}">
+
+            <label><b>Rent fee</b></label>
+            <input type="text" th:field="*{rentFee}"><br/>
+            <label>
+                <b class="error" th:if="${#fields.hasErrors('rentFee')}"
+                   th:each="e:${#fields.errors('rentFee')}"
+                   th:text="${e}"
+                ></b>
+            </label><br>
+
+            <label><b>Room standard</b></label>
+            <input type="text" th:field="*{roomStandard}">
+
+            <label><b>Status</b></label>
+            <input type="text" th:field="*{status}">
+
+            <label><b>Rent type</b></label>
+            <select th:field="*{rentType}">
+                <option th:each="rentT:${rentTypes}" th:text="${rentT.getName()}" th:value="${rentT.getId()}"></option>
             </select>
-            <label><b>Birth</b></label>
-            <input type="datetime-local" th:field="*{birth}"><br/>
-            <label><b>Address</b></label>
-            <input type="text" th:field="*{address}">
-            <label><b>Customer type</b></label>
-            <select th:field="*{customerType}">
-                <option th:each="cusType:${customerTypes}" th:text="${cusType.getName()}" th:value="${cusType.getId()}"></option>
+
+            <label><b>Service type</b></label>
+            <select th:field="*{serviceType}">
+                <option th:each="serT:${serviceTypes}" th:text="${serT.getName()}" th:value="${serT.getId()}"></option>
             </select>
             <hr>
 

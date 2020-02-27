@@ -9,7 +9,7 @@ import java.util.List;
 public class Degree
 {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "degree_id")
     private Long id;
 

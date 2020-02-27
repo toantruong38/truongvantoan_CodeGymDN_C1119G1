@@ -2,6 +2,7 @@ package com.toantr.restfulapp.persistence.model;
 
 import com.toantr.restfulapp.formatter.CategoryFormatter;
 import com.toantr.restfulapp.persistence.service.CategoryService;
+import com.toantr.restfulapp.persistence.service.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
@@ -56,9 +57,10 @@ public class Blog
         return this.category;
     }
 
-    public void setCategory(Category category)
+    public void setCategory(String id)
     {
-        this.category = category;
+        CategoryServiceImpl categoryService=new CategoryServiceImpl();
+        this.category =categoryService.findById(Long.parseLong(id));
     }
 
     public Blog()

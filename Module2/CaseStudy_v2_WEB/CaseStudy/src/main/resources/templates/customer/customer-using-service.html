@@ -29,13 +29,13 @@
 </div>
 <div class="left-sidenav" th:replace="home::left-sidenav"></div>
 <div class="right-sidenav">
-<!--    TODO change id-->
+    <!--    TODO change id-->
     <a href="/customer/new" id="item1">New customer</a>
     <a href="/service" id="item2">Service</a>
     <a href="/contract/new" id="item3">New contract</a>
     <a href="/use-service" id="item4">Using service register</a>
     <a href="/contract-detail/new" id="item5">New detailed contract</a>
-    <a href="/customer-using-contract" id="item6">Find customer using contract</a>
+    <a href="/customer" id="item6">Customer</a>
 </div>
 <div class="main">
     <div class="toast" data-autohide="false" th:if="${status}">

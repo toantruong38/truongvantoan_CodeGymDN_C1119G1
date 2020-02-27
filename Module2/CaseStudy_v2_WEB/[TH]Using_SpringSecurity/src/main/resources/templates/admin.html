@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin page</title>
+</head>
+<body>
+<h3>Admin dashboard</h3>
+<div sec:authorize="isAuthenticated()">
+    <b>
+        Welcome!
+    </b>
+    <div sec:authentication="principal.username"></div>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <a href="/">Home</a>|<a href="/logout">Logout</a>
+</div>
+</body>
+</html>

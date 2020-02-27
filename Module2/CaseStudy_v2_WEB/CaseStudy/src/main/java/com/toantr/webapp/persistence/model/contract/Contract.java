@@ -6,6 +6,9 @@ import com.toantr.webapp.persistence.model.customer.Customer;
 import com.toantr.webapp.persistence.model.employee.Employee;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -84,24 +87,28 @@ public class Contract
         this.contractNumber = contractNumber;
     }
 
-    public Date getBeginDate()
+    public String getBeginDate()
     {
-        return this.beginDate;
+        if(this.beginDate==null)return "";
+        return new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").format(this.beginDate);
     }
 
-    public void setBeginDate(Date beginDate)
+    public void setBeginDate(String beginDate)throws ParseException
     {
-        this.beginDate = beginDate;
+        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+        this.beginDate=(Date)dateFormat.parse(beginDate);
     }
 
-    public Date getEndDate()
+    public String getEndDate()
     {
-        return this.endDate;
+        if(this.endDate==null)return "";
+        return new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").format(this.endDate);
     }
 
-    public void setEndDate(Date endDate)
+    public void setEndDate(String endDate) throws ParseException
     {
-        this.endDate = endDate;
+        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+        this.endDate=(Date)dateFormat.parse(endDate);
     }
 
     public long getDeposit()

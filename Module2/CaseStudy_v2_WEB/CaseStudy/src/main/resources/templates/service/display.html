@@ -29,13 +29,13 @@
 </div>
 <div class="left-sidenav" th:replace="home::left-sidenav"></div>
 <div class="right-sidenav">
-<!--    TODO change id-->
-    <a href="/customer/new" id="item1">New customer</a>
+    <!--    TODO change id-->
+    <a href="/service/new" id="item1">New service</a>
     <a href="/service" id="item2">Service</a>
     <a href="/contract/new" id="item3">New contract</a>
     <a href="/use-service" id="item4">Using service register</a>
     <a href="/contract-detail/new" id="item5">New detailed contract</a>
-    <a href="/customer-using-contract" id="item6">Find customer using contract</a>
+    <a href="/customer" id="item6">Customer</a>
 </div>
 <div class="main">
     <div class="toast" data-autohide="false" th:if="${status}">
@@ -49,38 +49,40 @@
     </div>
     <table class="customer-table" id="row-need-delete">
         <tr>
-            <th>Id</th>
-            <th>Full name</th>
-            <th>Birth</th>
-            <th>Gender</th>
-            <th>Email</th>
-            <th>Phone number</th>
-            <th>Address</th>
-            <th>CMND</th>
-            <th>Customer Type</th>
+            <th>Area</th>
+            <th>Floor amount</th>
+            <th>Free accompany service</th>
+            <th>Maximum people</th>
+            <th>Other convenience description</th>
+            <th>Rent fee</th>
+            <th>Room standard</th>
+            <th>Status</th>
+            <th>Rent type</th>
+            <th>Service type</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-        <tr th:each="customer:${customers}">
-            <td th:text="${customer.getId()}"></td>
-            <td th:text="${customer.getFullName()}"></td>
-            <td th:text="${customer.getBirth()}" ></td>
-            <td th:text="${customer.getGender()}"></td>
-            <td th:text="${customer.getEmail()}"></td>
-            <td th:text="${customer.getPhoneNumber()}"></td>
-            <td th:text="${customer.getAddress()}"></td>
-            <td th:text="${customer.getIdNumber()}"></td>
-            <td th:text="${customer.getCustomerType().getName()}"></td>
-            <td><a th:href="@{/customer/edit/{id}(id=${customer.getId()})}">Edit</a></td>
+        <tr th:each="service:${services}">
+            <td th:text="${service.getArea()}"></td>
+            <td th:text="${service.getFloorAmount()}"></td>
+            <td th:text="${service.getFreeAccompanyService()}"></td>
+            <td th:text="${service.getMaximumPeople()}"></td>
+            <td th:text="${service.getOtherConvenienceDescription()}"></td>
+            <td th:text="${service.getRentFee()}"></td>
+            <td th:text="${service.getRoomStandard()}"></td>
+            <td th:text="${service.getStatus()}"></td>
+            <td th:text="${service.getRentType().getName()}"></td>
+            <td th:text="${service.getServiceType().getName()}"></td>
+            <td><a th:href="@{/service/edit/{id}(id=${service.getId()})}">Edit</a> </td>
             <td ><button style="border-radius: 3px;background-color: #eb4d0f;
                 border: #dddddd;color: #dddddd;height: 30px" onclick="deleteTableRow(this)">Delete</button></td>
         </tr>
     </table>
-    <div class="paging" th:if="${customers.hasNext()}" >
-        <a th:href="@{'/customer'(page=${customers.number -1})}" th:if="${customers.hasPrevious()}">Previous</a>
-        <span th:text="${customers.number +1}"></span>
-        /<span th:text="${customers.totalPages}"></span>
-        <a th:href="@{'/customer'(page=${customers.number +1})}" th:if="${customers.hasNext()}">Next</a>
+    <div class="paging" th:if="${services.hasNext()}">
+        <a th:href="@{'/service'(page=${services.number -1})}" th:if="${services.hasPrevious()}">Previous</a>
+        <span th:text="${services.number +1}"></span>
+        /<span th:text="${services.totalPages}"></span>
+        <a th:href="@{'/service'(page=${services.number +1})}" th:if="${services.hasNext()}">Next</a>
     </div>
 </div>
 </body>

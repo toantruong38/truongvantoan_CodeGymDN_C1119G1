@@ -62,6 +62,7 @@ public class Customer
 
     public String getBirth()
     {
+        if(this.birth==null) return "";
         return new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").format(this.birth);
     }
 
