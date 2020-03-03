@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style th:replace="home::style"></style>
+</head>
+<body>
+
+<div class="header" th:replace="home::header">
+
+</div>
+<div class="left-sidenav" th:replace="home::left-sidenav">
+
+</div>
+<div class="right-sidenav" th:replace="home::right-sidenav">
+
+</div>
+<div class="main">
+    <form th:action="@{/user/new}" style="width: 75%" th:object="${user}" method="post">
+        <div class="container">
+            <h1>New user</h1>
+            <p>Please fill in this form .</p>
+            <hr>
+
+            <label><b>Username: </b></label>
+            <input type="text" th:field="*{username}">
+            <label ><b>Password: </b></label>
+            <input type="text"  th:field="*{password}">
+
+            <hr>
+
+            <button type="submit" class="registerbtn">Register</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

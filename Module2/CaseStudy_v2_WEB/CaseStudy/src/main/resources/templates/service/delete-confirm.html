@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style th:replace="home::style"></style>
+</head>
+<body>
+<div class="header" th:replace="home::header"></div>
+<div class="left-sidenav" th:replace="home::left-sidenav"></div>
+<div class="right-sidenav" th:replace="home::right-sidenav"></div>
+<div class="main">
+    <h1>
+    <strong >Are u sure?</strong>
+    </h1>
+    <form th:action="@{/delete-service/{id}(id=${serviceId})}"  method="post">
+        <input value="yes" name="confirm" type="submit"/>
+        <input value="no" name="confirm" type="submit"/>
+    </form>
+</div>
+</body>
+</html>

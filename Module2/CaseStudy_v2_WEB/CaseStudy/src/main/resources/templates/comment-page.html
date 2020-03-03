@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style th:replace="home::style"></style>
+    <style>
+        .comment-item{
+            width: 95%;
+        }
+        textarea {
+            width: 95%;
+            height: 150px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+        }
+    </style>
+</head>
+<script>
+    var realComment=true;
+    const erase=(textArea)=>{
+        if(realComment){
+            textArea.value="";
+        }
+    };
+    const handleKeyPress=()=>{
+        realComment=false;
+    }
+</script>
+<body>
+<div class="header" th:replace="home::header"></div>
+<div class="left-sidenav" th:replace="home::left-sidenav"></div>
+<div class="right-sidenav" th:fragment="right-sidenav">
+    <a href="/customer" id="item1">Customer</a>
+    <a href="/service" id="item2">Service</a>
+    <a href="/contract/new" id="item3">New contract</a>
+<!--    <a href="/use-service" id="item4">Using service register</a>-->
+    <a href="/contract-detail/new" id="item4">New detailed contract</a>
+</div>
+<div class="main">
+    <span style="" sec:authorize="isAnonymous()">
+        <a th:href="@{/login}" style="color: white;background-color: #2196F3;padding: 10px">
+            <strong>Login</strong> to comment
+        </a>
+    </span>
+    <form th:action="@{/comment-post}" method="post" th:object="${comment}" sec:authorize="isAuthenticated()">
+        <input type="text" placeholder="Your name" th:field="*{commentUsername}"/>
+        <input type="text" placeholder="Title" th:field="*{commentTitle}"/>
+        <textarea onkeypress="handleKeyPress()" onclick="erase(this)" th:field="*{commentContent}">
+            Enter your comment here...
+        </textarea>
+        <input type="submit" style="background-color: crimson;color: white"/>
+    </form>
+    <hr>
+    <div class="comment-item" th:each="c:${comments}">
+        <h5>
+            <strong th:text="${c.getCommentUsername()}">
+                User name
+            </strong>
+        </h5>
+        <h6 th:text="${c.getCommentTitle()}"><strong>Title</strong></h6>
+        <p th:text="${c.getCommentContent()}">
+            Comment demo begin ---------------->
+            Hello! Looks like you’re enjoying the discussion, but you haven’t signed up for an account yet.
+
+            When you create an account, we remember exactly what you’ve read, so you always come right back where
+            you left off. You also get notifications, here and via email, whenever someone replies to you. And you
+            can like posts to share the love
+        </p>
+        <hr>
+    </div>
+</div>
+</body>
+</html>

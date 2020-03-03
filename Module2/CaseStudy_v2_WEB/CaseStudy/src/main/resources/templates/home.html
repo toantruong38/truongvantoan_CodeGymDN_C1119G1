@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <title>Home</title>
@@ -107,7 +108,7 @@
             padding-top: 20px;
         }
 
-        .left-sidenav a {
+        .left-sidenav a,.collections,.contract-history {
             padding: 6px 8px 6px 16px;
             text-decoration: none;
             font-size: 25px;
@@ -124,7 +125,6 @@
             width: 75%;
             z-index: 1;
             left: 0;
-
             padding-top: 70px;
         }
         .right-sidenav a {
@@ -190,6 +190,20 @@
         .carousel-control-next {
             right: 5%;
         }
+        #comment-bar li{
+            display: inline-grid;
+            margin-top: 10px;
+            border-radius: 2px;
+            border: #555555 solid thin ;
+            padding: 30px 50px;
+        }
+        #comment-bar ul{
+            position: absolute;
+            left: 12%;
+            margin-top: 10px;
+            width: 75%;
+        }
+
     </style>
 </head>
 
@@ -197,26 +211,39 @@
 
 <div class="header" th:fragment="header">
     <a href="/" class="logo">
-        Furama Bitches
+        Furama
     </a>
-    <div class="header-right">
-        <a class="active" href="#home">Register</a>
-        <a href="#contact">Login</a>
-        <a href="#about">Search</a>
+    <div class="header-right" sec:authorize="isAnonymous()">
+        <a class="active" href="/register">Register</a>
+        <a th:href="@{/login}">Login</a>
+        <a href="#about">#feature</a>
+    </div>
+    <div class="header-right" sec:authorize="isAuthenticated()">
+        <a class="active" href="#user" th:text="${currentUser.getUsername()}"></a>
+        <a th:href="@{/logout}">Logout</a>
+        <a href="#feature">#feature</a>
     </div>
 </div>
 <div class="left-sidenav" th:fragment="left-sidenav">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#clients">Clients</a>
-    <a href="#contact">Contact</a>
+    <div class="collections" style="color: #dddddd">
+        <strong>Collections</strong>
+        <p th:each="s:${favServices}" th:text="${'#' + s.getFreeAccompanyService() }"
+        style="font-size: smaller; margin: 1px">
+        </p>
+    </div>
+    <div class="contract-history" style="color: #dddddd">
+        <strong>Contract history</strong>
+        <div th:utext="${dateCreated}"  style="font-size: medium;margin: 1px" th:if="${dateCreated}"></div>
+    </div>
+
 </div>
 <div class="right-sidenav" th:fragment="right-sidenav">
     <a href="/customer" id="item1">Customer</a>
     <a href="/service" id="item2">Service</a>
     <a href="/contract/new" id="item3">New contract</a>
-    <a href="/use-service" id="item4">Using service register</a>
-    <a href="/contract-detail/new" id="item5">New detailed contract</a>
+<!--    <a href="/use-service" id="item4">Using service register</a>-->
+    <a href="/contract-detail/new" id="item4">New detailed contract</a>
+    <a th:href="@{/comment}" id="item5">Comment Page</a>
 </div>
 <div class="main">
     <div id="demo" class="carousel slide" data-ride="carousel">
@@ -254,5 +281,6 @@
         </a>
     </div>
 </div>
+
 </body>
 </html>

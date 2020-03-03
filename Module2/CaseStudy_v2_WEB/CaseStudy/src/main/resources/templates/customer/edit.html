@@ -69,7 +69,7 @@
 <div class="right-sidenav" th:replace="home::right-sidenav">
 </div>
 <div class="main">
-    <form th:action="@{/customer/edit}" style="width: 75%" th:object="${customer}" method="post">
+    <form th:action="@{/customer/edit}" style="width: 75%" th:object="${customer}" method="post" novalidate>
         <div class="container">
             <h1>Update customer</h1>
             <p>Please fill in this form .</p>
@@ -97,9 +97,13 @@
             <select th:field="*{gender}">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
-            </select>
+            </select><br>
             <label><b>Birth</b></label>
-            <input type="datetime-local" th:field="*{birth}"><br/>
+            <input type="date" th:field="*{birth}"><br/>
+            <span class="error" th:if="${#fields.hasErrors('birth')}"
+                  th:each="e:${#fields.errors('birth')}"
+                  th:text="${e}"></span><br>
+
             <label><b>Address</b></label>
             <input type="text" th:field="*{address}">
             <label><b>Customer type</b></label>

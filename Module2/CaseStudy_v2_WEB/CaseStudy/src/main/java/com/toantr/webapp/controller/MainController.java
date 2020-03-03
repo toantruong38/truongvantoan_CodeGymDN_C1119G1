@@ -1,5 +1,6 @@
 package com.toantr.webapp.controller;
 
+import com.toantr.webapp.persistence.model.Comment;
 import com.toantr.webapp.persistence.model.Service;
 import com.toantr.webapp.persistence.model.accompanyservice.AccompanyService;
 import com.toantr.webapp.persistence.model.contract.Contract;
@@ -14,6 +15,8 @@ import com.toantr.webapp.persistence.service.ContractService;
 import com.toantr.webapp.persistence.service.CustomerService;
 import com.toantr.webapp.persistence.service.EmployeeService;
 import com.toantr.webapp.persistence.service.ServiceService;
+import com.toantr.webapp.security.MyUserDetails;
+import com.toantr.webapp.security.User;
 import com.toantr.webapp.validator.ContractDetailValidator;
 import com.toantr.webapp.validator.ContractValidator;
 import com.toantr.webapp.validator.CustomerValidator;
@@ -24,6 +27,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpRequest;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,10 +36,20 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
+@SessionAttributes(names = {"favServices","currentUser"})
 public class MainController
 {
     @Autowired
@@ -55,6 +70,8 @@ public class MainController
     private EmployeeService employeeService;
     @Autowired
     private AccompanyServiceRepo accompanyServiceRepo;
+    @Autowired
+    private CommentRepo commentRepo;
     @ModelAttribute("employees")
     private Page<Employee> employees(Pageable pageable){
         return employeeService.findAll(pageable);
@@ -88,8 +105,38 @@ public class MainController
     private Page<Service> services(Pageable pageable){
         return serviceService.findAll(pageable);
     }
-    @GetMapping("/")
-    public String handleHomePage(){
+    @ModelAttribute("favServices")
+    private List<Service> favServices(){
+        return new ArrayList<>();
+    }
+    @ModelAttribute("currentUser")
+    private User setUpUser(){
+        return new User();
+    }
+    @RequestMapping(path = "/",method = {RequestMethod.GET,RequestMethod.POST})
+    public String handleHomePage(HttpServletRequest request,
+                                 Model model,
+                                 @ModelAttribute("currentUser") User currentUser
+                                 ){
+        Cookie[] cookies=request.getCookies();
+        for(Cookie c:cookies){
+            if(c.getName().equals("dateCreated")){
+                StringBuilder formatted= new StringBuilder();
+                Arrays.asList(c.getValue().split("#")).forEach(s -> {
+                    if(!s.equals("")){
+                        formatted.append("#").append(s).append("<br>");
+                    }
+                });
+                model.addAttribute("dateCreated",formatted);
+                System.out.println(c.getValue());
+            }
+        }
+        Object principal=SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+        if(principal instanceof MyUserDetails){
+            currentUser=((MyUserDetails)principal).getUser();
+            System.out.printf("User name {%s}",currentUser.getUsername());
+        }
         return "home";
     }
     @GetMapping("/customer")
@@ -147,8 +194,8 @@ public class MainController
     }
     @PostMapping("/customer/edit")
     public String handleUpdateCustomer(@Valid Customer customer,
-                                       RedirectAttributes redirectAttributes,
-                                       BindingResult result
+                                       BindingResult result,
+                                       RedirectAttributes redirectAttributes
     ){
         new CustomerValidator().validate(customer,result);
         if(result.hasFieldErrors()) return "customer/edit";
@@ -226,11 +273,21 @@ public class MainController
     }
     @PostMapping("/contract/new")
     public String handleSaveContract(@Valid Contract contract,
-                                     BindingResult result
-    ){
+                                     BindingResult result,
+                                     HttpServletResponse response,
+                                     @CookieValue(value = "dateCreated",defaultValue = "") String dateCreated )
+    {
         new ContractValidator().validate(contract,result);
         if(result.hasFieldErrors()) return "contract/new";
         contractService.save(contract);
+
+        LocalDate today=LocalDate.now();
+        dateCreated+="#"+today.toString();
+        Cookie cookie=new Cookie("dateCreated",dateCreated);
+        cookie.setMaxAge(3*24*60*60);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+
         return "redirect:/";
     }
     @GetMapping("/contract-detail/new")
@@ -245,11 +302,70 @@ public class MainController
         new ContractDetailValidator().validate(contractDetail,result);
         if(result.hasFieldErrors()) return "contractDetail/new";
         contractDetailRepo.save(contractDetail); //TODO need testing
+
         return "redirect:/";
     }
-    @GetMapping("/customer-using-contract")
-    public ModelAndView handleCustomerUsingContract(Pageable pageable){
+    @GetMapping("/customer-using-service")
+    public ModelAndView handleCustomerUsingContract(Pageable pageable,
+                                                    @RequestParam(defaultValue = "0") int page,
+                                                    @RequestParam(defaultValue = "5") int size){
+        pageable=PageRequest.of(page, size);
         return new ModelAndView("customer/customer-using-service",
                 "customers",customerService.findCustomersUsingService(pageable));
+    }
+    @PostMapping("/delete-service/{id}")
+    public String handleDeleteService(@RequestParam String confirm,
+                                      RedirectAttributes redirectAttributes,
+                                      @PathVariable Long id){
+        if(confirm.equals("yes"))
+        {
+            serviceService.remove(id);
+            redirectAttributes.addFlashAttribute("status","Deleted successfully!");
+        }
+        System.out.printf("Service id:{%d}",id);
+        return "redirect:/service";
+    }
+    @GetMapping("/delete-service/{id}")
+    public String handleDeleteService(@PathVariable Long id,
+                                      Model model){
+        model.addAttribute("serviceId",id);
+        return "service/delete-confirm";
+    }
+    @PostMapping("/delete-customer/{id}")
+    public String handleDeleteCustomer(@RequestParam String confirm,
+                                      RedirectAttributes redirectAttributes,
+                                      @PathVariable Long id){
+        if(confirm.equals("yes"))
+        {
+            customerService.remove(id);
+            redirectAttributes.addFlashAttribute("status","Deleted successfully!");
+        }
+        System.out.printf("Customer id:{%d}",id);
+        return "redirect:/customer";
+    }
+    @GetMapping("/delete-customer/{id}")
+    public String handleDeleteCustomer(@PathVariable Long id,
+                                      Model model){
+        model.addAttribute("customerId",id);
+        return "customer/delete-confirm";
+    }
+    @GetMapping("/like-service/{id}")
+    public String handleLikeService(@PathVariable Long id,
+                                    @ModelAttribute("favServices") List<Service> favServices,
+                                    RedirectAttributes redirectAttributes){
+        favServices.add(serviceService.findById(id));
+        redirectAttributes.addFlashAttribute("status","Added to collections!");
+        return "redirect:/service";
+    }
+    @GetMapping("/comment")
+    public String handleGetCommentPage(Model model){
+        model.addAttribute("comment",new Comment());
+        model.addAttribute("comments",commentRepo.findAll());
+        return "comment-page";
+    }
+    @PostMapping("/comment-post")
+    public String handlePostComment(Comment comment){
+        commentRepo.save(comment);
+        return "redirect:/comment";
     }
 }

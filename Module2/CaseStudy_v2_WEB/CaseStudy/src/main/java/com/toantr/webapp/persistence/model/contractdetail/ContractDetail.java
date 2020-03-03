@@ -15,7 +15,7 @@ public class ContractDetail
     @Column(name = "contract_detail_id")
     private Long id;
 
-    @ManyToOne(targetEntity = Contract.class)
+    @ManyToOne(targetEntity = Contract.class,cascade = CascadeType.ALL)
     @JoinColumn(name="contract_id")
     private Contract contract;
 

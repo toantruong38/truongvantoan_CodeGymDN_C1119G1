@@ -12,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static javax.persistence.CascadeType.ALL;
+
 @Entity
 public class Contract
 {
@@ -30,7 +32,7 @@ public class Contract
     @Column(name = "total_pay")
     private long totalPay;
 
-    @ManyToOne(targetEntity = Customer.class)
+    @ManyToOne(targetEntity = Customer.class,cascade = ALL)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
@@ -38,7 +40,7 @@ public class Contract
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
-    @ManyToOne(targetEntity = Service.class)
+    @ManyToOne(targetEntity = Service.class,cascade = ALL)
     @JoinColumn(name = "service_id")
     private Service service;
 
@@ -90,25 +92,31 @@ public class Contract
     public String getBeginDate()
     {
         if(this.beginDate==null)return "";
-        return new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").format(this.beginDate);
+        return new SimpleDateFormat("dd/MM/yyyy").format(this.beginDate);
     }
 
     public void setBeginDate(String beginDate)throws ParseException
     {
-        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
-        this.beginDate=(Date)dateFormat.parse(beginDate);
+        try{
+            this.beginDate=new SimpleDateFormat("yyyy-MM-dd").parse(beginDate);
+        }catch (ParseException e){
+            this.beginDate=null;
+        }
     }
 
     public String getEndDate()
     {
         if(this.endDate==null)return "";
-        return new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").format(this.endDate);
+        return new SimpleDateFormat("dd/MM/yyyy").format(this.endDate);
     }
 
     public void setEndDate(String endDate) throws ParseException
     {
-        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
-        this.endDate=(Date)dateFormat.parse(endDate);
+        try{
+            this.endDate=new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
+        }catch (ParseException e){
+            this.endDate=null;
+        }
     }
 
     public long getDeposit()

@@ -81,7 +81,10 @@
             <hr>
 
             <label><b>Begin date</b></label>
-            <input type="datetime-local" th:field="*{beginDate}"><br>
+            <input type="date" th:field="*{beginDate}"><br>
+            <span th:if="${#fields.hasErrors('beginDate')}" class="error"
+                  th:each="e:${#fields.errors('beginDate')}"
+                  th:text="${e}"></span><br>
             <label ><b>Contract number</b></label>
             <input type="text"  th:field="*{contractNumber}">
             <label><b>Deposit</b></label>
@@ -90,7 +93,7 @@
                   th:each="e:${#fields.errors('deposit')}"
                   th:text="${e}"></span><br>
             <label><b>End date</b></label>
-            <input type="datetime-local" th:field="*{endDate}"><br>
+            <input type="date" th:field="*{endDate}"><br>
             <label><b>Total pay</b></label>
             <input type="text" th:field="*{totalPay}" id="total-pay" readonly>
             <span th:if="${#fields.hasErrors('totalPay')}" class="error"

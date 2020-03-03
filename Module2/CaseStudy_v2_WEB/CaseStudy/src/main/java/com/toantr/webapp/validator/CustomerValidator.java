@@ -33,5 +33,8 @@ public class CustomerValidator implements Validator
         {
             errors.rejectValue("idNumber","idNumber.invalid");
         }
+        if(customer.getBirth().equals("")){
+            errors.rejectValue("birth","birth.invalid");
+        }
     }
 }

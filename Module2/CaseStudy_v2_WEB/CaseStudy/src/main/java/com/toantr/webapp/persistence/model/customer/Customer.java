@@ -5,11 +5,14 @@ import com.toantr.webapp.persistence.model.customertype.CustomerType;
 import org.springframework.context.annotation.EnableMBeanExport;
 
 import javax.persistence.*;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Entity
 public class Customer
@@ -21,6 +24,8 @@ public class Customer
 
     @Column(name = "full_name")
     private String fullName;
+//    @NotNull(message = "Date must not empty!")
+//    @Future(message = "Invalid date!")
     private Date birth;
     private String gender;
     @Column(name = "id_number")
@@ -63,19 +68,17 @@ public class Customer
     public String getBirth()
     {
         if(this.birth==null) return "";
-        return new SimpleDateFormat("yyyy-MM-dd'T'hh:mm").format(this.birth);
+        return new SimpleDateFormat("dd/MM/yyyy").format(this.birth);
     }
 
-  /*  public void setBirth(Date birth)
-    {
-        this.birth = birth;
-    }*/
 
-    public void setBirth(String birth)throws ParseException
+    public void setBirth(String birth)
     {
-        DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
-        Date date=(Date)dateFormat.parse(birth);
-        this.birth=date;
+        try{
+            this.birth=new SimpleDateFormat("yyyy-MM-dd").parse(birth);
+        }catch (ParseException e){
+            this.birth=null;
+        }
     }
 
     public String getGender()

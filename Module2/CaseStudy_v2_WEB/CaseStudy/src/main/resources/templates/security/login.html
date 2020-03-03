@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Login to the site!</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style th:replace="home::style"></style>
+</head>
+<body>
+
+<script>
+    $(document).ready(function(){
+        $('.toast').toast('show');
+    });
+</script>
+
+
+<div class="header" th:replace="home::header">
+
+</div>
+<div class="left-sidenav" th:replace="home::left-sidenav">
+
+</div>
+<div class="right-sidenav" th:replace="home::right-sidenav">
+
+</div>
+<div class="main">
+    <div class="toast" data-autohide="false" th:if="${status}">
+        <div class="toast-header">
+            <strong class="mr-auto text-primary">Message</strong>
+            <small class="text-muted">1 second ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+        </div>
+        <div class="toast-body" th:text="${status}">
+        </div>
+    </div>
+    <form method="post" th:action="@{/do-login}">
+        <input type="text" placeholder="Username" name="username"/>
+        <input type="password" placeholder="Password" name="password"/>
+        <input type="submit" value="Enter" style="color: white;background-color: #2196F3;border-color: white"/>
+    </form>
+</div>
+</body>
+</html>

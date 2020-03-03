@@ -72,15 +72,19 @@
             <td th:text="${customer.getIdNumber()}"></td>
             <td th:text="${customer.getCustomerType().getName()}"></td>
             <td><a th:href="@{/customer/edit/{id}(id=${customer.getId()})}">Edit</a></td>
-            <td ><button style="border-radius: 3px;background-color: #eb4d0f;
-                border: #dddddd;color: #dddddd;height: 30px" onclick="deleteTableRow(this)">Delete</button></td>
+            <td >
+                <form th:action="@{/delete-customer/{id}(id=${customer.getId()})}">
+                    <input type="submit" value="Delete" style="border-radius: 3px;background-color: #eb4d0f;
+                border: #dddddd;color: #dddddd;height: 30px" />
+                </form>
+            </td>
         </tr>
     </table>
-    <div class="paging" th:if="${customers.hasNext()}" >
-        <a th:href="@{'/customer'(page=${customers.number -1})}" th:if="${customers.hasPrevious()}">Previous</a>
+    <div class="paging" th:if="${customers.hasNext()||customers.hasPrevious()}" >
+        <a th:href="@{'/customer-using-service'(page=${customers.number -1})}" th:if="${customers.hasPrevious()}">Previous</a>
         <span th:text="${customers.number +1}"></span>
         /<span th:text="${customers.totalPages}"></span>
-        <a th:href="@{'/customer'(page=${customers.number +1})}" th:if="${customers.hasNext()}">Next</a>
+        <a th:href="@{'/customer-using-service'(page=${customers.number +1})}" th:if="${customers.hasNext()}">Next</a>
     </div>
 </div>
 </body>

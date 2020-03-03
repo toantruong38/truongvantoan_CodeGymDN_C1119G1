@@ -96,7 +96,10 @@
                 <option value="Female">Female</option>
             </select>
             <label><b>Birth</b></label>
-            <input type="datetime-local" th:field="*{birth}"><br/>
+            <input type="date" th:field="*{birth}"><br/>
+            <span th:if="${#fields.hasErrors('birth')}" class="error"
+                  th:each="e:${#fields.errors('birth')}"
+                  th:text="${e}"></span><br>
             <label><b>Address</b></label>
             <input type="text" th:field="*{address}">
             <label><b>Customer type</b></label>
