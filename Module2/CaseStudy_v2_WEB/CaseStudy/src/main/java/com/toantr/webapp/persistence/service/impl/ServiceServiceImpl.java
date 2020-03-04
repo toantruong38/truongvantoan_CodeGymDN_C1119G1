@@ -43,4 +43,10 @@ public class ServiceServiceImpl implements ServiceService
     {
         serviceRepo.deleteById(id);
     }
+
+    @Override
+    public Page<Service> findAllByStatus(String status, Pageable pageable)
+    {
+        return serviceRepo.findAllByStatus(status, pageable);
+    }
 }

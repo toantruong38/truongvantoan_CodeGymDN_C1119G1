@@ -91,8 +91,8 @@
         <a th:href="@{'/service'(page=${services.number +1})}" th:if="${services.hasNext()}">Next</a>
     </div>
     <div class="search" >
-        <form th:action="@{/customer-search}" style="position: absolute;right: 192px;margin-top: -16px;">
-            <input type="text" placeholder="Enter service status" name="customerName"/>
+        <form th:action="@{/service-search}" style="position: absolute;right: 192px;margin-top: -16px;">
+            <input type="text" placeholder="Enter service status" name="serviceStatus"/>
             <input type="submit" value="Search"/>
         </form>
     </div>

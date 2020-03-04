@@ -13,4 +13,5 @@ public interface ServiceRepo extends JpaRepository<Service,Long>
     //TODO findUnusedService
     @Query("select s from Service s where s.serviceType.name like %?1%")
     Page<Service> findAllWhereNameBeLike(String name, Pageable pageable);
+    Page<Service> findAllByStatus(String serviceStatus,Pageable pageable);
 }

@@ -62,4 +62,8 @@ public class SecurityController
         redirectAttributes.addFlashAttribute("status","Register successfully!");
         return "redirect:/login";
     }
+    @GetMapping("/admin")
+    public String handleAdminSite(){
+        return "security/admin";
+    }
 }

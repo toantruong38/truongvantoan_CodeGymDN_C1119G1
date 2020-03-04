@@ -12,4 +12,5 @@ public interface ServiceService
 
     void save(Service service);
     void remove(Long id);
+    Page<Service> findAllByStatus(String status,Pageable pageable);
 }

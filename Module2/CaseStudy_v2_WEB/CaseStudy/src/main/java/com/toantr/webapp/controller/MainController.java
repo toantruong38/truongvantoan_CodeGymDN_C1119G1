@@ -368,4 +368,19 @@ public class MainController
         commentRepo.save(comment);
         return "redirect:/comment";
     }
+    @GetMapping("/service-search")
+    public String handleServiceSearch(@RequestParam("serviceStatus")String serviceStatus,
+                                      Pageable pageable,
+                                      Model model){
+        pageable=PageRequest.of(0,5);
+        model.addAttribute("services",serviceService.findAllByStatus(serviceStatus,pageable));
+        return "service/display";
+    }
+    @GetMapping("/customer-search")
+    public String handleCustomerSearch(@RequestParam("customerName")String customerName,
+                                       Pageable pageable,Model model){
+        pageable=PageRequest.of(0,5);
+        model.addAttribute("customers",customerService.findAllWhereNameBeLike(customerName,pageable));
+        return "customer/display";
+    }
 }
