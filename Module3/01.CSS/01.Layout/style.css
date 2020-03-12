@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+}
+#header{
+    background: blanchedalmond;
+    height: 100px;
+    width: 100%;
+}
+#main{
+    background: bisque;
+    width: 70%;
+    height: 380px;
+    float: left;
+}
+#side-bar{
+    background: cyan;
+    width: 30%;
+    height: 380px;
+    float: left;
+}
+#footer{
+    background: greenyellow;
+    height: 100px;
+    width: 100%;
+    clear: both;
+}

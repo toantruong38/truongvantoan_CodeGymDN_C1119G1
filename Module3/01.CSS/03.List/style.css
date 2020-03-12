@@ -1,0 +1,40 @@
+
+body{
+    margin:2px;
+}
+
+.circle{
+    list-style-type: circle;
+}
+.square{
+    list-style-type: square;
+}
+.u-roman{
+    list-style-type: upper-roman;
+}
+.l-alpha{
+    list-style-type: lower-alpha;
+}
+.img-ulist{
+    margin: 100px;
+    list-style-image: url("http://www.picsum.photos/200/200");
+}
+.lsp-inside{
+    list-style-position: inside;
+}
+.lsp-outside{
+    list-style-position: outside;
+}
+.ul-shorthand{
+    list-style: square inside url("http://www.picsum.photos/100/100");
+}
+.color-ul{
+    background-color: teal;
+}
+.color-ul li{
+    background-color: yellow;
+}
+.color-ol li{
+    background-color: aqua;
+    margin: 20px 0;
+}

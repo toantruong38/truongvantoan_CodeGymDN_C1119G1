@@ -1,0 +1,37 @@
+body{
+    margin:0;
+}
+.head{
+    background-color: rgb(170, 68, 230);
+    height: 100px;
+    width: 100%;
+
+}
+.head-link{
+    background-color: aqua;
+    height: 30px;
+}
+.left{
+    background-color: yellow;
+    width: 15%;
+    height: 450px;
+    float: left;
+}
+.content{
+    background-color: rgb(47, 209, 47);
+    width: 70%;
+    height: 450px;
+    float: left;
+}
+.right{
+    background-color: cornflowerblue;
+    width: 15%;
+    height: 450px;
+    float: left;
+}
+.footer{
+    background-color: coral;
+    height: 85px;
+    top:450px;
+    position: relative;
+}
