@@ -1,0 +1,79 @@
+body{
+    margin: 20px;
+}
+.main{
+    position: relative;
+    background-color: rgba(223, 219, 219, 0.904);
+    width: 60%;
+    height: 120%;
+    margin: auto; 
+}
+.profile-img{
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    border-radius: 85px;
+    margin: 40px;
+    background-image: url('xuan-phuc.jpg');
+}
+.full-name{
+    position: absolute;
+    /* background-color: yellowgreen; */
+    width: fit-content;
+    height: fit-content;
+    top: 10%;
+    left: 70%;
+}
+.underline-color{
+    position: absolute;
+    width: 200px;
+    height: 3px;
+    background-image: linear-gradient(to right,red,purple);
+}
+.full-name h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.information{
+    width: 89%;
+    height: fit-content;
+    position: absolute;
+    top: 30%;
+    left: 6%;
+}
+.email{
+    position: absolute;
+    right: 0;
+}
+.divider{
+    background-image: linear-gradient(to right,yellow,white,green,cyan);
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+}
+.education{
+    /* background-color: yellow; */
+    width: 89%;
+    height: 50px;
+    position: absolute;
+    top: 52%;
+    left: 6%;
+}
+.vertical-divider{
+    height: 45%;
+    width: 3px;
+    background-image: linear-gradient(to bottom,white,purple);
+    position: absolute;
+    top: 55%;
+    left: 50%;
+}
+.skills{
+    position: absolute;
+    top:52%;
+    right:30%;
+}
+.feature{
+    position: absolute;
+    top: 64%;
+    right: 24%;
+}
