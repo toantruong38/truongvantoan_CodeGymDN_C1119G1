@@ -1,0 +1,313 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css" />
+    <script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css" />
+    <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <style>
+        .selectable .ui-selecting {
+            background: #feca40;
+        }
+
+        .selectable .ui-selected {
+            background: #f39814;
+        }
+
+        .selectable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 60%;
+        }
+
+        .selectable li {
+            margin: 3px;
+            padding: 0.4em;
+            font-size: 1.4em;
+            height: 18px;
+        }
+
+        .sortable li {
+            background-color: rgba(207, 202, 202, 0.815);
+            border: 0.5px solid black;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .sortable {
+            list-style: none;
+        }
+    </style>
+</head>
+<script>
+    $(document).ready(function ()
+    {
+        $(".draggable").draggable();
+        $(".droppable").droppable({
+            drop: function ()
+            {
+                $(this)
+                    .find("h1")
+                    .html("Hurayy!");
+            }
+        });
+        $(".resizable").resizable();
+        $(".selectable").selectable();
+        $(".sortable").sortable();
+        $(".sortable").disableSelection();
+        $(".accordion").accordion();
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $("#tag").autocomplete({
+            source: availableTags
+        });
+        $("#date").datepicker();
+        $("#dialog").dialog();
+        $("#slider").slider();
+        $("#progress-bar").progressbar({
+            value: 80
+        });
+        var spinner = $("#input-value").spinner();
+        $("#disable").on("click", function ()
+        {
+            if (spinner.spinner("option", "disabled"))
+            {
+                spinner.spinner("enable");
+            } else
+            {
+                spinner.spinner("disable");
+            }
+        });
+        $("#destroy").on("click", function ()
+        {
+            if (spinner.spinner("instance"))
+            {
+                spinner.spinner("destroy");
+            } else
+            {
+                spinner.spinner();
+            }
+        });
+        $("#get-value").on("click", function ()
+        {
+            alert(spinner.spinner("value"));
+        });
+        $("#set-value").on("click", function ()
+        {
+            spinner.spinner("value", 5);
+        });
+        $("#tabs").tabs();
+    });
+</script>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="panel panel-default">
+                    <div class="panel-body bg-info draggable py-5">
+                        <h1>Draggable</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-2 bg-primary mr-5 draggable " style="float: left;">
+                <h4>Drag me!</h4>
+            </div>
+            <div class="col-7 ml-5 bg-warning droppable " style="height: 200px; float: left;">
+                <h1>Into this</h1>
+            </div>
+        </div>
+
+        <div class="row my-5 resizable">
+            <div class="col bg-warning">Resize me!</div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-8">
+                <ul class="selectable">
+                    <li>Item1</li>
+                    <li>Item2</li>
+                    <li>Item3</li>
+                    <li>Item4</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-8">
+                <ul class="sortable">
+                    <li>Item1</li>
+                    <li>Item2</li>
+                    <li>Item3</li>
+                    <li>Item4</li>
+                    <li>Item5</li>
+                    <li>Item6</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-8 accordion">
+                <h3>Section 1</h3>
+                <div>
+                    <p>
+                        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam.
+                        Integer ut neque. Vivamus nisi metus, molestie vel, gravida in,
+                        condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam
+                        mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a
+                        velit eu ante scelerisque vulputate.
+                    </p>
+                </div>
+                <h3>Section 2</h3>
+                <div>
+                    <p>
+                        Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit
+                        amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris
+                        turpis porttitor velit, faucibus interdum tellus libero ac justo.
+                        Vivamus non quam. In suscipit faucibus urna.
+                    </p>
+                </div>
+                <h3>Section 3</h3>
+                <div>
+                    <p>
+                        Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque
+                        lobortis. Phasellus pellentesque purus in massa. Aenean in pede.
+                        Phasellus ac libero ac tellus pellentesque semper. Sed ac felis.
+                        Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu
+                        iaculis leo purus venenatis dui.
+                    </p>
+                    <ul>
+                        <li>List item one</li>
+                        <li>List item two</li>
+                        <li>List item three</li>
+                    </ul>
+                </div>
+                <h3>Section 4</h3>
+                <div>
+                    <p>
+                        Cras dictum. Pellentesque habitant morbi tristique senectus et
+                        netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum
+                        primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                        Aenean lacinia mauris vel est.
+                    </p>
+                    <p>
+                        Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat
+                        lectus. Class aptent taciti sociosqu ad litora torquent per
+                        conubia nostra, per inceptos himenaeos.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <label for="tag">Tags: </label>
+            <input type="text" id="tag" />
+        </div>
+
+        <div class="row my-5">
+            <label for="date">Date: </label>
+            <input type="text" id="date" />
+        </div>
+
+        <div class="row">
+            <div id="dialog" title="Basic dialog">
+                <p>Content here!</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+                <div id="slider"></div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-6">
+                <div id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-6">
+                <div class="row my-2">
+                    <label for="input-value">Set a value: </label>
+                    <input type="text" id="input-value" name="input" />
+                </div>
+                <div class="row my-2">
+                    <button id="disable" class="mr-2 btn btn-success">
+                        Toggle disable/enable
+                    </button>
+                    <button id="destroy" class="btn btn-info">Toggle widget</button>
+                </div>
+                <div class="row my-2">
+                    <button id="get-value" class="mr-2 btn btn-primary">
+                        Get value
+                    </button>
+                    <button class="btn btn-warning" id="set-value">
+                        Set value to 5
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-8">
+                <div id="tabs">
+                    <ul>
+                        <li>
+                            <a href="#tab-1">Tab 1</a>
+                        </li>
+                        <li>
+                            <a href="#tab-2">Tab 2</a>
+                        </li>
+                        <li>
+                            <a href="#tab-3">Tab 3</a>
+                        </li>
+                    </ul>
+                    <div id="tab-1">
+                        <p>Tab 1 content</p>
+                    </div>
+                    <div id="tab-2">
+                        <p>Tab 2 content</p>
+                    </div>
+                    <div id="tab-3">
+                        <p>Tab 3 content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

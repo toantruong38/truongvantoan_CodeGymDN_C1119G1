@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(
+            function(){
+                $("#hide").click(function(){$("h2").hide()});
+                $("#show").click(function(){$("h2").show()});
+                $("#animation").click(
+                    function(){
+                        $(".box").animate({
+                            left:'250px',
+                            height:'200px',
+                            width:'250px',
+                            fontSize:'50px',
+                        },"slow")
+                    }
+                );
+            }
+        );
+    </script>
+    <style>
+        .box{
+            position: relative;
+            height: 70px;
+            width: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>If you click on the the "Hide" button,i'll disappear</h2>
+        <button id="hide">Hide</button>
+        <button id="show">Show</button>
+    </div>
+    <div>
+        <button id="animation">
+            start animation
+        </button>
+        <div class="box">
+            <p>HELLO</p>
+        </div>
+    </div>
+</body>
+</html>
