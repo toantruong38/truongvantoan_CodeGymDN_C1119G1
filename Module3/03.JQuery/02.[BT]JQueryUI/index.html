@@ -43,6 +43,26 @@
         .sortable {
             list-style: none;
         }
+
+        .newClass {
+            text-indent: 40px;
+            letter-spacing: .4em;
+            width: 410px;
+            height: 120px;
+            padding: 30px;
+            margin: 10px;
+            font-size: 1.1em;
+        }
+
+        .newClass2 {
+            text-indent: 40px;
+            letter-spacing: .4em;
+            width: 410px;
+            height: 100px;
+            padding: 30px;
+            margin: 10px;
+            font-size: 1.6em;
+        }
     </style>
 </head>
 <script>
@@ -125,6 +145,18 @@
             spinner.spinner("value", 5);
         });
         $("#tabs").tabs();
+        $(".change-class").on("click", function ()
+        {
+            $("#effect").addClass("newClass", 1000, callback);
+        });
+        function callback()
+        {
+            setTimeout(function () { $("#effect").removeClass("newClass"); }, 1500);
+        };
+        $("#button").on("click", function ()
+        {
+            $("#effect2").removeClass("newClass2", 1000, callback);
+        });
     });
 </script>
 
@@ -307,7 +339,23 @@
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="row mt-5">
+            <div class="col bg-info" id="effect">
+                <p>Content</p>
+            </div>
+            <div class="btn btn-primary change-class">Run effect</div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="toggler">
+                <div id="effect2" class="newClass2 ui-corner-all">
+                    Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede.
+                </div>
+            </div>
+
+            <button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+        </div>
 </body>
 
 </html>
