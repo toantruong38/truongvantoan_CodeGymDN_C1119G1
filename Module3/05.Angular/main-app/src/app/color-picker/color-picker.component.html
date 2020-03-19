@@ -1,0 +1,15 @@
+<h1>Color picker</h1>
+<div class="card bg-color" [style.background-color]="bgColor">
+    <div class="card-body text-center d-flex justify-content-center align-items-center flex-column">
+        <p>My background color will be changed</p>
+        <button id="color-picker-3" class="btn btn-outline-primary btn-sm" (click)="isSelected=!isSelected">Color
+            Picker</button>
+    </div>
+</div>
+<!-- <button class="btn btn-default" [style.background-color]="'#40ff00'">#40ff00</button>
+<button class="btn btn-default" [style.background-color]="colors[0]">#40ff00</button> -->
+<div class="picker" [hidden]="!isSelected">
+    <button class="btn btn-outline-default" *ngFor="let c of colors" [style.background-color]="c"
+        (click)="handleClick(c)">Pick me
+        daddy!</button>
+</div>

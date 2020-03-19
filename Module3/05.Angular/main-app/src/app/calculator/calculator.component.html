@@ -1,0 +1,41 @@
+<!-- <div class="col-md-3">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-text text-right">Result here*</h3>
+        </div>
+        <div class="card-body mx-4">
+            <button class="btn btn-outline-primary">7</button>
+            <button class="btn btn-outline-primary">8</button>
+            <button class="btn btn-outline-primary">9</button>
+            <button class="btn btn-outline-primary" [disabled]="isOperator">/</button>
+            <button class="btn btn-outline-primary">4</button>
+            <button class="btn btn-outline-primary">5</button>
+            <button class="btn btn-outline-primary">6</button>
+            <button class="btn btn-outline-primary" [disabled]="isOperator">*</button>
+            <button class="btn btn-outline-primary">1</button>
+            <button class="btn btn-outline-primary">2</button>
+            <button class="btn btn-outline-primary">3</button>
+            <button class="btn btn-outline-primary" [disabled]="isOperator">-</button>
+            <button class="btn btn-outline-primary">0</button>
+            <button class="btn btn-outline-primary">1</button>
+            <button class="btn btn-outline-primary" [disabled]="isOperator">=</button>
+            <button class="btn btn-outline-primary" [disabled]="isOperator">+</button>
+            <button class="btn btn-outline-primary">C</button>
+            <button class="btn btn-outline-primary">x</button>
+        </div>
+    </div>
+</div> -->
+
+<h3>Awesome calculator</h3>
+<div class="controls">
+    <input type="number" #op1>
+    <select #command>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="number" #op2>
+</div>
+<button class="btn btn-primary" (click)="handleExecute(op1.value,op2.value,command.value)">Execute!</button>
+<h5>Result: {{result}}</h5>

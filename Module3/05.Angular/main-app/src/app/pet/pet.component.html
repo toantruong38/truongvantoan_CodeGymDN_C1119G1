@@ -1,0 +1,16 @@
+<h3>Pet profile</h3>
+<div class="pet-info">
+    <div>
+        <label>Pet name: </label>
+        <input type="text" [value]="petName" class="form-control" #petNameF
+            (change)="handlePetNameChange(petNameF.value)">
+    </div>
+    <div>
+        <label>Pet image: </label>
+        <input type="text" [value]="petImg" class="form-control" #petImgF (change)="handlePetImgChange(petImgF.value)">
+    </div>
+</div>
+<div class="display-pet">
+    <h4>Pet name: {{petName}}</h4>
+    <img [src]="petImg" alt="petImg">
+</div>

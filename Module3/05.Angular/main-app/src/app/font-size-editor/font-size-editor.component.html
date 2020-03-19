@@ -1,0 +1,6 @@
+<h2>Font size editor</h2>
+<div>
+    <label>Enter font-size(px):</label>
+    <input type="number" value="14" #fontSize (change)="handleChange(fontSize.value)">
+</div>
+<h4 [style.font-size.px]="fontSize.value">Cong hoa xa hoi chu nghia viet nam. Doc lap- tu do - hanh phuc</h4>
