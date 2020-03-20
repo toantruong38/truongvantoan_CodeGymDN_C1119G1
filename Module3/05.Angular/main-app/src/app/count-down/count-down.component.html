@@ -1,0 +1,17 @@
+<h3>Count down</h3>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-center">
+                <button class="btn btn-outline-primary m-1 d-md-inline" (click)="start()">Start</button>
+                <button class="btn btn-outline-primary m-1 d-md-inline" (click)="isRunning=false">Stop</button>
+                <button class="btn btn-outline-primary m-1 d-md-inline"
+                    (click)="counter=countValue.value">Reset</button>
+                <input type="number" class="m-1 d-md-inline form-control" min="0" #countValue
+                    (change)="counter=countValue.value">
+            </div>
+            <input type="text" class="card-body text-center form-control" name="counter" [(ngModel)]="counter"
+                [value]="counter" disabled />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<h3>Rating bar</h3>
+<div class="row ">
+    <div class="col">
+        <i class="far fa-star fa-4x text-warning" [class]="s.isHovered?'fas':'far'" *ngFor="let s of stars;index as i"
+            (mouseover)="handleMouseOver(i)" (click)="handleMouseClicked()" (mouseleave)="handleMouseLeave()"></i>
+    </div>
+</div>
+<div class="row mb-5" [hidden]="!isLocked">
+    <h4 class="col">Congratulation! {{currentStarIndex+1}} {{ + currentStarIndex+1>1?" stars":" star"}}.</h4>
+</div>
