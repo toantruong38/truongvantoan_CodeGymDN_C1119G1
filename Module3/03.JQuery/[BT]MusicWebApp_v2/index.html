@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4e41892942.js" crossorigin="anonymous"></script>
+
+
+    <script>
+        var songs = [
+            { songName: "Tritonia 293: Ultra ASOT 2020 Set", url: '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/781146214&color=%2325190f&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>' },
+            { songName: "BREACH - JACK (AWOLTALK FLIP)", url: '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/775177825&color=%2325190f&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>' },
+            { songName: "VELVET", url: '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/779693275&color=%2325190f&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>' },
+            { songName: "RayRay & Bellorum - Neon City", url: '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/779522134&color=%2325190f&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>' },
+            { songName: "Debonair Samir - Samir's Theme (ID Remix) | The ID Leak #006", url: '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/778778185&color=%2325190f&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>' },
+            { songName: "The Deep", url: '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/777431452&color=%2325190f&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>' }
+        ];
+        var isPlaying = false;
+        var isPlayingClass = "fas fa-stop-circle fa-lg";
+        var isNotPlayingClass = "fas fa-play-circle fa-lg";
+        var currentSongIndex = 0;
+        function nextSong()
+        {
+            currentSongIndex++;
+            if (currentSongIndex >= songs.length)
+            {
+                currentSongIndex = 0;
+            }
+            $(".player").html(songs[currentSongIndex].url);
+            $(".active").removeClass("active");
+            $(`#song${currentSongIndex}`).addClass("active");
+        }
+        function previousSong()
+        {
+            currentSongIndex--;
+            if (currentSongIndex < 0)
+            {
+                currentSongIndex = songs.length - 1;
+            }
+            $(".player").html(songs[currentSongIndex].url);
+            $(".active").removeClass("active");
+            $(`#song${currentSongIndex}`).addClass("active");
+        }
+        function onSongSelect(index)
+        {
+            currentSongIndex = index;
+            $(".active").removeClass("active");
+            $(`#song${currentSongIndex}`).addClass("active");
+            $(".player").html(songs[currentSongIndex].url);
+        }
+        $(document).ready(() =>
+        {
+            var playList = $("#play-list");
+            let songList = "";
+            songs.map((value, index) =>
+            {
+                songList += `<li class="list-group-item ${index === 0 ? 'active' : ''}" id="song${index}" onclick="onSongSelect(${index})">${value.songName}</li>`;
+            });
+            playList.html(songList);
+
+            $(".player").html(songs[currentSongIndex].url);
+
+            $("#playBtn").click(() =>
+            {
+                var playIcon = $("#playIcon");
+                isPlaying = !isPlaying;
+                if (isPlaying)
+                {
+                    playIcon.removeClass(isPlayingClass);
+                    playIcon.addClass(isNotPlayingClass);
+                } else
+                {
+                    playIcon.removeClass(isNotPlayingClass);
+                    playIcon.addClass(isPlayingClass);
+                }
+            });
+            $("#next").click(nextSong);
+            $("#previous").click(previousSong);
+        });
+    </script>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav class="nav nav-tabs ">
+                    <a class="nav-link active" href="#">Active link</a>
+                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link disabled" href="#">Disabled link</a>
+                </nav>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <ul class="list-group" id="play-list">
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="player">
+                            <!-- <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+                                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/781146214&color=%2325190f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe> -->
+                        </div>
+                        <div class="controls text-center">
+                            <button class="btn btn-primary" title="Previous" id="previous">
+                                <i class="fas fa-backward fa-lg  "></i>
+                            </button>
+                            <!-- <button class="btn btn-primary" id="playBtn">
+                                <i class="fas fa-play-circle fa-lg" id="playIcon"></i>
+                            </button> -->
+                            <button class="btn btn-primary" title="Next" id="next">
+                                <i class="fas fa-forward fa-lg  "></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

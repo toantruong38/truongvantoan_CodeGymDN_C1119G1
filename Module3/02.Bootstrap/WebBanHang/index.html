@@ -1,0 +1,280 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/4e41892942.js" crossorigin="anonymous"></script>
+
+    <script src="main.js"></script>
+
+    <style>
+        /* ::placeholder {
+            color: red;
+        } */
+        .right-form-control::-webkit-input-placeholder {
+            color: white;
+            opacity: 70%;
+        }
+    </style>
+    <script>
+        function onAddToCart(product)
+        {
+            console.log(product);
+        }
+
+        $(document).ready(() =>
+        {
+            var products = [];
+            var modalData = "";
+            products.push(...getProducts());
+
+            var productsData = "";
+
+            products.map((p, index) =>
+            {
+                productsData += `<div class="col-md-4 my-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="${p.imgUrl}" alt="img" class="card-img" width="150" height="150">
+                                <h4 class="card-title">${p.name}</h4>
+                                <h5 class="card-text">${p.price + " vnd"}</h5>
+                                <p class="card-text">${p.description}</p>
+                                <button class="btn btn-warning" onclick="onAddToCart(index)">
+                                    <i class="fas fa-shopping-cart    "></i>
+                                    Them vao gio hang
+                                </button>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+
+            $("#product-list").html(productsData);
+
+            $("#bai-2").hide();
+
+            $("#dang-ky").click(() =>
+            {
+                $("#bai-1").hide();
+                $("#bai-2").show();
+            });
+
+            $("#trang-chu").click(() =>
+            {
+                $("#bai-1").show();
+                $("#bai-2").hide();
+            });
+
+            $("#right-sight-form").find(".form-control").addClass("right-form-control text-light");
+
+            $("#submit-btn").on("click", () =>
+            {
+                $("#left-sight-form").find(".row").children().map((index, el) =>
+                {
+                    modalData += `<strong>${el.getAttribute("placeholder")}: </strong>${el.value}<br/>`;
+                });
+                modalData += `<strong>--------------------------------------------</strong><br/>`;
+                $("#right-sight-form").find(".row").children().map((index, el) =>
+                {
+                    modalData += el.value !== undefined ? `<strong>${el.getAttribute("placeholder")}: </strong>${el.value}<br/>` : '';
+                });
+                modalData += `<strong>Accept the terms ? </strong>${$("#accept-term")[0].checked ? "Yes" : "Nope"}`;
+                $(".modal-body").html(modalData);
+            });
+            $("#modal-dismiss-btn").click(() =>
+            {
+                modalData = "";
+            });
+
+            $("#ajax-btn").click(() =>
+            {
+                // $.getJSON("https://api.meetup.com/2/cities", data =>
+                // {
+                //     console.log(data);
+                // });
+
+                // $.get("https://api.meetup.com/2/cities", data =>
+                // {
+                //     console.log(data);
+                // }, "json");
+
+                $.ajax({
+                    url: "https://api.meetup.com/2/cities",
+                    accepts: "json",
+                    type: "GET",
+                    success: function (data)
+                    {
+                        $("#display-data")[0].innerText = JSON.stringify(data);
+                        // console.log(data.results[0]);
+                    },
+                    dataType: "jsonp"
+                    // headers: {
+                    //     'Accept': 'application/json',
+                    //     'Content-Type': 'application/json',
+                    //     'Access-Control-Allow-Origin': '*'
+                    // }
+                });
+
+                // var http = new XMLHttpRequest();
+                // http.onreadystatechange = function ()
+                // {
+                //     if (this.readyState === 4 && this.status === 200)
+                //     {
+                //         console.log(this.responseText);
+                //     }
+                // }
+                // http.open("GET", "https://api.meetup.com/2/cities");
+                // http.send();
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="navbar navbar-expand-md navbar-light bg-light">
+                    <div class="nav-item">
+                        <a href="#" class="nav-link" id="trang-chu">Trang chu</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">Thanh toan</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link" id="dang-ky">Dang ky</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="bai-1">
+            <div class="col-md-3 my-3">
+                <h5 class="bg-light text-center">Gio hang</h5>
+                <ul class="list-group" id="cart">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4">Img</div>
+                            <div class="col-md-8">iPhone 11 64GB</div>
+                        </div>
+                        <div class="row">
+                            <button class="btn btn-primary col-md-4">-</button>
+                            <div class="col-md-4 text-center p-auto">0</div>
+                            <button class="btn btn-primary col-md-4">+</button>
+                        </div>
+                    </li>
+                    <li class="list-group-item">P2</li>
+                    <li class="list-group-item">P3</li>
+                    <h5 class="bg-light " id="total-pay">Tong tien: </h5>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <div class="row" id="product-list">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="bai-2" class="row my-2 mx-0">
+            <div class="col-md-6 p-5">
+                <h4 class="text-primary">General Information</h4>
+                <form id="left-sight-form">
+                    <div class="row">
+                        <input type="text" id="title" class="form-control mt-4" placeholder="Title">
+                        <input type="text" id="first-name" class="form-control mt-4 col-6" placeholder="First Name">
+                        <input type="text" id="last-name" class="form-control mt-4 col-6" placeholder="Last Name">
+                        <input type="text" id="position" class="form-control mt-4" placeholder="Position">
+                        <input type="text" id="company" class="form-control mt-4" placeholder="Company">
+                        <input type="text" id="business-arena" class="form-control mt-4 col-7"
+                            placeholder="Business Arena">
+                        <input type="text" id="employee" class="form-control mt-4 col-5" placeholder="Employee">
+                    </div>
+                </form>
+
+                <p id="display-data"></p>
+            </div>
+            <div class="col-md-6 bg-primary p-5">
+                <h4 class="text-light">Contact Details</h4>
+                <form id="right-sight-form">
+                    <div class="row">
+                        <input type="text" id="street" class="form-control mt-4 bg-primary" placeholder=" Street + Nr">
+
+                        <input type="text" id="additional-information" class="form-control mt-4 bg-primary"
+                            placeholder="Additional Information">
+
+                        <input type="text" id="zip-code" class="form-control mt-4 col-6 bg-primary"
+                            placeholder="Zip Code">
+                        <input type="text" id="place" class="form-control mt-4 col-6 bg-primary" placeholder="Place">
+
+                        <input type="text" id="country" class="form-control mt-4 bg-primary" placeholder="Country">
+
+                        <input type="text" id="code" class="form-control mt-4 col-5 bg-primary" placeholder="Code +">
+                        <input type="text" id="phone" class="form-control mt-4 col-7 bg-primary"
+                            placeholder="Phone Number">
+
+                        <input type="text" id="email" class="form-control mt-4 bg-primary" placeholder="Your email">
+
+                        <label class="form-check-label text-light col-7 mt-4">
+                            <input type="radio" class="form-check-input" name="" id="accept-term" value="checkedValue"
+                                checked>
+                            I do accept the <a href="#" class="text-light">Terms and Conditions</a> of your site
+                        </label>
+
+                    </div>
+
+                    <!-- trigger modal button -->
+                    <button class="badge badge-pill badge-light mt-4 p-3"
+                        style="border: none;font-weight: 600; font-size: large;" id="submit-btn" data-toggle="modal"
+                        data-target="#exampleModalScrollable">
+                        Register Badge
+                    </button>
+                    <button class="badge badge-pill badge-light mt-4 p-3"
+                        style="border: none;font-weight: 600; font-size: large;" id="ajax-btn">
+                        Ajax
+                    </button>
+                </form>
+            </div>
+        </div>
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+            Launch demo modal
+        </button> -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">Information</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <strong>First name: </strong>Truong Toan
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            id="modal-dismiss-btn">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
