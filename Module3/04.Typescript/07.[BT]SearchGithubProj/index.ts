@@ -1,36 +1,87 @@
-import "../scss/styles.scss";
-interface ISingleRepo {
-  name: string;
-}
-interface IRepos {
-  items: Array<ISingleRepo>;
-}
-async function fetchRepo(): Promise<Array<ISingleRepo>> {
-  let res: Response | IRepos = await fetch(
-    "https://api.github.com/search/repositories?q=angular"
-  );
-  res = (await res.json()) as IRepos;
-  return res.items;
-}
+const projects = [];
+var htmlTable = ``;
+// const http = new XMLHttpRequest();
+// http.addEventListener("load", () => {
+//   console.log(http.responseText);
+// });
+// http.open("GET", "https://api.github.com/search/repositories?q=angular");
+// http.send();
 
-function createItem(text: string): HTMLLIElement {
-  const item = document.createElement("li") as HTMLLIElement;
-  item.textContent = text;
-  return item;
+// async function getData(query) {}
+// function onSearch(input: HTMLInputElement) {
+//   let htmlTable = ``;
+//   const result = new Promise(resolve => {
+//     fetch(`https://api.github.com/search/repositories?q=${input.value}`).then(
+//       (response: Response) => {
+//         response.json().then(data => projects.push(...data.items));
+//         resolve();
+//       }
+//     );
+//   });
+//   result.then(resolve => {
+//     htmlTable += `
+//         <table>
+//             <tr>
+//                 <th>#id</th>
+//                 <th>name</th>
+//                 <th>clone_url</th>
+//                 <th>description</th>
+//             </tr>
+//     `;
+//     projects.map(proj => {
+//       htmlTable += `<tr>
+//       <td>${proj.id}</td>
+//       <td>${proj.name}</td>
+//       <td>${proj.clone_url}</td>
+//       <td>${proj.description}</td>
+//       </tr>`;
+//     }); //clone_url,description,name,id
+//     htmlTable += `</table>`;
+//     document.getElementById("result").innerHTML = htmlTable;
+//   });
+//   // getData(input.value).then(() => {});
+// }
+
+async function getData(query) {
+  return new Promise(resolve => {
+    fetch(`https://api.github.com/search/repositories?q=${query}`).then(
+      (response: Response) => {
+        response.json().then(data => projects.push(...data.items));
+        resolve();
+      }
+    );
+  });
 }
-
-const container = document.querySelector(".app .list");
-
-async function main() {
-  // step 1: fetch repo
-  const res = await fetchRepo();
-  // step 2: lặp qua mảng các item trả về
-  // step 3: call hàm createItem sau đó truyền vào name của từng item ở mỗi vòng lặp
-  // step 4: call hàm container.appendChild(item mà hàm createItem trả về)
-  res.forEach((item: any) => {
-    const li = createItem(item.name);
-    container.appendChild(li);
+function onSearch(input: HTMLInputElement) {
+  htmlTable = ``;
+  getData(input.value).then(resolve => {
+    drawData().then(resolve => {
+      document.getElementById("result").innerHTML = htmlTable;
+    });
   });
 }
 
-main();
+async function drawData() {
+  return new Promise(resolve => {
+    htmlTable = `
+        <table>
+            <tr>
+                <th>#id</th>
+                <th>name</th>
+                <th>clone_url</th>
+                <th>description</th>
+            </tr>
+    `;
+    projects.map(proj => {
+      htmlTable += `<tr>
+      <td>${proj.id}</td>
+      <td>${proj.name}</td>
+      <td>${proj.clone_url}</td>
+      <td>${proj.description}</td>
+      </tr>`;
+    });
+    htmlTable += `</table>`;
+    console.log(projects);
+    resolve();
+  });
+}
