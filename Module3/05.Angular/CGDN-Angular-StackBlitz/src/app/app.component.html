@@ -1,0 +1,13 @@
+<app-top-bar></app-top-bar>
+
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- 
+Để hiển thị nội dung tương ứng của component đã load, chúng ta sẽ cần dùng component có tên là router-outlet, nội dung
+của component đã được chỉ định được load cùng với url path sẽ được nằm trong đây. Sở dĩ phải đưa vào một component riêng
+như vậy vì không phải lúc nào chúng ta cũng muốn thay đổi nguyên nội dung cả trang khi url path mới được load, mà thông
+thường chỉ cần thay đổi một phần trong trang. Sử dụng router-outlet sẽ giúp ta chỉ định rõ phần thay đổi và kiểm soát
+nội dung trong trang tốt hơn
+-->

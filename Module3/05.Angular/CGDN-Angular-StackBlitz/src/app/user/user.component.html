@@ -1,0 +1,16 @@
+<h3>Sử dụng ngoac nhon để biding dữ liệu</h3>
+<p>
+  {{ name }}
+</p>
+
+<h3> Sử dụng atrribute để bidin liệu</h3>
+<input value="{{ name }}" />
+
+<h3> Sử dụng atrribute để biding dư liệu cách thứ 2. Cái này được khuyên nên </h3>
+<input [value]="name" />
+
+<h3> Binding sự kiện </h3>
+<button (click)="onButtonClicked()">Change Name</button>
+
+<h3> 2 way Binding sự kiện </h3>
+<input [(ngModel)]="name" />
