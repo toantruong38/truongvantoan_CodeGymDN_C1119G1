@@ -1,0 +1,58 @@
+<form [formGroup]="newServiceForm">
+    <div class="form-group">
+        <label for="area">Dien tich</label>
+        <input type="text" class="form-control" id="area" formControlName="area">
+        <div class="alert alert-danger" *ngIf="area.touched&&area.invalid">
+            <div *ngIf="area.errors.required">Dien tich khong duoc de trong</div>
+            <div *ngIf="area.errors.min">Dien tich khong the nho hon 0</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="floorAmount">So tang</label>
+        <input type="text" class="form-control" id="floorAmount" formControlName="floorAmount">
+        <div class="alert alert-danger" *ngIf="floorAmount.touched&&floorAmount.invalid">
+            <div *ngIf="floorAmount.errors.required">So tang khong duoc de trong</div>
+            <div *ngIf="floorAmount.errors.min">So tang khong the nho hon 0</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="freeAccompanyService">Dich vu di kem</label>
+        <input type="text" class="form-control" id="freeAccompanyService" formControlName="freeAccompanyService">
+        <div class="alert alert-danger" *ngIf="freeAccompanyService.touched&&freeAccompanyService.invalid">
+            <div *ngIf="freeAccompanyService.errors.required">Ngay sinh khong duoc de trong</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="maximumPeople">So nguoi toi da</label>
+        <input type="text" class="form-control" id="maximumPeople" formControlName="maximumPeople">
+        <div class="alert alert-danger" *ngIf="maximumPeople.touched&&maximumPeople.invalid">
+            <div *ngIf="maximumPeople.errors.required">So nguoi toi da khong duoc de trong</div>
+            <div *ngIf="maximumPeople.errors.isNotMatchPattern">So nguoi toi da khong duoc nho hon 0</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description">Mo ta tien nghi khac</label>
+        <input type="text" class="form-control" id="description" formControlName="description">
+        <div class="alert alert-danger" *ngIf="description.touched&&description.invalid">
+            <div *ngIf="description.errors.required">Mo ta tien nghi khac khong duoc de trong</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="roomStandard">Tieu chuan phong</label>
+        <select class="form-control" id="roomStandard" formControlName="roomStandard">
+            <option value="vip">Vip</option>
+            <option value="silver">Silver</option>
+            <option value="gold">Gold</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="roomStandard.touched&&roomStandard.invalid">
+            <div *ngIf="roomStandard.errors.required">Tieu chuan phong khong duoc de trong</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="status">Trang thai</label>
+        <input type="text" class="form-control" id="status" formControlName="status">
+        <div class="alert alert-danger" *ngIf="status.touched&&status.invalid">
+            <div *ngIf="status.errors.required">Trang thai khong duoc de trong</div>
+        </div>
+    </div>
+</form>

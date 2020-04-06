@@ -1,0 +1,68 @@
+<form [formGroup]="clientForm">
+    <div class="form-group">
+        <label for="clientId">Ma khach hang</label>
+        <input type="text" id="clientId" class="form-control" formControlName="clientId">
+        <div *ngIf="clientId.touched&&clientId.invalid" class="alert alert-danger">
+            <div *ngIf="clientId.errors.required">Ma khach hang khong duoc de trong</div>
+            <div *ngIf="clientId.errors.isNotMatchPattern">Ma khach hang khong dung dinh dang</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="fullName">Ho ten</label>
+        <input type="text" class="form-control" formControlName="fullName" id="fullName" appInputFormat
+            [inputType]="'full-name'">
+        <div class="alert alert-danger" *ngIf="fullName.touched&&fullName.invalid">
+            Ho ten khong duoc de trong
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="gender">Gioi tinh</label>
+        <select id="gender" class="form-control" formControlName="gender">
+            <option value="male">Nam</option>
+            <option value="female">Nu</option>
+        </select>
+        <div class="alert alert-danger" *ngIf="gender.touched&&gender.invalid">
+            <div *ngIf="gender.errors.required">Ngay sinh khong duoc de trong</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" formControlName="email">
+        <div class="alert alert-danger" *ngIf="email.touched&&email.invalid">
+            <div *ngIf="email.errors.required">Email khong duoc de trong</div>
+            <div *ngIf="email.errors.isNotMatchPattern">Email khong dung dinh dang</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">So dien thoai</label>
+        <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" appInputFormat
+            [inputType]="'phone-number'">
+        <div class="alert alert-danger" *ngIf="phoneNumber.touched&&phoneNumber.invalid">
+            <div *ngIf="phoneNumber.errors.required">So dien thoai khong duoc de trong</div>
+            <div *ngIf="phoneNumber.errors.isNotMatchPattern">So dien thoai khong dung dinh dang</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="idNumber">Chung minh nhan dan</label>
+        <input type="text" class="form-control" id="idNumber" formControlName="idNumber">
+        <div class="alert alert-danger" *ngIf="idNumber.touched&&idNumber.invalid">
+            <div *ngIf="idNumber.errors.required">So chung minh khong duoc de trong</div>
+            <div *ngIf="idNumber.errors.isNotMatchPattern">So chung minh khong dung dinh dang</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="birth">Birthday</label>
+        <input type="date" class="form-control" id="birth" formControlName="birth">
+        <div class="alert alert-danger" *ngIf="birth.touched&&birth.invalid">
+            <div *ngIf="birth.errors.required">Ngay sinh khong duoc de trong</div>
+            <div *ngIf="birth.errors.isNotMatchPattern">Ngay sinh khong dung dinh dang</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="address">Dia chi</label>
+        <input type="text" class="form-control" id="address" formControlName="address">
+        <div class="alert alert-danger" *ngIf="address.touched&&address.invalid">
+            <div *ngIf="address.errors.required">Dia chi khong duoc de trong</div>
+        </div>
+    </div>
+</form>

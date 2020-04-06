@@ -1,0 +1,9 @@
+<h3 class="text-center">Todo App!</h3>
+<form [formGroup]="todoForm">
+    <input type="text" (keyup.enter)="onAddNew(todo);todo.value=''" #todo class="form-control">
+    <ul class="list-group">
+        <li *ngFor="let todo of todos.controls" class="list-group-item" (click)="todo.value.isDone=!todo.value.isDone"
+            [style]="todo.value.isDone?'text-decoration: line-through':''">
+            {{todo.value.work}}</li>
+    </ul>
+</form>

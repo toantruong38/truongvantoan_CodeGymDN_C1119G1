@@ -1,3 +1,5 @@
+import { LoginComponent } from "./login/login.component";
+import { RegisterFinalComponent } from "./register-final/register-final.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
@@ -6,12 +8,13 @@ import { AppComponent } from "./app.component";
 import { FontSizeEditorComponent } from "./font-size-editor/font-size-editor.component";
 import { PetComponent } from "./pet/pet.component";
 import { ColorPickerComponent } from "./color-picker/color-picker.component";
-import { FormsModule } from "@angular/forms";
-import { CalculatorComponent } from './calculator/calculator.component';
-import { NameCardComponent } from './name-card/name-card.component';
-import { ProgressBarComponent } from './progress-bar/progress-bar.component';
-import { RatingBarComponent } from './rating-bar/rating-bar.component';
-import { CountDownComponent } from './count-down/count-down.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CalculatorComponent } from "./calculator/calculator.component";
+import { NameCardComponent } from "./name-card/name-card.component";
+import { ProgressBarComponent } from "./progress-bar/progress-bar.component";
+import { RatingBarComponent } from "./rating-bar/rating-bar.component";
+import { CountDownComponent } from "./count-down/count-down.component";
+import { TodoComponent } from "./todo/todo.component";
 
 @NgModule({
   declarations: [
@@ -23,10 +26,13 @@ import { CountDownComponent } from './count-down/count-down.component';
     NameCardComponent,
     ProgressBarComponent,
     RatingBarComponent,
-    CountDownComponent
+    CountDownComponent,
+    TodoComponent,
+    RegisterFinalComponent,
+    LoginComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
