@@ -1,3 +1,8 @@
+import { DictionaryPageComponent } from "./dictionary-page/dictionary-page.component";
+import { DictionaryDetailComponent } from "./dictionary-detail/dictionary-detail.component";
+import { DictionaryComponent } from "./dictionary/dictionary.component";
+import { YoutubePlaylistComponent } from "./youtube-playlist/youtube-playlist.component";
+import { YoutubePlayerComponent } from "./youtube-player/youtube-player.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterFinalComponent } from "./register-final/register-final.component";
 import { BrowserModule } from "@angular/platform-browser";
@@ -15,6 +20,7 @@ import { ProgressBarComponent } from "./progress-bar/progress-bar.component";
 import { RatingBarComponent } from "./rating-bar/rating-bar.component";
 import { CountDownComponent } from "./count-down/count-down.component";
 import { TodoComponent } from "./todo/todo.component";
+import { TimeLivingComponent } from "./time-living/time-living.component";
 
 @NgModule({
   declarations: [
@@ -30,6 +36,12 @@ import { TodoComponent } from "./todo/todo.component";
     TodoComponent,
     RegisterFinalComponent,
     LoginComponent,
+    TimeLivingComponent,
+    YoutubePlayerComponent,
+    YoutubePlaylistComponent,
+    DictionaryComponent,
+    DictionaryDetailComponent,
+    DictionaryPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
