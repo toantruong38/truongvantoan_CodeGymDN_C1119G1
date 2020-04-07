@@ -1,3 +1,5 @@
+import { ImageSliderModule } from "./image-slider/image-slider.module";
+import { ImageGalleryModule } from "./image-gallery/image-gallery.module";
 import { DictionaryPageComponent } from "./dictionary-page/dictionary-page.component";
 import { DictionaryDetailComponent } from "./dictionary-detail/dictionary-detail.component";
 import { DictionaryComponent } from "./dictionary/dictionary.component";
@@ -21,6 +23,8 @@ import { RatingBarComponent } from "./rating-bar/rating-bar.component";
 import { CountDownComponent } from "./count-down/count-down.component";
 import { TodoComponent } from "./todo/todo.component";
 import { TimeLivingComponent } from "./time-living/time-living.component";
+import { ImageGalleryComponent } from "./image-gallery/image-gallery.component";
+import { ImageCardComponent } from "./image-card/image-card.component";
 
 @NgModule({
   declarations: [
@@ -43,7 +47,14 @@ import { TimeLivingComponent } from "./time-living/time-living.component";
     DictionaryDetailComponent,
     DictionaryPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ImageGalleryModule,
+    ImageSliderModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
