@@ -30,6 +30,7 @@ import { ImageCardComponent } from "./image-card/image-card.component";
 import { BlogComponent } from "./blog/blog.component";
 import { BlogDetailComponent } from "./blog-detail/blog-detail.component";
 import { BlogEditComponent } from "./blog-edit/blog-edit.component";
+import { TodoOnlineComponent } from './todo-online/todo-online.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { BlogEditComponent } from "./blog-edit/blog-edit.component";
     BlogComponent,
     BlogDetailComponent,
     BlogEditComponent,
+    TodoOnlineComponent,
   ],
   imports: [
     BrowserModule,
