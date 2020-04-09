@@ -10,6 +10,7 @@ import { NewServiceFormComponent } from "./_forms/new-service-form/new-service-f
 import { NewContractFormComponent } from "./_forms/new-contract-form/new-contract-form.component";
 import { NavigationBarComponent } from "./navigation-bar/navigation-bar.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { LeftSideNavComponent } from './left-side-nav/left-side-nav.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     NewServiceFormComponent,
     NewContractFormComponent,
     NavigationBarComponent,
+    LeftSideNavComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

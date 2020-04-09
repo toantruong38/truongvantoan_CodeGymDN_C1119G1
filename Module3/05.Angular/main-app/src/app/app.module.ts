@@ -1,3 +1,5 @@
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { PostService } from "./_services/blog-service/post.service";
 import { ImageSliderModule } from "./image-slider/image-slider.module";
 import { ImageGalleryModule } from "./image-gallery/image-gallery.module";
 import { DictionaryPageComponent } from "./dictionary-page/dictionary-page.component";
@@ -25,6 +27,9 @@ import { TodoComponent } from "./todo/todo.component";
 import { TimeLivingComponent } from "./time-living/time-living.component";
 import { ImageGalleryComponent } from "./image-gallery/image-gallery.component";
 import { ImageCardComponent } from "./image-card/image-card.component";
+import { BlogComponent } from "./blog/blog.component";
+import { BlogDetailComponent } from "./blog-detail/blog-detail.component";
+import { BlogEditComponent } from "./blog-edit/blog-edit.component";
 
 @NgModule({
   declarations: [
@@ -46,6 +51,9 @@ import { ImageCardComponent } from "./image-card/image-card.component";
     DictionaryComponent,
     DictionaryDetailComponent,
     DictionaryPageComponent,
+    BlogComponent,
+    BlogDetailComponent,
+    BlogEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +62,7 @@ import { ImageCardComponent } from "./image-card/image-card.component";
     ReactiveFormsModule,
     ImageGalleryModule,
     ImageSliderModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

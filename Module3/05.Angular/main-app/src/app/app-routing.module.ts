@@ -1,3 +1,6 @@
+import { BlogComponent } from "./blog/blog.component";
+import { BlogDetailComponent } from "./blog-detail/blog-detail.component";
+import { BlogEditComponent } from "./blog-edit/blog-edit.component";
 import { YoutubePlayerComponent } from "./youtube-player/youtube-player.component";
 import { YoutubePlaylistComponent } from "./youtube-playlist/youtube-playlist.component";
 import { NgModule } from "@angular/core";
@@ -6,6 +9,18 @@ import { DictionaryPageComponent } from "./dictionary-page/dictionary-page.compo
 import { DictionaryDetailComponent } from "./dictionary-detail/dictionary-detail.component";
 
 const routes: Routes = [
+  {
+    path: "blog/:id/edit",
+    component: BlogEditComponent,
+  },
+  {
+    path: "blog/:id",
+    component: BlogDetailComponent,
+  },
+  {
+    path: "blog",
+    component: BlogComponent,
+  },
   {
     path: "youtube",
     component: YoutubePlaylistComponent,
