@@ -47,12 +47,29 @@
         </nav>
 
         <div class="container-fluid">
-            <h1 class="mt-4">Simple Sidebar</h1>
-            <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on
-                larger screens. When toggled using the button below, the menu will change.</p>
-            <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is
-                optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which
-                will toggle the menu when clicked.</p>
+            <div class="row mt-3">
+                <a [routerLink]="['/employee']" class="mx-2 col">
+                    <app-dashsboard-card [cardColor]="'blue'" [cardTitle]="'Nhan vien'" [cardValue]="'18'">
+                    </app-dashsboard-card>
+                </a>
+                <a [routerLink]="['/client']" class="mx-2 col">
+                    <app-dashsboard-card [cardColor]="'green'" [cardTitle]="'Khach hang'" [cardValue]="'19'">
+                    </app-dashsboard-card>
+                </a>
+                <a [routerLink]="['/contract']" class="mx-2 col">
+                    <app-dashsboard-card [cardColor]="'orange'" [cardTitle]="'Hop dong'" [cardValue]="'20'">
+                    </app-dashsboard-card>
+                </a>
+                <a [routerLink]="['/service']" class="mx-2 col">
+                    <app-dashsboard-card [cardColor]="'red'" [cardTitle]="'Dich vu'" [cardValue]="'21'">
+                    </app-dashsboard-card>
+                </a>
+            </div>
+
+            <div class="row">
+                <app-dashboard-table [tableHeader]="employeeData.header" [tableData]="[employeeData.data]">
+                </app-dashboard-table>
+            </div>
         </div>
     </div>
     <!-- /#page-content-wrapper -->

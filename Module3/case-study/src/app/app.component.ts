@@ -7,4 +7,12 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "case-study";
+  employeeData = {
+    header: ["name", "address", "age"],
+    data: [
+      { name: "Elliott", address: "WST", age: 29 },
+      { name: "Elliott", address: "WST", age: 29 },
+      { name: "Elliott", address: "WST", age: 29 },
+    ],
+  };
 }

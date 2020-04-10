@@ -1,0 +1,8 @@
+<table class="table table-hover">
+    <tr>
+        <th *ngFor="let header of tableHeader">{{header}}</th>
+    </tr>
+    <tr *ngFor="let obj of objData">
+        <td *ngFor="let data of obj">{{data}}</td>
+    </tr>
+</table>
