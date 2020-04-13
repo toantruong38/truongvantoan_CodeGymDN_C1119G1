@@ -1,0 +1,85 @@
+{
+  "clients": [
+    {
+      "clientId": "",
+      "fullName": "Tran Quoc Toan",
+      "birth": "",
+      "gender": "",
+      "email": "vunv@gmail.com",
+      "phoneNumber": "0905440476",
+      "idNumber": "",
+      "address": "USA",
+      "id": 1
+    },
+    {
+      "clientId": "KH-1234",
+      "fullName": "Tran Quoc Toan",
+      "birth": "",
+      "gender": "",
+      "email": "vunv@gmail.com",
+      "phoneNumber": "0905440476",
+      "idNumber": "",
+      "address": "USA",
+      "id": 2
+    },
+    {
+      "clientId": "KH-0001",
+      "fullName": "Elliot Anderson",
+      "birth": "2020-04-22",
+      "gender": "male",
+      "email": "cy6ber@gmail.com",
+      "phoneNumber": "(84)+912331231",
+      "idNumber": "123123212",
+      "address": "China",
+      "id": 3
+    },
+    {
+      "clientId": "KH-0002",
+      "fullName": "Tyron Wellick",
+      "birth": "2020-04-04",
+      "gender": "male",
+      "email": "wellick101@gmail.com",
+      "phoneNumber": "(84)+912323131",
+      "idNumber": "231312331",
+      "address": "Florida",
+      "id": 4
+    }
+  ],
+  "employees": [
+    {
+      "fullName": "Tran Quoc Toan",
+      "employeeId": "NV-1235",
+      "address": "USA",
+      "birth": "",
+      "email": "vunv@gmail.com",
+      "idNumber": "",
+      "phoneNumber": "0905440476",
+      "salary": "123",
+      "id": 1
+    }
+  ],
+  "contracts": [
+    {
+      "beginDate": "2020-04-02",
+      "endDate": "2020-04-23",
+      "contractNumber": "9897123812",
+      "deposit": "123",
+      "totalPay": "21312",
+      "id": 1
+    }
+  ],
+  "services": [
+    {
+      "area": "3500",
+      "floorAmount": "12",
+      "freeAccompanyService": "Food",
+      "maximumPeople": "4",
+      "description": "ok",
+      "rentFee": "",
+      "roomStandard": "vip",
+      "status": "Available",
+      "id": 1
+    }
+  ],
+  "detailed-services": []
+}

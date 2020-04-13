@@ -16,6 +16,8 @@ export class InputFormatDirective {
         return (this.el.nativeElement.value = this.fullNameFormat(value));
       case "phone-number":
         return (this.el.nativeElement.value = this.phoneNumberFormat(value));
+      // case "birth":
+      //   return (this.el.nativeElement.value = this.birthFormat(value));
     }
   }
 
@@ -40,5 +42,14 @@ export class InputFormatDirective {
         phoneNumber.slice(phoneNumber.indexOf("+") + 1, phoneNumber.length);
     }
     return `(84)+${_phoneNumber.slice(1, _phoneNumber.length)}`;
+  }
+  birthFormat(birth: string): string {
+    let oldBirth = birth.split("-");
+    return oldBirth.reverse().join("-");
+
+    // birthInput.blur(() => {
+    //   let oldBirth = (<string>birthInput.value).split("-");
+    //   birthInput.value = oldBirth.reverse().join("-");
+    // });
   }
 }

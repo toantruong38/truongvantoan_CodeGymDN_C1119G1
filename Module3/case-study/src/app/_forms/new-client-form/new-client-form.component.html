@@ -1,4 +1,6 @@
-<form [formGroup]="clientForm">
+<form *ngIf="clientForm" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <div class="alert alert-danger" *ngIf="clientForm.errors?.invalidForm">Form khong hop le. Kiem
+        tra lai!</div>
     <div class="form-group">
         <label for="clientId">Ma khach hang</label>
         <input type="text" id="clientId" class="form-control" formControlName="clientId">
@@ -22,7 +24,7 @@
             <option value="female">Nu</option>
         </select>
         <div class="alert alert-danger" *ngIf="gender.touched&&gender.invalid">
-            <div *ngIf="gender.errors.required">Ngay sinh khong duoc de trong</div>
+            <div *ngIf="gender.errors.required">Gioi tinh khong duoc de trong</div>
         </div>
     </div>
     <div class="form-group">
@@ -53,10 +55,10 @@
     <div class="form-group">
         <label for="birth">Birthday</label>
         <input type="date" class="form-control" id="birth" formControlName="birth">
-        <div class="alert alert-danger" *ngIf="birth.touched&&birth.invalid">
+        <!-- <div class="alert alert-danger" *ngIf="birth.touched&&birth.invalid">
             <div *ngIf="birth.errors.required">Ngay sinh khong duoc de trong</div>
             <div *ngIf="birth.errors.isNotMatchPattern">Ngay sinh khong dung dinh dang</div>
-        </div>
+        </div> -->
     </div>
     <div class="form-group">
         <label for="address">Dia chi</label>
@@ -65,4 +67,5 @@
             <div *ngIf="address.errors.required">Dia chi khong duoc de trong</div>
         </div>
     </div>
+    <button type="submit" class="btn btn-primary">SUbmit</button>
 </form>

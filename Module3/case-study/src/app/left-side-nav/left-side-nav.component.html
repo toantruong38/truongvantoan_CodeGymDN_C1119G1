@@ -1,11 +1,11 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Furama</div>
     <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Khach hang</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Nhan vien</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Hop dong</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Dich vu</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Hop dong chi tiet</a>
-        <!-- <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> -->
+        <a [routerLink]="['/clients']" class="list-group-item list-group-item-action bg-light">Khach hang</a>
+        <a [routerLink]="['/employees']" class="list-group-item list-group-item-action bg-light">Nhan vien</a>
+        <a [routerLink]="['/contracts']" class="list-group-item list-group-item-action bg-light">Hop dong</a>
+        <a [routerLink]="['/services']" class="list-group-item list-group-item-action bg-light">Dich vu</a>
+        <a [routerLink]="['/detailed-contracts']" class="list-group-item list-group-item-action bg-light">Hop dong chi
+            tiet</a>
     </div>
 </div>

@@ -1,6 +1,7 @@
+import { DataServiceService } from "./../../_services/data-service.service";
 import { FormGroup, Validators } from "@angular/forms";
 import { FormGeneratorService } from "./../../_services/form_generator/form-generator.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "app-new-service-form",
@@ -9,18 +10,50 @@ import { Component, OnInit } from "@angular/core";
 })
 export class NewServiceFormComponent implements OnInit {
   newServiceForm: FormGroup;
-  constructor(private formGeneratorService: FormGeneratorService) {}
+  @Input("formState") formState: any[];
+  constructor(
+    private formGeneratorService: FormGeneratorService,
+    private dataService: DataServiceService
+  ) {}
 
   ngOnInit(): void {
     this.newServiceForm = this.formGeneratorService.generateForm(
-      { formControlName: "area", validators: [Validators.min(0)] },
-      { formControlName: "floorAmount", validators: [Validators.min(0)] },
-      { formControlName: "freeAccompanyService" },
-      { formControlName: "maximumPeople", validators: [Validators.min(0)] },
-      { formControlName: "description" },
-      { formControlName: "rentFee", validators: [Validators.min(0)] },
-      { formControlName: "roomStandard" },
-      { formControlName: "status" }
+      {
+        formControlName: "area",
+        validators: [Validators.min(0)],
+        state: this.formState ? this.formState[0] : "",
+      },
+      {
+        formControlName: "floorAmount",
+        validators: [Validators.min(0)],
+        state: this.formState ? this.formState[1] : "",
+      },
+      {
+        formControlName: "freeAccompanyService",
+        state: this.formState ? this.formState[2] : "",
+      },
+      {
+        formControlName: "maximumPeople",
+        validators: [Validators.min(0)],
+        state: this.formState ? this.formState[3] : "",
+      },
+      {
+        formControlName: "description",
+        state: this.formState ? this.formState[4] : "",
+      },
+      {
+        formControlName: "rentFee",
+        validators: [Validators.min(0)],
+        state: this.formState ? this.formState[5] : "",
+      },
+      {
+        formControlName: "roomStandard",
+        state: this.formState ? this.formState[6] : "",
+      },
+      {
+        formControlName: "status",
+        state: this.formState ? this.formState[7] : "",
+      }
     );
   }
 
@@ -47,5 +80,11 @@ export class NewServiceFormComponent implements OnInit {
   }
   get roomStandard() {
     return this.newServiceForm.get("roomStandard");
+  }
+
+  onSubmit() {
+    this.dataService
+      .postData("services", this.newServiceForm.value)
+      .subscribe((result) => console.log(result));
   }
 }

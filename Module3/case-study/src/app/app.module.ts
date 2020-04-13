@@ -14,6 +14,14 @@ import { LeftSideNavComponent } from "./left-side-nav/left-side-nav.component";
 import { DashsboardCardComponent } from "./dashsboard-card/dashsboard-card.component";
 import { DashboardTableComponent } from "./dashboard-table/dashboard-table.component";
 import { CommonModule } from "@angular/common";
+import { DetailTableComponent } from "./detail-table/detail-table.component";
+import { ClientComponent } from "./client/client.component";
+import { HttpClientModule } from "@angular/common/http";
+import { DashBoardComponent } from './dash-board/dash-board.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { ContractComponent } from './contract/contract.component';
+import { ServiceComponent } from './service/service.component';
+import { DetailedContractComponent } from './detailed-contract/detailed-contract.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +35,13 @@ import { CommonModule } from "@angular/common";
     LeftSideNavComponent,
     DashsboardCardComponent,
     DashboardTableComponent,
+    DetailTableComponent,
+    ClientComponent,
+    DashBoardComponent,
+    EmployeeComponent,
+    ContractComponent,
+    ServiceComponent,
+    DetailedContractComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +49,7 @@ import { CommonModule } from "@angular/common";
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

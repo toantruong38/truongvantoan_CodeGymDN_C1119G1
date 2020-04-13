@@ -1,4 +1,4 @@
-<form [formGroup]="newEmployeeForm">
+<form [formGroup]="newEmployeeForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="employeeId">Ma nhan vien</label>
         <input type="text" class="form-control" id="employeeId" formControlName="employeeId">
@@ -12,15 +12,15 @@
         <input type="text" class="form-control" id="fullName" formControlName="fullName" appInputFormat
             [inputType]="'full-name'">
         <div class="alert alert-danger" *ngIf="fullName.touched&&fullName.invalid">
-            <div *ngIf="fullName.errors.required">Ngay sinh khong duoc de trong</div>
+            <div *ngIf="fullName.errors.required">Ho ten khong duoc de trong</div>
         </div>
     </div>
     <div class="form-group">
         <label for="idNumber">Chung minh nhan dan</label>
         <input type="text" class="form-control" id="idNumber" formControlName="idNumber">
         <div class="alert alert-danger" *ngIf="idNumber.touched&&idNumber.invalid">
-            <div *ngIf="idNumber.errors.required">Ngay sinh khong duoc de trong</div>
-            <div *ngIf="idNumber.errors.isNotMatchPattern">Ngay sinh khong dung dinh dang</div>
+            <div *ngIf="idNumber.errors.required">Chung minh khong duoc de trong</div>
+            <div *ngIf="idNumber.errors.isNotMatchPattern">Chung minh khong dung dinh dang</div>
         </div>
     </div>
     <div class="form-group">
@@ -63,4 +63,5 @@
             <div *ngIf="salary.errors.min">Luong khong duoc nho hon 0</div>
         </div>
     </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
 </form>

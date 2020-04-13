@@ -1,4 +1,4 @@
-<form [formGroup]="newServiceForm">
+<form [formGroup]="newServiceForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="area">Dien tich</label>
         <input type="text" class="form-control" id="area" formControlName="area">
@@ -55,4 +55,5 @@
             <div *ngIf="status.errors.required">Trang thai khong duoc de trong</div>
         </div>
     </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
 </form>

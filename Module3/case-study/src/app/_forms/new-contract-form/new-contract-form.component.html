@@ -1,0 +1,42 @@
+<form [formGroup]="newContractForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="beginDate">Ngay bat dau</label>
+        <input type="date" id="beginDate" class="form-control" formControlName="beginDate">
+        <div class="alert alert-danger" *ngIf="beginDate.touched&&beginDate.invalid">
+            <div *ngIf="beginDate.errors.required">Ngay bat dau khong duoc de trong</div>
+            <div *ngIf="beginDate.errors.isNotMatchPattern">Ngay bat dau khong dung dinh dang</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="endDate">Ngay ket thuc</label>
+        <input type="date" id="endDate" class="form-control" formControlName="endDate">
+        <div class="alert alert-danger" *ngIf="endDate.touched&&endDate.invalid">
+            <div *ngIf="endDate.errors.required">Ngay ket thuc khong duoc de trong</div>
+            <div *ngIf="endDate.errors.isNotMatchPattern">Ngay ket thuc khong dung dinh dang</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="contractNumber">So hop dong</label>
+        <input type="text" class="form-control" id="contractNumber" formControlName="contractNumber">
+        <div class="alert alert-danger" *ngIf="contractNumber.touched&&contractNumber.invalid">
+            <div *ngIf="contractNumber.errors.required">So hop dong khong duoc de trong</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="deposit">Tien dat coc</label>
+        <input type="text" class="form-control" id="deposit" formControlName="deposit">
+        <div class="alert alert-danger" *ngIf="deposit.touched&&deposit.invalid">
+            <div *ngIf="deposit.errors.required">Tien dat coc khong duoc de trong</div>
+            <div *ngIf="deposit.errors.min">Tien dat coc khong duoc nho hon 0</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="totalPay">Tong tien</label>
+        <input type="text" class="form-control" id="totalPay" formControlName="totalPay">
+        <div class="alert alert-danger" *ngIf="totalPay.touched&&totalPay.invalid">
+            <div *ngIf="totalPay.errors.required">Tong tien khong duoc de trong</div>
+            <div *ngIf="totalPay.errors.min">Tong tien khong duoc nho hon 0</div>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>

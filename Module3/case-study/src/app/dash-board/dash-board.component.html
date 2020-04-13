@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col">
+        <app-dashboard-table [tableHeader]="dashboardData.clientData.header.slice(0,5)"
+            [tableData]="dashboardData.clientData.data" *ngIf="dashboardData.clientData.data">
+        </app-dashboard-table>
+        <a [routerLink]="['/clients']">Xem them</a>
+    </div>
+    <div class="col">
+        <app-dashboard-table [tableHeader]="dashboardData.employeeData.header.slice(0,5)"
+            [tableData]="dashboardData.employeeData.data" *ngIf="dashboardData.employeeData.data">
+        </app-dashboard-table>
+        <a [routerLink]="['/employees']">Xem them</a>
+    </div>
+    <div class="col">
+        <app-dashboard-table [tableHeader]="dashboardData.contractData.header.slice(0,5)"
+            [tableData]="dashboardData.contractData.data" *ngIf="dashboardData.contractData.data">
+        </app-dashboard-table>
+        <a [routerLink]="['/contracts']">Xem them</a>
+    </div>
+    <div class="col">
+        <app-dashboard-table [tableHeader]="dashboardData.serviceData.header.slice(0,5)"
+            [tableData]="dashboardData.serviceData.data" *ngIf="dashboardData.serviceData.data">
+        </app-dashboard-table>
+        <a [routerLink]="['/services']">Xem them</a>
+    </div>
+</div>

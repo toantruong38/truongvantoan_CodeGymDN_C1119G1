@@ -3,11 +3,11 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  FormControl
+  FormControl,
 } from "@angular/forms";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class FormGeneratorService {
   constructor(private formBuilder: FormBuilder) {}
@@ -17,7 +17,7 @@ export class FormGeneratorService {
       {},
       { validators: Validators.required }
     );
-    formElements.map(fe => {
+    formElements.map((fe) => {
       if (fe.validators) {
         fe.validators.push(Validators.required);
       } else {
@@ -25,7 +25,7 @@ export class FormGeneratorService {
       }
       formGroup.addControl(
         fe.formControlName,
-        new FormControl("", fe.validators)
+        new FormControl(fe.state, fe.validators)
       );
     });
     return formGroup;
@@ -35,4 +35,5 @@ export class FormGeneratorService {
 interface FormElement {
   formControlName: string;
   validators?: any[];
+  state?: any;
 }

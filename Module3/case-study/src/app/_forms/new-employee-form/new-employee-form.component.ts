@@ -1,3 +1,4 @@
+import { DataServiceService } from "./../../_services/data-service.service";
 import { PhoneNumberValidator } from "./../../_validators/phone-number.validators";
 import { IdNumberValidator } from "./../../_validators/id-number.validators";
 import { EmailValidator } from "./../../_validators/email.validators";
@@ -5,7 +6,7 @@ import { DateTimeValidator } from "./../../_validators/date-time.validators";
 import { EmployeeIdValidator } from "../../_validators/employee-id.validators";
 import { FormGroup, Validators } from "@angular/forms";
 import { FormGeneratorService } from "./../../_services/form_generator/form-generator.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "app-new-employee-form",
@@ -14,27 +15,52 @@ import { Component, OnInit } from "@angular/core";
 })
 export class NewEmployeeFormComponent implements OnInit {
   newEmployeeForm: FormGroup;
-  constructor(private formGeneratorService: FormGeneratorService) {}
+  @Input("formState") formState: any[];
+  constructor(
+    private formGeneratorService: FormGeneratorService,
+    private dataService: DataServiceService
+  ) {}
 
   ngOnInit(): void {
     this.newEmployeeForm = this.formGeneratorService.generateForm(
-      { formControlName: "fullName" },
+      {
+        formControlName: "fullName",
+        state: this.formState ? this.formState[0] : "",
+      },
       {
         formControlName: "employeeId",
         validators: [EmployeeIdValidator.checkFormat],
+        state: this.formState ? this.formState[1] : "",
       },
-      { formControlName: "address" },
-      { formControlName: "birth", validators: [DateTimeValidator.checkFormat] },
-      { formControlName: "email", validators: [EmailValidator.checkFormat] },
+      {
+        formControlName: "address",
+        state: this.formState ? this.formState[2] : "",
+      },
+      {
+        formControlName: "birth",
+        validators: [DateTimeValidator.checkFormat],
+        state: this.formState ? this.formState[3] : "",
+      },
+      {
+        formControlName: "email",
+        validators: [EmailValidator.checkFormat],
+        state: this.formState ? this.formState[4] : "",
+      },
       {
         formControlName: "idNumber",
         validators: [IdNumberValidator.checkFormat],
+        state: this.formState ? this.formState[5] : "",
       },
       {
         formControlName: "phoneNumber",
         validators: [PhoneNumberValidator.checkFormat],
+        state: this.formState ? this.formState[6] : "",
       },
-      { formControlName: "salary", validators: [Validators.min(0)] }
+      {
+        formControlName: "salary",
+        validators: [Validators.min(0)],
+        state: this.formState ? this.formState[7] : "",
+      }
     );
   }
 
@@ -61,5 +87,11 @@ export class NewEmployeeFormComponent implements OnInit {
   }
   get salary() {
     return this.newEmployeeForm.get("salary");
+  }
+
+  onSubmit() {
+    this.dataService
+      .postData("employees", this.newEmployeeForm.value)
+      .subscribe((result) => console.log(result));
   }
 }

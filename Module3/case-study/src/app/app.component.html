@@ -47,29 +47,30 @@
         </nav>
 
         <div class="container-fluid">
-            <div class="row mt-3">
-                <a [routerLink]="['/employee']" class="mx-2 col">
-                    <app-dashsboard-card [cardColor]="'blue'" [cardTitle]="'Nhan vien'" [cardValue]="'18'">
+            <div class="row my-3">
+                <a [routerLink]="['/employees']" class="mx-2 col">
+                    <app-dashsboard-card [cardColor]="'blue'" [cardTitle]="'Nhan vien'"
+                        [cardValue]="employeeData.data?.length" *ngIf="employeeData">
                     </app-dashsboard-card>
                 </a>
-                <a [routerLink]="['/client']" class="mx-2 col">
-                    <app-dashsboard-card [cardColor]="'green'" [cardTitle]="'Khach hang'" [cardValue]="'19'">
+                <a [routerLink]="['/clients']" class="mx-2 col">
+                    <app-dashsboard-card [cardColor]="'green'" [cardTitle]="'Khach hang'"
+                        [cardValue]="clientData.data?.length" *ngIf="clientData">
                     </app-dashsboard-card>
                 </a>
-                <a [routerLink]="['/contract']" class="mx-2 col">
-                    <app-dashsboard-card [cardColor]="'orange'" [cardTitle]="'Hop dong'" [cardValue]="'20'">
+                <a [routerLink]="['/contracts']" class="mx-2 col">
+                    <app-dashsboard-card [cardColor]="'orange'" [cardTitle]="'Hop dong'"
+                        [cardValue]="contractData.data?.length" *ngIf="contractData">
                     </app-dashsboard-card>
                 </a>
-                <a [routerLink]="['/service']" class="mx-2 col">
-                    <app-dashsboard-card [cardColor]="'red'" [cardTitle]="'Dich vu'" [cardValue]="'21'">
+                <a [routerLink]="['/services']" class="mx-2 col">
+                    <app-dashsboard-card [cardColor]="'red'" [cardTitle]="'Dich vu'"
+                        [cardValue]="serviceData.data?.length" *ngIf="serviceData">
                     </app-dashsboard-card>
                 </a>
             </div>
 
-            <div class="row">
-                <app-dashboard-table [tableHeader]="employeeData.header" [tableData]="[employeeData.data]">
-                </app-dashboard-table>
-            </div>
+            <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
         </div>
     </div>
     <!-- /#page-content-wrapper -->

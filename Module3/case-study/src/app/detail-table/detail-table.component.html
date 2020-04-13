@@ -1,0 +1,29 @@
+<div class="row mx-3">
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    <table class="table table-hover" id="myTable">
+        <thead>
+            <tr>
+                <th *ngFor="let header of tableInfo.header;index as i" [id]="i" onclick="sortTable(this.id)">{{header}}
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="myTableBody">
+            <tr *ngFor="let obj of objData">
+                <td *ngFor="let data of obj">{{data}}</td>
+                <td class="row">
+                    <a class="btn btn-warning mr-2" [routerLink]="[tableInfo.actionUrl,obj[obj.length-1]]"><i
+                            class="fas fa-screwdriver    "></i></a>
+                    <a class="btn btn-danger"><i class="fas fa-ban    "></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="d-inline border-success">
+        <button class="btn btn-default"><i class="fas fa-arrow-circle-left    "></i> First</button>
+        <button class="btn btn-default"><i class="fas fa-arrow-left    "></i> Previous</button>
+        <button class="btn btn-default">Next <i class="fas fa-arrow-right    "></i></button>
+        <button class="btn btn-default">Last <i class="fas fa-arrow-circle-right    "></i></button>
+    </div>
+    <button class="btn btn-primary ml-auto" [routerLink]="[tableInfo.actionUrl+'/new']">Tao moi</button>
+</div>
